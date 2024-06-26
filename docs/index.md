@@ -6,66 +6,39 @@ hide:
 ---
 
 <div align="center">
-  <p1icture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RapidAI/RapidOCR/releases/download/v1.1.0/RapidOCR_LOGO_white.png"  width="55%" height="55%">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/RapidAI/RapidOCR/main/assets/RapidOCR_LOGO.png"  width="55%" height="55%">
-    <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://raw.githubusercontent.com/RapidAI/RapidOCR/main/assets/RapidOCR_LOGO.png">
-  </picture>
-
-<div>&nbsp;</div>
-<div align="center">
-    <b><font size="4"><i>信创级开源OCR - 为世界内容安全贡献力量</i></font></b>
-</div>
-<div>&nbsp;</div>
-
-<a href="https://huggingface.co/spaces/SWHL/RapidOCRDemo" target="_blank"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Hugging Face Demo-blue"></a>
-<a href="https://www.modelscope.cn/studios/liekkas/RapidOCRDemo/summary" target="_blank"><img src="https://img.shields.io/badge/ModelScope-Demo-blue"></a>
-<a href="https://colab.research.google.com/github/RapidAI/RapidOCR/blob/main/assets/RapidOCRDemo.ipynb" target="_blank"><img src="https://raw.githubusercontent.com/RapidAI/RapidOCR/main/assets/colab-badge.svg" alt="Open in Colab"></a>
-<a href="https://aistudio.baidu.com/aistudio/projectdetail/4444785?sUid=57084&shared=1&ts=1660896122332" target="_blank"><img src="https://img.shields.io/badge/PP-Open in AI Studio-blue.svg"></a><br/>
-<a href=""><img src="https://img.shields.io/badge/Python->=3.6,<3.13-aff.svg"></a>
-<a href=""><img src="https://img.shields.io/badge/OS-Linux%2C%20Win%2C%20Mac-pink.svg"></a>
-<a href="https://github.com/RapidAI/RapidOCR/graphs/contributors"><img src="https://img.shields.io/github/contributors/RapidAI/RapidOCR?color=9ea"></a>
-<a href="https://pepy.tech/project/rapidocr_onnxruntime"><img src="https://static.pepy.tech/personalized-badge/rapidocr_onnxruntime?period=total&units=abbreviation&left_color=grey&right_color=blue&left_text=Downloads%20Ort"></a>
-<a href="https://pepy.tech/project/rapidocr_openvino"><img src="https://static.pepy.tech/personalized-badge/rapidocr_openvino?period=total&units=abbreviation&left_color=grey&right_color=blue&left_text=Downloads%20Vino"></a>
-<a href="https://pepy.tech/project/rapidocr_paddle"><img src="https://static.pepy.tech/personalized-badge/rapidocr_paddle?period=total&units=abbreviation&left_color=grey&right_color=blue&left_text=Downloads%20Paddle"></a>
-<a href="https://pypi.org/project/rapidocr-onnxruntime/"><img alt="PyPI" src="https://img.shields.io/pypi/v/rapidocr-onnxruntime"></a>
-<a href="https://github.com/RapidAI/RapidOCR/stargazers"><img src="https://img.shields.io/github/stars/RapidAI/RapidOCR?color=ccf"></a>
-<a href="https://semver.org/"><img alt="SemVer2.0" src="https://img.shields.io/badge/SemVer-2.0-brightgreen"></a>
-<a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
-
+ <img src="https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/main/doc/PaddleOCR_log.png" align="middle" width = "600"/>
+  <p align="center">
+      <a href="https://discord.gg/z9xaRVjdbD"><img src="https://img.shields.io/badge/Chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
+      <a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-dfd.svg"></a>
+      <a href="https://github.com/PaddlePaddle/PaddleOCR/releases"><img src="https://img.shields.io/github/v/release/PaddlePaddle/PaddleOCR?color=ffa"></a>
+      <a href=""><img src="https://img.shields.io/badge/python-3.7+-aff.svg"></a>
+      <a href=""><img src="https://img.shields.io/badge/os-linux%2C%20win%2C%20mac-pink.svg"></a>
+      <a href="https://pypi.org/project/PaddleOCR/"><img src="https://img.shields.io/pypi/dm/PaddleOCR?color=9cf"></a>
+      <a href="https://github.com/PaddlePaddle/PaddleOCR/stargazers"><img src="https://img.shields.io/github/stars/PaddlePaddle/PaddleOCR?color=ccf"></a>
+  </p>
 </div>
 
-### 简介
-- 💖目前已知**运行速度最快、支持最广**，完全开源免费并支持离线快速部署的多平台多语言OCR。
-- **支持的语言**: 默认是中英文，其他语言识别需要自助转换。具体参考[这里](./blog/posts/about_model/convert_model.md)
-- **缘起**：[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)工程化不是太好，为了方便大家在各种端上进行OCR推理，我们将PaddleOCR中的模型转换为ONNX格式，使用`Python/C++/Java/C#` 将它移植到各个平台。
-- **名称来源**： 轻快好省并智能。基于深度学习的OCR技术，主打人工智能优势及小模型，以速度为使命，效果为主导。
-- **使用**：
-    - 如果仓库下已有模型满足要求 → RapidOCR部署使用即可。
-    - 不满足要求 → 基于PaddleOCR在自己数据上微调 → RapidOCR部署。
-- 如果该仓库有帮助到你，还请点个小星星⭐呗！
 
-### 整体框架
-```mermaid
-flowchart LR
-    subgraph Step
-    direction TB
-    C(Text Det) --> D(Text Cls) --> E(Text Rec)
-    end
+## 简介
+PaddleOCR 旨在打造一套丰富、领先、且实用的 OCR 工具库，助力开发者训练出更好的模型，并应用落地。
 
-    A[/OurSelf Dataset/] --> B(PaddleOCR) --Train--> Step --> F(PaddleOCRModelConverter)
-    F --ONNX--> G{RapidOCR Deploy\n<b>Python/C++/Java/C#</b>}
-    G --> H(Windows x86/x64) & I(Linux) & J(Android) & K(Web) & L(Raspberry Pi)
+## 🚀 社区
+PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监督。Issues 和 PRs 将在尽力的基础上进行审查。欲了解 PaddlePaddle 社区的完整概况，请访问 [community](https://github.com/PaddlePaddle/community)。
 
-    click B "https://github.com/PaddlePaddle/PaddleOCR" _blank
-    click F "https://github.com/RapidAI/PaddleOCRModelConverter" _blank
-```
+⚠️注意：[Issues](https://github.com/PaddlePaddle/PaddleOCR/issues)模块仅用来报告程序🐞Bug，其余提问请移步[Discussions](https://github.com/PaddlePaddle/PaddleOCR/discussions)模块提问。如所提Issue不是Bug，会被移到Discussions模块，敬请谅解。
 
-### 相关产品概览图
-!!! info
-    下图表格中，除**测评集**部分托管在[Hugging Face](https://huggingface.co/SWHL)下，其余均在Github下，详细介绍如下：<br/>第一行是功能介绍<br/>第二行是对应的仓库名称，可直接去Github搜索该名称即可。
+## 🌟 特性
+支持多种 OCR 相关前沿算法，在此基础上打造产业级特色模型[PP-OCR](./doc/doc_ch/ppocr_introduction.md)、[PP-Structure](./ppstructure/README_ch.md)和[PP-ChatOCRv2](https://aistudio.baidu.com/community/app/70303)，并打通数据生产、模型训练、压缩、预测部署全流程。
 
-<div>
-    <img src="https://github.com/RapidAI/RapidOCRDocs/releases/download/assets/RapidOCR_RelatedProjects.png">
-</div>
+## ⚡ 快速开始
+- 在线免费体验：
+    - PP-OCRv4 在线体验地址：https://aistudio.baidu.com/community/app/91660
+    - SLANet 在线体验地址：https://aistudio.baidu.com/community/app/91661
+    - PP-ChatOCRv2-common 在线体验地址：https://aistudio.baidu.com/community/app/91662
+    - PP-ChatOCRv2-doc 在线体验地址：https://aistudio.baidu.com/community/app/70303
 
+- 一行命令快速使用：[快速开始（中英文/多语言/文档分析）](./doc/doc_ch/quickstart.md)
+- 移动端 demo 体验：[安装包 DEMO 下载地址](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)(基于 EasyEdge 和 Paddle-Lite, 支持 iOS 和 Android 系统)
+
+## 许可证书
+本项目的发布受<a href="https://github.com/PaddlePaddle/PaddleOCR/blob/master/LICENSE">Apache 2.0 license</a>许可认证。
