@@ -133,7 +133,7 @@ extra:
 
 nav:
   - Home:
-    - 概览: home/index.md
+    - 概览: index.md
     - 效果展示: home/visualization.md
   - 快速开始: quick_start.md
   - 模型: model/index.md
