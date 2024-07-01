@@ -94,15 +94,10 @@ plugins:
           build: true
         - locale: en
           name: English
-          build: true
-          theme:
-            palette:
-              primary: red
           nav_translation:
             Home: Home
             快速开始: QuickStart
             模型: Model
-            PP-OCR 文本检测识别: PP-OCR
   - git-committers:
       repository: SWHL/PaddleOCRDocs
       branch: main
