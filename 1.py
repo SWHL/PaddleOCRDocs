@@ -1,6 +1,6 @@
 from pathlib import Path
 
-file_dir = Path("docs/algorithm/text_recognition")
+file_dir = Path("docs/datasets")
 md_files = list(file_dir.glob("*_en.md"))
 print(md_files)
 

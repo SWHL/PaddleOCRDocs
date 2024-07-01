@@ -154,14 +154,16 @@ extra:
 
 nav:
   - Home:
-    - 概览: index.md
+    - 概述: index.md
     - 效果展示: home/visualization.md
   - 快速开始: quick_start.md
   - 模型: model/index.md
   - PP-OCR 文本检测识别:
+    - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
     - 模型库: ppocr/ppocr_model.md
     - 模型训练:
+      - 基本概念: ppocr/model_train/training.md
       - 文本检测: ppocr/model_train/detection.md
       - 文本识别: ppocr/model_train/recognition.md
       - 文本方向分类器: ppocr/model_train/angle_class.md
@@ -179,19 +181,21 @@ nav:
       - 云上飞桨部署工具: ppocr/infer_deploy/paddle_cloud.md
       - Benchmark: ppocr/infer_deploy/benchmark.md
   - PP-Structure文档分析:
+    - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
     - 模型库: ppstructure/models_list.md
     - 模型训练:
-      - 基本概念: ppstructure/model_train/basic.md
+      - 基本概念: ppstructure/model_train/training.md
       - 版面分析: ppstructure/model_train/train_layout.md
       - 表格识别: ppstructure/model_train/train_table.md
       - 关键信息提取: ppstructure/model_train/train_kie.md
     - 推理部署:
+      - 概述: ppstructure/infer_deploy/index.md
       - 基于Python预测引擎推理: ppstructure/infer_deploy/python_infer.md
       - 基于C++预测引擎推理: ppstructure/infer_deploy/cpp_infer.md
       - 服务化部署: ppstructure/infer_deploy/paddle_server.md
   - 前沿算法与模型:
-    - 概览: algorithm/overview.md
+    - 概述: algorithm/overview.md
     - 文本检测算法:
       - DB与DB++: algorithm/text_detection/algorithm_det_db.md
       - EAST: algorithm/text_detection/algorithm_det_east.md
@@ -254,7 +258,7 @@ nav:
     - 交通:
       - 车牌识别: applications/轻量级车牌识别.md
   - 数据标注与合成:
-    - 概览: data_anno_synth/overview.md
+    - 概述: data_anno_synth/overview.md
     - 其它数据标注工具: data_anno_synth/data_annotation.md
     - 其它数据合成工具: data_anno_synth/data_synthesis.md
   - 数据集:
