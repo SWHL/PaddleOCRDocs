@@ -25,5 +25,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material jieba mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2
+      - run: pip install mkdocs-material jieba mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-static-i18n
       - run: mkdocs gh-deploy --force
