@@ -141,7 +141,6 @@ plugins:
             文本识别算法: Text Recognition Algorithms
             文本超分辨率算法: Text Super-Resolution Algorithm
             公式识别算法: Formulat Recognition
-            CAN: algorithm/formula_recognition/algorithm_rec_can.md
             端到端OCR算法: End-to-End OCR Algorithms
             表格识别算法: Table Recognition Algorithms
             关键信息抽取算法: Key Information Extraction Algorithms
