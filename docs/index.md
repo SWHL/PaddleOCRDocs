@@ -37,6 +37,9 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
   同时采用了 **[全新的场景任务开发范式](https://aistudio.baidu.com/pipeline/mine)** ,将模型统一汇聚，实现训练部署的零代码开发，并支持在线服务化部署和导出离线服务化部署包。
 
+<details>
+<summary>更多</summary>
+
 - **🔥2023.8.7 发布 PaddleOCR [release/2.7](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7)**
     - 发布[PP-OCRv4](./doc/doc_ch/PP-OCRv4_introduction.md)，提供 mobile 和 server 两种模型
       - PP-OCRv4-mobile：速度可比情况下，中文场景效果相比于 PP-OCRv3 再提升 4.5%，英文场景提升 10%，80 语种多语言模型平均识别准确率提升 8%以上
@@ -54,65 +57,60 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 > [更多](./doc/doc_ch/update.md)
 
+</details>
+
 ## 🌟 特性
 支持多种 OCR 相关前沿算法，在此基础上打造产业级特色模型[PP-OCR](./doc/doc_ch/ppocr_introduction.md)、[PP-Structure](./ppstructure/README_ch.md)和[PP-ChatOCRv2](https://aistudio.baidu.com/community/app/70303)，并打通数据生产、模型训练、压缩、预测部署全流程。
 
+<div align="center">
+    <img src="https://raw.githubusercontent.com/tink2123/test/master/ppocrv4.png">
+</div>
+
 ## 效果展示
-<a name="超轻量PP-OCRv3效果展示"></a>
-## 超轻量PP-OCRv3效果展示
-
-### PP-OCRv3中文模型
+### 超轻量PP-OCRv3效果展示
+#### PP-OCRv3中文模型
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
 </div>
 
-### PP-OCRv3英文数字模型
-
+#### PP-OCRv3英文数字模型
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_2.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_3.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_1.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_2.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_3.png" width="800">
 </div>
 
-### PP-OCRv3多语言模型
-
+#### PP-OCRv3多语言模型
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
 </div>
 
 
-<a name="超轻量PP-OCRv2效果展示"></a>
-## 超轻量PP-OCRv2效果展示
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
+### 超轻量PP-OCRv2效果展示
+<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
+<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
+<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
 
 
-<a name="通用ppocr_server_2.0效果展示"></a>
-## 通用PP-OCR server 效果展示
-
+### 通用PP-OCR server 2.0 效果展示
 <div align="center">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
 </div>
 
-
-<a name="英文识别模型效果展示"></a>
-## 英文识别模型效果展示
+### 英文识别模型效果展示
 <div align="center">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
 </div>
 
-
-<a name="多语言识别模型效果展示"></a>
-## 多语言识别模型效果展示
+### 多语言识别模型效果展示
 <div align="center">
-    <img src="../imgs_results/french_0.jpg" width="800">
-    <img src="../imgs_results/korean.jpg" width="800">
+    <img src="./static/imgs_results/french_0.jpg" width="800">
+    <img src="./static/imgs_results/korean.jpg" width="800">
 </div>
 
 ## 许可证书

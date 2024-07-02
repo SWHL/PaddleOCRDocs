@@ -1,19 +1,5 @@
 # 手写数学公式识别算法-CAN
 
-- [1. 算法简介](#1)
-- [2. 环境配置](#2)
-- [3. 模型训练、评估、预测](#3)
-    - [3.1 训练](#3-1)
-    - [3.2 评估](#3-2)
-    - [3.3 预测](#3-3)
-- [4. 推理部署](#4)
-    - [4.1 Python推理](#4-1)
-    - [4.2 C++推理](#4-2)
-    - [4.3 Serving服务化部署](#4-3)
-    - [4.4 更多推理部署](#4-4)
-- [5. FAQ](#5)
-
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -22,28 +8,22 @@
 > ECCV, 2022
 
 
-<a name="model"></a>
 `CAN`使用CROHME手写公式数据集进行训练，在对应测试集上的精度如下：
 
 |模型    |骨干网络|配置文件|ExpRate|下载链接|
 | ----- | ----- | ----- | ----- | ----- |
 |CAN|DenseNet|[rec_d28_can.yml](../../configs/rec/rec_d28_can.yml)|51.72%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)|
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
-
-<a name="3-1"></a>
 ### 3.1 模型训练
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`CAN`识别模型时需要**更换配置文件**为`CAN`的[配置文件](../../configs/rec/rec_d28_can.yml)。
 
 #### 启动训练
-
 
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 ```shell
@@ -64,8 +44,6 @@ python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Train.dataset.transform
 python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Global.eval_batch_step=[0, {length_of_dataset//batch_size}]
 ```
 
-#
-<a name="3-2"></a>
 ### 3.2 评估
 
 可下载已训练完成的[模型文件](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)，使用如下命令进行评估：
@@ -75,7 +53,6 @@ python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Global.eval_batch_step=
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
@@ -87,10 +64,7 @@ python3 tools/infer_rec.py -c configs/rec/rec_d28_can.yml -o Architecture.Head.a
 ```
 
 
-<a name="4"></a>
 ## 4. 推理部署
-
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar) )，可以使用如下命令进行转换：
 
@@ -130,34 +104,26 @@ Predicts of ./doc/imgs_hme/hme_00.jpg:['x _ { k } x x _ { k } + y _ { k } y x _ 
 
 
 **注意**：
-
 - 需要注意预测图像为**黑底白字**，即手写公式部分为白色，背景为黑色的图片。
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中CAN的预处理为您的预处理方法。
 
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
-
 由于C++预处理后处理还未支持CAN，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
-
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 1. CROHME数据集来自于[CAN源repo](https://github.com/LBH1024/CAN) 。
 
 ## 引用
-
 ```bibtex
 @misc{https://doi.org/10.48550/arxiv.2207.11463,
   doi = {10.48550/ARXIV.2207.11463},

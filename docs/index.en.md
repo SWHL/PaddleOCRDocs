@@ -7,15 +7,13 @@ hide:
 
 <div align="center">
  <img src="https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/main/doc/PaddleOCR_log.png" align="middle" width = "600"/>
-  <p align="center">
-      <a href="https://discord.gg/z9xaRVjdbD"><img src="https://img.shields.io/badge/Chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
-      <a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-dfd.svg"></a>
-      <a href="https://github.com/PaddlePaddle/PaddleOCR/releases"><img src="https://img.shields.io/github/v/release/PaddlePaddle/PaddleOCR?color=ffa"></a>
-      <a href=""><img src="https://img.shields.io/badge/python-3.7+-aff.svg"></a>
-      <a href=""><img src="https://img.shields.io/badge/os-linux%2C%20win%2C%20mac-pink.svg"></a>
-      <a href="https://pypi.org/project/PaddleOCR/"><img src="https://img.shields.io/pypi/dm/PaddleOCR?color=9cf"></a>
-      <a href="https://github.com/PaddlePaddle/PaddleOCR/stargazers"><img src="https://img.shields.io/github/stars/PaddlePaddle/PaddleOCR?color=ccf"></a>
-  </p>
+<a href="https://discord.gg/z9xaRVjdbD"><img src="https://img.shields.io/badge/Chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
+<a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-dfd.svg"></a>
+<a href="https://github.com/PaddlePaddle/PaddleOCR/releases"><img src="https://img.shields.io/github/v/release/PaddlePaddle/PaddleOCR?color=ffa"></a>
+<a href=""><img src="https://img.shields.io/badge/python-3.7+-aff.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/os-linux%2C%20win%2C%20mac-pink.svg"></a>
+<a href="https://pypi.org/project/PaddleOCR/"><img src="https://img.shields.io/pypi/dm/PaddleOCR?color=9cf"></a>
+<a href="https://github.com/PaddlePaddle/PaddleOCR/stargazers"><img src="https://img.shields.io/github/stars/PaddlePaddle/PaddleOCR?color=ccf"></a>
 </div>
 
 ## Introduction
@@ -23,11 +21,11 @@ hide:
 PaddleOCR aims to create multilingual, awesome, leading, and practical OCR tools that help users train better models and apply them into practice.
 
 <div align="center">
-    <img src="./doc/imgs_results/PP-OCRv3/en/en_4.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_4.png" width="800">
 </div>
 
 <div align="center">
-    <img src="./doc/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
 </div>
 
 ## 🚀 Community
@@ -91,80 +89,6 @@ PaddleOCR support a variety of cutting-edge algorithms related to OCR, and devel
    - PaddleX provides two AI development modes: "Toolbox" and "Developer". The toolbox mode can tune key hyperparameters without code, and the developer mode can perform single-model training, push and multi-model serial inference with low code, and supports both cloud and local terminals.
    - PaddleX also supports joint innovation and development, profit sharing! At present, PaddleX is rapidly iterating, and welcomes the participation of individual developers and enterprise developers to create a prosperous AI technology ecosystem!
 
-## 📚 E-book: *Dive Into OCR*
-- [Dive Into OCR](./doc/doc_en/ocr_book_en.md)
-
-## 🛠️ PP-OCR Series Model List（Update on September 8th）
-
-| Model introduction                                           | Model name                   | Recommended scene | Detection model                                              | Direction classifier                                         | Recognition model                                            |
-| ------------------------------------------------------------ | ---------------------------- | ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Chinese and English ultra-lightweight PP-OCRv4 model（16.2M）     | ch_PP-OCRv4_xx          | Mobile & Server | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_distill_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_train.tar) |
-| Chinese and English ultra-lightweight PP-OCRv3 model（16.2M）     | ch_PP-OCRv3_xx          | Mobile & Server | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar) |
-| English ultra-lightweight PP-OCRv3 model（13.4M）     | en_PP-OCRv3_xx          | Mobile & Server | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_distill_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar) |
-
-- For more model downloads (including multiple languages), please refer to [PP-OCR series model downloads](./doc/doc_en/models_list_en.md).
-- For a new language request, please refer to [Guideline for new language_requests](#language_requests).
-- For structural document analysis models, please refer to [PP-Structure models](./ppstructure/docs/models_list_en.md).
-
-## 📖 Tutorials
-- [Environment Preparation](./doc/doc_en/environment_en.md)
-- [PP-OCR 🔥](./doc/doc_en/ppocr_introduction_en.md)
-    - [Quick Start](./doc/doc_en/quickstart_en.md)
-    - [Model Zoo](./doc/doc_en/models_en.md)
-    - [Model training](./doc/doc_en/training_en.md)
-        - [Text Detection](./doc/doc_en/detection_en.md)
-        - [Text Recognition](./doc/doc_en/recognition_en.md)
-        - [Text Direction Classification](./doc/doc_en/angle_class_en.md)
-    - Model Compression
-        - [Model Quantization](./deploy/slim/quantization/README_en.md)
-        - [Model Pruning](./deploy/slim/prune/README_en.md)
-        - [Knowledge Distillation](./doc/doc_en/knowledge_distillation_en.md)
-    - [Inference and Deployment](./deploy/README.md)
-        - [Python Inference](./doc/doc_en/inference_ppocr_en.md)
-        - [C++ Inference](./deploy/cpp_infer/readme.md)
-        - [Serving](./deploy/pdserving/README.md)
-        - [Mobile](./deploy/lite/readme.md)
-        - [Paddle2ONNX](./deploy/paddle2onnx/readme.md)
-        - [PaddleCloud](./deploy/paddlecloud/README.md)
-        - [Benchmark](./doc/doc_en/benchmark_en.md)
-- [PP-Structure 🔥](./ppstructure/README.md)
-    - [Quick Start](./ppstructure/docs/quickstart_en.md)
-    - [Model Zoo](./ppstructure/docs/models_list_en.md)
-    - [Model training](./doc/doc_en/training_en.md)
-        - [Layout Analysis](./ppstructure/layout/README.md)
-        - [Table Recognition](./ppstructure/table/README.md)
-        - [Key Information Extraction](./ppstructure/kie/README.md)
-    - [Inference and Deployment](./deploy/README.md)
-        - [Python Inference](./ppstructure/docs/inference_en.md)
-        - [C++ Inference](./deploy/cpp_infer/readme.md)
-        - [Serving](./deploy/hubserving/readme_en.md)
-- [Academic Algorithms](./doc/doc_en/algorithm_overview_en.md)
-    - [Text detection](./doc/doc_en/algorithm_overview_en.md)
-    - [Text recognition](./doc/doc_en/algorithm_overview_en.md)
-    - [End-to-end OCR](./doc/doc_en/algorithm_overview_en.md)
-    - [Table Recognition](./doc/doc_en/algorithm_overview_en.md)
-    - [Key Information Extraction](./doc/doc_en/algorithm_overview_en.md)
-    - [Add New Algorithms to PaddleOCR](./doc/doc_en/add_new_algorithm_en.md)
-- Data Annotation and Synthesis
-    - [Semi-automatic Annotation Tool: PPOCRLabel](https://github.com/PFCCLab/PPOCRLabel/blob/main/README.md)
-    - [Data Synthesis Tool: Style-Text](https://github.com/PFCCLab/StyleText/blob/main/README.md)
-    - [Other Data Annotation Tools](./doc/doc_en/data_annotation_en.md)
-    - [Other Data Synthesis Tools](./doc/doc_en/data_synthesis_en.md)
-- Datasets
-    - [General OCR Datasets(Chinese/English)](doc/doc_en/dataset/datasets_en.md)
-    - [HandWritten_OCR_Datasets(Chinese)](doc/doc_en/dataset/handwritten_datasets_en.md)
-    - [Various OCR Datasets(multilingual)](doc/doc_en/dataset/vertical_and_multilingual_datasets_en.md)
-    - [Layout Analysis](doc/doc_en/dataset/layout_datasets_en.md)
-    - [Table Recognition](doc/doc_en/dataset/table_datasets_en.md)
-    - [Key Information Extraction](doc/doc_en/dataset/kie_datasets_en.md)
-- [Code Structure](./doc/doc_en/tree_en.md)
-- [Visualization](#Visualization)
-- [Community](#Community)
-- [New language requests](#language_requests)
-- [FAQ](./doc/doc_en/FAQ_en.md)
-- [References](./doc/doc_en/reference_en.md)
-- [License](#LICENSE)
-
 ## 🇺🇳 Guideline for New Language Requests
 
 If you want to request a new language support, a PR with 1 following files are needed：
@@ -179,60 +103,53 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
 
 ## Visualization
 
-<a name="PP-OCRv3"></a>
 ## PP-OCRv3
 
 ### PP-OCRv3 Chinese model
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
 </div>
 
 ### PP-OCRv3 English model
-
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_2.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_3.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_1.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_2.png" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/en/en_3.png" width="800">
 </div>
 
 ### PP-OCRv3 Multilingual model
-
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
 </div>
 
-<a name="PP-OCRv2"></a>
 ## PP-OCRv2
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
-   <img src="../imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
+<div align="center">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
+</div>
 
-<a name="ppocr_server_2.0"></a>
 ## ch_ppocr_server_2.0
 
 <div align="center">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
 </div>
 
-
-
-<a name="en_ppocr_mobile_2.0"></a>
 ## en_ppocr_mobile_2.0
 <div align="center">
-    <img src="../imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
+    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
 </div>
 
 
-<a name="multilingual"></a>
 ## (multilingual)_ppocr_mobile_2.0
 <div align="center">
-    <img src="../imgs_results/french_0.jpg" width="800">
-    <img src="../imgs_results/korean.jpg" width="800">
+    <img src="./static/imgs_results/french_0.jpg" width="800">
+    <img src="./static/imgs_results/korean.jpg" width="800">
 </div>
 
 

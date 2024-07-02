@@ -1,4 +1,8 @@
-## FAQ
+---
+comments: true
+hide:
+  - navigation
+---
 
 1. **Prediction error: got an unexpected keyword argument 'gradient_clip'**
 The installed version of paddle is incorrect. Currently, this project only supports Paddle 1.7, which will be adapted to 1.8 in the near future.

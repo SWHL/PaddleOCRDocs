@@ -1,10 +1,7 @@
-# 端对端OCR算法-PGNet
-- [一、简介](#简介)
-- [二、环境配置](#环境配置)
-- [三、快速使用](#快速使用)
-- [四、模型训练、评估、推理](#模型训练、评估、推理)
+---
+comments: true
+---
 
-<a name="简介"></a>
 ## 一、简介
 OCR算法可以分为两阶段算法和端对端的算法。二阶段OCR算法一般分为两个部分，文本检测和文本识别算法，文件检测算法从图像中得到文本行的检测框，然后识别算法去识别文本框中的内容。而端对端OCR算法可以在一个算法中完成文字检测和文字识别，其基本思想是设计一个同时具有检测单元和识别模块的模型，共享其中两者的CNN特征，并联合训练。由于一个算法即可完成文字识别，端对端模型更小，速度更快。
 
@@ -23,8 +20,9 @@ PGNet算法细节详见[论文](https://www.aaai.org/AAAI21Papers/AAAI-2885.Wang
 
 其检测识别效果图如下：
 
-![](../imgs_results/e2e_res_img293_pgnet.png)
-![](../imgs_results/e2e_res_img295_pgnet.png)
+![](../../static/imgs_results//e2e_res_img293_pgnet.png)
+
+![](../../static/imgs_results//e2e_res_img295_pgnet.png)
 
 ### 性能指标
 
@@ -76,7 +74,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 ### 可视化结果
 可视化文本检测结果默认保存到./inference_results文件夹里面，结果文件的名称前缀为'e2e_res'。结果示例如下：
-![](../imgs_results/e2e_res_img623_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)
 
 <a name="模型训练、评估、推理"></a>
 ## 四、模型训练、评估、推理
@@ -173,7 +171,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'e2e_res'。结果示例如下：
 
-![](../imgs_results/e2e_res_img_10_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img_10_pgnet.jpg)
 
 #### (2). 弯曲文本检测模型（Total-Text）
 对于弯曲文本样例
@@ -184,4 +182,4 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 可视化文本端到端结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'e2e_res'。结果示例如下：
 
-![](../imgs_results/e2e_res_img623_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)

@@ -1,12 +1,10 @@
-# End-to-end OCR Algorithm-PGNet
-- [1. Brief Introduction](#Brief_Introduction)
-- [2. Environment Configuration](#Environment_Configuration)
-- [3. Quick Use](#Quick_Use)
-- [4. Model Training,Evaluation And Inference](#Model_Training_Evaluation_And_Inference)
+---
+comments: true
+---
 
-<a name="Brief_Introduction"></a>
 ## 1. Brief Introduction
 OCR algorithms can be divided into two categories: two-stage algorithm and end-to-end algorithm. The two-stage OCR algorithm is generally divided into two parts, text detection and text recognition algorithm. The text detection algorithm locates the box of the text line from the image, and then the recognition algorithm identifies the content of the text box. The end-to-end OCR algorithm combines text detection and recognition in one algorithm. Its basic idea is to design a model with both detection unit and recognition module, share the CNN features of both and train them together. Because one algorithm can complete character recognition, the end-to-end model is smaller and faster.
+
 ### Introduction Of PGNet Algorithm
 During the recent years, the end-to-end OCR algorithm has been well developed, including MaskTextSpotter series, TextSnake, TextDragon, PGNet series and so on. Among these algorithms, PGNet algorithm has some advantages over the other algorithms.
 - PGNet loss is designed to guide training, and no character-level annotations is needed.
@@ -21,8 +19,10 @@ After feature extraction, the input image is sent to four branches: TBO module f
 The output of TBO and TCL can get text detection results after post-processing, and TCL, TDO and TCC are responsible for text recognition.
 
 The results of detection and recognition are as follows:
-![](../imgs_results/e2e_res_img293_pgnet.png)
-![](../imgs_results/e2e_res_img295_pgnet.png)
+![](../../static/imgs_results/e2e_res_img293_pgnet.png)
+
+![](../../static/imgs_results/e2e_res_img295_pgnet.png)
+
 ### Performance
 #### Test set: Total Text
 
@@ -69,7 +69,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 ### Visualization results
 The visualized end-to-end results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
-![](../imgs_results/e2e_res_img623_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)
 
 <a name="Model_Training_Evaluation_And_Inference"></a>
 ## 4. Model Training,Evaluation And Inference
@@ -172,7 +172,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
 
-![](../imgs_results/e2e_res_img_10_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img_10_pgnet.jpg)
 
 #### (2). Curved text detection model (Total-Text)
 For the curved text example, we use the same model as the quadrilateral
@@ -182,4 +182,4 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
 
-![](../imgs_results/e2e_res_img623_pgnet.jpg)
+![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)
