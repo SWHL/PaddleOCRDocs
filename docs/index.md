@@ -90,9 +90,11 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 
 ### 超轻量PP-OCRv2效果展示
-<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
-<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
-<img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
+<div align="center">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
+</div>
 
 
 ### 通用PP-OCR server 2.0 效果展示

@@ -14,14 +14,14 @@ During the recent years, the end-to-end OCR algorithm has been well developed, i
 - Higher accuracy and faster prediction speed
 
 For details of PGNet algorithm, please refer to [paper](https://www.aaai.org/AAAI21Papers/AAAI-2885.WangP.pdf). The schematic diagram of the algorithm is as follows:
-![](../pgnet_framework.png)
+![](./images/pgnet_framework.png)
 After feature extraction, the input image is sent to four branches: TBO module for text edge offset prediction, TCL module for text center-line prediction, TDO module for text direction offset prediction, and TCC module for text character classification graph prediction.
 The output of TBO and TCL can get text detection results after post-processing, and TCL, TDO and TCC are responsible for text recognition.
 
 The results of detection and recognition are as follows:
-![](../../static/imgs_results/e2e_res_img293_pgnet.png)
+![](./images/e2e_res_img293_pgnet.png)
 
-![](../../static/imgs_results/e2e_res_img295_pgnet.png)
+![](./images/e2e_res_img295_pgnet.png)
 
 ### Performance
 #### Test set: Total Text
@@ -69,7 +69,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 ### Visualization results
 The visualized end-to-end results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
-![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)
+![](./images//e2e_res_img623_pgnet.jpg)
 
 <a name="Model_Training_Evaluation_And_Inference"></a>
 ## 4. Model Training,Evaluation And Inference
@@ -172,7 +172,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
 
-![](../../static/imgs_results//e2e_res_img_10_pgnet.jpg)
+![](./images//e2e_res_img_10_pgnet.jpg)
 
 #### (2). Curved text detection model (Total-Text)
 For the curved text example, we use the same model as the quadrilateral
@@ -182,4 +182,4 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 ```
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
 
-![](../../static/imgs_results//e2e_res_img623_pgnet.jpg)
+![](./images//e2e_res_img623_pgnet.jpg)
