@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/FAQ/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/FAQ/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/FAQ/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/add_new_algorithm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/add_new_algorithm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/add_new_algorithm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/end_to_end/algorithm_e2e_pgnet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/end_to_end/algorithm_e2e_pgnet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/end_to_end/algorithm_e2e_pgnet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/formula_recognition/algorithm_rec_can/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/formula_recognition/algorithm_rec_can/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/formula_recognition/algorithm_rec_can/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_layoutxlm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_layoutxlm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_layoutxlm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_sdmgr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_sdmgr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_sdmgr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_vi_layoutxlm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_vi_layoutxlm/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_vi_layoutxlm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_gestalt/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_gestalt/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_gestalt/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_telescope/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_telescope/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_telescope/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_master/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_master/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_master/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_slanet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_slanet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_slanet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_ct/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_ct/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_ct/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_db/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_db/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_db/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_drrg/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_drrg/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_drrg/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_east/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_east/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_east/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_fcenet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_fcenet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_fcenet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_psenet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_psenet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_psenet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_sast/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_sast/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_sast/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_abinet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_abinet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_abinet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_cppd/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_cppd/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_cppd/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_crnn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_crnn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_crnn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_nrtr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_nrtr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_nrtr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_parseq/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_parseq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_parseq/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rare/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rare/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rare/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rfl/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rfl/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rfl/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_robustscanner/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_robustscanner/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_robustscanner/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rosetta/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rosetta/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rosetta/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_sar/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_sar/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_sar/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_satrn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_satrn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_satrn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_seed/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_seed/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_seed/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_spin/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_spin/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_spin/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_srn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_srn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_srn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_starnet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_starnet/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_starnet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtrv2/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtrv2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtrv2/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_visionlan/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_visionlan/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_visionlan/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_vitstr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_vitstr/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_vitstr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/blog/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/blog/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_annotation/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_annotation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_annotation/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_synthesis/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_synthesis/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_synthesis/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/data_anno_synth/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/handwritten_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/handwritten_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/handwritten_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/kie_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/kie_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/kie_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/layout_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/layout_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/layout_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/ocr_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/ocr_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/ocr_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/table_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/table_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/table_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/datasets/vertical_and_multilingual_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/vertical_and_multilingual_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/vertical_and_multilingual_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/ppocr_model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/ppocr_model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/ppocr_model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/benchmark/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/benchmark/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/benchmark/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/cpp_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/cpp_infer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/cpp_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/lite/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/lite/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/lite/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle2onnx/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle2onnx/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle2onnx/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_cloud/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_cloud/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_cloud/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_server/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_server/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_server/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/python_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/python_infer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/python_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/knowledge_distillation/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/knowledge_distillation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/knowledge_distillation/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/prune/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/prune/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/prune/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/quantization/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/quantization/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/quantization/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/angle_class/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/angle_class/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/angle_class/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/detection/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/detection/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/detection/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/recognition/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/recognition/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/recognition/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/training/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/training/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/training/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/models_list/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/models_list/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/models_list/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/overview/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/ppstructure_model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/ppstructure_model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/ppstructure_model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/cpp_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/cpp_infer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/cpp_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/paddle_server/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/paddle_server/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/paddle_server/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/python_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/python_infer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/python_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_kie/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_kie/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_kie/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_layout/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_layout/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_layout/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_table/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_table/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_table/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/training/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/training/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/training/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/FAQ/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/FAQ/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/FAQ/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/add_new_algorithm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/add_new_algorithm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/add_new_algorithm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/end_to_end/algorithm_e2e_pgnet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/end_to_end/algorithm_e2e_pgnet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/end_to_end/algorithm_e2e_pgnet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/formula_recognition/algorithm_rec_can/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/formula_recognition/algorithm_rec_can/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/formula_recognition/algorithm_rec_can/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_layoutxlm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_layoutxlm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_layoutxlm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_sdmgr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_sdmgr/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_sdmgr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_vi_layoutxlm/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/kie/algorithm_kie_vi_layoutxlm/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/kie/algorithm_kie_vi_layoutxlm/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_gestalt/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_gestalt/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_gestalt/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_telescope/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/super_resolution/algorithm_sr_telescope/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/super_resolution/algorithm_sr_telescope/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_master/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_master/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_master/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_slanet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/table_recognition/algorithm_table_slanet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/table_recognition/algorithm_table_slanet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_ct/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_ct/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_ct/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_db/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_db/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_db/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_drrg/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_drrg/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_drrg/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_east/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_east/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_east/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_fcenet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_fcenet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_fcenet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_psenet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_psenet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_psenet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_sast/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_detection/algorithm_det_sast/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_detection/algorithm_det_sast/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_abinet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_abinet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_abinet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_aster/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_aster/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_cppd/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_cppd/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_cppd/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_crnn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_crnn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_crnn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_nrtr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_nrtr/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_nrtr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_parseq/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_parseq/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_parseq/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rare/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rare/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rare/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rfl/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rfl/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rfl/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_robustscanner/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_robustscanner/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_robustscanner/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rosetta/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_rosetta/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_rosetta/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_sar/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_sar/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_sar/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_satrn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_satrn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_satrn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_seed/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_seed/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_seed/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_spin/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_spin/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_spin/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_srn/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_srn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_srn/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_starnet/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_starnet/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_starnet/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtr/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtrv2/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_svtrv2/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_svtrv2/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_visionlan/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_visionlan/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_visionlan/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_vitstr/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/algorithm/text_recognition/algorithm_rec_vitstr/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/algorithm/text_recognition/algorithm_rec_vitstr/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/PCB%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E4%B8%AD%E6%96%87%E8%A1%A8%E6%A0%BC%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%85%89%E5%8A%9F%E7%8E%87%E8%AE%A1%E6%95%B0%E7%A0%81%E7%AE%A1%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7%E6%97%A5%E6%9C%9F%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8D%B0%E7%AB%A0%E5%BC%AF%E6%9B%B2%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%8F%91%E7%A5%A8%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8A%BD%E5%8F%96/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A1%A8%E5%8D%95%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA%E5%8D%A1%E8%AF%81%E7%B1%BBOCR/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%8B%E5%86%99%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%89%AB%E6%8F%8F%E5%90%88%E5%90%8C%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%8F%90%E5%8F%96/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E6%B6%B2%E6%99%B6%E5%B1%8F%E8%AF%BB%E6%95%B0%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E8%BD%BB%E9%87%8F%E7%BA%A7%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/applications/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B8%AD%E6%96%87%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/blog/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/blog/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/blog/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_annotation/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_annotation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_annotation/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_synthesis/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/data_synthesis/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/data_synthesis/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/data_anno_synth/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/data_anno_synth/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/handwritten_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/handwritten_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/handwritten_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/kie_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/kie_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/kie_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/layout_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/layout_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/layout_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/ocr_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/ocr_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/ocr_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/table_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/table_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/table_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/datasets/vertical_and_multilingual_datasets/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/datasets/vertical_and_multilingual_datasets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/datasets/vertical_and_multilingual_datasets/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/model/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/ppocr_model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/ppocr_model/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/ppocr_model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/benchmark/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/benchmark/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/benchmark/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/cpp_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/cpp_infer/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/cpp_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/lite/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/lite/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/lite/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle2onnx/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle2onnx/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle2onnx/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_cloud/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_cloud/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_cloud/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_server/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/paddle_server/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/paddle_server/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/python_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/infer_deploy/python_infer/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/infer_deploy/python_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/knowledge_distillation/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/knowledge_distillation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/knowledge_distillation/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/prune/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/prune/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/prune/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/quantization/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_compress/quantization/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_compress/quantization/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/angle_class/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/angle_class/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/angle_class/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/detection/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/detection/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/detection/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/recognition/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/recognition/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/recognition/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/training/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppocr/model_train/training/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppocr/model_train/training/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/models_list/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/models_list/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/models_list/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/overview/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/overview/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/overview/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/ppstructure_model/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/ppstructure_model/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/ppstructure_model/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/quick_start/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/cpp_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/cpp_infer/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/cpp_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/paddle_server/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/paddle_server/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/paddle_server/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/python_infer/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/infer_deploy/python_infer/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/infer_deploy/python_infer/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_kie/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_kie/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_kie/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_layout/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_layout/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_layout/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_table/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/train_table/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/train_table/"/>
+    </url>
+    <url>
+        <loc>https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/training/</loc>
+        <lastmod>2024-07-02</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://swhl.github.io/PaddleOCRDocs/en/ppstructure/model_train/training/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://swhl.github.io/PaddleOCRDocs/ppstructure/model_train/training/"/>
+    </url>
+</urlset>
