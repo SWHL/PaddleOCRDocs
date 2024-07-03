@@ -4,11 +4,10 @@ comments: true
 
 # PaddleOCR 快速开始
 
-**说明：** 本文主要介绍PaddleOCR wheel包对PP-OCR系列模型的快速使用，如要体验文档分析相关功能，请参考[PP-Structure快速使用教程](../../ppstructure/docs/quickstart.md)。
+**说明：** 本文主要介绍PaddleOCR wheel包对PP-OCR系列模型的快速使用，如要体验文档分析相关功能，请参考[PP-Structure快速使用教程](../ppstructure/overview.md)。
 
 
 ## 1. 安装
-
 ### 1.1 安装PaddlePaddle
 
 > 如果您没有基础的Python运行环境，请参考[运行环境准备](./environment.md)。
@@ -116,8 +115,8 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 ```
 
 <div align="center">
-    <img src="../imgs_en/254.jpg" width="300" height="600">
-    <img src="../imgs_results/multi_lang/img_02.jpg" width="600" height="600">
+    <img src="./images/254.jpg" width="300" height="600">
+    <img src="./images/multi_lang/img_02.jpg" width="600" height="600">
 </div>
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
@@ -182,9 +181,8 @@ im_show.save('result.jpg')
 结果可视化
 
 <div align="center">
-    <img src="../imgs_results/whl/11_det_rec.jpg" width="800">
+    <img src="./images/11_det_rec.jpg" width="800">
 </div>
-
 
 
 如果输入是PDF文件，那么可以参考下面代码进行可视化
