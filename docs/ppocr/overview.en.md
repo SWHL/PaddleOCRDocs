@@ -1,21 +1,6 @@
 
 # PP-OCR
 
-- [PP-OCR](#pp-ocr)
-    - [1. Introduction](#1-introduction)
-            - [PP-OCR](#pp-ocr-1)
-            - [PP-OCRv2](#pp-ocrv2)
-            - [PP-OCRv3](#pp-ocrv3)
-    - [2. Features](#2-features)
-    - [3. benchmark](#3-benchmark)
-    - [4. Visualization more](#4-visualization-more)
-    - [5. Tutorial](#5-tutorial)
-        - [5.1 Quick start](#51-quick-start)
-        - [5.2 Model training / compression / deployment](#52-model-training--compression--deployment)
-    - [6. Model zoo](#6-model-zoo)
-    - [PP-OCR Series Model List（Update on 2022.04.28）](#pp-ocr-series-model-listupdate-on-20220428)
-
-
 ## 1. Introduction
 
 PP-OCR is a self-developed practical ultra-lightweight OCR system, which is slimed and optimized based on the reimplemented [academic algorithms](algorithm_en.md), considering the balance between **accuracy** and **speed**.

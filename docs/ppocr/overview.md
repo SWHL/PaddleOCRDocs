@@ -1,5 +1,3 @@
-[English](../doc_en/ppocr_introduction_en.md) | 简体中文
-
 # PP-OCR
 
 ## 1. 简介
@@ -58,25 +56,25 @@ PP-OCRv3系统pipeline如下：
 <details open>
 <summary>PP-OCRv3 中文模型</summary>
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
+    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
+    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
+    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
 </div>
 </details>
 
 <details open>
 <summary>PP-OCRv3 英文模型</summary>
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_2.png" width="800">
+    <img src="./images/PP-OCRv3/en/en_1.png" width="800">
+    <img src="./images/PP-OCRv3/en/en_2.png" width="800">
 </div>
 </details>
 
 <details open>
 <summary>PP-OCRv3 多语言模型</summary>
 <div align="center">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
+    <img src="./images/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
+    <img src="./images/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
 </div>
 </details>
 
@@ -97,7 +95,7 @@ PP-OCRv3系统pipeline如下：
 
 PP-OCR中英文模型列表如下：
 
-| 模型简介                              | 模型名称                | 推荐场景        | 检测模型                                                                                                                                                                                          | 方向分类器                                                                                                                                                                                        | 识别模型                                                                                                                                                                                        |
+| 模型简介  | 模型名称                | 推荐场景        | 检测模型   | 方向分类器     | 识别模型                                                                                                                                                                                        |
 | ------------------------------------- | ----------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 中英文超轻量PP-OCRv3模型（16.2M）     | ch_PP-OCRv3_xx          | 移动端&服务器端 | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar)           | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar)   | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar)                 |
 | 英文超轻量PP-OCRv3模型（13.4M）       | en_PP-OCRv3_xx          | 移动端&服务器端 | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_distill_train.tar)           | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar)   | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar)                 |
