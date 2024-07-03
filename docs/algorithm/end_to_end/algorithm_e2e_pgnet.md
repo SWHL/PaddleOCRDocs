@@ -39,11 +39,9 @@ PGNet算法细节详见[论文](https://www.aaai.org/AAAI21Papers/AAAI-2885.Wang
 
 
 
-<a name="环境配置"></a>
 ## 二、环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目
 
-<a name="快速使用"></a>
 ## 三、快速使用
 ### inference模型下载
 本节以训练好的端到端模型为例，快速使用模型预测，首先下载训练好的端到端inference模型[下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar)
@@ -76,7 +74,6 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 可视化文本检测结果默认保存到./inference_results文件夹里面，结果文件的名称前缀为'e2e_res'。结果示例如下：
 ![](./images//e2e_res_img623_pgnet.jpg)
 
-<a name="模型训练、评估、推理"></a>
 ## 四、模型训练、评估、推理
 本节以totaltext数据集为例，介绍PaddleOCR中端到端模型的训练、评估与测试。
 

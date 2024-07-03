@@ -16,7 +16,6 @@
     - [PP-OCR Series Model List（Update on 2022.04.28）](#pp-ocr-series-model-listupdate-on-20220428)
 
 
-<a name="1"></a>
 ## 1. Introduction
 
 PP-OCR is a self-developed practical ultra-lightweight OCR system, which is slimed and optimized based on the reimplemented [academic algorithms](algorithm_en.md), considering the balance between **accuracy** and **speed**.
@@ -52,7 +51,6 @@ PP-OCRv3 pipeline is as follows:
 
 For more details, please refer to [PP-OCRv3 technical report](https://arxiv.org/abs/2206.03001v2).
 
-<a name="2"></a>
 ## 2. Features
 
 - Ultra lightweight PP-OCRv3 series models: detection (3.6M) + direction classifier (1.4M) + recognition 12M) = 17.0M
@@ -62,12 +60,10 @@ For more details, please refer to [PP-OCRv3 technical report](https://arxiv.org/
 - Support Chinese, English, and digit recognition, vertical text recognition, and long text recognition
 - Support multi-lingual recognition: about 80 languages like Korean, Japanese, German, French, etc
 
-<a name="3"></a>
 ## 3. benchmark
 
 For the performance comparison between PP-OCR series models, please check the [benchmark](./benchmark_en.md) documentation.
 
-<a name="4"></a>
 ## 4. Visualization [more](./visualization.md)
 
 <details open>
@@ -96,22 +92,18 @@ For the performance comparison between PP-OCR series models, please check the [b
 </details>
 
 
-<a name="5"></a>
 ## 5. Tutorial
 
-<a name="51"></a>
 ### 5.1 Quick start
 
 - You can also quickly experience the ultra-lightweight OCR : [Online Experience](https://www.paddlepaddle.org.cn/hub/scene/ocr)
 - Mobile DEMO experience (based on EasyEdge and Paddle-Lite, supports iOS and Android systems): [Sign in to the website to obtain the QR code for  installing the App](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)
 - One line of code quick use: [Quick Start](./quickstart_en.md)
 
-<a name="52"></a>
 ### 5.2 Model training / compression / deployment
 
 For more tutorials, including model training, model compression, deployment, etc., please refer to [tutorials](../../README.md#Tutorials)。
 
-<a name="6"></a>
 ## 6. Model zoo
 
 ## PP-OCR Series Model List（Update on 2022.04.28）

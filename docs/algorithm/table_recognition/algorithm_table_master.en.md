@@ -11,7 +11,6 @@
 - [5. FAQ](#5-faq)
 - [Citation](#citation)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -27,12 +26,10 @@ On the PubTabNet table recognition public data set, the algorithm reproduction a
 |TableMaster|TableResNetExtra|[configs/table/table_master.yml](../../configs/table/table_master.yml)|77.47%|[trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_train.tar)/[inference model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_infer.tar)|
 
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 The above TableMaster model is trained using the PubTabNet table recognition public dataset. For the download of the dataset, please refer to [table_datasets](./dataset/table_datasets_en.md).
@@ -40,10 +37,8 @@ The above TableMaster model is trained using the PubTabNet table recognition pub
 After the data download is complete, please refer to [Text Recognition Training Tutorial](./recognition_en.md) for training. PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different models.
 
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 
 First, convert the model saved in the TableMaster table recognition training process into an inference model. Taking the model based on the TableResNetExtra backbone network and trained on the PubTabNet dataset as example ([model download link](https://paddleocr.bj.bcebos.com/contribution/table_master.tar)), you can use the following command to convert:
@@ -81,23 +76,19 @@ result：
 
 - TableMaster is relatively slow during inference, and it is recommended to use GPU for use.
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Since the post-processing is not written in CPP, the TableMaster does not support CPP inference.
 
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 ## Citation

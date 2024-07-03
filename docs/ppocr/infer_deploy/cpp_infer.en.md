@@ -17,17 +17,14 @@ This chapter introduces the C++ deployment steps of the PaddleOCR model. C++ is 
 This section will introduce how to configure the C++ environment and deploy PaddleOCR in Linux (CPU\GPU) environment. For Windows deployment please refer to [Windows](./docs/windows_vs2019_build.md) compilation guidelines.
 
 
-<a name="1"></a>
 ## 1. Prepare the Environment
 
-<a name="11"></a>
 ### 1.1 Environment
 
 - Linux, docker is recommended.
 - Windows.
 
 
-<a name="12"></a>
 ### 1.2 Compile OpenCV
 
 * First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
@@ -88,7 +85,6 @@ opencv3/
 |-- share
 ```
 
-<a name="13"></a>
 ### 1.3 Compile or Download or the Paddle Inference Library
 
 * There are 2 ways to obtain the Paddle inference library, described in detail below.
@@ -152,10 +148,8 @@ build/paddle_inference_install_dir/
 `paddle` is the Paddle library required for C++ prediction later, and `version.txt` contains the version information of the current inference library.
 
 
-<a name="2"></a>
 ## 2. Compile and Run the Demo
 
-<a name="21"></a>
 ### 2.1 Export the inference model
 
 * You can refer to [Model inference](../../doc/doc_ch/inference.md) and export the inference model. After the model is exported, assuming it is placed in the `inference` directory, the directory structure is as follows.
@@ -180,7 +174,6 @@ inference/
 ```
 
 
-<a name="22"></a>
 ### 2.2 Compile PaddleOCR C++ inference demo
 
 * The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
@@ -206,7 +199,6 @@ or the generated Paddle inference library path (`build/paddle_inference_install_
 * After the compilation is completed, an executable file named `ppocr` will be generated in the `build` folder.
 
 
-<a name="23"></a>
 ### 2.3 Run the demo
 
 Execute the built executable file:
@@ -450,7 +442,6 @@ The table visualized image saved in ./output//7_1.png
 ********** end print ocr result **********
 ```
 
-<a name="3"></a>
 ## 3. FAQ
 
  1.  Encountered the error `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`, change the github address in `deploy/cpp_infer/external-cmake/auto-log.cmake` to the https://gitee.com/Double_V/AutoLog address.

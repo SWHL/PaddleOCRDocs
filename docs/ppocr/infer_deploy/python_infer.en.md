@@ -14,7 +14,6 @@ This article introduces the use of the Python inference engine for the PP-OCR mo
   - [Text Detection Angle Classification and Recognition Inference Concatenation](#text-detection-angle-classification-and-recognition-inference-concatenation)
   - [TensorRT Inference](TensorRT-Inference)
 
-<a name="DETECTION_MODEL_INFERENCE"></a>
 
 ## Text Detection Model Inference
 
@@ -50,12 +49,10 @@ If you want to use the CPU for prediction, execute the command as follows
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_dir="./ch_PP-OCRv3_det_infer/"  --use_gpu=False
 ```
 
-<a name="RECOGNITION_MODEL_INFERENCE"></a>
 
 ## Text Recognition Model Inference
 
 
-<a name="LIGHTWEIGHT_RECOGNITION"></a>
 ### 1. Lightweight Chinese Recognition Model Inference
 
 **Note**: The input shape used by the recognition model of `PP-OCRv3` is `3, 48, 320`. If you use other recognition models, you need to set the parameter `--rec_image_shape` according to the model. In addition, the `rec_algorithm` used by the recognition model of `PP-OCRv3` is `SVTR_LCNet` by default. Note the difference from the original `SVTR`.
@@ -78,7 +75,6 @@ After executing the command, the prediction results (recognized text and score) 
 ```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('PAIN', 0.988671)
 ```
-<a name="2-english-recognition-model-inference"></a>
 ### 2. English Recognition Model Inference
 
 For English recognition model inference, you can execute the following commands,you need to specify the dictionary path used by `--rec_char_dict_path`:
@@ -100,7 +96,6 @@ Predicts of ./doc/imgs_words/en/word_1.png: ('JOINT', 0.998160719871521)
 ```
 
 
-<a name="3-multilingual-model-inference"></a>
 
 ### 3. Multilingual Model Inference
 If you need to predict [other language models](./models_list_en.md#Multilingual), when using inference model prediction, you need to specify the dictionary path used by `--rec_char_dict_path`. At the same time, in order to get the correct visualization results,
@@ -119,7 +114,6 @@ After executing the command, the prediction result of the above figure is:
 Predicts of ./doc/imgs_words/korean/1.jpg:('바탕으로', 0.9948904)
 ```
 
-<a name="ANGLE_CLASS_MODEL_INFERENCE"></a>
 
 ## Angle Classification Model Inference
 
@@ -140,7 +134,6 @@ After executing the command, the prediction results (classification angle and sc
  Predicts of ./doc/imgs_words_en/word_10.png:['0', 0.9999995]
 ```
 
-<a name="CONCATENATION"></a>
 ## Text Detection Angle Classification and Recognition Inference Concatenation
 
 **Note**: The input shape used by the recognition model of `PP-OCRv3` is `3, 48, 320`. If you use other recognition models, you need to set the parameter `--rec_image_shape` according to the model. In addition, the `rec_algorithm` used by the recognition model of `PP-OCRv3` is `SVTR_LCNet` by default. Note the difference from the original `SVTR`.

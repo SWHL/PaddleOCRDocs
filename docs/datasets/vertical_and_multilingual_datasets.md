@@ -6,7 +6,6 @@
 - [多语言数据集](#多语言数据集)
 
 
-<a name="中国城市车牌数据集"></a>
 ## 中国城市车牌数据集
 
 - **数据来源**：[https://github.com/detectRecog/CCPD](https://github.com/detectRecog/CCPD)
@@ -30,7 +29,6 @@
     * Google drive下载地址：[https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view](https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view)
 
 
-<a name="银行信用卡数据集"></a>
 ## 银行信用卡数据集
 
 - **数据来源**: [https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870](https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870)
@@ -52,7 +50,6 @@
 
 
 
-<a name="验证码数据集-Captcha"></a>
 ## 验证码数据集-Captcha
 
 - **数据来源**: [https://github.com/lepture/captcha](https://github.com/lepture/captcha)
@@ -65,7 +62,6 @@
 
 
 
-<a name="多语言数据集"></a>
 ## 多语言数据集(Multi-lingual scene text detection and recognition)
 
 - **数据来源**: [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)

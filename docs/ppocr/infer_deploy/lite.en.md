@@ -152,7 +152,6 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
 After the conversion is successful, there will be more files ending with `.nb` in the inference model directory, which is the successfully converted model file.
 
-<a name="2.2-Run-optimized-model-on-Phone"></a>
 ### 2.2 Run optimized model on Phone
 
 Some preparatory work is required first.

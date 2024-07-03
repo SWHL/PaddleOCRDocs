@@ -3,7 +3,6 @@ Here we have sorted out the commonly used handwritten OCR dataset datasets, whic
 - [Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset](#Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset)
 - [NIST handwritten single character dataset - English](#NIST handwritten single character dataset - English)
 
-<a name="Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset"></a>
 ## Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset
 - **Data source**:http://www.nlpr.ia.ac.cn/databases/handwriting/Download.html
 - **Data introduction**:
@@ -15,7 +14,6 @@ Here we have sorted out the commonly used handwritten OCR dataset datasets, whic
 - **使用建议**:Data for single character, white background, can form a large number of text lines for training. White background can be processed into transparent state, which is convenient to add various backgrounds. For the case of semantic needs, it is suggested to extract single character from real corpus to form text lines.
 
 
-<a name="NIST handwritten single character dataset - English"></a>
 ## NIST handwritten single character dataset - English(NIST Handprinted Forms and Characters Database)
 
 - **Data source**: [https://www.nist.gov/srd/nist-special-database-19](https://www.nist.gov/srd/nist-special-database-19)

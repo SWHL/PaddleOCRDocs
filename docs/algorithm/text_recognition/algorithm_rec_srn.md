@@ -13,7 +13,6 @@
     - [4.4 更多推理部署](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -28,12 +27,10 @@
 |SRN|Resnet50_vd_fpn|[rec_r50_fpn_srn.yml](../../configs/rec/rec_r50_fpn_srn.yml)|86.31%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r50_vd_srn_train.tar)|
 
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
 请参考[文本识别教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
@@ -64,10 +61,8 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec
 python3 tools/infer_rec.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将SRN文本识别训练过程中保存的模型，转换成inference model。（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r50_vd_srn_train.tar) )，可以使用如下命令进行转换：
 
@@ -81,22 +76,18 @@ SRN文本识别模型推理，可以执行如下命令：
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_srn/" --rec_image_shape="1,64,256"  --rec_algorithm="SRN" --rec_char_dict_path=./ppocr/utils/ic15_dict.txt  --use_space_char=False
 ```
 
-<a name="4-2"></a>
 ### 4.2 C++推理
 
 由于C++预处理后处理还未支持SRN，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 

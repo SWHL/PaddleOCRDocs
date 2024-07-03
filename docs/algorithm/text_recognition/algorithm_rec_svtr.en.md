@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -21,7 +20,6 @@ Paper:
 > Yongkun Du and Zhineng Chen and Caiyan Jia Xiaoting Yin and Tianlun Zheng and Chenxia Li and Yuning Du and Yu-Gang Jiang
 > IJCAI, 2022
 
-<a name="model"></a>
 The accuracy (%) and model files of SVTR on the public dataset of scene text recognition are as follows:
 * Chinese dataset from [Chinese Benckmark](https://arxiv.org/abs/2112.15093) , and the Chinese training evaluation strategy of SVTR follows the paper.
 
@@ -32,7 +30,6 @@ The accuracy (%) and model files of SVTR on the public dataset of scene text rec
 | SVTR Base  | 97.08  | 91.50 |   96.03   | 85.20  | 89.92 | 91.67 | 92.33 |  83.73  |  95.66  | 95.62 | 95.81 | 91.61 | 71.40 |                          [English](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_base_none_ctc_en_train.tar)  /                                              -                          |
 | SVTR Large | 97.20  | 91.65 |   96.30   | 86.58  | 88.37 | 95.14 | 92.82 |  84.54  |  96.35  | 96.54 | 96.74 | 92.24 | 72.10 | [English](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_large_none_ctc_en_train.tar) / [Chinese](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_large_none_ctc_ch_train.tar) |
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
@@ -41,7 +38,6 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 [English dataset download](https://github.com/clovaai/deep-text-recognition-benchmark#download-lmdb-dataset-for-traininig-and-evaluation-from-here)
 [Chinese dataset download](https://github.com/fudanvi/benchmarking-chinese-text-recognition#download)
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
@@ -75,10 +71,8 @@ Prediction:
 python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy
 ```
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, the model saved during the SVTR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) ), you can use the following command to convert:
 
@@ -112,22 +106,18 @@ The result is as follows:
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 ```
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not supported
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 - 1. Speed situation on CPU and GPU

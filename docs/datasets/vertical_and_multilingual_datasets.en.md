@@ -6,7 +6,6 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
 - [multi-language dataset](#multi-language dataset)
 
 
-<a name="Chinese urban license plate dataset"></a>
 ## Chinese urban license plate dataset
 
 - **Data source**：[https://github.com/detectRecog/CCPD](https://github.com/detectRecog/CCPD)
@@ -30,7 +29,6 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
     * Google drive download address:[https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view](https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view)
 
 
-<a name="Bank credit card dataset"></a>
 ## Bank credit card dataset
 
 - **Data source**: [https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870](https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870)
@@ -52,7 +50,6 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
 
 
 
-<a name="Captcha dataset-Captcha"></a>
 ## Captcha dataset-Captcha
 
 - **Data source**: [https://github.com/lepture/captcha](https://github.com/lepture/captcha)
@@ -65,7 +62,6 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
 
 
 
-<a name="multi-language dataset"></a>
 ## multi-language dataset(Multi-lingual scene text detection and recognition)
 
 - **Data source**: [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)

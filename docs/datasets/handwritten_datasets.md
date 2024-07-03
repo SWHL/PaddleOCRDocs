@@ -3,7 +3,6 @@
 - [中科院自动化研究所-手写中文数据集](#中科院自动化研究所-手写中文数据集)
 - [NIST手写单字数据集-英文](#NIST手写单字数据集-英文)
 
-<a name="中科院自动化研究所-手写中文数据集"></a>
 ## 中科院自动化研究所-手写中文数据集
 - **数据来源**：http://www.nlpr.ia.ac.cn/databases/handwriting/Download.html
 - **数据简介**：
@@ -15,7 +14,6 @@
 - **使用建议**：数据为单字，白色背景，可以大量合成文字行进行训练。白色背景可以处理成透明状态，方便添加各种背景。对于需要语义的情况，建议从真实语料出发，抽取单字组成文字行
 
 
-<a name="NIST手写单字数据集-英文"></a>
 ## NIST手写单字数据集-英文(NIST Handprinted Forms and Characters Database)
 
 - **数据来源**: [https://www.nist.gov/srd/nist-special-database-19](https://www.nist.gov/srd/nist-special-database-19)

@@ -7,10 +7,8 @@ comments: true
 **说明：** 本文主要介绍PaddleOCR wheel包对PP-OCR系列模型的快速使用，如要体验文档分析相关功能，请参考[PP-Structure快速使用教程](../../ppstructure/docs/quickstart.md)。
 
 
-<a name="1"></a>
 ## 1. 安装
 
-<a name="11"></a>
 ### 1.1 安装PaddlePaddle
 
 > 如果您没有基础的Python运行环境，请参考[运行环境准备](./environment.md)。
@@ -29,7 +27,6 @@ comments: true
 
 更多的版本需求，请参照[飞桨官网安装文档](https://www.paddlepaddle.org.cn/install/quick)中的说明进行操作。
 
-<a name="12"></a>
 ### 1.2 安装PaddleOCR whl包
 
 ```bash
@@ -39,9 +36,7 @@ pip install paddleocr
 - 对于Windows环境用户：直接通过pip安装的shapely库可能出现`[winRrror 126] 找不到指定模块的问题`。建议从[这里](https://www.lfd.uci.edu/~gohlke/pythonlibs/#shapely)下载shapely安装包完成安装。
 
 
-<a name="2"></a>
 ## 2. 便捷使用
-<a name="21"></a>
 ### 2.1 命令行使用
 
 PaddleOCR提供了一系列测试图片，点击[这里](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip)下载并解压，然后在终端中切换到相应目录
@@ -52,7 +47,6 @@ cd /path/to/ppocr_img
 
 如果不使用提供的测试图片，可以将下方`--image_dir`参数替换为相应的测试图片路径。
 
-<a name="211"></a>
 #### 2.1.1 中英文模型
 
 * 检测+方向分类器+识别全流程：`--use_angle_cls true`设置使用方向分类器识别180度旋转文字，`--use_gpu false`设置不使用GPU
@@ -112,7 +106,6 @@ paddleocr默认使用PP-OCRv4模型(`--ocr_version PP-OCRv4`)，如需使用其�
 
 更多whl包使用可参考[whl包文档](./whl.md)
 
-<a name="212"></a>
 
 #### 2.1.2 多语言模型
 
@@ -147,9 +140,7 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 全部语种及其对应的缩写列表可查看[多语言模型教程](./multi_languages.md)
 
 
-<a name="22"></a>
 ### 2.2 Python脚本使用
-<a name="221"></a>
 #### 2.2.1 中英文与多语言使用
 
 通过Python脚本使用PaddleOCR whl包，whl包会自动下载ppocr轻量级模型作为默认模型。
@@ -195,7 +186,6 @@ im_show.save('result.jpg')
 </div>
 
 
-<a name="3"></a>
 
 如果输入是PDF文件，那么可以参考下面代码进行可视化
 

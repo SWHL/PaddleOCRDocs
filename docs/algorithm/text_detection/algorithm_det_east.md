@@ -13,7 +13,6 @@
     - [4.4 更多推理部署](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -30,12 +29,10 @@
 |EAST|MobileNetV3|[det_mv3_east.yml](../../configs/det/det_mv3_east.yml) | 78.20%|    79.10%|    78.65%|    [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_mv3_east_v2.0_train.tar)|
 
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
 上表中的EAST训练模型使用ICDAR2015文本检测公开数据集训练得到，数据集下载可参考 [ocr_datasets](./dataset/ocr_datasets.md)。
@@ -43,10 +40,8 @@
 数据下载完成后，请参考[文本检测训练教程](./detection.md)进行训练。PaddleOCR对代码进行了模块化，训练不同的检测模型只需要**更换配置文件**即可。
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 
 首先将EAST文本检测训练过程中保存的模型，转换成inference model。以基于Resnet50_vd骨干网络，在ICDAR2015英文数据集训练的模型为例（[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_east_v2.0_train.tar))，可以使用如下命令进行转换：
@@ -64,22 +59,18 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 
 ![](../imgs_results/det_res_img_10_east.jpg)
 
-<a name="4-2"></a>
 ### 4.2 C++推理
 
 由于后处理暂未使用CPP编写，EAST文本检测模型暂不支持CPP推理。
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂未支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂未支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 

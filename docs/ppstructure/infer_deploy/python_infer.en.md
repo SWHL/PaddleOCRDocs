@@ -8,7 +8,6 @@
   - [2.1 SER](#21-ser)
   - [2.2 RE+SER](#22-reser)
 
-<a name="1"></a>
 ## 1. Layout Structured Analysis
 Go to the `ppstructure` directory
 
@@ -30,7 +29,6 @@ wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar 
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_infer.tar && tar xf ch_ppstructure_mobile_v2.0_SLANet_infer.tar
 cd ..
 ```
-<a name="1.1"></a>
 ### 1.1 layout analysis + table recognition
 ```bash
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
@@ -45,7 +43,6 @@ python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
 ```
 After the operation is completed, each image will have a directory with the same name in the `structure` directory under the directory specified by the `output` field. Each table in the image will be stored as an excel, and the picture area will be cropped and saved. The filename of excel and picture is their coordinates in the image. Detailed results are stored in the `res.txt` file.
 
-<a name="1.2"></a>
 ### 1.2 layout analysis
 ```bash
 python3 predict_system.py --layout_model_dir=inference/picodet_lcnet_x1_0_layout_infer \
@@ -56,7 +53,6 @@ python3 predict_system.py --layout_model_dir=inference/picodet_lcnet_x1_0_layout
 ```
 After the operation is completed, each image will have a directory with the same name in the `structure` directory under the directory specified by the `output` field. Each picture in image will be cropped and saved. The filename of picture area is their coordinates in the image. Layout analysis results will be stored in the `res.txt` file
 
-<a name="1.3"></a>
 ### 1.3 table recognition
 ```bash
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
@@ -71,7 +67,6 @@ python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
 ```
 After the operation is completed, each image will have a directory with the same name in the `structure` directory under the directory specified by the `output` field. Each table in the image will be stored as an excel. The filename of excel is their coordinates in the image.
 
-<a name="2"></a>
 ## 2. Key Information Extraction
 
 ### 2.1 SER

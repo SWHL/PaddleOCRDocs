@@ -12,7 +12,6 @@
     - [4.3 Serving](#4-3)
     - [4.4 More](#4-4)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -20,11 +19,9 @@ Paper:
 > Yongkun Du and Zhineng Chen and Caiyan Jia and Xiaoting Yin and Chenxia Li and Yuning Du and Yu-Gang Jiang
 
 
-<a name="model"></a>
 Scene text recognition models based on deep learning typically follow an Encoder-Decoder structure, where the decoder can be categorized into two types: (1) CTC and (2) Attention-based. Currently, most state-of-the-art (SOTA) models use an Attention-based decoder, which can be further divided into AR and PD types. In general, AR decoders achieve higher recognition accuracy than PD, while PD decoders are faster than AR. CPPD, with carefully designed CO and CC modules, achieves a balance between the accuracy of AR and the speed of PD.
 
 
-<a name="model"></a>
 The accuracy (%) and model files of CPPD on the public dataset of scene text recognition are as follows:：
 
 * English dataset from [PARSeq](https://github.com/baudm/parseq).
@@ -62,7 +59,6 @@ The accuracy (%) and model files of CPPD on the public dataset of scene text rec
 | CPPD Base + STN | 78.4  | 79.3 |   98.9   | 57.6  | 78.55 | [ch](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_stn_ch_train.tar) |
 
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
@@ -72,7 +68,6 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 [Union14M-Benchmark download](https://github.com/Mountchicken/Union14M)
 [Chinese dataset download](https://github.com/fudanvi/benchmarking-chinese-text-recognition#download)
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
@@ -106,10 +101,8 @@ Prediction:
 python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 ```
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, the model saved during the CPPD text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ), you can use the following command to convert:
 
@@ -142,17 +135,14 @@ After the conversion is successful, there are three files in the directory:
     └── inference.pdmodel
 ```
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not supported
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported

@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -28,12 +27,10 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 |RFL-CNT|ResNetRFL|[rec_resnet_rfl_visual.yml](../../configs/rec/rec_resnet_rfl_visual.yml)|93.40%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl_visual_train.tar)|
 |RFL-Att|ResNetRFL|[rec_resnet_rfl_att.yml](../../configs/rec/rec_resnet_rfl_att.yml)|88.63%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl_att_train.tar)|
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
@@ -74,10 +71,8 @@ Prediction:
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, the model saved during the RFL text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl.tar)) ), you can use the following command to convert:
 
@@ -112,22 +107,18 @@ The result is as follows:
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999927282333374)
 ```
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not supported
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 ## Citation

@@ -28,10 +28,8 @@ The relationship of the above models is as follows.
 
 ![](../imgs_en/model_prod_flow_en.png)
 
-<a name="Detection"></a>
 ## 1. Text Detection Model
 
-<a name="1.1"></a>
 
 ### 1. Chinese Detection Model
 
@@ -45,7 +43,6 @@ The relationship of the above models is as follows.
 |ch_ppocr_mobile_v2.0_det|Original lightweight model, supporting Chinese, English, multilingual text detection|[ch_det_mv3_db_v2.0.yml](../../configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml)|3.0M|[inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_det_train.tar)|
 |ch_ppocr_server_v2.0_det|General model, which is larger than the lightweight model, but achieved better performance|[ch_det_res18_db_v2.0.yml](../../configs/det/ch_ppocr_v2.0/ch_det_res18_db_v2.0.yml)|47.0M|[inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_train.tar)|
 
-<a name="1.2"></a>
 
 ### 1.2 English Detection Model
 
@@ -56,7 +53,6 @@ The relationship of the above models is as follows.
 
 * Note: English configuration file is the same as Chinese except for training data, here we only provide one configuration file.
 
-<a name="1.3"></a>
 
 ### 1.3 Multilingual Detection Model
 
@@ -67,10 +63,8 @@ The relationship of the above models is as follows.
 
 * Note: English configuration file is the same as Chinese except for training data, here we only provide one configuration file.
 
-<a name="Recognition"></a>
 ## 2. Text Recognition Model
 
-<a name="Chinese"></a>
 ### 2.1 Chinese Recognition Model
 
 |model name|description|config|model size|download|
@@ -86,7 +80,6 @@ The relationship of the above models is as follows.
 
 **Note:** The `trained model` is fine-tuned on the `pre-trained model` with real data and synthesized vertical text data, which achieved better performance in the real scene. The `pre-trained model` is directly trained on the full amount of real data and synthesized data, which is more suitable for fine-tuning your dataset.
 
-<a name="English"></a>
 ### 2.2 English Recognition Model
 
 |model name|description|config|model size|download|
@@ -98,7 +91,6 @@ The relationship of the above models is as follows.
 
 **Note:** Dictionary file of all English recognition models is `ppocr/utils/en_dict.txt`.
 
-<a name="Multilingual"></a>
 ### 2.3 Multilingual Recognition Model（Updating...）
 
 |model name| dict file | description|config|model size|download|
@@ -116,7 +108,6 @@ The relationship of the above models is as follows.
 
 For a complete list of languages ​​and tutorials, please refer to [Multi-language model](./multi_languages_en.md)
 
-<a name="Angle"></a>
 ## 3. Text Angle Classification Model
 
 |model name|description|config|model size|download|
@@ -124,7 +115,6 @@ For a complete list of languages ​​and tutorials, please refer to [Multi-lan
 |ch_ppocr_mobile_slim_v2.0_cls|Slim quantized model for text angle classification|[cls_mv3.yml](../../configs/cls/cls_mv3.yml)| 2.1M | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_slim_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_slim_train.tar) / [nb model](https://paddleocr.bj.bcebos.com/PP-OCRv2/lite/ch_ppocr_mobile_v2.0_cls_infer_opt.nb) |
 |ch_ppocr_mobile_v2.0_cls|Original model for text angle classification|[cls_mv3.yml](../../configs/cls/cls_mv3.yml)|1.38M|[inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) |
 
-<a name="Paddle-Lite"></a>
 ## 4. Paddle-Lite Model
 
 Paddle Lite is an updated version of Paddle-Mobile, an open-open source deep learning framework designed to make it easy to perform inference on mobile, embedded, and IoT devices. It can further optimize the inference model and generate the `nb model` used for edge devices. It's suggested to optimize the quantization model using Paddle-Lite because the `INT8` format is used for the model storage and inference.

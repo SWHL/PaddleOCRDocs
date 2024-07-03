@@ -34,11 +34,9 @@ The results of detection and recognition are as follows:
 
 *note：PGNet in PaddleOCR optimizes the prediction speed, and can significantly improve the end-to-end prediction speed within the acceptable range of accuracy reduction*
 
-<a name="Environment_Configuration"></a>
 ## 2. Environment Configuration
 Please refer to [Operation Environment Preparation](./environment_en.md) to configure PaddleOCR operating environment first, refer to [Project Clone](./clone_en.md) to clone the project
 
-<a name="Quick_Use"></a>
 ## 3. Quick Use
 ### Inference model download
 This section takes the trained end-to-end model as an example to quickly use the model prediction. First, download the trained end-to-end inference model [download address](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar)
@@ -71,7 +69,6 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 The visualized end-to-end results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'e2e_res'. Examples of results are as follows:
 ![](./images//e2e_res_img623_pgnet.jpg)
 
-<a name="Model_Training_Evaluation_And_Inference"></a>
 ## 4. Model Training,Evaluation And Inference
 This section takes the totaltext dataset as an example to introduce the training, evaluation and testing of the end-to-end model in PaddleOCR.
 

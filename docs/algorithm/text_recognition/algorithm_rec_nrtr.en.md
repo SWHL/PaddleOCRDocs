@@ -14,7 +14,6 @@
 - [5. FAQ](#5)
 - [6. Release Note](#6)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -28,12 +27,10 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 | --- | --- | --- | --- | --- |
 |NRTR|MTB|[rec_mtb_nrtr.yml](../../configs/rec/rec_mtb_nrtr.yml)|84.21%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)|
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
@@ -64,10 +61,8 @@ Prediction:
 python3 tools/infer_rec.py -c configs/rec/rec_mtb_nrtr.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_mtb_nrtr_train/best_accuracy
 ```
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, the model saved during the NRTR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)) ), you can use the following command to convert:
 
@@ -102,27 +97,22 @@ The result is as follows:
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9465042352676392)
 ```
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not supported
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 1. In the `NRTR` paper, Beam search is used to decode characters, but the speed is slow. Beam search is not used by default here, and greedy search is used to decode characters.
 
-<a name="6"></a>
 ## 6. Release Note
 
 1. The release/2.6 version updates the NRTR code structure. The new version of NRTR can load the model parameters of the old version (release/2.5 and before), and you may use the following code to convert the old version model parameters to the new version model parameters:

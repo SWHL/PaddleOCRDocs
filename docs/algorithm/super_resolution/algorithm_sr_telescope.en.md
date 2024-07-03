@@ -14,7 +14,6 @@
 - [5. FAQ](#5)
 
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -32,12 +31,10 @@ Referring to the [FudanOCR](https://github.com/FudanVI/FudanOCR/tree/main/scene-
 
 The [TextZoom dataset](https://paddleocr.bj.bcebos.com/dataset/TextZoom.tar) comes from two superfraction data sets, RealSR and SR-RAW, both of which contain LR-HR pairs. TextZoom has 17367 pairs of training data and 4373 pairs of test data.
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different models only requires **changing the configuration file**.
@@ -79,10 +76,8 @@ After executing the command, the super-resolution result of the above image is a
 
 ![](../imgs_results/sr_word_52.png)
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 
 First, the model saved during the training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/contribution/Telescope_train.tar.gz) ), you can use the following command to convert:
@@ -103,22 +98,18 @@ After executing the command, the super-resolution result of the above image is a
 ![](../imgs_results/sr_word_52.png)
 
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not supported
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 

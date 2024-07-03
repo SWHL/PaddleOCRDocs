@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -29,22 +28,18 @@ On the ICDAR2015 dataset, the text detection result is as follows:
 |PSE| MobileNetV3| [configs/det/det_mv3_pse.yml](../../configs/det/det_mv3_pse.yml) | 82.20%    |70.48%|75.89%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/det_mv3_pse_v2.0_train.tar)|
 
 
-<a name="2"></a>
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 The above PSE model is trained using the ICDAR2015 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).
 
 After the data download is complete, please refer to [Text Detection Training Tutorial](./detection_en.md) for training. PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, convert the model saved in the PSE text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/det_r50_vd_pse_v2.0_train.tar)), you can use the following command to convert:
 
@@ -75,22 +70,18 @@ The visualized text detection results are saved to the `./inference_results` fol
 **Note**: Since the ICDAR2015 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese or curved text images.
 
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Since the post-processing is not written in CPP, the PSE text detection model does not support CPP inference.
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 

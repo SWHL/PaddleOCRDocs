@@ -10,7 +10,6 @@ Here are the common datasets of layout anlysis, which are being updated continuo
 Most of the layout analysis datasets are object detection datasets. In addition to open source datasets, you can also label or synthesize datasets using tools such as [labelme](https://github.com/wkentaro/labelme) and so on.
 
 
-<a name="publaynet"></a>
 
 #### 1. PubLayNet dataset
 
@@ -26,7 +25,6 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 - **Note**: When using this dataset, you need to follow [CDLA-Permissive](https://cdla.io/permissive-1-0/) license.
 
 
-<a name="CDLA"></a>
 
 #### 2、CDLA数据集
 - **Data source**: https://github.com/buptlihang/CDLA
@@ -40,7 +38,6 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 - **Download address**: https://github.com/buptlihang/CDLA
 - **Note**: When you train detection model on CDLA dataset using [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/tree/develop), you need to remove the label `__ignore__` and `_background_`.
 
-<a name="TableBank"></a>
 
 #### 3、TableBank dataet
 - **Data source**: https://doc-analysis.github.io/tablebank-page/index.html

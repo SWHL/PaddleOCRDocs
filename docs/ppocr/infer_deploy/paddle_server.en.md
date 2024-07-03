@@ -37,7 +37,6 @@ The introduction and tutorial of Paddle Serving service deployment framework ref
   - [WINDOWS Users](#windows-users)
   - [FAQ](#faq)
 
-<a name="environmental-preparation"></a>
 ## Environmental preparation
 
 PaddleOCR operating environment and Paddle Serving operating environment are needed.
@@ -69,7 +68,6 @@ pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
    **note:** If you want to install the latest version of PaddleServing, refer to [link](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Latest_Packages_CN.md).
 
 
-<a name="model-conversion"></a>
 ## Model conversion
 When using PaddleServing for service deployment, you need to convert the saved inference model into a serving model that is easy to deploy.
 
@@ -113,7 +111,6 @@ After the detection model is converted, there will be additional folders of `ppo
 ```
 The recognition model is the same.
 
-<a name="paddle-serving-pipeline-deployment"></a>
 ## Paddle Serving pipeline deployment
 
 1. Download the PaddleOCR code, if you have already downloaded it, you can skip this step.
@@ -202,7 +199,6 @@ The recognition model is the same.
     2021-05-13 03:42:36,979         chl2(In: ['rec'], Out: ['@DAGExecutor']) size[0/0]
     ```
 
-<a name="C++"></a>
 ## C++ Serving
 
 Service deployment based on python obviously has the advantage of convenient secondary development. However, the real application often needs to pursue better performance. PaddleServing also provides a more performant C++ deployment version.
@@ -274,7 +270,6 @@ python3 ocr_web_server.py cpu(for cpu user)
 python3 ocr_web_client.py
 ```
 
-<a name="faq"></a>
 ## FAQ
 **Q1**: No result return after sending the request.
 

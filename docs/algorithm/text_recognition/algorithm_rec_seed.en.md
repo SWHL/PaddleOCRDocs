@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -29,12 +28,10 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 | --- | --- | --- | --- | --- |
 |SEED|Aster_Resnet| 85.20% | [configs/rec/rec_resnet_stn_bilstm_att.yml](../../configs/rec/rec_resnet_stn_bilstm_att.yml) | [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.1/rec/rec_resnet_stn_bilstm_att.tar) |
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
@@ -71,30 +68,24 @@ Prediction:
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 
 Not support
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Not support
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not support
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not support
 
-<a name="5"></a>
 ## 5. FAQ
 
 

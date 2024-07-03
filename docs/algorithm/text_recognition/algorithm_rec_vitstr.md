@@ -13,7 +13,6 @@
     - [4.4 更多推理部署](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -22,22 +21,18 @@
 > ICDAR, 2021
 
 
-<a name="model"></a>
 `ViTSTR`使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法复现效果如下：
 
 |模型|骨干网络|配置文件|Acc|下载链接|
 | --- | --- | --- | --- | --- |
 |ViTSTR|ViTSTR|[rec_vitstr_none_ce.yml](../../configs/rec/rec_vitstr_none_ce.yml)|79.82%|[训练模型](https://paddleocr.bj.bcebos.com/rec_vitstr_none_ce_train.tar)|
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
-<a name="3-1"></a>
 ### 3.1 模型训练
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`ViTSTR`识别模型时需要**更换配置文件**为`ViTSTR`的[配置文件](../../configs/rec/rec_vitstr_none_ce.yml)。
@@ -54,7 +49,6 @@ python3 tools/train.py -c configs/rec/rec_vitstr_none_ce.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_vitstr_none_ce.yml
 ```
 
-<a name="3-2"></a>
 ### 3.2 评估
 
 可下载已训练完成的[模型文件](#model)，使用如下命令进行评估：
@@ -64,7 +58,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_vitstr_none_ce.yml -o Global.pretrained_model=./rec_vitstr_none_ce_train/best_accuracy
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
@@ -75,10 +68,8 @@ python3 tools/infer_rec.py -c configs/rec/rec_vitstr_none_ce.yml -o Global.infer
 ```
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/rec_vitstr_none_ce_train.tar) )，可以使用如下命令进行转换：
 
@@ -120,22 +111,18 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9998350143432617)
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中ViTSTR的预处理为您的预处理方法。
 
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 由于C++预处理后处理还未支持ViTSTR，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 1. 在`ViTSTR`论文中，使用在ImageNet1k上的预训练权重进行初始化训练，我们在训练未采用预训练权重，最终精度没有变化甚至有所提高。

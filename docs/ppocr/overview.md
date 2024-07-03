@@ -2,33 +2,17 @@
 
 # PP-OCR
 
-- [PP-OCR](#pp-ocr)
-    - [1. 简介](#1-简介)
-            - [PP-OCR](#pp-ocr-1)
-            - [PP-OCRv2](#pp-ocrv2)
-            - [PP-OCRv3](#pp-ocrv3)
-    - [2. 特性](#2-特性)
-    - [3. benchmark](#3-benchmark)
-    - [4. 效果展示 more](#4-效果展示-more)
-    - [5. 使用教程](#5-使用教程)
-        - [5.1 快速体验](#51-快速体验)
-        - [5.2 模型训练、压缩、推理部署](#52-模型训练压缩推理部署)
-    - [6. 模型库](#6-模型库)
-
-<a name="1"></a>
-
 ## 1. 简介
-
-PP-OCR是PaddleOCR自研的实用的超轻量OCR系统。在实现[前沿算法](algorithm.md)的基础上，考虑精度与速度的平衡，进行**模型瘦身**和**深度优化**，使其尽可能满足产业落地需求。
+PP-OCR是PaddleOCR自研的实用的超轻量OCR系统。在实现[前沿算法](../algorithm/overview.md)的基础上，考虑精度与速度的平衡，进行**模型瘦身**和**深度优化**，使其尽可能满足产业落地需求。
 
 #### PP-OCR
 
-PP-OCR是一个两阶段的OCR系统，其中文本检测算法选用[DB](algorithm_det_db.md)，文本识别算法选用[CRNN](algorithm_rec_crnn.md)，并在检测和识别模块之间添加[文本方向分类器](angle_class.md)，以应对不同方向的文本识别。
+PP-OCR是一个两阶段的OCR系统，其中文本检测算法选用[DB](../algorithm/text_detection/algorithm_det_db.md)，文本识别算法选用[CRNN](../algorithm/text_recognition/algorithm_rec_crnn.md)，并在检测和识别模块之间添加[文本方向分类器](./model_train/angle_class.md)，以应对不同方向的文本识别。
 
 PP-OCR系统pipeline如下：
 
 <div align="center">
-    <img src="../ppocrv2_framework.jpg" width="800">
+    <img src="./images/ppocrv2_framework.jpg" width="800">
 </div>
 
 
@@ -49,13 +33,12 @@ PP-OCRv3在PP-OCRv2的基础上，针对检测模型和识别模型，进行了�
 PP-OCRv3系统pipeline如下：
 
 <div align="center">
-    <img src="../ppocrv3_framework.png" width="800">
+    <img src="./images/ppocrv3_framework.png" width="800">
 </div>
 
 更多细节请参考[PP-OCRv3技术报告](https://arxiv.org/abs/2206.03001v2) 👉[中文简洁版](./PP-OCRv3_introduction.md)
 
 
-<a name="2"></a>
 ## 2. 特性
 
 - 超轻量PP-OCRv3系列：检测（3.6M）+ 方向分类器（1.4M）+ 识别（12M）= 17.0M
@@ -65,13 +48,11 @@ PP-OCRv3系统pipeline如下：
 - 支持中英文数字组合识别、竖排文本识别、长文本识别
 - 支持多语言识别：韩语、日语、德语、法语等约80种语言
 
-<a name="3"></a>
 ## 3. benchmark
 
-关于PP-OCR系列模型之间的性能对比，请查看[benchmark](./benchmark.md)文档。
+关于PP-OCR系列模型之间的性能对比，请查看[benchmark](./infer_deploy/benchmark.md)文档。
 
 
-<a name="4"></a>
 ## 4. 效果展示 [more](./visualization.md)
 
 <details open>
@@ -100,22 +81,18 @@ PP-OCRv3系统pipeline如下：
 </details>
 
 
-<a name="5"></a>
 ## 5. 使用教程
 
-<a name="51"></a>
 ### 5.1 快速体验
 
 - 在线网站体验：超轻量PP-OCR mobile模型体验地址：https://www.paddlepaddle.org.cn/hub/scene/ocr
 - 移动端demo体验：[安装包DEMO下载地址](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)(基于EasyEdge和Paddle-Lite, 支持iOS和Android系统)
 - 一行命令快速使用：[快速开始（中英文/多语言）](./doc/doc_ch/quickstart.md)
 
-<a name="52"></a>
 ### 5.2 模型训练、压缩、推理部署
 
 更多教程，包括模型训练、模型压缩、推理部署等，请参考[文档教程](../../README.md#文档教程)。
 
-<a name="6"></a>
 ## 6. 模型库
 
 PP-OCR中英文模型列表如下：

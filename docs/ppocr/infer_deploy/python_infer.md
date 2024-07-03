@@ -11,7 +11,6 @@
 - [4. 文本检测、方向分类和文字识别串联推理](#4-文本检测方向分类和文字识别串联推理)
 - [5. TensorRT推理](#5-tensorrt推理)
 
-<a name="文本检测模型推理"></a>
 
 ## 1. 文本检测模型推理
 
@@ -50,11 +49,9 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_di
 ```
 
 
-<a name="文本识别模型推理"></a>
 
 ## 2. 文本识别模型推理
 
-<a name="超轻量中文识别模型推理"></a>
 
 ### 2.1 超轻量中文识别模型推理
 
@@ -77,7 +74,6 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/ch/word_4.jpg" 
 Predicts of ./doc/imgs_words/ch/word_4.jpg:('实力活力', 0.9956803321838379)
 ```
 
-<a name="英文识别模型推理"></a>
 
 ### 2.2 英文识别模型推理
 
@@ -97,7 +93,6 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 ```
 Predicts of ./doc/imgs_words/en/word_1.png: ('JOINT', 0.998160719871521)
 ```
-<a name="多语言模型的推理"></a>
 
 ### 2.3 多语言模型的推理
 
@@ -115,7 +110,6 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" -
 Predicts of ./doc/imgs_words/korean/1.jpg:('바탕으로', 0.9948904)
 ```
 
-<a name="方向分类模型推理"></a>
 
 ## 3. 方向分类模型推理
 
@@ -136,7 +130,6 @@ python3 tools/infer/predict_cls.py --image_dir="./doc/imgs_words/ch/word_4.jpg" 
 Predicts of ./doc/imgs_words/ch/word_4.jpg:['0', 0.9999982]
 ```
 
-<a name="文本检测、方向分类和文字识别串联推理"></a>
 
 ## 4. 文本检测、方向分类和文字识别串联推理
 

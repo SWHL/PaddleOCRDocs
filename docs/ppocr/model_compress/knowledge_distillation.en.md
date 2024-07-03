@@ -1,4 +1,3 @@
-<a name="0"></a>
 # Knowledge Distillation
 
 + [Knowledge Distillation](#0)
@@ -21,9 +20,7 @@
 
 
 
-<a name="1"></a>
 ## 1. Introduction
-<a name="11"></a>
 ### 1.1 Introduction to Knowledge Distillation
 
 In recent years, deep neural networks have been proved to be an extremely effective method for solving problems in the fields of computer vision and natural language processing.
@@ -36,7 +33,6 @@ to ensure that the small model obtains a relatively large performance improvemen
 In addition, in the knowledge distillation task, a mutual learning model training method was also derived.
 The paper [Deep Mutual Learning](https://arxiv.org/abs/1706.00384) pointed out that using two identical models to supervise each other during the training process can achieve better results than a single model training.
 
-<a name="12"></a>
 ### 1.2 Introduction to PaddleOCR Knowledge Distillation
 
 Whether it is a large model distilling a small model, or a small model learning from each other and updating parameters,
@@ -57,7 +53,6 @@ Through knowledge distillation, in the common Chinese and English text recogniti
 the accuracy of the model can be improved by more than 3%. Combining the learning rate adjustment strategy and the model structure fine-tuning strategy,
 the final improvement is more than 5%.
 
-<a name="2"></a>
 ## 2. Configuration File Analysis
 
 In the process of knowledge distillation training, there is no change in data preprocessing, optimizer, learning rate, and some global attributes.
@@ -65,12 +60,10 @@ The configuration files of the model structure, loss function, post-processing, 
 
 The following takes the knowledge distillation configuration file for recognition and detection as an example to analyze the training and configuration of knowledge distillation.
 
-<a name="21"></a>
 ### 2.1 Recognition Model Configuration File Analysis
 
 The configuration file is in [ch_PP-OCRv2_rec_distillation.yml](../../configs/rec/ch_PP-OCRv2/ch_PP-OCRv2_rec_distillation.yml).
 
-<a name="211"></a>
 #### 2.1.1 Model Structure
 
 In the knowledge distillation task, the model structure configuration is as follows.
@@ -253,7 +246,6 @@ Take the recognition model as an example. The output result of each sub-network 
 }
 ```
 
-<a name="212"></a>
 #### 2.1.2 Loss Function
 
 In the knowledge distillation task, the loss function configuration is as follows.
@@ -313,7 +305,6 @@ For more specific implementation of `CombinedLoss`, please refer to: [combined_l
 For more specific implementations of distillation loss functions such as `DistillationCTCLoss`, please refer to [distillation_loss.py](../../ppocr/losses/distillation_loss.py)
 
 
-<a name="213"></a>
 #### 2.1.3 Post-processing
 
 In the knowledge distillation task, the post-processing configuration is as follows.
@@ -332,7 +323,6 @@ Among them, `key` is the name of the subnet, and `value` is the list of subnets.
 For more specific implementation of `DistillationCTCLabelDecode`, please refer to: [rec_postprocess.py](../../ppocr/postprocess/rec_postprocess.py#L128)
 
 
-<a name="214"></a>
 #### 2.1.4 Metric Calculation
 
 In the knowledge distillation task, the metric calculation configuration is as follows.
@@ -352,7 +342,6 @@ At the same time, the accuracy metric of all subnets will be printed out in the 
 For more specific implementation of `DistillationMetric`, please refer to: [distillation_metric.py](../../ppocr/metrics/distillation_metric.py#L24).
 
 
-<a name="215"></a>
 #### 2.1.5 Fine-tuning Distillation Model
 
 There are two ways to fine-tune the recognition distillation task.
@@ -384,7 +373,6 @@ paddle.save(s_params, "ch_PP-OCRv3_rec_train/student.pdparams")
 
 After the extraction is complete, use [ch_PP-OCRv3_rec.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml) to modify the path of the pre-trained model (the path of the exported `student.pdparams` model) and your own data path to fine-tune the model.
 
-<a name="22"></a>
 ### 2.2 Detection Model Configuration File Analysis
 
 The configuration file of the detection model distillation is in the ```PaddleOCR/configs/det/ch_PP-OCRv3/``` directory, which contains three distillation configuration files:
@@ -392,7 +380,6 @@ The configuration file of the detection model distillation is in the ```PaddleOC
 - ```ch_PP-OCRv3_det_cml.yml```, Use one large model to distill two small models, and the two small models learn from each other
 - ```ch_PP-OCRv3_det_dml.yml```, Method of mutual distillation of two student models
 
-<a name="221"></a>
 #### 2.2.1 Model Structure
 
 In the knowledge distillation task, the model structure configuration is as follows:
@@ -530,7 +517,6 @@ The key contains `backbone_out`, `neck_out`, `head_out`, and `value` is the tens
 }
 ```
 
-<a name="222"></a>
 #### 2.2.2 Loss Function
 The distillation loss function configuration(`ch_PP-OCRv3_det_cml.yml`) is shown below.
 ```yaml
@@ -568,7 +554,6 @@ Loss:
 For more specific implementation of `DistillationDilaDBLoss`, please refer to: [distillation_loss.py](https://github.com/PaddlePaddle/PaddleOCR/blob/release%2F2.4/ppocr/losses/distillation_loss.py#L185).
 For more specific implementations of distillation loss functions such as `DistillationDBLoss`, please refer to: [distillation_loss.py](https://github.com/PaddlePaddle/PaddleOCR/blob/04c44974b13163450dfb6bd2c327863f8a194b3c/ppocr/losses/distillation_loss.py?_pjax=%23js-repo-pjax-container%2C%20div%5Bitemtype%3D%22http%3A%2F%2Fschema.org%2FSoftwareSourceCode%22%5D%20main%2C%20%5Bdata-pjax-container%5D#L148)
 
-<a name="223"></a>
 #### 2.2.3 Post-processing
 
 In the task of detecting knowledge distillation, the post-processing configuration of detecting distillation is as follows.
@@ -587,7 +572,6 @@ Taking the above configuration as an example, the output of the three subnets `S
 Since there are multiple inputs, there are also multiple outputs returned by post-processing.
 For a more specific implementation of `DistillationDBPostProcess`, please refer to: [db_postprocess.py](../../ppocr/postprocess/db_postprocess.py#L195)
 
-<a name="224"></a>
 #### 2.2.4 Metric Calculation
 In the knowledge distillation task, the metric calculation configuration is as follows.
 ```yaml
@@ -602,7 +586,6 @@ Since distillation needs to include multiple networks, only one network metrics 
 The `key` field is set to `Student`, it means that only the metrics of the `Student` network is calculated.
 Model Structure
 
-<a name="225"></a>
 #### 2.2.5 Fine-tuning Distillation Model
 
 There are three ways to fine-tune the detection distillation task:

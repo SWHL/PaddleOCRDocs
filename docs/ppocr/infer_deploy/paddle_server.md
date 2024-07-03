@@ -39,7 +39,6 @@ AIStudio演示案例可参考 [基于PaddleServing的OCR服务化部署实战](h
     - [Windows用户](#windows用户)
     - [FAQ](#faq)
 
-<a name="环境准备"></a>
 ## 环境准备
 
 需要准备PaddleOCR的运行环境和Paddle Serving的运行环境。
@@ -74,7 +73,6 @@ pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
 
 **Note:** 如果要安装最新版本的PaddleServing参考[链接](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Latest_Packages_CN.md)。
 
-<a name="模型转换"></a>
 ## 模型转换
 
 使用PaddleServing做服务化部署时，需要将保存的inference模型转换为serving易于部署的模型。
@@ -121,7 +119,6 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
 ```
 识别模型同理。
 
-<a name="部署"></a>
 ## Paddle Serving pipeline部署
 
 1. 确认工作目录下文件结构：
@@ -203,7 +200,6 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
     2021-05-13 03:42:36,979         chl2(In: ['rec'], Out: ['@DAGExecutor']) size[0/0]
     ```
 
-<a name="C++"></a>
 ## Paddle Serving C++ 部署
 
 基于python的服务部署，显然具有二次开发便捷的优势，然而真正落地应用，往往需要追求更优的性能。PaddleServing 也提供了性能更优的C++部署版本。
@@ -267,7 +263,6 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
     ![](./imgs/c++_qps.png)
 
 
-<a name="Windows用户"></a>
 ## Windows用户
 
 Windows用户不能使用上述的启动方式，需要使用Web Service，详情参见[Windows平台使用Paddle Serving指导](https://github.com/PaddlePaddle/Serving/blob/develop/doc/Windows_Tutorial_CN.md)
@@ -296,7 +291,6 @@ python3 ocr_web_client.py
 ```
 
 
-<a name="FAQ"></a>
 ## FAQ
 **Q1**： 发送请求后没有结果返回或者提示输出解码报错
 

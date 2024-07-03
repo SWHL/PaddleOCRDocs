@@ -15,11 +15,9 @@
 
 
 
-<a name="1nstallation"></a>
 
 ## 1. Installation
 
-<a name="11-install-paddlepaddle"></a>
 
 ### 1.1 Install PaddlePaddle
 
@@ -39,7 +37,6 @@
 
 For more software version requirements, please refer to the instructions in [Installation Document](https://www.paddlepaddle.org.cn/en/install/quick) for operation.
 
-<a name="12-install-paddleocr-whl-package"></a>
 
 ### 1.2 Install PaddleOCR Whl Package
 
@@ -51,11 +48,9 @@ pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 
   Reference: [Solve shapely installation on windows](https://stackoverflow.com/questions/44398265/install-shapely-oserror-winerror-126-the-specified-module-could-not-be-found)
 
-<a name="2-easy-to-use"></a>
 
 ## 2. Easy-to-Use
 
-<a name="21-use-by-command-line"></a>
 
 ### 2.1 Use by Command Line
 
@@ -67,7 +62,6 @@ cd /path/to/ppocr_img
 
 If you do not use the provided test image, you can replace the following `--image_dir` parameter with the corresponding test image path
 
-<a name="211-english-and-chinese-model"></a>
 
 #### 2.1.1 Chinese and English Model
 
@@ -132,7 +126,6 @@ If you want to add your own trained model, you can add model links and keys in [
 
 More whl package usage can be found in [whl package](./whl_en.md)
 
-<a name="212-multi-language-model"></a>
 
 #### 2.1.2 Multi-language Model
 
@@ -166,10 +159,8 @@ Commonly used multilingual abbreviations include
 A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./multi_languages_en.md)
 
 
-<a name="22-use-by-code"></a>
 
 ### 2.2 Use by Code
-<a name="221-chinese---english-model-and-multilingual-model"></a>
 
 #### 2.2.1 Chinese & English Model and Multilingual Model
 
@@ -306,7 +297,6 @@ This example initializes the PaddleOCR instance with angle classification enable
 
 For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./slice_en.md).
 
-<a name="3"></a>
 
 ## 3. Summary
 

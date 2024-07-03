@@ -6,7 +6,6 @@
 - [XFUND数据集](#xfund)
 - [wildreceipt数据集](#wildreceipt)
 
-<a name="funsd"></a>
 
 ## 1. FUNSD数据集
 
@@ -20,7 +19,6 @@
 
 - **下载地址**：https://guillaumejaume.github.io/FUNSD/download/
 
-<a name="xfund"></a>
 
 ## 2. XFUND数据集
 - **数据来源**：https://github.com/doc-analysis/XFUND
@@ -34,7 +32,6 @@
 - **下载地址**：https://github.com/doc-analysis/XFUND/releases/tag/v1.0
 
 
-<a name="wildreceipt"></a>
 
 ## 3. wildreceipt数据集
 

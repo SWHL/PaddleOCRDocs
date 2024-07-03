@@ -17,11 +17,9 @@ This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the mo
 Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm_en.md) guideline.
 
 
-<a name="1"></a>
 
 ## 1. Two-stage OCR Algorithms
 
-<a name="11"></a>
 
 ### 1.1 Text Detection Algorithms
 
@@ -66,7 +64,6 @@ On CTW1500 dataset, the text detection result is as follows:
 * [Google Drive](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
 
-<a name="12"></a>
 ### 1.2 Text Recognition Algorithms
 
 Supported text recognition algorithms (Click the link to get the tutorial):
@@ -117,7 +114,6 @@ Refer to [DTRB](https://arxiv.org/abs/1904.01906), the training and evaluation r
 |SATRN|ShallowCNN| 88.05% | rec_satrn | [trained model](https://pan.baidu.com/s/10J-Bsd881bimKaclKszlaQ?pwd=lk8a) |
 
 
-<a name="13"></a>
 
 ### 1.3 Text Super-Resolution Algorithms
 
@@ -132,7 +128,6 @@ On the TextZoom public dataset, the effect of the algorithm is as follows:
 |Text Gestalt|tsrn|19.28|0.6560| [configs/sr/sr_tsrn_transformer_strock.yml](../../configs/sr/sr_tsrn_transformer_strock.yml)|[trained model](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar)|
 |Text Telescope|tbsrn|21.56|0.7411| [configs/sr/sr_telescope.yml](../../configs/sr/sr_telescope.yml)|[trained model](https://paddleocr.bj.bcebos.com/contribution/sr_telescope_train.tar)|
 
-<a name="14"></a>
 
 ### 1.4 Formula Recognition Algorithm
 
@@ -147,7 +142,6 @@ On the CROHME handwritten formula dataset, the effect of the algorithm is as fol
 |CAN|DenseNet|[rec_d28_can.yml](../../configs/rec/rec_d28_can.yml)|51.72%|[trained model](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)|
 
 
-<a name="2"></a>
 
 ## 2. End-to-end OCR Algorithms
 
@@ -155,7 +149,6 @@ Supported end-to-end algorithms (Click the link to get the tutorial):
 - [x]  [PGNet](./algorithm_e2e_pgnet_en.md)
 
 
-<a name="3"></a>
 ## 3. Table Recognition Algorithms
 
 Supported table recognition algorithms (Click the link to get the tutorial):
@@ -168,7 +161,6 @@ On the PubTabNet dataset, the algorithm result is as follows:
 |TableMaster|TableResNetExtra|[configs/table/table_master.yml](../../configs/table/table_master.yml)|77.47%|[trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_train.tar) / [inference model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_infer.tar)|
 
 
-<a name="4"></a>
 
 ## 4. Key Information Extraction Algorithms
 

@@ -12,11 +12,9 @@ PaddleOCR场景应用覆盖通用，制造、金融、交通行业的主要OCR�
         - [交通](#交通)
     - [模型下载](#模型下载)
 
-<a name="1"></a>
 
 ## 教程文档
 
-<a name="11"></a>
 
 ### 通用
 
@@ -25,7 +23,6 @@ PaddleOCR场景应用覆盖通用，制造、金融、交通行业的主要OCR�
 | 高精度中文识别模型SVTR | 比PP-OCRv3识别模型精度高3%，<br />可用于数据挖掘或对预测效率要求不高的场景。 | [模型下载](#2) | [中文](./高精度中文识别模型.md)/English | <img src="../doc/ppocr_v3/svtr_tiny.png" width=200>                                                                                                         |
 | 手写体识别             | 新增字形支持                                                                 | [模型下载](#2) | [中文](./手写文字识别.md)/English       | <img src="https://ai-studio-static-online.cdn.bcebos.com/7a8865b2836f42d382e7c3fdaedc4d307d797fa2bcd0466e9f8b7705efff5a7b"  width = "200" height = "100" /> |
 
-<a name="12"></a>
 
 ### 制造
 
@@ -38,7 +35,6 @@ PaddleOCR场景应用覆盖通用，制造、金融、交通行业的主要OCR�
 | 电表识别       | 大分辨率图像检测调优           | [模型下载](#2) |                                                                    |                                                                                                                                                             |
 | 液晶屏缺陷检测 | 非文字字符识别                 |                |                                                                    |                                                                                                                                                             |
 
-<a name="13"></a>
 
 ### 金融
 
@@ -51,7 +47,6 @@ PaddleOCR场景应用覆盖通用，制造、金融、交通行业的主要OCR�
 | 身份证识别     | 结构化提取、图像阴影          |                |                                           |                                                                                                                                                             |
 | 合同比对       | 密集文本检测、NLP关键信息抽取 | [模型下载](#2) | [中文](./扫描合同关键信息提取.md)/English | <img src="https://ai-studio-static-online.cdn.bcebos.com/54f3053e6e1b47a39b26e757006fe2c44910d60a3809422ab76c25396b92e69b"  width = "300"  />               |
 
-<a name="14"></a>
 
 ### 交通
 
@@ -61,7 +56,6 @@ PaddleOCR场景应用覆盖通用，制造、金融、交通行业的主要OCR�
 | 驾驶证/行驶证识别 | 尽请期待                       |                |                                     |                                                                                                                                                             |
 | 快递单识别        | 尽请期待                       |                |                                     |                                                                                                                                                             |
 
-<a name="2"></a>
 
 ## 模型下载
 

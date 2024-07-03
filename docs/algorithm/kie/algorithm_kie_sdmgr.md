@@ -16,7 +16,6 @@
 - [引用](#引用)
 
 
-<a name="1"></a>
 
 ## 1. 算法简介
 
@@ -36,13 +35,11 @@
 |SDMGR|VGG6|[configs/kie/sdmgr/kie_unet_sdmgr.yml](../../configs/kie/sdmgr/kie_unet_sdmgr.yml)|86.70%|[训练模型]( https://paddleocr.bj.bcebos.com/dygraph_v2.1/kie/kie_vgg16.tar)/[推理模型(coming soon)]()|
 
 
-<a name="2"></a>
 
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 
 ## 3. 模型训练、评估、预测
 
@@ -102,30 +99,24 @@ python3 tools/infer_kie.py -c configs/kie/kie_unet_sdmgr.yml -o Global.checkpoin
     <img src="../../ppstructure/docs/imgs/sdmgr_result.png" width="800">
 </div>
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 
 暂不支持
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 暂不支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 
 ## 5. FAQ
 

@@ -14,7 +14,6 @@
 - [5. FAQ](#5)
 - [6. 发行公告](#6)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -23,22 +22,18 @@
 > ICDAR, 2019
 
 
-<a name="model"></a>
 `NRTR`使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法复现效果如下：
 
 |模型|骨干网络|配置文件|Acc|下载链接|
 | --- | --- | --- | --- | --- |
 |NRTR|MTB|[rec_mtb_nrtr.yml](../../configs/rec/rec_mtb_nrtr.yml)|84.21%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)|
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
-<a name="3-1"></a>
 ### 3.1 模型训练
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`NRTR`识别模型时需要**更换配置文件**为`NRTR`的[配置文件](../../configs/rec/rec_mtb_nrtr.yml)。
@@ -55,7 +50,6 @@ python3 tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 ```
 
-<a name="3-2"></a>
 ### 3.2 评估
 
 可下载已训练完成的[模型文件](#model)，使用如下命令进行评估：
@@ -65,7 +59,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrained_model=./rec_mtb_nrtr_train/best_accuracy
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
@@ -76,10 +69,8 @@ python3 tools/infer_rec.py -c configs/rec/rec_mtb_nrtr.yml -o Global.infer_img='
 ```
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar) )，可以使用如下命令进行转换：
 
@@ -121,27 +112,22 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9465042352676392)
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中NRTR的预处理为您的预处理方法。
 
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 由于C++预处理后处理还未支持NRTR，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 1. `NRTR`论文中使用Beam搜索进行解码字符，但是速度较慢，这里默认未使用Beam搜索，以贪婪搜索进行解码字符。
 
-<a name="6"></a>
 ## 6. 发行公告
 
 1. release/2.6更新NRTR代码结构，新版NRTR可加载旧版(release/2.5及之前)模型参数，使用下面示例代码将旧版模型参数转换为新版模型参数：

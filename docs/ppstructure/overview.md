@@ -11,7 +11,6 @@
     - [4. 快速体验](#4-快速体验)
     - [5. 模型库](#5-模型库)
 
-<a name="1"></a>
 ## 1. 简介
 
 PP-Structure是PaddleOCR团队自研的智能文档分析系统，旨在帮助开发者更好的完成版面分析、表格识别等文档理解相关任务。
@@ -31,7 +30,6 @@ PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独
 - [关键信息抽取](kie/README_ch.md)
 - [版面复原](recovery/README_ch.md)
 
-<a name="2"></a>
 ## 2. 特性
 
 PP-StructureV2的主要特性如下：
@@ -43,11 +41,9 @@ PP-StructureV2的主要特性如下：
 - 支持自定义训练及python whl包调用等多种推理部署方式，简单易用；
 - 与半自动数据标注工具PPOCRLabel打通，支持版面分析、表格识别、SER三种任务的标注。
 
-<a name="3"></a>
 ## 3. 效果展示
 PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独使用版面分析，或单独使用表格识别，这里仅展示几种代表性使用方式的可视化效果。
 
-<a name="31"></a>
 ### 3.1 版面分析和表格识别
 下图展示了版面分析+表格识别的整体流程，图片先有版面分析划分为图像、文本、标题和表格四种区域，然后对图像、文本和标题三种区域进行OCR的检测识别，对表格进行表格识别，其中图像还会被存储下来以便使用。
 <img src="./docs/table/ppstructure.GIF" width="100%"/>
@@ -57,12 +53,10 @@ PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独
 ![show_0_mdf_v2](https://github.com/PaddlePaddle/PaddleOCR/assets/43341135/799450d4-d2c5-4b61-b490-e160dc0f515c)
 
 
-<a name="32"></a>
 ### 3.2 版面恢复
 下图展示了基于上一节版面分析和表格识别的结果进行版面恢复的效果。
 <img src="./docs/recovery/recovery.jpg" width="100%"/>
 
-<a name="33"></a>
 ### 3.3 关键信息抽取
 
 * SER
@@ -109,12 +103,10 @@ PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独
     <img src="https://user-images.githubusercontent.com/25809855/186095641-5843b4da-34d7-4c1c-943a-b1036a859fe3.png" width="600">
 </div>
 
-<a name="4"></a>
 ## 4. 快速体验
 
 请参考[快速使用](./docs/quickstart.md)教程。
 
-<a name="5"></a>
 ## 5. 模型库
 
 部分任务需要同时用到结构化分析模型和OCR模型，如表格识别需要使用表格识别模型进行结构化解析，同时也要用到OCR模型对表格内的文字进行识别，请根据具体需求选择合适的模型。

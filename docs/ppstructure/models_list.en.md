@@ -6,7 +6,6 @@
   - [2.2 Table Recognition](#22-table-recognition)
 - [3. KIE](#3-kie)
 
-<a name="1"></a>
 
 ## 1. Layout Analysis
 
@@ -19,10 +18,8 @@
 | ppyolov2_r50vd_dcn_365e_tableBank_word | The layout analysis model trained on the TableBank Word dataset based on PP-YOLOv2, the model can detect  tables  in English documents | 221.0M | [inference model](https://paddle-model-ecology.bj.bcebos.com/model/layout-parser/ppyolov2_r50vd_dcn_365e_tableBank_word.tar) | same as above |
 | ppyolov2_r50vd_dcn_365e_tableBank_latex | The layout analysis model trained on the TableBank Latex dataset based on PP-YOLOv2, the model can detect  tables  in English documents | 221.0M                 | [inference model](https://paddle-model-ecology.bj.bcebos.com/model/layout-parser/ppyolov2_r50vd_dcn_365e_tableBank_latex.tar) | same as above |
 
-<a name="2"></a>
 ## 2. OCR and Table Recognition
 
-<a name="21"></a>
 ### 2.1 OCR
 
 |model name| description | inference model size |download|
@@ -32,7 +29,6 @@
 
 If you need to use other OCR models, you can download the model in [PP-OCR model_list](../../doc/doc_ch/models_list.md) or use the model you trained yourself to configure to `det_model_dir`, `rec_model_dir` field.
 
-<a name="22"></a>
 ### 2.2 Table Recognition
 
 |model| description                                                                 |inference model size|download|
@@ -41,7 +37,6 @@ If you need to use other OCR models, you can download the model in [PP-OCR model
 |en_ppstructure_mobile_v2.0_SLANet|English table recognition model trained on PubTabNet dataset based on SLANet|9.2M|[inference model](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/en_ppstructure_mobile_v2.0_SLANet_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/en_ppstructure_mobile_v2.0_SLANet_train.tar) |
 |ch_ppstructure_mobile_v2.0_SLANet|Chinese table recognition model based on SLANet|9.3M|[inference model](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_train.tar) |
 
-<a name="3"></a>
 ## 3. KIE
 
 On XFUND_zh dataset, Accuracy and time cost of different models on V100 GPU are as follows.

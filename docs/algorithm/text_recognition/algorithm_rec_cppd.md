@@ -12,7 +12,6 @@
     - [4.3 Serving服务化部署](#4-3)
     - [4.4 更多推理部署](#4-4)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -25,7 +24,6 @@
 基于深度学习的场景文本识别模型通常是Encoder-Decoder结构，其中decoder可以分为两种：(1)CTC，(2)Attention-based。目前SOTA模型大多使用Attention-based的decoder，而attention-based可以分为AR和PD两种，一般来说，AR解码器识别精度优于PD，而PD解码速度快于AR，CPPD通过精心设计的CO和CC模块，达到了“AR的精度，PD的速度”的效果。
 
 
-<a name="model"></a>
 CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
 
 * 英文训练集和测试集来自于[PARSeq](https://github.com/baudm/parseq)。
@@ -72,15 +70,12 @@ CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
 | CPPD Base  | 74.4  | 76.1 |   98.6   | 55.3  | 76.10 | [中文](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_ch_train.tar)  |
 | CPPD Base + STN | 78.4  | 79.3 |   98.9   | 57.6  | 78.55 | [中文](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_stn_ch_train.tar) |
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
-<a name="3-1"></a>
 ### 3.1 模型训练
 
 #### 数据集准备
@@ -104,7 +99,6 @@ python3 tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 ```
 
-<a name="3-2"></a>
 ### 3.2 评估
 
 可下载`CPPD`提供的模型文件和配置文件：[下载地址](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ，以`CPPD-B`为例，使用如下命令进行评估：
@@ -116,7 +110,6 @@ wget https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar && tar
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
@@ -127,10 +120,8 @@ python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_bas
 ```
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。下面以基于`CPPD-B`，在英文数据集训练的模型为例（[模型和配置文件下载地址](https://paddleocr.bj.bcebos.com/CPPD/rec_svtr_cppd_base_en_train.tar)，可以使用如下命令进行转换：
 
@@ -168,17 +159,14 @@ python3 tools/infer/predict_rec.py --image_dir='../iiik' --rec_model_dir='./rec_
 
 
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 由于C++预处理后处理还未支持CPPD，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持

@@ -27,7 +27,6 @@
   - [3. Summary](#3-summary)
 
 
-<a name="1"></a>
 ## 1. Environment Preparation
 ### 1.1 Install PaddlePaddle
 
@@ -57,44 +56,36 @@ pip3 install "paddleocr>=2.6.0.3"
 pip3 install paddleclas>=2.4.3
 ```
 
-<a name="2"></a>
 
 ## 2. Quick Use
 
-<a name="21"></a>
 ### 2.1 Use by command line
 
-<a name="211"></a>
 #### 2.1.1 image orientation + layout analysis + table recognition
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --image_orientation=true
 ```
 
-<a name="212"></a>
 #### 2.1.2 layout analysis + table recognition
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure
 ```
 
-<a name="213"></a>
 #### 2.1.3 layout analysis
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --table=false --ocr=false
 ```
 
-<a name="214"></a>
 #### 2.1.4 table recognition
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout=false
 ```
 
-<a name="215"></a>
 
 #### 2.1.5 Key Information Extraction
 
 Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [inference document](./inference_en.md).
 
-<a name="216"></a>
 #### 2.1.6 layout recovery(PDF to Word)
 
 Two layout recovery methods are provided, For detailed usage tutorials, please refer to: [Layout Recovery](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/recovery/README.md).
@@ -114,10 +105,8 @@ Recovery by using OCR：
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --recovery=true --lang='en'
 ```
 
-<a name="22"></a>
 ### 2.2 Use by python script
 
-<a name="221"></a>
 #### 2.2.1 image orientation + layout analysis + table recognition
 
 ```python
@@ -146,7 +135,6 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
-<a name="222"></a>
 #### 2.2.2 layout analysis + table recognition
 
 ```python
@@ -175,7 +163,6 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
-<a name="223"></a>
 #### 2.2.3 layout analysis
 
 ```python
@@ -252,7 +239,6 @@ for index, img in enumerate(imgs):
         print(line)
 ```
 
-<a name="224"></a>
 #### 2.2.4 table recognition
 
 ```python
@@ -273,12 +259,10 @@ for line in result:
     print(line)
 ```
 
-<a name="225"></a>
 #### 2.2.5 Key Information Extraction
 
 Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [Key Information Extraction](../kie/README.md).
 
-<a name="226"></a>
 #### 2.2.6 layout recovery
 
 ```python
@@ -307,12 +291,10 @@ res = sorted_layout_boxes(result, w)
 convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0])
 ```
 
-<a name="23"></a>
 ### 2.3 Result description
 
 The return of PP-Structure is a list of dicts, the example is as follows:
 
-<a name="231"></a>
 #### 2.3.1 layout analysis + table recognition
 ```shell
 [
@@ -340,12 +322,10 @@ After the recognition is completed, each image will have a directory with the sa
     └─ [17, 361, 404, 711].xlsx        table recognition result
   ```
 
-<a name="232"></a>
 #### 2.3.2 Key Information Extraction
 
 Please refer to: [Key Information Extraction](../kie/README.md) .
 
-<a name="24"></a>
 ### 2.4 Parameter Description
 
 | field | description | default |
@@ -373,7 +353,6 @@ Please refer to: [Key Information Extraction](../kie/README.md) .
 
 Most of the parameters are consistent with the PaddleOCR whl package, see [whl package documentation](../../doc/doc_en/whl_en.md)
 
-<a name="3"></a>
 ## 3. Summary
 
 Through the content in this section, you can master the use of PP-Structure related functions through PaddleOCR whl package. Please refer to [documentation tutorial](../../README.md) for more detailed usage tutorials including model training, inference and deployment, etc.

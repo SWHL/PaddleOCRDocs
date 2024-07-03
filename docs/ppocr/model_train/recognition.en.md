@@ -22,7 +22,6 @@
 - [4. Inference](#4-inference)
 - [5. FAQ](#5-faq)
 
-<a name="DATA_PREPARATION"></a>
 ## 1. Data Preparation
 
 ### 1.1 DataSet Preparation
@@ -58,7 +57,6 @@ The multi-language model training method is the same as the Chinese model. The t
 * [Google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
 
 
-<a name="Dictionary"></a>
 ### 1.2 Dictionary
 
 Finally, a dictionary ({word_dict_name}.txt) needs to be provided so that when the model is trained, all the characters that appear can be mapped to the dictionary index.
@@ -103,12 +101,10 @@ To customize the dict file, please modify the `character_dict_path` field in `co
 
 If you need to customize dic file, please add character_dict_path field in configs/rec/rec_icdar15_train.yml to point to your dictionary path. And set character_type to ch.
 
-<a name="Add_space_category"></a>
 ### 1.4 Add Space Category
 
 If you want to support the recognition of the `space` category, please set the `use_space_char` field in the yml file to `True`.
 
-<a name="Data_Augmentation"></a>
 ### 1.5 Data Augmentation
 
 PaddleOCR provides a variety of data augmentation methods. All the augmentation methods are enabled by default.
@@ -117,12 +113,10 @@ The default perturbation methods are: cvtColor, blur, jitter, Gasuss noise, rand
 
 Each disturbance method is selected with a 40% probability during the training process. For specific code implementation, please refer to: [rec_img_aug.py](../../ppocr/data/imaug/rec_img_aug.py)
 
-<a name="TRAINING"></a>
 ## 2.Training
 
 PaddleOCR provides training scripts, evaluation scripts, and prediction scripts. In this section, the CRNN recognition model will be used as an example:
 
-<a name="21-start-training"></a>
 ### 2.1 Start Training
 
 First download the pretrain model, you can download the trained model to finetune on the icdar2015 data:
@@ -223,7 +217,6 @@ Eval:
 ```
 **Note that the configuration file for prediction/evaluation must be consistent with the training.**
 
-<a name="22-load-trained-model-and-continue-training"></a>
 ### 2.2 Load Trained Model and Continue Training
 
 If you expect to load trained model and continue the training again, you can specify the parameter `Global.checkpoints` as the model path to be loaded.
@@ -235,7 +228,6 @@ python3 tools/train.py -c configs/rec/rec_icdar15_train.yml -o Global.checkpoint
 
 **Note**: The priority of `Global.checkpoints` is higher than that of `Global.pretrained_model`, that is, when two parameters are specified at the same time, the model specified by `Global.checkpoints` will be loaded first. If the model path specified by `Global.checkpoints` is wrong, the one specified by `Global.pretrained_model` will be loaded.
 
-<a name="23-training-with-new-backbone"></a>
 ### 2.3 Training with New Backbone
 
 The network part completes the construction of the network, and PaddleOCR divides the network into four parts, which are under [ppocr/modeling](../../ppocr/modeling). The data entering the network will pass through these four parts in sequence(transforms->backbones->
@@ -286,7 +278,6 @@ After adding the four-part modules of the network, you only need to configure th
 
 **NOTE**: More details about replace Backbone and other mudule can be found in [doc](add_new_algorithm_en.md).
 
-<a name="24-amp-training"></a>
 ### 2.4 Mixed Precision Training
 
 If you want to speed up your training further, you can use [Auto Mixed Precision Training](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_cn.html), taking a single machine and a single gpu as an example, the commands are as follows:
@@ -297,7 +288,6 @@ python3 tools/train.py -c configs/rec/rec_icdar15_train.yml \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
  ```
 
-<a name="25-distributed-training"></a>
 ### 2.5 Distributed Training
 
 During multi-machine multi-gpu training, use the `--ips` parameter to set the used machine IP address, and the `--gpus` parameter to set the used GPU ID:
@@ -309,12 +299,10 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
 
 **Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](./distributed_training_en.md).
 
-<a name="kd"></a>
 ### 2.6 Training with Knowledge Distillation
 
 Knowledge distillation is supported in PaddleOCR for text recognition training process. For more details, please refer to [doc](./knowledge_distillation_en.md).
 
-<a name="Multi_language"></a>
 ### 2.7 Multi-language Training
 
 Currently, the multi-language algorithms supported by PaddleOCR are:
@@ -371,7 +359,6 @@ Eval:
     ...
 ```
 
-<a name="28"></a>
 ### 2.8 Training on other platform(Windows/macOS/Linux DCU)
 
 - Windows GPU/CPU
@@ -385,15 +372,12 @@ GPU mode is not supported, you need to set `use_gpu` to False in the configurati
 - Linux DCU
 Running on a DCU device requires setting the environment variable `export HIP_VISIBLE_DEVICES=0,1,2,3`, and the rest of the training and evaluation prediction commands are exactly the same as the Linux GPU.
 
-<a name="29"></a>
 ## 2.9 Fine-tuning
 
 In actual use, it is recommended to load the official pre-trained model and fine-tune it in your own data set. For the fine-tuning method of the recognition model, please refer to: [Model Fine-tuning Tutorial](./finetune_en.md).
 
-<a name="3-evaluation-and-test"></a>
 ## 3. Evaluation and Test
 
-<a name="31-evaluation"></a>
 ### 3.1 Evaluation
 
 The model parameters during training are saved in the `Global.save_model_dir` directory by default. When evaluating indicators, you need to set `Global.checkpoints` to point to the saved parameter file. The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml` file.
@@ -404,7 +388,6 @@ The model parameters during training are saved in the `Global.save_model_dir` di
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints={path/to/weights}/best_accuracy
 ```
 
-<a name="32-test"></a>
 ### 3.2 Test
 
 
@@ -467,7 +450,6 @@ infer_img: doc/imgs_words/ch/word_1.jpg
         result: ('韩国小馆', 0.997218)
 ```
 
-<a name="4-inference"></a>
 ## 4. Inference
 
 The inference model (the model saved by `paddle.jit.save`) is generally a solidified model saved after the model training is completed, and is mostly used to give prediction in deployment.
@@ -507,7 +489,6 @@ inference/en_PP-OCRv3_rec/
   python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./your inference model" --rec_image_shape="3, 32, 100" --rec_char_dict_path="your text dict path"
   ```
 
-<a name="5-faq"></a>
 ## 5. FAQ
 
 Q1: After the training model is transferred to the inference model, the prediction effect is inconsistent?

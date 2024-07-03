@@ -17,11 +17,9 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 新增算法可参考教程：[使用PaddleOCR架构添加新算法](./add_new_algorithm.md)
 
 
-<a name="1"></a>
 
 ## 1. 两阶段算法
 
-<a name="11"></a>
 
 ### 1.1 文本检测算法
 
@@ -66,7 +64,6 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 * [Google Drive下载地址](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
 
-<a name="12"></a>
 
 ### 1.2 文本识别算法
 
@@ -117,7 +114,6 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |CPPD|SVTR-Base| 93.8% | rec_svtrnet_cppd_base_en | [训练模型](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) |
 |SATRN|ShallowCNN| 88.05% | rec_satrn | [训练模型](https://pan.baidu.com/s/10J-Bsd881bimKaclKszlaQ?pwd=lk8a) |
 
-<a name="13"></a>
 
 ### 1.3 文本超分辨率算法
 已支持的文本超分辨率算法列表（戳链接获取使用教程）：
@@ -131,7 +127,6 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |Text Gestalt|tsrn|19.28|0.6560| [configs/sr/sr_tsrn_transformer_strock.yml](../../configs/sr/sr_tsrn_transformer_strock.yml)|[训练模型](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar)|
 |Text Telescope|tbsrn|21.56|0.7411| [configs/sr/sr_telescope.yml](../../configs/sr/sr_telescope.yml)|[训练模型](https://paddleocr.bj.bcebos.com/contribution/sr_telescope_train.tar)|
 
-<a name="14"></a>
 
 ### 1.4 公式识别算法
 
@@ -144,14 +139,12 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 | ----- | ----- | ----- | ----- | ----- |
 |CAN|DenseNet|[rec_d28_can.yml](../../configs/rec/rec_d28_can.yml)|51.72%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)|
 
-<a name="2"></a>
 
 ## 2. 端到端算法
 
 已支持的端到端OCR算法列表（戳链接获取使用教程）：
 - [x]  [PGNet](./algorithm_e2e_pgnet.md)
 
-<a name="3"></a>
 
 ## 3. 表格识别算法
 

@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper:
@@ -27,22 +26,18 @@ On the CTW1500 dataset, the text detection result is as follows:
 | --- | --- | --- | --- | --- | --- | --- |
 | FCE | ResNet50_dcn | [configs/det/det_r50_vd_dcn_fce_ctw.yml](../../configs/det/det_r50_vd_dcn_fce_ctw.yml)| 88.39%|82.18%|85.27%|[trained model](https://paddleocr.bj.bcebos.com/contribution/det_r50_dcn_fce_ctw_v2.0_train.tar)|
 
-<a name="2"></a>
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 The above FCE model is trained using the CTW1500 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).
 
 After the data download is complete, please refer to [Text Detection Training Tutorial](./detection_en.md) for training. PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
-<a name="4"></a>
 ## 4. Inference and Deployment
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, convert the model saved in the FCE text detection training process into an inference model. Taking the model based on the Resnet50_vd_dcn backbone network and trained on the CTW1500 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/contribution/det_r50_dcn_fce_ctw_v2.0_train.tar)), you can use the following command to convert:
 
@@ -73,22 +68,18 @@ The visualized text detection results are saved to the `./inference_results` fol
 **Note**: Since the CTW1500 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese or curved text images.
 
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 Since the post-processing is not written in CPP, the FCE text detection model does not support CPP inference.
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 Not supported
 
-<a name="4-4"></a>
 ### 4.4 More
 
 Not supported
 
-<a name="5"></a>
 ## 5. FAQ
 
 

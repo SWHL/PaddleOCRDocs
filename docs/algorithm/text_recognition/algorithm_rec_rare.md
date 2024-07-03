@@ -13,7 +13,6 @@
     - [4.4 更多推理部署](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -29,16 +28,13 @@
 |RARE|MobileNetV3|[configs/rec/rec_mv3_tps_bilstm_att.yml](../../configs/rec/rec_mv3_tps_bilstm_att.yml)|82.50%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_att_v2.0_train.tar)|
 
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。以基于Resnet34_vd骨干网络为例:
 
-<a name="3-1"></a>
 ### 3.1 训练
 
 ```
@@ -48,7 +44,6 @@ python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
 ```
 
-<a name="3-2"></a>
 ### 3.2 评估
 
 ```
@@ -56,17 +51,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 ```
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将RARE文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，在MJSynth和SynthText两个文字识别数据集训练得到的模型为例（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_att_v2.0_train.tar) )，可以使用如下命令进行转换：
 
@@ -88,24 +80,20 @@ Predicts of doc/imgs_words/en/word_1.png:('joint ', 0.9999969601631165)
 ```
 
 
-<a name="4-2"></a>
 ### 4.2 C++推理
 
 暂不支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 RARE模型还支持以下推理部署方式：
 
 - Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../deploy/paddle2onnx/)教程操作。
 
-<a name="5"></a>
 ## 5. FAQ
 
 

@@ -25,7 +25,6 @@
         - [2.4 参数说明](#24-参数说明)
     - [3. 小结](#3-小结)
 
-<a name="1"></a>
 ## 1. 准备环境
 ### 1.1 安装PaddlePaddle
 > 如果您没有基础的Python运行环境，请参考[运行环境准备](../../doc/doc_ch/environment.md)。
@@ -54,43 +53,35 @@ pip3 install "paddleocr>=2.6.0.3"
 pip3 install paddleclas>=2.4.3
 ```
 
-<a name="2"></a>
 
 ## 2. 便捷使用
 
-<a name="21"></a>
 ### 2.1 命令行使用
 
-<a name="211"></a>
 #### 2.1.1 图像方向分类+版面分析+表格识别
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --image_orientation=true
 ```
 
-<a name="212"></a>
 #### 2.1.2 版面分析+表格识别
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure
 ```
 
-<a name="213"></a>
 #### 2.1.3 版面分析
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --table=false --ocr=false
 ```
 
-<a name="214"></a>
 #### 2.1.4 表格识别
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout=false
 ```
 
-<a name="215"></a>
 
 #### 2.1.5 关键信息抽取
 关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[关键信息抽取教程](../kie/README_ch.md)。
 
-<a name="216"></a>
 
 #### 2.1.6 版面恢复
 
@@ -129,11 +120,9 @@ paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --recovery=t
 paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --recovery=true --lang='en'
 ```
 
-<a name="22"></a>
 
 ### 2.2 Python脚本使用
 
-<a name="221"></a>
 #### 2.2.1 图像方向分类+版面分析+表格识别
 
 ```python
@@ -162,7 +151,6 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
-<a name="222"></a>
 #### 2.2.2 版面分析+表格识别
 
 ```python
@@ -191,7 +179,6 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
-<a name="223"></a>
 #### 2.2.3 版面分析
 
 ```python
@@ -268,7 +255,6 @@ for index, img in enumerate(imgs):
         print(line)
 ```
 
-<a name="224"></a>
 
 #### 2.2.4 表格识别
 
@@ -290,12 +276,10 @@ for line in result:
     print(line)
 ```
 
-<a name="225"></a>
 #### 2.2.5 关键信息抽取
 
 关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[inference文档](./inference.md)。
 
-<a name="226"></a>
 
 #### 2.2.6 版面恢复
 
@@ -325,11 +309,9 @@ res = sorted_layout_boxes(result, w)
 convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0])
 ```
 
-<a name="23"></a>
 ### 2.3 返回结果说明
 PP-Structure的返回结果为一个dict组成的list，示例如下：
 
-<a name="231"></a>
 #### 2.3.1 版面分析+表格识别
 ```shell
 [
@@ -358,12 +340,10 @@ dict 里各个字段说明如下：
     └─ [17, 361, 404, 711].xlsx        表格识别结果
   ```
 
-<a name="232"></a>
 #### 2.3.2 关键信息抽取
 
 请参考：[关键信息抽取教程](../kie/README_ch.md)。
 
-<a name="24"></a>
 ### 2.4 参数说明
 
 | 字段                    | 说明                                                                          | 默认值                                        |
@@ -391,7 +371,6 @@ dict 里各个字段说明如下：
 
 大部分参数和PaddleOCR whl包保持一致，见 [whl包文档](../../doc/doc_ch/whl.md)
 
-<a name="3"></a>
 ## 3. 小结
 
 通过本节内容，相信您已经熟练掌握通过PaddleOCR whl包调用PP-Structure相关功能的使用方法，您可以参考[文档教程](../../README_ch.md#文档教程)，获取包括模型训练、推理部署等更详细的使用教程。

@@ -13,7 +13,6 @@
     - [4.4 更多推理部署](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. 算法简介
 
 论文信息：
@@ -31,7 +30,6 @@
 3. SVTR引入了局部和全局Mixing，分别用于提取字符组件特征和字符间依赖关系，与多尺度的特征一起，形成多粒度特征描述。
 
 
-<a name="model"></a>
 SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 
 * 中文数据集来自于[Chinese Benckmark](https://arxiv.org/abs/2112.15093) ，SVTR的中文训练评估策略遵循该论文。
@@ -45,15 +43,12 @@ SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 
 
 
-<a name="2"></a>
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 ## 3. 模型训练、评估、预测
 
-<a name="3-1"></a>
 ### 3.1 模型训练
 
 #### 数据集准备
@@ -74,7 +69,6 @@ python3 tools/train.py -c configs/rec/rec_svtrnet.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_svtrnet.yml
 ```
 
-<a name="3-2"></a>
 ### 3.2 评估
 
 可下载`SVTR`提供的模型文件和配置文件：[下载地址](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) ，以`SVTR-T`为例，使用如下命令进行评估：
@@ -86,7 +80,6 @@ wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy
 ```
 
-<a name="3-3"></a>
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
@@ -97,10 +90,8 @@ python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6l
 ```
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。下面以`SVTR-T`在英文数据集训练的模型为例（[模型和配置文件下载地址](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) )，可以使用如下命令进行转换：
 
@@ -141,22 +132,18 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中SVTR的预处理为您的预处理方法。
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 由于C++预处理后处理还未支持SVTR，所以暂未支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 ## 5. FAQ
 
 - 1. GPU和CPU速度对比

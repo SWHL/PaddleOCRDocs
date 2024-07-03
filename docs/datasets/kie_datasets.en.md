@@ -6,7 +6,6 @@ Here are the common datasets key information extraction, which are being updated
 - [XFUND dataset](#xfund)
 - [wildreceipt dataset](#wildreceipt-dataset)
 
-<a name="funsd"></a>
 #### 1. FUNSD dataset
 - **Data source**: https://guillaumejaume.github.io/FUNSD/
 - **Data Introduction**: The FUNSD dataset is a dataset for form comprehension. It contains 199 real, fully annotated scanned images, including market reports, advertisements, and academic reports, etc., and is divided into 149 training set and 50 test set. The FUNSD dataset is suitable for many types of DocVQA tasks, such as field-level entity classification, field-level entity connection, etc. Part of the image and the annotation box visualization are shown below:
@@ -18,7 +17,6 @@ Here are the common datasets key information extraction, which are being updated
 
 - **Download address**: https://guillaumejaume.github.io/FUNSD/download/
 
-<a name="xfund"></a>
 #### 2. XFUND dataset
 - **Data source**: https://github.com/doc-analysis/XFUND
 - **Data introduction**: XFUND is a multilingual form comprehension dataset, which contains form data in 7 different languages, and all are manually annotated in the form of key-value pairs. The data for each language contains 199 form data, which are divided into 149 training sets and 50 test sets. Part of the image and the annotation box visualization are shown below.
@@ -30,7 +28,6 @@ Here are the common datasets key information extraction, which are being updated
 
 - **Download address**: https://github.com/doc-analysis/XFUND/releases/tag/v1.0
 
-<a name="wildreceipt"></a>
 
 ## 3. wildreceipt dataset
 

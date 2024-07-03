@@ -12,7 +12,6 @@
 - [引用](#引用)
 
 
-<a name="1"></a>
 
 ## 1. 算法简介
 
@@ -32,23 +31,19 @@
 |LayoutXLM|LayoutXLM-base|SER |[ser_layoutxlm_xfund_zh.yml](../../configs/kie/layoutlm_series/ser_layoutxlm_xfund_zh.yml)|90.38%|[训练模型](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar)/[推理模型](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh_infer.tar)|
 |LayoutXLM|LayoutXLM-base|RE | [re_layoutxlm_xfund_zh.yml](../../configs/kie/layoutlm_series/re_layoutxlm_xfund_zh.yml)|74.83%|[训练模型](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh.tar)/[推理模型](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh_infer.tar)|
 
-<a name="2"></a>
 
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
-<a name="3"></a>
 
 ## 3. 模型训练、评估、预测
 
 请参考[关键信息抽取教程](./kie.md)。PaddleOCR对代码进行了模块化，训练不同的关键信息抽取模型只需要**更换配置文件**即可。
 
 
-<a name="4"></a>
 ## 4. 推理部署
 
-<a name="4-1"></a>
 
 ### 4.1 Python推理
 
@@ -109,22 +104,18 @@ RE可视化结果默认保存到`./output`文件夹里面，结果示例如下�
     <img src="../../ppstructure/docs/kie/result_re/zh_val_42_re.jpg" width="800">
 </div>
 
-<a name="4-2"></a>
 ### 4.2 C++推理部署
 
 暂不支持
 
-<a name="4-3"></a>
 ### 4.3 Serving服务化部署
 
 暂不支持
 
-<a name="4-4"></a>
 ### 4.4 更多推理部署
 
 暂不支持
 
-<a name="5"></a>
 
 ## 5. FAQ
 

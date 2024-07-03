@@ -13,7 +13,6 @@
     - [4.4 More](#4-4)
 - [5. FAQ](#5)
 
-<a name="1"></a>
 ## 1. Introduction
 
 Paper information:
@@ -29,16 +28,13 @@ Refer to [DTRB](https://arxiv.org/abs/1904.01906) text Recognition Training and 
 |StarNet|MobileNetV3|81.42%|[configs/rec/rec_mv3_tps_bilstm_ctc.yml](../../configs/rec/rec_mv3_tps_bilstm_ctc.yml)|[ trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_ctc_v2.0_train.tar)|
 
 
-<a name="2"></a>
 ## 2. Environment
 Please refer to [Operating Environment Preparation](./environment_en.md) to configure the PaddleOCR operating environment, and refer to [Project Clone](./clone_en.md) to clone the project code.
 
-<a name="3"></a>
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Training Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**. Take the backbone network based on Resnet34_vd as an example:
 
-<a name="3-1"></a>
 ### 3.1 Training
 After the data preparation is complete, the training can be started. The training command is as follows:
 
@@ -48,7 +44,6 @@ python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml #Multi-card 
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34_vd_tps_bilstm_ctc.yml
  ````
 
-<a name="3-2"></a>
 ### 3.2 Evaluation
 
 ````
@@ -56,7 +51,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
  ````
 
-<a name="3-3"></a>
 ### 3.3 Prediction
 
 ````
@@ -64,10 +58,8 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
  ````
 
-<a name="4"></a>
 ## 4. Inference
 
-<a name="4-1"></a>
 ### 4.1 Python Inference
 First, convert the model saved during the STAR-Net text recognition training process into an inference model. Take the model trained on the MJSynth and SynthText text recognition datasets based on the Resnet34_vd backbone network as an example [Model download address]( https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_bilstm_ctc_v2.0_train.tar) , which can be converted using the following command:
 
@@ -103,24 +95,20 @@ dict_character = list(self.character_str)
 
  ```
 
-<a name="4-2"></a>
 ### 4.2 C++ Inference
 
 After preparing the inference model, refer to the [cpp infer](../../deploy/cpp_infer/) tutorial to operate.
 
-<a name="4-3"></a>
 ### 4.3 Serving
 
 After preparing the inference model, refer to the [pdserving](../../deploy/pdserving/) tutorial for Serving deployment, including two modes: Python Serving and C++ Serving.
 
-<a name="4-4"></a>
 ### 4.4 More
 
 The STAR-Net model also supports the following inference deployment methods:
 
 - Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
 
-<a name="5"></a>
 ## 5. FAQ
 
 ## Quote

@@ -16,7 +16,6 @@ This article will introduce the basic concepts that is necessary for model train
 
 At the same time, it will briefly introduce the structure of the training data and how to prepare the data to fine-tune model in vertical scenes.
 
-<a name="1-Yml-Configuration"></a>
 
 ## 1. Yml Configuration
 
@@ -24,13 +23,11 @@ The PaddleOCR uses configuration files to control network training and evaluatio
 
 For the complete configuration file description, please refer to [Configuration File](./config_en.md)
 
-<a name="1-basic-concepts"></a>
 
 ## 2. Basic Concepts
 
 During the model training process, some hyper-parameters can be manually specified to obtain the optimal result at the least cost. Different data volumes may require different hyper-parameters. When you want to fine-tune the model based on your own data, there are several parameter adjustment strategies for reference:
 
-<a name="11-learning-rate"></a>
 ### 2.1 Learning Rate
 
 The learning rate is one of the most important hyper-parameters for training neural networks. It represents the step length of the gradient moving towards the optimal solution of the loss function in each iteration.
@@ -50,7 +47,6 @@ Optimizer:
 
 `warmup_epoch` means that in the first 5 epochs, the learning rate will be increased gradually from 0 to base_lr. For all strategies, please refer to the code [learning_rate.py](../../ppocr/optimizer/learning_rate.py).
 
-<a name="12-regularization"></a>
 ### 2.2 Regularization
 
 Regularization can effectively avoid algorithm over-fitting. PaddleOCR provides L1 and L2 regularization methods.
@@ -66,7 +62,6 @@ Optimizer:
     name: L2
     factor: 2.0e-05
 ```
-<a name="13-evaluation-indicators-"></a>
 ### 2.3 Evaluation Indicators
 
 (1) Detection stage: First, evaluate according to the IOU of the detection frame and the labeled frame. If the IOU is greater than a certain threshold, it is judged that the detection is accurate. Here, the detection frame and the label frame are different from the general general target detection frame, and they are represented by polygons. Detection accuracy: the percentage of the correct detection frame number in all detection frames is mainly used to judge the detection index. Detection recall rate: the percentage of correct detection frames in all marked frames, which is mainly an indicator of missed detection.
@@ -75,11 +70,9 @@ Optimizer:
 
 (3) End-to-end statistics: End-to-end recall rate: accurately detect and correctly identify the proportion of text lines in all labeled text lines; End-to-end accuracy rate: accurately detect and correctly identify the number of text lines in the detected text lines The standard for accurate detection is that the IOU of the detection box and the labeled box is greater than a certain threshold, and the text in the correctly identified detection box is the same as the labeled text.
 
-<a name="2-data-and-vertical-scenes"></a>
 
 ## 3. Data and Vertical Scenes
 
-<a name="21-training-data"></a>
 
 ### 3.1 Training Data
 
@@ -96,14 +89,12 @@ The current open source models, data sets and magnitudes are as follows:
 
 Among them, the public data sets are all open source, users can search and download by themselves, or refer to [Chinese data set](dataset/datasets_en.md), synthetic data is not open source, users can use open source synthesis tools to synthesize by themselves. Synthesis tools include [text_renderer](https://github.com/Sanster/text_renderer), [SynthText](https://github.com/ankush-me/SynthText), [TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator) etc.
 
-<a name="22-vertical-scene"></a>
 
 ### 3.2 Vertical Scene
 
 PaddleOCR mainly focuses on general OCR. If you have vertical requirements, you can use PaddleOCR + vertical data to train yourself;
 If there is a lack of labeled data, or if you do not want to invest in research and development costs, it is recommended to directly call the open API, which covers some of the more common vertical categories.
 
-<a name="23-build-your-own-data-set"></a>
 
 ### 3.3 Build Your Own Dataset
 
@@ -121,7 +112,6 @@ There are several experiences for reference when constructing the data set:
     b. Basic image processing or transformation based on PIL and opencv. For example, the three modules of ImageFont, Image, ImageDraw in PIL write text into the background, opencv's rotating affine transformation, Gaussian filtering and so on.
     c. Use data generation algorithms to synthesize data, such as algorithms such as pix2pix.
 
-<a name="3-faq"></a>
 
 ## 4. FAQ
 

@@ -7,7 +7,6 @@
 - [3. KIE模型](#3-kie模型)
 
 
-<a name="1"></a>
 ## 1. 版面分析模型
 
 |模型名称|模型简介|推理模型大小|下载地址|dict path|
@@ -19,11 +18,9 @@
 | ppyolov2_r50vd_dcn_365e_tableBank_word | 基于PP-YOLOv2在TableBank Word 数据集训练的版面分析模型，支持英文文档表格区域的检测 | 221.0M | [推理模型](https://paddle-model-ecology.bj.bcebos.com/model/layout-parser/ppyolov2_r50vd_dcn_365e_tableBank_word.tar) | 同上 |
 | ppyolov2_r50vd_dcn_365e_tableBank_latex | 基于PP-YOLOv2在TableBank Latex数据集训练的版面分析模型，支持英文文档表格区域的检测 | 221.0M | [推理模型](https://paddle-model-ecology.bj.bcebos.com/model/layout-parser/ppyolov2_r50vd_dcn_365e_tableBank_latex.tar) | 同上 |
 
-<a name="2"></a>
 
 ## 2. OCR和表格识别模型
 
-<a name="21"></a>
 ### 2.1 OCR
 
 |模型名称|模型简介|推理模型大小|下载地址|
@@ -33,7 +30,6 @@
 
 如需要使用其他OCR模型，可以在 [PP-OCR model_list](../../doc/doc_ch/models_list.md) 下载模型或者使用自己训练好的模型配置到 `det_model_dir`, `rec_model_dir`两个字段即可。
 
-<a name="22"></a>
 ### 2.2 表格识别模型
 
 |模型名称|模型简介|推理模型大小|下载地址|
@@ -42,7 +38,6 @@
 |en_ppstructure_mobile_v2.0_SLANet|基于SLANet在PubTabNet数据集上训练的英文表格识别模型|9.2M|[推理模型](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/en_ppstructure_mobile_v2.0_SLANet_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/en_ppstructure_mobile_v2.0_SLANet_train.tar) |
 |ch_ppstructure_mobile_v2.0_SLANet|基于SLANet的中文表格识别模型|9.3M|[推理模型](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_train.tar) |
 
-<a name="3"></a>
 
 ## 3. KIE模型
 

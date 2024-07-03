@@ -15,11 +15,9 @@
 本章节介绍PaddleOCR 模型的C++部署方法。C++在性能计算上优于Python，因此，在大多数CPU、GPU部署场景，多采用C++的部署方式，本节将介绍如何在Linux\Windows (CPU\GPU)环境下配置C++环境并完成PaddleOCR模型部署。
 
 
-<a name="1"></a>
 
 ## 1. 准备环境
 
-<a name="11"></a>
 
 ### 1.1 运行准备
 
@@ -28,7 +26,6 @@
 
 * 该文档主要介绍基于Linux环境的PaddleOCR C++预测流程，如果需要在Windows下基于预测库进行C++预测，具体编译方法请参考[Windows下编译教程](./docs/windows_vs2019_build.md)
 
-<a name="12"></a>
 
 ### 1.2 编译opencv库
 
@@ -94,13 +91,11 @@ opencv3/
 |-- share
 ```
 
-<a name="13"></a>
 
 ### 1.3 下载或者编译Paddle预测库
 
 可以选择直接下载安装或者从源码编译，下文分别进行具体说明。
 
-<a name="131"></a>
 #### 1.3.1 直接下载安装
 
 [Paddle预测库官网](https://www.paddlepaddle.org.cn/inference/master/guides/install/download_lib.html#linux) 上提供了不同cuda版本的Linux预测库，可以在官网查看并选择合适的预测库版本（*建议选择paddle版本>=2.0.1版本的预测库* ）。
@@ -113,7 +108,6 @@ tar -xf paddle_inference.tgz
 
 最终会在当前的文件夹中生成`paddle_inference/`的子文件夹。
 
-<a name="132"></a>
 #### 1.3.2 预测库源码编译
 
 如果希望获取最新预测库特性，可以从github上克隆最新Paddle代码进行编译，生成最新的预测库。
@@ -160,11 +154,9 @@ build/paddle_inference_install_dir/
 
 其中`paddle`就是C++预测所需的Paddle库，`version.txt`中包含当前预测库的版本信息。
 
-<a name="2"></a>
 
 ## 2. 开始运行
 
-<a name="21"></a>
 
 ### 2.1 准备模型
 
@@ -189,7 +181,6 @@ inference/
 |   |--inference.pdmodel
 ```
 
-<a name="22"></a>
 
 ### 2.2 编译PaddleOCR C++预测demo
 
@@ -213,7 +204,6 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 编译完成之后，会在`build`文件夹下生成一个名为`ppocr`的可执行文件。
 
-<a name="23"></a>
 
 ### 2.3 运行demo
 
@@ -461,7 +451,6 @@ The table visualized image saved in ./output//7_1.png
 ********** end print ocr result **********
 ```
 
-<a name="3"></a>
 ## 3. FAQ
 
  1.  遇到报错 `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`， 将 `deploy/cpp_infer/external-cmake/auto-log.cmake` 中的github地址改为 https://gitee.com/Double_V/AutoLog 地址即可。
