@@ -68,11 +68,14 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 ## 效果展示
 ### 超轻量PP-OCRv3效果展示
+
+![](./static/images/PP-OCRv3-pic001.jpg)
+
 #### PP-OCRv3中文模型
 <div align="center">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
+    <img src="./static/images/PP-OCRv3-pic001.jpg" width="800">
+    <!-- <img src="./static/images/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800"> -->
 </div>
 
 #### PP-OCRv3英文数字模型

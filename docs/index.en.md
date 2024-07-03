@@ -107,11 +107,15 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
 
 ## PP-OCRv3
 
+![](./static/images/PP-OCRv3-pic001.jpg)
+
 ### PP-OCRv3 Chinese model
 <div align="center">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
+    <img src="./static/images/PP-OCRv3-pic001.jpg" width="800">
+    <!-- <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800"> -->
+    <!-- <img src="./static/images/imgs_results/PP-OCRv3-pic001.jpg" width="800">
     <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
+    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800"> -->
 </div>
 
 ### PP-OCRv3 English model
