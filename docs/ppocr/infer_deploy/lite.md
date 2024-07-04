@@ -26,25 +26,25 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
 ### 1.2 准备预测库
 
 预测库有两种获取方式：
-- 1. [推荐]直接下载，预测库下载链接如下：
+1. [推荐]直接下载，预测库下载链接如下：
 
-      | 平台    | 预测库下载链接                                                                                                                                                                                                                                                                                                      |
-      | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-      | Android | [arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv7.gcc.c++_shared.with_extra.with_cv.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv8.gcc.c++_shared.with_extra.with_cv.tar.gz)       |
-      | IOS     | [arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv7.with_cv.with_extra.with_log.tiny_publish.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv8.with_cv.with_extra.with_log.tiny_publish.tar.gz) |
+   | 平台 | 预测库下载链接 |
+   | ---- | ---- |
+   | Android | [arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv7.gcc.c++_shared.with_extra.with_cv.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv8.gcc.c++_shared.with_extra.with_cv.tar.gz)       |
+   | IOS     | [arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv7.with_cv.with_extra.with_log.tiny_publish.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv8.with_cv.with_extra.with_log.tiny_publish.tar.gz) |
 
-      注：1. 上述预测库为PaddleLite 2.10分支编译得到，有关PaddleLite 2.10 详细信息可参考 [链接](https://github.com/PaddlePaddle/Paddle-Lite/releases/tag/v2.10) 。
+   注：1. 上述预测库为PaddleLite 2.10分支编译得到，有关PaddleLite 2.10 详细信息可参考 [链接](https://github.com/PaddlePaddle/Paddle-Lite/releases/tag/v2.10) 。
 
-**注：建议使用paddlelite>=2.10版本的预测库，其他预测库版本[下载链接](https://github.com/PaddlePaddle/Paddle-Lite/tags)**
+   **注：建议使用paddlelite>=2.10版本的预测库，其他预测库版本[下载链接](https://github.com/PaddlePaddle/Paddle-Lite/tags)**
 
-- 2. 编译Paddle-Lite得到预测库，Paddle-Lite的编译方式如下：
-```
-git clone https://github.com/PaddlePaddle/Paddle-Lite.git
-cd Paddle-Lite
-# 切换到Paddle-Lite release/v2.10 稳定分支
-git checkout release/v2.10
-./lite/tools/build_android.sh  --arch=armv8  --with_cv=ON --with_extra=ON
-```
+2. 编译Paddle-Lite得到预测库，Paddle-Lite的编译方式如下：
+   ```
+   git clone https://github.com/PaddlePaddle/Paddle-Lite.git
+   cd Paddle-Lite
+   # 切换到Paddle-Lite release/v2.10 稳定分支
+   git checkout release/v2.10
+   ./lite/tools/build_android.sh  --arch=armv8  --with_cv=ON --with_extra=ON
+   ```
 
 注意：编译Paddle-Lite获得预测库时，需要打开`--with_cv=ON --with_extra=ON`两个选项，`--arch`表示`arm`版本，这里指定为armv8，
 更多编译命令
@@ -176,18 +176,18 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
     ```
 
  4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
- ```
- git clone https://github.com/PaddlePaddle/PaddleOCR.git
- cd PaddleOCR/deploy/lite/
- # 运行prepare.sh，准备预测库文件、测试图像和使用的字典文件，并放置在预测库中的demo/cxx/ocr文件夹下
- sh prepare.sh /{lite prediction library path}/inference_lite_lib.android.armv8
+   ```bash
+   git clone https://github.com/PaddlePaddle/PaddleOCR.git
+   cd PaddleOCR/deploy/lite/
+   # 运行prepare.sh，准备预测库文件、测试图像和使用的字典文件，并放置在预测库中的demo/cxx/ocr文件夹下
+   sh prepare.sh /{lite prediction library path}/inference_lite_lib.android.armv8
 
- # 进入OCR demo的工作目录
- cd /{lite prediction library path}/inference_lite_lib.android.armv8/
- cd demo/cxx/ocr/
- # 将C++预测动态库so文件复制到debug文件夹中
- cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
- ```
+   # 进入OCR demo的工作目录
+   cd /{lite prediction library path}/inference_lite_lib.android.armv8/
+   cd demo/cxx/ocr/
+   # 将C++预测动态库so文件复制到debug文件夹中
+   cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
+   ```
 
  准备测试图像，以`PaddleOCR/doc/imgs/11.jpg`为例，将测试的图像复制到`demo/cxx/ocr/debug/`文件夹下。
  准备lite opt工具优化后的模型文件，比如使用`ch_PP-OCRv3_det_slim_opt.ch_PP-OCRv3_rec_slim_rec.nb, ch_ppocr_mobile_v2.0_cls_slim_opt.nb`，模型文件放置在`demo/cxx/ocr/debug/`文件夹下。

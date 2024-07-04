@@ -30,16 +30,6 @@ PaddleServing 支持多种语言部署，本例中提供了python pipeline 和 C
 
 AIStudio演示案例可参考 [基于PaddleServing的OCR服务化部署实战](https://aistudio.baidu.com/aistudio/projectdetail/3630726)。
 
-## 目录
-- [PPOCR 服务化部署](#ppocr-服务化部署)
-- [基于PaddleServing的服务部署](#基于paddleserving的服务部署)
-    - [目录](#目录)
-    - [环境准备](#环境准备)
-    - [模型转换](#模型转换)
-    - [Paddle Serving pipeline部署](#paddle-serving-pipeline部署)
-    - [Paddle Serving C++ 部署](#paddle-serving-c-部署)
-    - [Windows用户](#windows用户)
-    - [FAQ](#faq)
 
 ## 环境准备
 
@@ -233,7 +223,7 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
     # 启动服务，运行日志保存在log.txt
     python3 -m paddle_serving_server.serve --model ppocr_det_v3_serving ppocr_rec_v3_serving --op GeneralDetectionOp GeneralInferOp --port 8181 &>log.txt &
     ```
-    
+
     成功启动服务后，log.txt中会打印类似如下日志
     ![](./imgs/start_server.png)
 

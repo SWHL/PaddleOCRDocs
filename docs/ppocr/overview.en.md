@@ -47,30 +47,21 @@ For the performance comparison between PP-OCR series models, please check the [b
 
 ## 4. Visualization [more](./visualization.md)
 
-<details open>
-<summary>PP-OCRv3 Chinese model</summary>
+#### PP-OCRv3 Chinese model
 
 ![](./images/PP-OCRv3/ch/PP-OCRv3-pic001.jpg)
 ![](./images/PP-OCRv3/ch/PP-OCRv3-pic002.jpg)
 ![](./images/PP-OCRv3/ch/PP-OCRv3-pic003.jpg)
 
-</details>
-
-<details open>
-<summary>PP-OCRv3 English model</summary>
+#### PP-OCRv3 English model
 
 ![](./images/PP-OCRv3/en/en_1.png)
 ![](./images/PP-OCRv3/en/en_2.png)
 
-</details>
-
-<details open>
-<summary>PP-OCRv3 Multilingual model</summary>
+#### PP-OCRv3 Multilingual model
 
 ![](./images/PP-OCRv3/multi_lang/japan_2.jpg)
 ![](./images/PP-OCRv3/multi_lang/korean_1.jpg)
-
-</details>
 
 
 ## 5. Tutorial

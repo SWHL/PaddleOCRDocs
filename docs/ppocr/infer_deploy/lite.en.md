@@ -25,10 +25,10 @@ For the compilation process of different development environments, please refer 
 ### 1.2 Prepare Paddle-Lite library
 
 There are two ways to obtain the Paddle-Lite library：
-- 1. [Recommended] Download directly, the download link of the Paddle-Lite library is as follows：
+1. [Recommended] Download directly, the download link of the Paddle-Lite library is as follows：
 
       | Platform | Paddle-Lite library download link |
-      |---|---|
+      | --- | --- |
       |Android|[arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv7.gcc.c++_shared.with_extra.with_cv.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.android.armv8.gcc.c++_shared.with_extra.with_cv.tar.gz)|
       |IOS|[arm7](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv7.with_cv.with_extra.with_log.tiny_publish.tar.gz) / [arm8](https://github.com/PaddlePaddle/Paddle-Lite/releases/download/v2.10/inference_lite_lib.ios.armv8.with_cv.with_extra.with_log.tiny_publish.tar.gz)|
 
@@ -36,7 +36,7 @@ There are two ways to obtain the Paddle-Lite library：
 
     **Note: It is recommended to use paddlelite>=2.10 version of the prediction library, other prediction library versions [download link](https://github.com/PaddlePaddle/Paddle-Lite/tags)**
 
-- 2. Compile Paddle-Lite to get the prediction library. The compilation method of Paddle-Lite is as follows：
+2. Compile Paddle-Lite to get the prediction library. The compilation method of Paddle-Lite is as follows：
 ```
 git clone https://github.com/PaddlePaddle/Paddle-Lite.git
 cd Paddle-Lite

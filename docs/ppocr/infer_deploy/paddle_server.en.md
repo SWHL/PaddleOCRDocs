@@ -26,17 +26,6 @@ PaddleServing supports deployment in multiple languages. In this example, two de
 The introduction and tutorial of Paddle Serving service deployment framework reference [document](https://github.com/PaddlePaddle/Serving/blob/develop/README.md).
 
 
-## Contents
-- [OCR Pipeline WebService](#ocr-pipeline-webservice)
-- [Service deployment based on PaddleServing](#service-deployment-based-on-paddleserving)
-  - [Contents](#contents)
-  - [Environmental preparation](#environmental-preparation)
-  - [Model conversion](#model-conversion)
-  - [Paddle Serving pipeline deployment](#paddle-serving-pipeline-deployment)
-  - [Paddle Serving C++ deployment](#C++)
-  - [WINDOWS Users](#windows-users)
-  - [FAQ](#faq)
-
 ## Environmental preparation
 
 PaddleOCR operating environment and Paddle Serving operating environment are needed.
