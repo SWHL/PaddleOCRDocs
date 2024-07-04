@@ -2,19 +2,17 @@
 
 本文给出了PaddleOCR已支持的OCR算法列表，以及每个算法在**英文公开数据集**上的模型和指标，主要用于算法简介和算法性能对比，更多包括中文在内的其他数据集上的模型请参考[PP-OCRv3 系列模型下载](./models_list.md)。
 
->>
+>
 PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广大开发者合作共建，贡献更多算法，合入有奖🎁！具体可查看[社区常规赛](https://github.com/PaddlePaddle/PaddleOCR/issues/4982)。**
->>
+>
 新增算法可参考教程：[使用PaddleOCR架构添加新算法](./add_new_algorithm.md)
 
 
-
 ## 1. 两阶段算法
-
-
 ### 1.1 文本检测算法
 
 已支持的文本检测算法列表（戳链接获取使用教程）：
+
 - [x]  [DB与DB++](./algorithm_det_db.md)
 - [x]  [EAST](./algorithm_det_east.md)
 - [x]  [SAST](./algorithm_det_sast.md)
@@ -59,6 +57,7 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 ### 1.2 文本识别算法
 
 已支持的文本识别算法列表（戳链接获取使用教程）：
+
 - [x]  [CRNN](./algorithm_rec_crnn.md)
 - [x]  [Rosetta](./algorithm_rec_rosetta.md)
 - [x]  [STAR-Net](./algorithm_rec_starnet.md)
@@ -108,6 +107,7 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 
 ### 1.3 文本超分辨率算法
 已支持的文本超分辨率算法列表（戳链接获取使用教程）：
+
 - [x]  [Text Gestalt](./algorithm_sr_gestalt.md)
 - [x]  [Text Telescope](./algorithm_sr_telescope.md)
 
@@ -120,8 +120,8 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 
 
 ### 1.4 公式识别算法
-
 已支持的公式识别算法列表（戳链接获取使用教程）：
+
 - [x]  [CAN](./algorithm_rec_can.md)
 
 在CROHME手写公式数据集上，算法效果如下：
@@ -134,12 +134,14 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 ## 2. 端到端算法
 
 已支持的端到端OCR算法列表（戳链接获取使用教程）：
+
 - [x]  [PGNet](./algorithm_e2e_pgnet.md)
 
 
 ## 3. 表格识别算法
 
 已支持的表格识别算法列表（戳链接获取使用教程）：
+
 - [x]  [TableMaster](./algorithm_table_master.md)
 
 在PubTabNet表格识别公开数据集上，算法效果如下：

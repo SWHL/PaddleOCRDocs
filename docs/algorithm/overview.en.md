@@ -1,20 +1,18 @@
 
 # Algorithms
 
-
 This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the models and metrics of each algorithm on **English public datasets**. It is mainly used for algorithm introduction and algorithm performance comparison. For more models on other datasets including Chinese, please refer to [PP-OCRv3 models list](./models_list_en.md).
 
->>
+>
 Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm_en.md) guideline.
 
 
 
 ## 1. Two-stage OCR Algorithms
-
-
 ### 1.1 Text Detection Algorithms
 
 Supported text detection algorithms (Click the link to get the tutorial):
+
 - [x]  [DB && DB++](./algorithm_det_db_en.md)
 - [x]  [EAST](./algorithm_det_east_en.md)
 - [x]  [SAST](./algorithm_det_sast_en.md)
@@ -58,6 +56,7 @@ On CTW1500 dataset, the text detection result is as follows:
 ### 1.2 Text Recognition Algorithms
 
 Supported text recognition algorithms (Click the link to get the tutorial):
+
 - [x]  [CRNN](./algorithm_rec_crnn_en.md)
 - [x]  [Rosetta](./algorithm_rec_rosetta_en.md)
 - [x]  [STAR-Net](./algorithm_rec_starnet_en.md)
@@ -109,6 +108,7 @@ Refer to [DTRB](https://arxiv.org/abs/1904.01906), the training and evaluation r
 ### 1.3 Text Super-Resolution Algorithms
 
 Supported text super-resolution algorithms (Click the link to get the tutorial):
+
 - [x]  [Text Gestalt](./algorithm_sr_gestalt_en.md)
 - [x]  [Text Telescope](./algorithm_sr_telescope_en.md)
 
@@ -137,12 +137,14 @@ On the CROHME handwritten formula dataset, the effect of the algorithm is as fol
 ## 2. End-to-end OCR Algorithms
 
 Supported end-to-end algorithms (Click the link to get the tutorial):
+
 - [x]  [PGNet](./algorithm_e2e_pgnet_en.md)
 
 
 ## 3. Table Recognition Algorithms
 
 Supported table recognition algorithms (Click the link to get the tutorial):
+
 - [x]  [TableMaster](./algorithm_table_master_en.md)
 
 On the PubTabNet dataset, the algorithm result is as follows:

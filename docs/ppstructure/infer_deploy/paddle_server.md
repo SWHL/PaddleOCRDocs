@@ -44,6 +44,7 @@ pip3 install paddlehub==2.1.0 --upgrade -i https://mirror.baidu.com/pypi/simple
 
 ### 2.2 下载推理模型
 安装服务模块前，需要准备推理模型并放到正确路径。默认使用的是PP-OCRv3模型，默认模型路径为：
+
 | 模型                | 路径                                                   |
 | ------------------- | ------------------------------------------------------ |
 | 检测模型            | `./inference/ch_PP-OCRv3_det_infer/`                   |
@@ -62,6 +63,7 @@ pip3 install paddlehub==2.1.0 --upgrade -i https://mirror.baidu.com/pypi/simple
 PaddleOCR提供5种服务模块，根据需要安装所需模块。
 
 在Linux环境（Windows环境请将`/`替换为`\`）下，安装模块命令如下表：
+
 | 服务模块           | 命令                                             |
 | ------------------ | ------------------------------------------------ |
 | 检测               | `hub install deploy/hubserving/ocr_det`          |
@@ -85,6 +87,7 @@ hub serving start --modules Module1==Version1, Module2==Version2, ... \
 ```
 
 **参数：**
+
 | 参数                 | 用途                                                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `--modules`/`-m`     | PaddleHub Serving预安装模型，以多个Module==Version键值对的形式列出<br>**当不指定Version时，默认选择最新版本** |
@@ -177,8 +180,9 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
 
 ## 4. 返回结果格式说明
 返回结果为列表（list），列表中的每一项为词典（dict），词典一共可能包含3种字段，信息如下：
-| 字段名称    | 数据类型 | 意义                                                                                                                 |
-| ----------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+
+| 字段名称    | 数据类型 | 意义  |
+| ----------- | -------- | ----- |
 | angle       | str      | 文本角度                                                                                                             |
 | text        | str      | 文本内容                                                                                                             |
 | confidence  | float    | 文本识别置信度或文本角度分类置信度                                                                                   |
@@ -188,6 +192,7 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
 | layout      | list     | 版面分析的结果，每一项一个dict，包含版面区域坐标的`bbox`，区域类型的`label`                                          |
 
 不同模块返回的字段不同，如，文本识别服务模块返回结果不含`text_region`字段，具体信息如下：
+
 | 字段名/模块名 | ocr_det | ocr_cls | ocr_rec | ocr_system | structure_table | structure_system | structure_layout | kie_ser | kie_re |
 | ------------- | ------- | ------- | ------- | ---------- | --------------- | ---------------- | ---------------- | ------- | ------ |
 | angle         |         | ✔       |         | ✔          |                 |                  |                  |
