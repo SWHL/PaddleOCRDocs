@@ -2,10 +2,6 @@
 
 Here are the common datasets of layout anlysis, which are being updated continuously. Welcome to contribute datasets.
 
-- [PubLayNet dataset](#publaynet)
-- [CDLA dataset](#CDLA)
-- [TableBank dataset](#TableBank)
-
 
 Most of the layout analysis datasets are object detection datasets. In addition to open source datasets, you can also label or synthesize datasets using tools such as [labelme](https://github.com/wkentaro/labelme) and so on.
 

@@ -1,9 +1,5 @@
 # Table Recognition Datasets
 
-- [Dataset Summary](#dataset-summary)
-- [1. PubTabNet](#1-pubtabnet)
-- [2. TAL Table Recognition Competition Dataset](#2-tal-table-recognition-competition-dataset)
-- [3. WTW Chinese scene table dataset](#3-wtw-chinese-scene-table-dataset)
 
 Here are the commonly used table recognition datasets, which are being updated continuously. Welcome to contribute datasets~
 

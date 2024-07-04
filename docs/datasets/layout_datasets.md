@@ -1,9 +1,6 @@
 ## 版面分析数据集
 
 这里整理了常用版面分析数据集，持续更新中，欢迎各位小伙伴贡献数据集～
-- [publaynet数据集](#publaynet)
-- [CDLA数据集](#CDLA)
-- [TableBank数据集](#TableBank)
 
 版面分析数据集多为目标检测数据集，除了开源数据，用户还可使用合成工具自行合成，如[labelme](https://github.com/wkentaro/labelme)等。
 

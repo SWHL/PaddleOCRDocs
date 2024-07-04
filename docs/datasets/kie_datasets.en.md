@@ -2,10 +2,6 @@
 
 Here are the common datasets key information extraction, which are being updated continuously. Welcome to contribute datasets.
 
-- [FUNSD dataset](#funsd)
-- [XFUND dataset](#xfund)
-- [wildreceipt dataset](#wildreceipt-dataset)
-
 #### 1. FUNSD dataset
 - **Data source**: https://guillaumejaume.github.io/FUNSD/
 - **Data Introduction**: The FUNSD dataset is a dataset for form comprehension. It contains 199 real, fully annotated scanned images, including market reports, advertisements, and academic reports, etc., and is divided into 149 training set and 50 test set. The FUNSD dataset is suitable for many types of DocVQA tasks, such as field-level entity classification, field-level entity connection, etc. Part of the image and the annotation box visualization are shown below:

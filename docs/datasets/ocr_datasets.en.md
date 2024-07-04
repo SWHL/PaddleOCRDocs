@@ -1,15 +1,5 @@
 # OCR datasets
 
-- [1. Text detection](#1-text-detection)
-  - [1.1 PaddleOCR text detection format annotation](#11-paddleocr-text-detection-format-annotation)
-  - [1.2 Public dataset](#12-public-dataset)
-    - [1.2.1 ICDAR 2015](#121-icdar-2015)
-- [2. Text recognition](#2-text-recognition)
-  - [2.1 PaddleOCR text recognition format annotation](#21-paddleocr-text-recognition-format-annotation)
-  - [2.2 Public dataset](#22-public-dataset)
-    - [2.1 ICDAR 2015](#21-icdar-2015)
-- [3. Data storage path](#3-data-storage-path)
-
 Here is a list of public datasets commonly used in OCR, which are being continuously updated. Welcome to contribute datasets~
 
 ## 1. Text detection
