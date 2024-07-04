@@ -165,7 +165,7 @@ TextConAug是一种挖掘文字上下文信息的数据增广策略，主要思�
 
 TextRotNet是使用大量无标注的文本行数据，通过自监督方式训练的预训练模型，参考于论文[STR-Fewer-Labels](https://github.com/ku21fan/STR-Fewer-Labels)。该模型可以初始化SVTR_LCNet的初始权重，从而帮助文本识别模型收敛到更佳位置。使用该策略，识别模型的准确率进一步提升到76.9%（+0.6%）。TextRotNet训练流程如下图所示：
 
-<img src="./images/SSL.png" alt="img" style="zoom:67%;" />
+<img src="../images/SSL.png" alt="img" style="zoom:67%;" />
 
 **（5）UDML：联合互学习策略**
 
@@ -176,7 +176,7 @@ UDML（Unified-Deep Mutual Learning）联合互学习是PP-OCRv2中就采用的�
 
 UIM（Unlabeled Images Mining）是一种非常简单的无标注数据挖掘方案。核心思想是利用高精度的文本识别大模型对无标注数据进行预测，获取伪标签，并且选择预测置信度高的样本作为训练数据，用于训练小模型。使用该策略，识别模型的准确率进一步提升到79.4%（+1%）。实际操作中，我们使用全量数据集训练高精度SVTR-Tiny模型（acc=82.5%）进行数据挖掘，点击获取[模型下载地址和使用教程](../../applications/高精度中文识别模型.md)。
 
-<img src="./images/UIM.png" alt="img" style="zoom:67%;" />
+<img src="../images/UIM.png" alt="img" style="zoom:67%;" />
 
 
 

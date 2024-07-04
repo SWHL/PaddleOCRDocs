@@ -173,7 +173,7 @@ python tools/eval.py \
 
 考虑到PCB图片比较小，宽度只有25左右、高度只有140-170左右，我们在原图的基础上进行padding，再进行检测评估，padding前后效果对比如 **图4** 所示：
 
-<img src="./images/e61e6ba685534eda992cea30a63a9c461646040ffd0c4d208a5eebb85897dcf7-0096772.jpeg" style="zoom: 50%;" />
+<img src="../images/e61e6ba685534eda992cea30a63a9c461646040ffd0c4d208a5eebb85897dcf7-0096772.jpeg" style="zoom: 50%;" />
 
 将图片都padding到300*300大小，因为坐标信息发生了变化，我们同时要修改标注文件，在`/home/aistudio/dataset`目录里也提供了padding之后的图片，大家也可以尝试训练和评估：
 

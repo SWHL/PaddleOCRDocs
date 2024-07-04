@@ -17,8 +17,8 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 - **Data introduction**: The PubLayNet dataset contains 350000 training images and 11000 validation images. There are 5 categories in total, namely: `text, title, list, table, figure`. Some images and their annotations as shown below.
 
 <div align="center">
-    <img src="./images/publaynet_demo/gt_PMC3724501_00006.jpg" width="500">
-    <img src="./images/publaynet_demo/gt_PMC5086060_00002.jpg" width="500">
+    <img src="../images/publaynet_demo/gt_PMC3724501_00006.jpg" width="500">
+    <img src="../images/publaynet_demo/gt_PMC5086060_00002.jpg" width="500">
 </div>
 
 - **Download address**: https://developer.ibm.com/exchanges/data/all/publaynet/
@@ -31,8 +31,8 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 - **Data introduction**: CDLA dataset contains 5000 training images and 1000 validation images with 10 categories, which are `Text, Title, Figure, Figure caption, Table, Table caption, Header, Footer, Reference, Equation`. Some images and their annotations as shown below.
 
 <div align="center">
-    <img src="./images/CDLA_demo/val_0633.jpg" width="500">
-    <img src="./images/CDLA_demo/val_0941.jpg" width="500">
+    <img src="../images/CDLA_demo/val_0633.jpg" width="500">
+    <img src="../images/CDLA_demo/val_0941.jpg" width="500">
 </div>
 
 - **Download address**: https://github.com/buptlihang/CDLA
@@ -44,8 +44,8 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 - **Data introduction**: TableBank dataset contains 2 types of document: Latex (187199 training images, 7265 validation images and 5719 testing images) and Word (73383 training images 2735 validation images and 2281 testing images). Some images and their annotations as shown below.
 
 <div align="center">
-    <img src="./images/tablebank_demo/004.png" height="700">
-    <img src="./images/tablebank_demo/005.png" height="700">
+    <img src="../images/tablebank_demo/004.png" height="700">
+    <img src="../images/tablebank_demo/005.png" height="700">
 </div>
 
 - **Data source**: https://doc-analysis.github.io/tablebank-page/index.html

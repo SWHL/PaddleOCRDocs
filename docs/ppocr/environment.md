@@ -38,10 +38,10 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   - 下载完成后，双击安装程序进入图形界面
   - 默认安装位置为C盘，建议将安装位置更改到D盘：
 
-    <img src="./images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
+    <img src="../images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
   - 勾选conda加入环境变量，忽略警告：
 
-    <img src="./images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
+    <img src="../images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
 
 #### 1.1.2 打开终端并创建conda环境
 
@@ -191,7 +191,7 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
     ![img](./images/anaconda_download-20240704081644684.png)
     - 选择适合您操作系统的版本
     - 可在终端输入`uname -m`查询系统所用的指令集
-  
+
 - 下载法1：本地下载，再将安装包传到linux服务器上
 
 - 下载法2：直接使用linux命令行下载
