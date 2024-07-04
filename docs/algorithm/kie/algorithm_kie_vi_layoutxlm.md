@@ -82,9 +82,7 @@ python3 kie/predict_kie_token_ser_re.py \
 
 RE可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
-<div align="center">
-    <img src="./images/zh_val_42_re.jpg" width="800">
-</div>
+![](images/zh_val_42_re.jpg)
 
 ### 4.2 C++推理部署
 

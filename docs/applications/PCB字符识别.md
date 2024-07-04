@@ -14,7 +14,7 @@ typora-copy-images-to: images
 
 针对本场景，PaddleOCR基于全新的PP-OCRv3通过合成数据、微调以及其他场景适配方法完成小字符文本识别任务，满足企业上线要求。PCB检测、识别效果如 **图1** 所示：
 
-<img src="./images/95d8e95bf1ab476987f2519c0f8f0c60a0cdc2c444804ed6ab08f2f7ab054880-0096678.png" style="zoom: 33%;" />
+![](./images/95d8e95bf1ab476987f2519c0f8f0c60a0cdc2c444804ed6ab08f2f7ab054880-0096678.png)
 
 注：欢迎在AIStudio领取免费算力体验线上实训，项目链接: [基于PP-OCRv3实现PCB字符识别](https://aistudio.baidu.com/aistudio/projectdetail/4008973)
 
@@ -63,7 +63,7 @@ output_dir：生成图片存储路径
 
 这里生成 **100张** 相同尺寸和文本的图片，如  **图3** 所示，方便大家跑通实验。通过如下代码解压数据集：
 
-<img src="./images/3277b750159f4b68b2b58506bfec9005d49aeb5fb1d9411e83f96f9ff7eb66a5.png" style="zoom:50%;" />
+![](./images/3277b750159f4b68b2b58506bfec9005d49aeb5fb1d9411e83f96f9ff7eb66a5.png)
 
 
 ```python
@@ -124,8 +124,8 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 PaddleOCR已经提供了PP-OCR系列模型，部分模型展示如下表所示：
 
-| 模型简介                              | 模型名称                | 推荐场景        | 检测模型                                                     | 方向分类器                                                   | 识别模型                                                     |
-| ------------------------------------- | ----------------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 模型简介    | 模型名称                | 推荐场景        | 检测模型       | 方向分类器   | 识别模型    |
+| ------- | ----------------------- | --------------- | ---------------- | ------- | --------- |
 | 中英文超轻量PP-OCRv3模型（16.2M）     | ch_PP-OCRv3_xx          | 移动端&服务器端 | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar) |
 | 英文超轻量PP-OCRv3模型（13.4M）       | en_PP-OCRv3_xx          | 移动端&服务器端 | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_distill_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar) |
 | 中英文超轻量PP-OCRv2模型（13.0M）     | ch_PP-OCRv2_xx          | 移动端&服务器端 | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_det_distill_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [预训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_rec_train.tar) |
@@ -135,8 +135,6 @@ PaddleOCR已经提供了PP-OCR系列模型，部分模型展示如下表所示�
 更多模型下载（包括多语言），可以参[考PP-OCR系列模型下载](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.5/doc/doc_ch/models_list.md)
 
 这里我们使用PP-OCRv3英文超轻量检测模型，下载并解压预训练模型：
-
-
 
 
 ```python
@@ -152,7 +150,6 @@ tar xf en_PP-OCRv3_det_distill_train.tar && rm -rf en_PP-OCRv3_det_distill_train
 
 **模型评估**
 
-
 首先修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml`中的以下字段：
 ```
 Eval.dataset.data_dir：指向验证集图片存放目录,'/home/aistudio/dataset'
@@ -163,7 +160,6 @@ Eval.dataset.transforms.DetResizeForTest:  尺寸
 ```
 
 然后在验证集上进行评估，具体代码如下：
-
 
 
 ```python
@@ -206,8 +202,8 @@ python tools/eval.py \
 
 ## **4.3 预训练模型+fine-tune**
 
-
 基于预训练模型，在生成的1500图片上进行fine-tune训练和评估，其中train数据1200张，val数据300张，修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml`中的以下字段：
+
 ```
 Global.epoch_num: 这里设置为1，方便快速跑通，实际中根据数据量调整该值
 Global.save_model_dir：模型保存路径
@@ -236,7 +232,6 @@ python tools/train.py \
 
 使用训练好的模型进行评估，更新模型路径`Global.checkpoints`:
 
-
 ```python
 cd /home/aistudio/PaddleOCR/
 python3 tools/eval.py \
@@ -253,8 +248,8 @@ python3 tools/eval.py \
 |   2 | PP-OCRv3英文超轻量检测预训练模型 + 验证集padding    |  72.13%  |+7.49% | padding可以提升尺寸较小图片的检测效果|
 |   3 | PP-OCRv3英文超轻量检测预训练模型  + fine-tune   | 100.00% |  +27.87%     | fine-tune会提升垂类场景效果 |
 
-
 ```
+
 注：上述实验结果均是在1500张图片（1200张训练集，300张测试集）上训练、评估的得到，AIstudio只提供了100张数据，所以指标有所差异属于正常，只要策略有效、规律相同即可。
 ```
 
@@ -276,7 +271,6 @@ python3 tools/eval.py \
 
 **1）下载预训练模型**
 
-
 我们使用PP-OCRv3中英文超轻量文本识别模型，下载并解压预训练模型：
 
 
@@ -289,8 +283,6 @@ cd ..
 ```
 
 **模型评估**
-
-
 首先修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv2_rec_distillation.yml`中的以下字段：
 
 ```
