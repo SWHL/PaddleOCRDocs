@@ -290,8 +290,8 @@ nav:
     - 关键信息抽取算法:
       - VI-LayoutXLM: algorithm/kie/algorithm_kie_vi_layoutxlm.md
       - LayoutLM: algorithm/kie/algorithm_kie_layoutxlm.md
-      - LayoutLMv2: algorithm/kie/algorithm_kie_layoutxlm.md
-      - LayoutXLM: algorithm/kie/algorithm_kie_layoutxlm.md
+      # - LayoutLMv2: algorithm/kie/algorithm_kie_layoutxlm.md
+      # - LayoutXLM: algorithm/kie/algorithm_kie_layoutxlm.md
       - SDMGR: algorithm/kie/./algorithm_kie_sdmgr.md
     - 使用PaddleOCR架构添加新算法: algorithm/add_new_algorithm.md
   - 场景应用:
