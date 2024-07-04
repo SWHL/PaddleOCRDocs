@@ -1,3 +1,6 @@
+---
+typora-copy-images-to: images
+---
 
 # Python Inference for PP-OCR Model Zoo
 
@@ -29,7 +32,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/00018069.jpg" --det_m
 
 The visual text detection results are saved to the ./inference_results folder by default, and the name of the result file is prefixed with 'det_res'. Examples of results are as follows:
 
-![](../imgs_results/det_res_00018069.jpg)
+
 
 You can use the parameters `limit_type` and `det_limit_side_len` to limit the size of the input image,
 The optional parameters of `limit_type` are [`max`, `min`], and

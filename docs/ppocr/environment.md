@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # 运行环境准备
 
 Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使用docker搭建Python环境。
@@ -15,11 +19,9 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   + [1.2 Mac](#1.2)
   + [1.3 Linux](#1.3)
 
-<a name="1"></a>
 
 ## 1. Python环境搭建
 
-<a name="1.1"></a>
 
 ### 1.1 Windows
 
@@ -32,20 +34,20 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   - 地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
   - 大部分win10电脑均为64位操作系统，选择x86_64版本；若电脑为32位操作系统，则选择x86.exe
 
-    <img src="../install/windows/Anaconda_download.png" alt="anaconda download" width="800" align="center"/>
+    ![anaconda download](./images/Anaconda_download.png)
   - 下载完成后，双击安装程序进入图形界面
   - 默认安装位置为C盘，建议将安装位置更改到D盘：
 
-    <img src="../install/windows/anaconda_install_folder.png" alt="install config" width="500" align="center"/>
+    <img src="./images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
   - 勾选conda加入环境变量，忽略警告：
 
-    <img src="../install/windows/anaconda_install_env.png" alt="add conda to path" width="500" align="center"/>
+    <img src="./images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
 
 #### 1.1.2 打开终端并创建conda环境
 
 - 打开Anaconda Prompt终端：左下角Windows Start Menu -> Anaconda3 -> Anaconda Prompt启动控制台
 
-  <img src="../install/windows/anaconda_prompt.png" alt="anaconda download" width="300" align="center"/>
+  ![anaconda download](./images/anaconda_prompt.png)
 
 
 - 创建新的conda环境
@@ -60,7 +62,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
   之后命令行中会输出提示信息，输入y并回车继续安装
 
-  <img src="../install/windows/conda_new_env.png" alt="conda create" width="700" align="center"/>
+  ![conda create](./images/conda_new_env.png)
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 
@@ -71,14 +73,11 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   where python
   ```
 
-    <img src="../install/windows/conda_list_env.png" alt="create environment" width="600" align="center"/>
-
-
+    ![create environment](./images/conda_list_env.png)
 
 
 以上anaconda环境和python环境安装完毕
 
-<a name="1.2"></a>
 
 ### 1.2 Mac
 
@@ -90,7 +89,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - Anaconda下载：
   - 地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
 
-  <img src="../install/mac/anaconda_start.png" alt="anaconda download" width="800" align="center"/>
+  ![anaconda download](./images/anaconda_start.png)
 
   - 选择最下方的`Anaconda3-2021.05-MacOSX-x86_64.pkg`下载
 - 下载完成后，双击.pkg文件进入图形界面
@@ -160,7 +159,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
   - 之后命令行中会输出提示信息，输入y并回车继续安装
 
-    - <img src="../install/mac/conda_create.png" alt="conda_create" width="600" align="center"/>
+    ![conda_create](./images/conda_create.png)
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 
@@ -171,11 +170,10 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   where python
   ```
 
-  <img src="../install/mac/conda_activate.png" alt="conda_actviate" width="600" align="center"/>
+  ![conda_actviate](./images/conda_activate.png)
 
 以上anaconda环境和python环境安装完毕
 
-<a name="1.3"></a>
 
 ### 1.3 Linux
 
@@ -190,11 +188,10 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 - **下载Anaconda**：
 
   - 下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
-    <img src="../install/linux/anaconda_download.png" akt="anaconda download" width="800" align="center"/>
-
+    ![img](./images/anaconda_download-20240704081644684.png)
     - 选择适合您操作系统的版本
     - 可在终端输入`uname -m`查询系统所用的指令集
-
+  
 - 下载法1：本地下载，再将安装包传到linux服务器上
 
 - 下载法2：直接使用linux命令行下载
@@ -278,7 +275,7 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
   - 之后命令行中会输出提示信息，输入y并回车继续安装
 
-    <img src="../install/linux/conda_create.png" alt="conda_create" width="500" align="center"/>
+    ![conda_create](./images/conda_create-20240704081656378.png)
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 

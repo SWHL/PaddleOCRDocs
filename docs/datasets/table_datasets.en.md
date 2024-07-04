@@ -19,8 +19,8 @@ Here are the commonly used table recognition datasets, which are being updated c
 - **Data Introduction**：The training set of the PubTabNet dataset contains 500,000 images and the validation set contains 9000 images. Part of the image visualization is shown below.
 
 <div align="center">
-    <img src="../../datasets/table_PubTabNet_demo/PMC524509_007_00.png" width="500">
-    <img src="../../datasets/table_PubTabNet_demo/PMC535543_007_01.png" width="500">
+    <img src="./images/table_PubTabNet_demo/PMC524509_007_00.png" width="500">
+    <img src="./images/table_PubTabNet_demo/PMC535543_007_01.png" width="500">
 </div>
 
 - **illustrate**：When using this dataset, the [CDLA-Permissive](https://cdla.io/permissive-1-0/) protocol is required.
@@ -29,8 +29,8 @@ Here are the commonly used table recognition datasets, which are being updated c
 - **Data Introduction**：The training set of the TAL table recognition competition dataset contains 16,000 images. The validation set does not give trainable annotations.
 
 <div align="center">
-    <img src="../../datasets/table_tal_demo/1.jpg" width="500">
-    <img src="../../datasets/table_tal_demo/2.jpg" width="500">
+    <img src="./images/table_tal_demo/1.jpg" width="500">
+    <img src="./images/table_tal_demo/2.jpg" width="500">
 </div>
 
 ## 3. WTW Chinese scene table dataset

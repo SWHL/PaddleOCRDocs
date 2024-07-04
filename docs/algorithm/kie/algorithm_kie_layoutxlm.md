@@ -1,16 +1,5 @@
 # 关键信息抽取算法-LayoutXLM
 
-- [1. 算法简介](#1-算法简介)
-- [2. 环境配置](#2-环境配置)
-- [3. 模型训练、评估、预测](#3-模型训练评估预测)
-- [4. 推理部署](#4-推理部署)
-  - [4.1 Python推理](#41-python推理)
-  - [4.2 C++推理部署](#42-推理部署)
-  - [4.3 Serving服务化部署](#43-serving服务化部署)
-  - [4.4 更多推理部署](#44-更多推理部署)
-- [5. FAQ](#5-faq)
-- [引用](#引用)
-
 
 
 ## 1. 算法简介
@@ -72,7 +61,7 @@ python3 kie/predict_kie_token_ser.py \
 SER可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg" width="800">
+    <img src="./images/zh_val_42_ser.jpg" width="800">
 </div>
 
 - RE
@@ -101,7 +90,7 @@ python3 kie/predict_kie_token_ser_re.py \
 RE可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_re/zh_val_42_re.jpg" width="800">
+    <img src="./images/zh_val_42_re.jpg" width="800">
 </div>
 
 ### 4.2 C++推理部署

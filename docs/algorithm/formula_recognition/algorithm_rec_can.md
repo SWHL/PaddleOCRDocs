@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # 手写数学公式识别算法-CAN
 
 ## 1. 算法简介
@@ -95,7 +99,7 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/datasets/crohme_demo/hme_0
 # 如果您需要在白底黑字的图片上进行预测，请设置 --rec_image_inverse=False
 ```
 
-![测试图片样例](../datasets/crohme_demo/hme_00.jpg)
+![测试图片样例](./images/hme_00.jpg)
 
 执行命令后，上面图像的预测结果（识别的文本）会打印到屏幕上，示例如下：
 ```shell

@@ -70,11 +70,11 @@ Prediction:
 python3 tools/infer_sr.py -c configs/sr/sr_telescope.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words_en/word_52.png
 ```
 
-![](../imgs_words_en/word_52.png)
+![img](./images/word_52-20240704094304807.png)
 
 After executing the command, the super-resolution result of the above image is as follows:
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52-20240704094309205.png)
 
 ## 4. Inference and Deployment
 
@@ -95,7 +95,7 @@ python3 tools/infer/predict_sr.py --sr_model_dir=./inference/sr_out --image_dir=
 
 After executing the command, the super-resolution result of the above image is as follows:
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52-20240704094309205.png)
 
 
 ### 4.2 C++ Inference

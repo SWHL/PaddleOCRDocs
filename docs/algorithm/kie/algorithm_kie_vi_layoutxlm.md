@@ -66,7 +66,7 @@ python3 kie/predict_kie_token_ser.py \
 SER可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg" width="800">
+    <img src="./images/zh_val_42_ser.jpg" width="800">
 </div>
 
 - RE
@@ -97,7 +97,7 @@ python3 kie/predict_kie_token_ser_re.py \
 RE可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_re/zh_val_42_re.jpg" width="800">
+    <img src="./images/zh_val_42_re.jpg" width="800">
 </div>
 
 ### 4.2 C++推理部署

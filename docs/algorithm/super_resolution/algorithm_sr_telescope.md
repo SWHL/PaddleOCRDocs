@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # Text Telescope
 
 - [1. 算法简介](#1)
@@ -65,11 +69,11 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/sr/sr_t
 python3 tools/infer_sr.py -c configs/sr/sr_telescope.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words_en/word_52.png
 ```
 
-![](../imgs_words_en/word_52.png)
+![img](./images/word_52-20240704094304807.png)
 
 执行命令后，上面图像的超分结果如下：
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52-20240704094309205.png)
 
 ## 4. 推理部署
 
@@ -87,7 +91,7 @@ python3 tools/infer/predict_sr.py --sr_model_dir=./inference/sr_out --image_dir=
 
 执行命令后，图像的超分结果如下：
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52-20240704094309205.png)
 
 ### 4.2 C++推理
 

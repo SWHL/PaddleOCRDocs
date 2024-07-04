@@ -68,7 +68,7 @@ The SER visualization results are saved in the `./output` folder by default. The
 
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg" width="800">
+    <img src="./images/zh_val_42_ser.jpg" width="800">
 </div>
 
 
@@ -103,7 +103,7 @@ The RE visualization results are saved in the `./output` folder by default. The 
 
 
 <div align="center">
-    <img src="../../ppstructure/docs/kie/result_re/zh_val_42_re.jpg" width="800">
+    <img src="./images/zh_val_42_re.jpg" width="800">
 </div>
 
 

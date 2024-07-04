@@ -1,5 +1,6 @@
 ---
 comments: true
+typora-copy-images-to: images
 ---
 
 # 文字识别
@@ -102,7 +103,7 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 ```
 
 数据样式格式如下，(a)为原始图片,(b)为每张图片对应的 Ground Truth 文本文件：
-![](../datasets/icdar_rec.png)
+![img](./images/icdar_rec.png)
 
 - 多语言数据集
 
@@ -358,7 +359,7 @@ args1: args1
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml \
      -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
- ```
+```
 
 ### 2.5. 分布式训练
 
@@ -492,7 +493,7 @@ python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global
 
 预测图片：
 
-![](../imgs_words/en/word_1.png)
+![img](./images/word_1-20240704092705543.png)
 
 得到输入图像的预测结果：
 
@@ -511,7 +512,7 @@ python3 tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v
 
 预测图片：
 
-![](../imgs_words/ch/word_1.jpg)
+![img](./images/word_1-20240704092713071.jpg)
 
 得到输入图像的预测结果：
 

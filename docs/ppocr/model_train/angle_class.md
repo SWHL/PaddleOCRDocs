@@ -1,5 +1,6 @@
 ---
 comments: true
+typora-copy-images-to: images
 ---
 
 # 文本方向分类器
@@ -12,7 +13,7 @@ comments: true
 
 0和180度数据样本例子：
 
-![](../imgs_results/angle_class_example.jpg)
+![img](./images/angle_class_example.jpg)
 
 
 ## 2. 数据准备
@@ -141,7 +142,7 @@ python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model
 
 预测图片：
 
-![](../imgs_words/ch/word_1.jpg)
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_words/ch/word_1.jpg)
 
 得到输入图像的预测结果：
 

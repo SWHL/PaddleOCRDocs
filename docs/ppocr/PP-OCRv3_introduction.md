@@ -1,4 +1,6 @@
-[English](../doc_en/PP-OCRv3_introduction_en.md) | 简体中文
+---
+typora-copy-images-to: images
+---
 
 # PP-OCRv3
 
@@ -13,10 +15,7 @@
 
 PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与PP-OCRv2相同的pipeline，针对检测模型和识别模型进行了优化。其中，检测模块仍基于DB算法优化，而识别模块不再采用CRNN，换成了IJCAI 2022最新收录的文本识别算法[SVTR](https://arxiv.org/abs/2205.00159)，并对其进行产业适配。PP-OCRv3系统框图如下所示（粉色框中为PP-OCRv3新增策略）：
 
-<div align="center">
-    <img src="../ppocrv3_framework.png" width="800">
-</div>
-
+![img](./images/ppocrv3_framework-0052468.png)
 
 从算法改进思路上看，分别针对检测和识别模型，进行了共9个方面的改进：
 
@@ -45,9 +44,8 @@ PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与P
 
 PP-OCRv3检测模型是对PP-OCRv2中的[CML](https://arxiv.org/pdf/2109.03144.pdf)（Collaborative Mutual Learning) 协同互学习文本检测蒸馏策略进行了升级。如下图所示，CML的核心思想结合了①传统的Teacher指导Student的标准蒸馏与 ②Students网络之间的DML互学习，可以让Students网络互学习的同时，Teacher网络予以指导。PP-OCRv3分别针对教师模型和学生模型进行进一步效果优化。其中，在对教师模型优化时，提出了大感受野的PAN结构LK-PAN和引入了DML（Deep Mutual Learning）蒸馏策略；在对学生模型优化时，提出了残差注意力机制的FPN结构RSE-FPN。
 
-<div align="center">
-    <img src=".././ppocr_v3/ppocrv3_det_cml.png" width="800">
-</div>
+![img](./images/ppocrv3_det_cml.png)
+
 
 消融实验如下：
 
@@ -67,25 +65,22 @@ PP-OCRv3检测模型是对PP-OCRv2中的[CML](https://arxiv.org/pdf/2109.03144.p
 
 LK-PAN (Large Kernel PAN) 是一个具有更大感受野的轻量级[PAN](https://arxiv.org/pdf/1803.01534.pdf)结构，核心是将PAN结构的path augmentation中卷积核从`3*3`改为`9*9`。通过增大卷积核，提升特征图每个位置覆盖的感受野，更容易检测大字体的文字以及极端长宽比的文字。使用LK-PAN结构，可以将教师模型的hmean从83.2%提升到85.0%。
 
-<div align="center">
-    <img src="../ppocr_v3/LKPAN.png" width="1000">
-</div>
+![img](./images/LKPAN.png)
+
 
 **（2）DML：教师模型互学习策略**
 
 [DML](https://arxiv.org/abs/1706.00384) （Deep Mutual Learning）互学习蒸馏方法，如下图所示，通过两个结构相同的模型互相学习，可以有效提升文本检测模型的精度。教师模型采用DML策略，hmean从85%提升到86%。将PP-OCRv2中CML的教师模型更新为上述更高精度的教师模型，学生模型的hmean可以进一步从83.2%提升到84.3%。
 
-<div align="center">
-    <img src="../ppocr_v3/teacher_dml.png" width="800">
-</div>
+![img](./images/teacher_dml.png)
+
 
 **（3）RSE-FPN：残差注意力机制的FPN结构**
 
 RSE-FPN（Residual Squeeze-and-Excitation FPN）如下图所示，引入残差结构和通道注意力结构，将FPN中的卷积层更换为通道注意力结构的RSEConv层，进一步提升特征图的表征能力。考虑到PP-OCRv2的检测模型中FPN通道数非常小，仅为96，如果直接用SEblock代替FPN中卷积会导致某些通道的特征被抑制，精度会下降。RSEConv引入残差结构会缓解上述问题，提升文本检测效果。进一步将PP-OCRv2中CML的学生模型的FPN结构更新为RSE-FPN，学生模型的hmean可以进一步从84.3%提升到85.4%。
 
-<div align="center">
-    <img src=".././ppocr_v3/RSEFPN.png" width="1000">
-</div>
+![img](./images/RSEFPN.png)
+
 
 
 
@@ -93,9 +88,8 @@ RSE-FPN（Residual Squeeze-and-Excitation FPN）如下图所示，引入残差�
 
 PP-OCRv3的识别模块是基于文本识别算法[SVTR](https://arxiv.org/abs/2205.00159)优化。SVTR不再采用RNN结构，通过引入Transformers结构更加有效地挖掘文本行图像的上下文信息，从而提升文本识别能力。直接将PP-OCRv2的识别模型，替换成SVTR_Tiny，识别准确率从74.8%提升到80.1%（+5.3%），但是预测速度慢了将近11倍，CPU上预测一条文本行，将近100ms。因此，如下图所示，PP-OCRv3采用如下6个优化策略进行识别模型加速。
 
-<div align="center">
-    <img src="../ppocr_v3/v3_rec_pipeline.png" width=800>
-</div>
+![img](./images/v3_rec_pipeline.png)
+
 
 基于上述策略，PP-OCRv3识别模型相比PP-OCRv2，在速度可比的情况下，精度进一步提升4.6%。 具体消融实验如下所示：
 
@@ -119,26 +113,25 @@ SVTR_LCNet是针对文本识别任务，将基于Transformer的[SVTR](https://ar
 
 SVTR_Tiny 网络结构如下所示：
 
-<div align="center">
-    <img src="../ppocr_v3/svtr_tiny.png" width=800>
-</div>
+![img](./images/svtr_tiny.png)
+
 
 
 由于 MKLDNN 加速库支持的模型结构有限，SVTR 在 CPU+MKLDNN 上相比 PP-OCRv2 慢了10倍。PP-OCRv3 期望在提升模型精度的同时，不带来额外的推理耗时。通过分析发现，SVTR_Tiny 结构的主要耗时模块为 Mixing Block，因此我们对 SVTR_Tiny 的结构进行了一系列优化（详细速度数据请参考下方消融实验表格）:
 
 
 1. 将 SVTR 网络前半部分替换为 PP-LCNet 的前三个stage，保留4个 Global Mixing Block ，精度为76%，加速69%，网络结构如下所示：
-<div align="center">
-    <img src="../ppocr_v3/svtr_g4.png" width=800>
-</div>
+
+![img](./images/svtr_g4.png)
+
 2. 将4个 Global Mixing Block 减小到2个，精度为72.9%，加速69%，网络结构如下所示：
-<div align="center">
-    <img src="../ppocr_v3/svtr_g2.png" width=800>
-</div>
+
+![img](./images/svtr_g2.png)
+
 3. 实验发现 Global Mixing Block 的预测速度与输入其特征的shape有关，因此后移 Global Mixing Block 的位置到池化层之后，精度下降为71.9%，速度超越基于CNN结构的PP-OCRv2-baseline 22%，网络结构如下所示：
-<div align="center">
-    <img src="../ppocr_v3/LCNet_SVTR.png" width=800>
-</div>
+
+![img](./images/LCNet_SVTR.png)
+
 
 具体消融实验如下所示：
 
@@ -156,27 +149,23 @@ SVTR_Tiny 网络结构如下所示：
 **（2）GTC：Attention指导CTC训练策略**
 
 [GTC](https://arxiv.org/pdf/2002.01276.pdf)（Guided Training of CTC），利用Attention模块CTC训练，融合多种文本特征的表达，是一种有效的提升文本识别的策略。使用该策略，预测时完全去除 Attention 模块，在推理阶段不增加任何耗时，识别模型的准确率进一步提升到75.8%（+1.82%）。训练流程如下所示：
-<div align="center">
-    <img src="../ppocr_v3/GTC.png" width=800>
-</div>
+
+![img](./images/GTC.png)
+
 
 **（3）TextConAug：挖掘文字上下文信息的数据增广策略**
 
 TextConAug是一种挖掘文字上下文信息的数据增广策略，主要思想来源于论文[ConCLR](https://www.cse.cuhk.edu.hk/~byu/papers/C139-AAAI2022-ConCLR.pdf)，作者提出ConAug数据增广，在一个batch内对2张不同的图像进行联结，组成新的图像并进行自监督对比学习。PP-OCRv3将此方法应用到有监督的学习任务中，设计了TextConAug数据增强方法，可以丰富训练数据上下文信息，提升训练数据多样性。使用该策略，识别模型的准确率进一步提升到76.3%（+0.5%）。TextConAug示意图如下所示：
 
-<div align="center">
-    <img src="../ppocr_v3/recconaug.png" width=800>
-</div>
+![img](./images/recconaug.png)
+
 
 
 **（4）TextRotNet：自监督的预训练模型**
 
 TextRotNet是使用大量无标注的文本行数据，通过自监督方式训练的预训练模型，参考于论文[STR-Fewer-Labels](https://github.com/ku21fan/STR-Fewer-Labels)。该模型可以初始化SVTR_LCNet的初始权重，从而帮助文本识别模型收敛到更佳位置。使用该策略，识别模型的准确率进一步提升到76.9%（+0.6%）。TextRotNet训练流程如下图所示：
 
-<div align="center">
-    <img src="../ppocr_v3/SSL.png" width="500">
-</div>
-
+<img src="./images/SSL.png" alt="img" style="zoom:67%;" />
 
 **（5）UDML：联合互学习策略**
 
@@ -187,9 +176,8 @@ UDML（Unified-Deep Mutual Learning）联合互学习是PP-OCRv2中就采用的�
 
 UIM（Unlabeled Images Mining）是一种非常简单的无标注数据挖掘方案。核心思想是利用高精度的文本识别大模型对无标注数据进行预测，获取伪标签，并且选择预测置信度高的样本作为训练数据，用于训练小模型。使用该策略，识别模型的准确率进一步提升到79.4%（+1%）。实际操作中，我们使用全量数据集训练高精度SVTR-Tiny模型（acc=82.5%）进行数据挖掘，点击获取[模型下载地址和使用教程](../../applications/高精度中文识别模型.md)。
 
-<div align="center">
-    <img src="../ppocr_v3/UIM.png" width="500">
-</div>
+<img src="./images/UIM.png" alt="img" style="zoom:67%;" />
+
 
 
 

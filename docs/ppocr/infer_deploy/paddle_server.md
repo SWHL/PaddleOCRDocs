@@ -1,6 +1,8 @@
-# PPOCR 服务化部署
+---
+typora-copy-images-to: images
+---
 
-([English](./README.md)|简体中文)
+# PPOCR 服务化部署
 
 PaddleOCR提供2种服务部署方式：
 - 基于PaddleHub Serving的部署：代码路径为"`./deploy/hubserving`"，使用方法参考[文档](../../deploy/hubserving/readme.md)；
@@ -138,14 +140,14 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
     python3 web_service.py --config=config.yml &>log.txt &
     ```
     成功启动服务后，log.txt中会打印类似如下日志
-    ![](./imgs/start_server.png)
+    ![img](./images/start_server.png)
 
 3. 发送服务请求：
     ```
     python3 pipeline_http_client.py
     ```
     成功运行后，模型预测的结果会打印在cmd窗口中，结果示例为：
-    ![](./imgs/pipeline_result.png)
+    ![img](./images/pipeline_result.png)
 
     调整 config.yml 中的并发个数获得最大的QPS, 一般检测和识别的并发数为2：1
     ```
@@ -231,7 +233,7 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
     # 启动服务，运行日志保存在log.txt
     python3 -m paddle_serving_server.serve --model ppocr_det_v3_serving ppocr_rec_v3_serving --op GeneralDetectionOp GeneralInferOp --port 8181 &>log.txt &
     ```
-
+    
     成功启动服务后，log.txt中会打印类似如下日志
     ![](./imgs/start_server.png)
 
@@ -254,13 +256,12 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
    ```
 
     成功运行后，模型预测的结果会打印在cmd窗口中，结果示例为：
-    ![](./imgs/results.png)
+   ![img](./images/results.png)
 
     在浏览器中输入服务器 ip:端口号，可以看到当前服务的实时QPS。(端口号范围需要是8000-9000)
 
     在200张真实图片上测试，把检测长边限制为960。T4 GPU 上 QPS 峰值可达到51左右,约为pipeline的 2.12 倍。
 
-    ![](./imgs/c++_qps.png)
 
 
 ## Windows用户

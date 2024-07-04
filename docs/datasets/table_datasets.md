@@ -20,8 +20,8 @@
 
 
 <div align="center">
-    <img src="../../datasets/table_PubTabNet_demo/PMC524509_007_00.png" width="500">
-    <img src="../../datasets/table_PubTabNet_demo/PMC535543_007_01.png" width="500">
+    <img src="./images/table_PubTabNet_demo/PMC524509_007_00.png" width="500">
+    <img src="./images/table_PubTabNet_demo/PMC535543_007_01.png" width="500">
 </div>
 
 - **说明**：使用该数据集时，需要遵守[CDLA-Permissive](https://cdla.io/permissive-1-0/)协议。
@@ -30,8 +30,8 @@
 - **数据简介**：好未来表格识别竞赛数据集的训练集合中包含1.6万张图像。验证集未给出可训练的标注。
 
 <div align="center">
-    <img src="../../datasets/table_tal_demo/1.jpg" width="500">
-    <img src="../../datasets/table_tal_demo/2.jpg" width="500">
+    <img src="./images/table_tal_demo/1.jpg" width="500">
+    <img src="./images/table_tal_demo/2.jpg" width="500">
 </div>
 
 ## 3. WTW中文场景表格数据集

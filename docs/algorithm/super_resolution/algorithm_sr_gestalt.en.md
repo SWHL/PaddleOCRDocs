@@ -1,17 +1,16 @@
 # Text Gestalt
 
-- [1. Introduction](#1)
-- [2. Environment](#2)
-- [3. Model Training / Evaluation / Prediction](#3)
-    - [3.1 Training](#3-1)
-    - [3.2 Evaluation](#3-2)
-    - [3.3 Prediction](#3-3)
-- [4. Inference and Deployment](#4)
-    - [4.1 Python Inference](#4-1)
-    - [4.2 C++ Inference](#4-2)
-    - [4.3 Serving](#4-3)
-    - [4.4 More](#4-4)
-- [5. FAQ](#5)
+- [Text Gestalt](#text-gestalt)
+  - [1. Introduction](#1-introduction)
+  - [2. Environment](#2-environment)
+  - [3. Model Training / Evaluation / Prediction](#3-model-training--evaluation--prediction)
+  - [4. Inference and Deployment](#4-inference-and-deployment)
+    - [4.1 Python Inference](#41-python-inference)
+    - [4.2 C++ Inference](#42-c-inference)
+    - [4.3 Serving](#43-serving)
+    - [4.4 More](#44-more)
+  - [5. FAQ](#5-faq)
+  - [Citation](#citation)
 
 
 ## 1. Introduction
@@ -25,12 +24,12 @@ Paper:
 
 Referring to the [FudanOCR](https://github.com/FudanVI/FudanOCR/tree/main/text-gestalt) data download instructions, the effect of the super-score algorithm on the TextZoom test set is as follows:
 
-|Model|Backbone|config|Acc|Download link|
-|---|---|---|---|---|---|
+|Model | Backbone|config|Acc|Download link|
+|---|---|---|---|---|
 |Text Gestalt|tsrn|19.28|0.6560| [configs/sr/sr_tsrn_transformer_strock.yml](../../configs/sr/sr_tsrn_transformer_strock.yml)|[train model](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar)|
 
-
 ## 2. Environment
+
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
@@ -69,11 +68,12 @@ Prediction:
 python3 tools/infer_sr.py -c configs/sr/sr_tsrn_transformer_strock.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words_en/word_52.png
 ```
 
-![](../imgs_words_en/word_52.png)
+
+![img](./images/word_52.png)
 
 After executing the command, the super-resolution result of the above image is as follows:
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52.png)
 
 ## 4. Inference and Deployment
 
@@ -94,7 +94,7 @@ python3 tools/infer/predict_sr.py --sr_model_dir=./inference/sr_out --image_dir=
 
 After executing the command, the super-resolution result of the above image is as follows:
 
-![](../imgs_results/sr_word_52.png)
+![img](./images/sr_word_52-20240704093810101.png)
 
 
 ### 4.2 C++ Inference

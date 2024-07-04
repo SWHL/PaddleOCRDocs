@@ -1,3 +1,6 @@
+---
+typora-copy-images-to: images
+---
 
 本文介绍针对PP-OCR模型库的Python推理引擎使用方法，内容依次为文本检测、文本识别、方向分类器以及三者串联在CPU、GPU上的预测方法。
 
@@ -26,7 +29,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/00018069.jpg" --det_m
 
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_00018069.jpg)
+![img](./images/det_res_00018069.jpg)
 
 通过参数`limit_type`和`det_limit_side_len`来对图片的尺寸进行限制，
 `limit_type`可选参数为[`max`, `min`]，
@@ -66,7 +69,7 @@ tar xf ch_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/ch/word_4.jpg" --rec_model_dir="./ch_PP-OCRv3_rec_infer/"
 ```
 
-![](../imgs_words/ch/word_4.jpg)
+![img](./images/word_4.jpg)
 
 执行命令后，上面图像的预测结果（识别的文本和得分）会打印到屏幕上，示例如下：
 
@@ -86,7 +89,7 @@ tar xf en_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./en_PP-OCRv3_rec_infer/" --rec_char_dict_path="ppocr/utils/en_dict.txt"
 ```
 
-![](../imgs_words/en/word_1.png)
+![img](./images/word_1.png)
 
 执行命令后，上图的预测结果为：
 
@@ -102,7 +105,7 @@ wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/korean_mobile_v2.
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" --rec_model_dir="./your inference model" --rec_char_dict_path="ppocr/utils/dict/korean_dict.txt" --vis_font_path="doc/fonts/korean.ttf"
 ```
 
-![](../imgs_words/korean/1.jpg)
+![img](./images/1.jpg)
 
 执行命令后，上图的预测结果为：
 
@@ -122,7 +125,7 @@ tar xf ch_ppocr_mobile_v2.0_cls_infer.tar
 python3 tools/infer/predict_cls.py --image_dir="./doc/imgs_words/ch/word_4.jpg" --cls_model_dir="ch_ppocr_mobile_v2.0_cls_infer"
 ```
 
-![](../imgs_words/ch/word_1.jpg)
+![img](./images/word_1.jpg)
 
 执行命令后，上面图像的预测结果（分类的方向和得分）会打印到屏幕上，示例如下：
 
@@ -151,7 +154,7 @@ python3 tools/infer/predict_system.py --image_dir="./xxx.pdf" --det_model_dir=".
 
 执行命令后，识别结果图像如下：
 
-![](../imgs_results/system_res_00018069_v3.jpg)
+![img](./images/system_res_00018069_v3.jpg)
 
 更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](./inference_args.md)。
 

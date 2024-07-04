@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # PP-OCRv4
 
 
@@ -5,9 +9,8 @@
 
 PP-OCRv4在PP-OCRv3的基础上进一步升级。整体的框架图保持了与PP-OCRv3相同的pipeline，针对检测模型和识别模型进行了数据、网络结构、训练策略等多个模块的优化。 PP-OCRv4系统框图如下所示：
 
-<div align="center">
-    <img src="../ppocr_v4/ppocrv4_framework.png" width="800">
-</div>
+![img](./images/ppocrv4_framework.png)
+
 
 
 从算法改进思路上看，分别针对检测和识别模型，进行了共10个方面的改进：
@@ -52,9 +55,8 @@ PP-OCRv4检测模型在PP-OCRv3检测模型的基础上，在网络结构，训�
 
 PFhead结构如下图所示，PFHead在经过第一个转置卷积后，分别进行上采样和转置卷积，上采样的输出通过3x3卷积得到输出结果，然后和转置卷积的分支的结果级联并经过1x1卷积层，最后1x1卷积的结果和转置卷积的结果相加得到最后输出的概率图。PP-OCRv4学生检测模型使用PFhead，hmean从76.22%增加到76.97%。
 
-<div align="center">
-    <img src="../ppocr_v4/PFHead.png" width="500">
-</div>
+![img](./images/PFHead.png)
+
 
 **（2）DSR: 收缩比例动态调整策略**
 
@@ -68,18 +70,16 @@ PP-LCNetV3系列模型是PP-LCNet系列模型的延续，覆盖了更大的精�
 
 PP-OCRv4检测模型对PP-OCRv3中的CML（Collaborative Mutual Learning) 协同互学习文本检测蒸馏策略进行了优化。如下图所示，在计算Student Model和Teacher Model的distill Loss时，额外添加KL div loss，让两者输出的response maps分布接近，由此进一步提升Student网络的精度，检测Hmean从79.08%增加到79.56%，端到端指标从61.31%增加到61.87%。
 
-<div align="center">
-    <img src="../ppocr_v4/ppocrv4_det_cml.png" width="500">
-</div>
+![img](./images/ppocrv4_det_cml.png)
+
 
 
 ## 3. 识别优化
 
 PP-OCRv4识别模型在PP-OCRv3的基础上进一步升级。如下图所示，整体的框架图保持了与PP-OCRv3识别模型相同的pipeline，分别进行了数据、网络结构、训练策略等方面的优化。
 
-<div align="center">
-    <img src="../ppocr_v4/v4_rec_pipeline.png" width=800>
-</div>
+![img](./images/v4_rec_pipeline.png)
+
 
 经过如图所示的策略优化，PP-OCRv4识别模型相比PP-OCRv3，在速度可比的情况下，精度进一步提升4%。 具体消融实验如下所示：
 
@@ -100,11 +100,7 @@ PP-OCRv4识别模型在PP-OCRv3的基础上进一步升级。如下图所示，�
 DF(Data Filter) 是一种简单有效的数据挖掘方案。核心思想是利用已有模型预测训练数据，通过置信度和预测结果等信息，对全量的训练数据进行筛选。具体的：首先使用少量数据快速训练得到一个低精度模型，使用该低精度模型对千万级的数据进行预测，去除置信度大于0.95的样本，该部分被认为是对提升模型精度无效的冗余样本。其次使用PP-OCRv3作为高精度模型，对剩余数据进行预测，去除置信度小于0.15的样本，该部分被认为是难以识别或质量很差的样本。
 使用该策略，千万级别训练数据被精简至百万级，模型训练时间从2周减少到5天，显著提升了训练效率，同时精度提升至72.7%(+1.2%)。
 
-
-<div align="center">
-    <img src="../ppocr_v4/DF.png" width=800>
-</div>
-
+![img](./images/DF.png)
 
 **（2）PP-LCNetV3：精度更优的骨干网络**
 
@@ -119,18 +115,16 @@ Lite-Neck整体结构沿用PP-OCRv3版本的结构，在参数上稍作精简，
 
 GTC（Guided Training of CTC），是PP-OCRv3识别模型的最有效的策略之一，融合多种文本特征的表达，有效的提升文本识别精度。在PP-OCRv4中使用训练更稳定的Transformer模型NRTR作为指导分支，相比V3版本中的SAR基于循环神经网络的结构，NRTR基于Transformer实现解码过程泛化能力更强，能有效指导CTC分支学习，解决简单场景下快速过拟合的问题。使用Lite-Neck和GTC-NRTR两个策略，识别精度提升至73.21%(+0.5%)。
 
-<div align="center">
-    <img src="../ppocr_v4/ppocrv4_gtc.png" width="500">
-</div>
+![img](./images/ppocrv4_gtc.png)
+
 
 
 **（5）Multi-Scale：多尺度训练策略**
 
 动态尺度训练策略，是在训练过程中随机resize输入图片的高度，以增强识别模型在端到端串联使用时的鲁棒性。在训练时，每个iter从（32，48，64）三种高度中随机选择一种高度进行resize。实验证明，使用该策略，尽管在识别测试集上准确率没有提升，但在端到端串联评估时，指标提升0.5%。
 
-<div align="center">
-    <img src="../ppocr_v4/multi_scale.png" width="500">
-</div>
+![img](./images/multi_scale.png)
+
 
 
 **（6）DKD：蒸馏策略**

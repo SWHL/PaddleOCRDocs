@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # Paddle2ONNX模型转化与预测
 
 本章节介绍 PaddleOCR 模型如何转化为 ONNX 模型，并基于 ONNXRuntime 引擎预测。

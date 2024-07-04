@@ -1,21 +1,8 @@
+---
+typora-copy-images-to: images
+---
 
 # 关键信息抽取算法-SDMGR
-
-- [1. 算法简介](#1-算法简介)
-- [2. 环境配置](#2-环境配置)
-- [3. 模型训练、评估、预测](#3-模型训练评估预测)
-  - [3.1 模型训练](#31-模型训练)
-  - [3.2 模型评估](#32-模型评估)
-  - [3.3 模型预测](#33-模型预测)
-- [4. 推理部署](#4-推理部署)
-  - [4.1 Python推理](#41-python推理)
-  - [4.2 C++推理部署](#42-c推理部署)
-  - [4.3 Serving服务化部署](#43-serving服务化部署)
-  - [4.4 更多推理部署](#44-更多推理部署)
-- [5. FAQ](#5-faq)
-- [引用](#引用)
-
-
 
 ## 1. 算法简介
 
@@ -95,9 +82,8 @@ python3 tools/infer_kie.py -c configs/kie/kie_unet_sdmgr.yml -o Global.checkpoin
 
 可视化结果如下图所示：
 
-<div align="center">
-    <img src="../../ppstructure/docs/imgs/sdmgr_result.png" width="800">
-</div>
+![img](./images/sdmgr_result.png)
+
 
 ## 4. 推理部署
 

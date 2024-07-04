@@ -11,19 +11,18 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 其中英文模型支持，大小写字母和常见标点的检测识别，并优化了空格字符的识别：
 
-<div align="center">
-    <img src="../imgs_results/multi_lang/img_12.jpg" width="900" height="300">
-</div>
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/img_12.jpg)
+
 
 小语种模型覆盖了拉丁语系、阿拉伯语系、中文繁体、韩语、日语等等：
 
-<div align="center">
-    <img src="../imgs_results/multi_lang/japan_2.jpg" width="600" height="300">
-    <img src="../imgs_results/multi_lang/french_0.jpg" width="300" height="300">
-    <img src="../imgs_results/multi_lang/korean_0.jpg" width="500" height="300">
-    <img src="../imgs_results/multi_lang/arabic_0.jpg" width="300" height="300">
-</div>
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/japan_2.jpg)
 
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/french_0.jpg)
+
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/korean_0.jpg)
+
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/arabic_0.jpg)
 
 本文档将简要介绍小语种模型的使用方法。
 
@@ -38,10 +37,8 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 - [4 预测部署](#预测部署)
 - [4 支持语种及缩写](#语种缩写)
 
-<a name="安装"></a>
 ## 1 安装
 
-<a name="paddle安装"></a>
 ### 1.1 paddle 安装
 ```
 # cpu
@@ -51,7 +48,6 @@ pip install paddlepaddle
 pip install paddlepaddle-gpu
 ```
 
-<a name="paddleocr_package_安装"></a>
 ### 1.2 paddleocr package 安装
 
 
@@ -66,10 +62,8 @@ python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本号
 ```
 
-<a name="快速使用"></a>
 ## 2 快速使用
 
-<a name="命令行运行"></a>
 ### 2.1 命令行运行
 
 查看帮助信息
@@ -87,10 +81,10 @@ Paddleocr目前支持80个语种，可以通过修改--lang参数进行切换，
 paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```
 
-<div align="center">
-    <img src="../imgs_en/254.jpg" width="300" height="600">
-    <img src="../imgs_results/multi_lang/img_02.jpg" width="600" height="600">
-</div>
+<img src="https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_en/254.jpg" alt="img" style="zoom:67%;" />
+
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/img_02.jpg)
+
 
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
@@ -132,7 +126,6 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ......
 ```
 
-<a name="python_脚本运行"></a>
 ### 2.2 python 脚本运行
 
 ppocr 也支持在python脚本中运行，便于嵌入到您自己的代码中 ：
@@ -166,13 +159,11 @@ im_show.save('result.jpg')
 
 结果可视化:
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.1/doc/imgs_results/korean.jpg" width="800">
-</div>
+![img](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.1/doc/imgs_results/korean.jpg)
+
 
 ppocr 还支持方向分类， 更多使用方式请参考：[whl包使用说明](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)
 
-<a name="自定义训练"></a>
 ## 3 自定义训练
 
 ppocr 支持使用自己的数据进行自定义训练或finetune, 其中识别模型可以参考 [法语配置文件](../../configs/rec/multi_language/rec_french_lite_train.yml)
@@ -235,7 +226,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 更多功能如预测部署、数据标注等功能可以阅读完整的[文档教程](../../README_ch.md)。
 
-<a name="预测部署"></a>
 ## 4 预测部署
 
 除了安装whl包进行快速预测，ppocr 也提供了多种预测部署方式，如有需求可阅读相关文档：
@@ -247,7 +237,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 
 
-<a name="语种缩写"></a>
 ## 5 支持语种及缩写
 
 | 语种 | 描述 | 缩写 | | 语种 | 描述 | 缩写 |
