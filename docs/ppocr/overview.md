@@ -9,9 +9,7 @@ PP-OCR是一个两阶段的OCR系统，其中文本检测算法选用[DB](../alg
 
 PP-OCR系统pipeline如下：
 
-<div align="center">
-    <img src="./images/ppocrv2_framework.jpg" width="800">
-</div>
+![](./images/ppocrv2_framework.jpg)
 
 
 PP-OCR系统在持续迭代优化，目前已发布PP-OCR和PP-OCRv2两个版本：
@@ -30,9 +28,8 @@ PP-OCRv3在PP-OCRv2的基础上，针对检测模型和识别模型，进行了�
 
 PP-OCRv3系统pipeline如下：
 
-<div align="center">
-    <img src="./images/ppocrv3_framework.png" width="800">
-</div>
+![](./images/ppocrv3_framework.png)
+
 
 更多细节请参考[PP-OCRv3技术报告](https://arxiv.org/abs/2206.03001v2) 👉[中文简洁版](./PP-OCRv3_introduction.md)
 
@@ -60,27 +57,28 @@ PP-OCRv3系统pipeline如下：
 
 <details open>
 <summary>PP-OCRv3 中文模型</summary>
-<div align="center">
-    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="./images/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
-</div>
+
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic001.jpg)
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic002.jpg)
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic003.jpg)
+
 </details>
 
 <details open>
 <summary>PP-OCRv3 英文模型</summary>
-<div align="center">
-    <img src="./images/PP-OCRv3/en/en_1.png" width="800">
-    <img src="./images/PP-OCRv3/en/en_2.png" width="800">
-</div>
+
+![](./images/PP-OCRv3/en/en_1.png)
+![](./images/PP-OCRv3/en/en_2.png)
+
 </details>
 
 <details open>
 <summary>PP-OCRv3 多语言模型</summary>
-<div align="center">
-    <img src="./images/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="./images/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
-</div>
+
+
+![](./images/PP-OCRv3/multi_lang/japan_2.jpg)
+![](./images/PP-OCRv3/multi_lang/korean_1.jpg)
+
 </details>
 
 

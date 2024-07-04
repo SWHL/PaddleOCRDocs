@@ -114,10 +114,9 @@ PaddleOCR目前支持80个语种，可以通过修改`--lang`参数进行切换�
 paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 ```
 
-<div align="center">
-    <img src="./images/254.jpg" width="300" height="600">
-    <img src="./images/multi_lang/img_02.jpg" width="600" height="600">
-</div>
+![](./images/254.jpg)
+![](./images/multi_lang/img_02.jpg)
+
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
@@ -180,9 +179,7 @@ im_show.save('result.jpg')
 
 结果可视化
 
-<div align="center">
-    <img src="./images/11_det_rec.jpg" width="800">
-</div>
+![](./images/11_det_rec.jpg)
 
 
 如果输入是PDF文件，那么可以参考下面代码进行可视化

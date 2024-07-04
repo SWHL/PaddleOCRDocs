@@ -10,9 +10,7 @@ PP-OCR is a two-stage OCR system, in which the text detection algorithm is [DB](
 
 PP-OCR pipeline is as follows:
 
-<div align="center">
-    <img src="../ppocrv2_framework.jpg" width="800">
-</div>
+![](./images/ppocrv2_framework.jpg)
 
 
 PP-OCR system is in continuous optimization. At present, PP-OCR and PP-OCRv2 have been released:
@@ -30,9 +28,7 @@ PP-OCRv3 upgraded the detection model and recognition model in 9 aspects based o
 
 PP-OCRv3 pipeline is as follows:
 
-<div align="center">
-    <img src="../ppocrv3_framework.png" width="800">
-</div>
+![](./images/ppocrv3_framework.png)
 
 For more details, please refer to [PP-OCRv3 technical report](https://arxiv.org/abs/2206.03001v2).
 
@@ -53,27 +49,27 @@ For the performance comparison between PP-OCR series models, please check the [b
 
 <details open>
 <summary>PP-OCRv3 Chinese model</summary>
-<div align="center">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
-</div>
+
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic001.jpg)
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic002.jpg)
+![](./images/PP-OCRv3/ch/PP-OCRv3-pic003.jpg)
+
 </details>
 
 <details open>
 <summary>PP-OCRv3 English model</summary>
-<div align="center">
-    <img src="../imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="../imgs_results/PP-OCRv3/en/en_2.png" width="800">
-</div>
+
+![](./images/PP-OCRv3/en/en_1.png)
+![](./images/PP-OCRv3/en/en_2.png)
+
 </details>
 
 <details open>
 <summary>PP-OCRv3 Multilingual model</summary>
-<div align="center">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="../imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
-</div>
+
+![](./images/PP-OCRv3/multi_lang/japan_2.jpg)
+![](./images/PP-OCRv3/multi_lang/korean_1.jpg)
+
 </details>
 
 
@@ -93,8 +89,8 @@ For more tutorials, including model training, model compression, deployment, etc
 
 ## PP-OCR Series Model List（Update on 2022.04.28）
 
-| Model introduction                                            | Model name              | Recommended scene | Detection model                                                                                                                                                                                             | Direction classifier                                                                                                                                                                                        | Recognition model                                                                                                                                                                                           |
-| ------------------------------------------------------------- | ----------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Model introduction  | Model name | Recommended scene | Detection model  | Direction classifier | Recognition model  |
+| ----- | --- | --- | ------ | ---- | ------ |
 | Chinese and English ultra-lightweight PP-OCRv3 model（16.2M） | ch_PP-OCRv3_xx          | Mobile & Server   | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar)         | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar)                 |
 | English ultra-lightweight PP-OCRv3 model（13.4M）             | en_PP-OCRv3_xx          | Mobile & Server   | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_distill_train.tar)         | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar)                 |
 | Chinese and English ultra-lightweight PP-OCRv2 model（11.6M） | ch_PP-OCRv2_xx          | Mobile & Server   | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_det_distill_train.tar)         | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv2_rec_train.tar)                 |

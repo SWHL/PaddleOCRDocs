@@ -2,19 +2,6 @@
 
 **Note:** This tutorial mainly introduces the usage of PP-OCR series models, please refer to [PP-Structure Quick Start](../../ppstructure/docs/quickstart_en.md) for the quick use of document analysis related functions.
 
-- [1. Installation](#1-installation)
-  - [1.1 Install PaddlePaddle](#11-install-paddlepaddle)
-  - [1.2 Install PaddleOCR Whl Package](#12-install-paddleocr-whl-package)
-- [2. Easy-to-Use](#2-easy-to-use)
-  - [2.1 Use by Command Line](#21-use-by-command-line)
-    - [2.1.1 Chinese and English Model](#211-chinese-and-english-model)
-    - [2.1.2 Multi-language Model](#212-multi-language-model)
-  - [2.2 Use by Code](#22-use-by-code)
-    - [2.2.1 Chinese & English Model and Multilingual Model](#221-chinese--english-model-and-multilingual-model)
-- [3. Summary](#3-summary)
-
-
-
 
 ## 1. Installation
 
@@ -50,8 +37,6 @@ pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 
 
 ## 2. Easy-to-Use
-
-
 ### 2.1 Use by Command Line
 
 PaddleOCR provides a series of test images, click [here](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip) to download, and then switch to the corresponding directory in the terminal
@@ -135,10 +120,9 @@ PaddleOCR currently supports 80 languages, which can be switched by modifying th
 paddleocr --image_dir ./doc/imgs_en/254.jpg --lang=en
 ```
 
-<div align="center">
-    <img src="../imgs_en/254.jpg" width="300" height="600">
-    <img src="../imgs_results/multi_lang/img_02.jpg" width="600" height="600">
-</div>
+![](./images/254.jpg)
+![](./images/multi_lang/img_02.jpg)
+
 The result is a list, each item contains a text box, text and recognition confidence
 
 ```text
@@ -159,9 +143,7 @@ Commonly used multilingual abbreviations include
 A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./multi_languages_en.md)
 
 
-
 ### 2.2 Use by Code
-
 #### 2.2.1 Chinese & English Model and Multilingual Model
 
 * detection, angle classification and recognition:
@@ -203,9 +185,7 @@ Output will be a list, each item contains bounding box, text and recognition con
 
 Visualization of results
 
-<div align="center">
-    <img src="../imgs_results/whl/12_det_rec.jpg" width="800">
-</div>
+![](./images/11_det_rec.jpg)
 
 If the input is a PDF file, you can refer to the following code for visualization
 
