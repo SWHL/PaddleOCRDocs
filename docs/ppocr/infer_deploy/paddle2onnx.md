@@ -123,16 +123,11 @@ python3 tools/infer/predict_system.py --use_gpu=False \
 
 ONNXRuntime 执行效果：
 
-<div align="center">
-    <img src="./images/lite_demo_onnx.png" width=800">
-</div>
+![](./images/lite_demo_onnx.png)
 
 Paddle Inference 执行效果：
 
-<div align="center">
-    <img src="./images/lite_demo_paddle.png" width=800">
-</div>
-
+![](./images/lite_demo_paddle.png)
 
 使用 ONNXRuntime 预测，终端输出：
 ```

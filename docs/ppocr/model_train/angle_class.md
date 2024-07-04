@@ -142,7 +142,7 @@ python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model
 
 预测图片：
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_words/ch/word_1.jpg)
+![img](./images/word_1-20240704115432742.jpg)
 
 得到输入图像的预测结果：
 

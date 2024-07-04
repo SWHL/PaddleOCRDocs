@@ -1,15 +1,4 @@
-English | [简体中文](README_ch.md)
-
 # Table Recognition
-
-- [1. pipeline](#1-pipeline)
-- [2. Performance](#2-performance)
-- [3. Result](#3-result)
-- [4. How to use](#4-how-to-use)
-  - [4.1 Quick start](#41-quick-start)
-  - [4.2 Training, Evaluation and Inference](#42-training-evaluation-and-inference)
-  - [4.3 Calculate TEDS](#43-calculate-teds)
-- [5. Reference](#5-reference)
 
 
 ## 1. pipeline
@@ -20,7 +9,7 @@ The table recognition mainly contains three models
 
 The table recognition flow chart is as follows
 
-![tableocr_pipeline](../docs/table/tableocr_pipeline_en.jpg)
+![tableocr_pipeline](./images/tableocr_pipeline.jpg)
 
 1. The coordinates of single-line text is detected by DB model, and then sends it to the recognition model to get the recognition result.
 2. The table structure and cell coordinates is predicted by SLANet model.
@@ -43,9 +32,11 @@ The performance indicators are explained as follows:
 
 ## 3. Result
 
-![](../docs/imgs/table_ch_result1.jpg)
-![](../docs/imgs/table_ch_result2.jpg)
-![](../docs/imgs/table_ch_result3.jpg)
+![img](./images/table_ch_result1.jpg)
+
+![img](./images/table_ch_result2.jpg)
+
+![img](./images/table_ch_result3.jpg)
 
 ## 4. How to use
 

@@ -1,13 +1,5 @@
 # Python Inference
 
-- [1. Layout Structured Analysis](#1-layout-structured-analysis)
-  - [1.1 layout analysis + table recognition](#11-layout-analysis--table-recognition)
-  - [1.2 layout analysis](#12-layout-analysis)
-  - [1.3 table recognition](#13-table-recognition)
-- [2. Key Information Extraction](#2-key-information-extraction)
-  - [2.1 SER](#21-ser)
-  - [2.2 RE+SER](#22-reser)
-
 ## 1. Layout Structured Analysis
 Go to the `ppstructure` directory
 

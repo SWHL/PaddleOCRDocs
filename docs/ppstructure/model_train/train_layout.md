@@ -1,34 +1,15 @@
-简体中文 | [English](README.md)
+---
+typora-copy-images-to: images
+---
 
 # 版面分析
-
-- [版面分析](#版面分析)
-    - [1. 简介](#1-简介)
-    - [2. 快速开始](#2-快速开始)
-    - [3. 安装](#3-安装)
-        - [3.1. 安装PaddlePaddle](#31-安装paddlepaddle)
-        - [3.2. 安装PaddleDetection](#32-安装paddledetection)
-    - [4. 数据准备](#4-数据准备)
-        - [4.1. 英文数据集](#41-英文数据集)
-        - [4.2. 更多数据集](#42-更多数据集)
-    - [5. 开始训练](#5-开始训练)
-        - [5.1. 启动训练](#51-启动训练)
-        - [5.2. FGD蒸馏训练](#52-fgd蒸馏训练)
-    - [6. 模型评估与预测](#6-模型评估与预测)
-        - [6.1. 指标评估](#61-指标评估)
-        - [6.2 测试版面分析结果](#62-测试版面分析结果)
-    - [7. 模型导出与预测](#7-模型导出与预测)
-        - [7.1 模型导出](#71-模型导出)
-        - [7.2 模型推理](#72-模型推理)
-    - [Citations](#citations)
 
 ## 1. 简介
 
 版面分析指的是对图片形式的文档进行区域划分，定位其中的关键区域，如文字、标题、表格、图片等。版面分析算法基于[PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection)的轻量模型PP-PicoDet进行开发，包含英文、中文、表格版面分析3类模型。其中，英文模型支持Text、Title、Tale、Figure、List5类区域的检测，中文模型支持Text、Title、Figure、Figure caption、Table、Table caption、Header、Footer、Reference、Equation10类区域的检测，表格版面分析支持Table区域的检测，版面分析效果如下图所示：
 
-<div align="center">
-    <img src="../docs/layout/layout.png" width="800">
-</div>
+![img](./images/layout.png)
+
 
 ## 2. 快速开始
 
@@ -135,7 +116,7 @@ json文件包含所有图像的标注，数据以字典嵌套的方式存放，�
 
   ```
   {
-
+  
       'segmentation':             # 物体的分割标注
       'area': 60518.099043117836, # 物体的区域面积
       'iscrowd': 0,               # iscrowd
@@ -438,9 +419,8 @@ preprocess_time(ms): 2172.50, inference_time(ms): 11.90, postprocess_time(ms): 1
 
 可视化版面结果如下图所示
 
-<div align="center">
-    <img src="../docs/layout/layout_res.jpg" width="800">
-</div>
+![img](./images/layout_res.jpg)
+
 
 
 

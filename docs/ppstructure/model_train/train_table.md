@@ -1,16 +1,8 @@
-[English](README.md) | 简体中文
+---
+typora-copy-images-to: images
+---
 
 # 表格识别
-
-- [表格识别](#表格识别)
-    - [1. 表格识别 pipeline](#1-表格识别-pipeline)
-    - [2. 性能](#2-性能)
-    - [3. 效果演示](#3-效果演示)
-    - [4. 使用](#4-使用)
-        - [4.1 快速开始](#41-快速开始)
-        - [4.2 模型训练、评估与推理](#42-模型训练评估与推理)
-        - [4.3 计算TEDS](#43-计算teds)
-    - [5. Reference](#5-reference)
 
 
 ## 1. 表格识别 pipeline
@@ -22,7 +14,7 @@
 
 具体流程图如下
 
-![tableocr_pipeline](../docs/table/tableocr_pipeline.jpg)
+![tableocr_pipeline](./images/tableocr_pipeline.jpg)
 
 流程说明:
 
@@ -50,9 +42,11 @@
 
 ## 3. 效果演示
 
-![](../docs/imgs/table_ch_result1.jpg)
-![](../docs/imgs/table_ch_result2.jpg)
-![](../docs/imgs/table_ch_result3.jpg)
+![img](./images/table_ch_result1.jpg)
+
+![img](./images/table_ch_result2.jpg)
+
+![img](./images/table_ch_result3.jpg)
 
 ## 4. 使用
 

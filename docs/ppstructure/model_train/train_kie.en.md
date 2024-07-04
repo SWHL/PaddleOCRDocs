@@ -1,19 +1,8 @@
-
-English | [简体中文](README_ch.md)
+---
+typora-copy-images-to: images
+---
 
 # Key Information Extraction (KIE)
-
-- [1. Introduction](#1-introduction)
-- [2. Performance](#2-performance)
-- [3. Visualization](#3-visualization)
-  - [3.1 SER](#31-ser)
-  - [3.2 RE](#32-re)
-- [4. Usage](#4-usage)
-  - [4.1 Prepare for the environment](#41-prepare-for-the-environment)
-  - [4.2 Quick start](#42-quick-start)
-  - [4.3 More](#43-more)
-- [5. Reference](#5-reference)
-- [6. License](#6-license)
 
 
 ## 1. Introduction
@@ -65,22 +54,13 @@ The following images are demo results of the SER and RE models. For more detaile
 
 Demo results for SER task are as follows.
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68.jpg" width="600">
-</div>
+![img](./images/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808.jpg" width="600">
-</div>
+![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a.png" width="600">
-</div>
+![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a.png)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539735-37b5c2ef-629d-43fe-9abb-44bb717ef7ee.jpg" width="600">
-</div>
-
+![img](./images/185539735-37b5c2ef-629d-43fe-9abb-44bb717ef7ee.jpg)
 
 
 **Note:** test pictures are from [xfund dataset](https://github.com/doc-analysis/XFUND), [invoice dataset](https://aistudio.baidu.com/aistudio/datasetdetail/165561) and a composite ID card dataset.
@@ -97,17 +77,11 @@ For the ID card image, the model can directly identify the key information such 
 Demo results for RE task are as follows.
 
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg" width="600">
-</div>
+![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg" width="600">
-</div>
+![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185540291-f64e5daf-6d42-4e7c-bbbb-471e3fac4fcc.png" width="600">
-</div>
+![img](./images/185540291-f64e5daf-6d42-4e7c-bbbb-471e3fac4fcc.png)
 
 Red boxes are questions, blue boxes are answers. The green lines means the two connected objects are a pair.
 
@@ -131,10 +105,8 @@ pip install paddleocr -U
 
 The visualized results of SER are saved in the `./output` folder by default. Examples of results are as follows.
 
+![img](https://github.com/PaddlePaddle/PaddleOCR/raw/main/ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg)
 
-<div align="center">
-    <img src="../../ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg" width="800">
-</div>
 
 
 ### 4.2 Quick start

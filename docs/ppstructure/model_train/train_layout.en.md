@@ -1,33 +1,12 @@
-English | [简体中文](README_ch.md)
-
 # Layout analysis
-
-- [1. Introduction](#1-Introduction)
-- [2. Quick start](#2-Quick-start)
-- [3. Install](#3-Install)
-  - [3.1 Install PaddlePaddle](#31-Install-paddlepaddle)
-  - [3.2 Install PaddleDetection](#32-Install-paddledetection)
-- [4. Data preparation](#4-Data-preparation)
-  - [4.1 English data set](#41-English-data-set)
-  - [4.2 More datasets](#42-More-datasets)
-- [5. Start training](#5-Start-training)
-  - [5.1 Train](#51-Train)
-  - [5.2 FGD Distillation training](#52-Fgd-distillation-training)
-- [6. Model evaluation and prediction](#6-Model-evaluation-and-prediction)
-  - [6.1 Indicator evaluation](#61-Indicator-evaluation)
-  - [6.2 Test layout analysis results](#62-Test-layout-analysis-results)
-- [7. Model export and inference](#7-Model-export-and-inference)
-  - [7.1 Model export](#71-Model-export)
-  - [7.2 Model inference](#72-Model-inference)
 
 
 ## 1. Introduction
 
 Layout analysis refers to the regional division of documents in the form of pictures and the positioning of key areas, such as text, title, table, picture, etc. The layout analysis algorithm is based on the lightweight model PP-picodet of [PaddleDetection]( https://github.com/PaddlePaddle/PaddleDetection ), including English layout analysis, Chinese layout analysis and table layout analysis models.  English layout analysis models can detect document layout elements such as text, title, table, figure, list. Chinese layout analysis models can detect document layout elements such as text, figure, figure caption, table, table caption, header, footer, reference, and equation. Table layout analysis models can detect table regions.
 
-<div align="center">
-    <img src="../docs/layout/layout.png" width="800">
-</div>
+![img](./images/layout.png)
+
 
 ## 2. Quick start
 PP-Structure currently provides layout analysis models in Chinese, English and table documents. For the model link, see [models_list](../docs/models_list_en.md). The whl package is also provided for quick use, see [quickstart](../docs/quickstart_en.md) for details.
@@ -132,7 +111,7 @@ The JSON file contains the annotations of all images, and the data is stored in 
 
   ```
   {
-
+  
       'segmentation':             # Segmentation annotation of objects
       'area': 60518.099043117836, # Area of object
       'iscrowd': 0,               # iscrowd
@@ -437,10 +416,7 @@ preprocess_time(ms): 2172.50, inference_time(ms): 11.90, postprocess_time(ms): 1
 
 The result of visualization layout is shown in the following figure
 
-<div align="center">
-    <img src="../docs/layout/layout_res.jpg" width="800">
-</div>
-
+![img](./images/layout_res.jpg)
 
 
 ## Citations

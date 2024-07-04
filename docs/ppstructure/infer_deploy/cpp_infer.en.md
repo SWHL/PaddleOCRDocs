@@ -1,16 +1,4 @@
-English | [简体中文](readme_ch.md)
-
 # Server-side C++ Inference
-
-- [1. Prepare the Environment](#1)
-    - [1.1 Environment](#11)
-    - [1.2 Compile OpenCV](#12)
-    - [1.3 Compile or Download or the Paddle Inference Library](#13)
-- [2. Compile and Run the Demo](#2)
-    - [2.1 Export the inference model](#21)
-    - [2.2 Compile PaddleOCR C++ inference demo](#22)
-    - [2.3 Run the demo](#23)
-- [3. FAQ](#3)
 
 
 This chapter introduces the C++ deployment steps of the PaddleOCR model. C++ is better than Python in terms of performance. Therefore, in CPU and GPU deployment scenarios, C++ deployment is mostly used.

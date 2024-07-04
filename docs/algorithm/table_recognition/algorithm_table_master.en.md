@@ -1,16 +1,5 @@
 # Table Recognition Algorithm-TableMASTER
 
-- [1. Introduction](#1-introduction)
-- [2. Environment](#2-environment)
-- [3. Model Training / Evaluation / Prediction](#3-model-training--evaluation--prediction)
-- [4. Inference and Deployment](#4-inference-and-deployment)
-  - [4.1 Python Inference](#41-python-inference)
-  - [4.2 C++ Inference](#42-c-inference)
-  - [4.3 Serving](#43-serving)
-  - [4.4 More](#44-more)
-- [5. FAQ](#5-faq)
-- [Citation](#citation)
-
 ## 1. Introduction
 
 Paper:

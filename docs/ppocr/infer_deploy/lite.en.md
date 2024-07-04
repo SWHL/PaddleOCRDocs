@@ -1,15 +1,4 @@
-
 # Mobile deployment based on Paddle-Lite
-
-- [Mobile deployment based on Paddle-Lite](#mobile-deployment-based-on-paddle-lite)
-    - [1. Preparation](#1-preparation)
-        - [Preparation environment](#preparation-environment)
-        - [1.1 Prepare the cross-compilation environment](#11-prepare-the-cross-compilation-environment)
-        - [1.2 Prepare Paddle-Lite library](#12-prepare-paddle-lite-library)
-    - [2 Run](#2-run)
-        - [2.1 Inference Model Optimization](#21-inference-model-optimization)
-        - [2.2 Run optimized model on Phone](#22-run-optimized-model-on-phone)
-    - [FAQ](#faq)
 
 
 This tutorial will introduce how to use [Paddle-Lite](https://github.com/PaddlePaddle/Paddle-Lite) to deploy PaddleOCR ultra-lightweight Chinese and English detection models on mobile phones.
@@ -175,7 +164,7 @@ Some preparatory work is required first.
     Verify whether adb is installed successfully
      ```
     adb devices
-    ```
+     ```
     If there is device output, it means the installation is successful。
     ```
        List of devices attached
@@ -276,9 +265,8 @@ If you modify the code, you need to recompile and push to the phone.
 
 The outputs are as follows:
 
-<div align="center">
-    <img src="imgs/lite_demo.png" width="600">
-</div>
+![img](./images/lite_demo.png)
+
 
 ## FAQ
 

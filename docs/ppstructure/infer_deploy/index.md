@@ -1,19 +1,14 @@
-[English](README.md) | 简体中文
+---
+typora-copy-images-to: images
+---
 
 # PP-OCR 模型推理部署
-
-- [PP-OCR 模型推理部署](#pp-ocr-模型推理部署)
-    - [Paddle 推理部署方式简介](#paddle-推理部署方式简介)
-    - [PP-OCR 推理部署](#pp-ocr-推理部署)
 
 ## Paddle 推理部署方式简介
 
 飞桨提供多种部署方案，以满足不同场景的部署需求，请根据实际情况进行选择：
 
-<div align="center">
-    <img src="../doc/deployment.png" width="800">
-</div>
-
+![img](./images/deployment-20240704135743247.png)
 
 ## PP-OCR 推理部署
 

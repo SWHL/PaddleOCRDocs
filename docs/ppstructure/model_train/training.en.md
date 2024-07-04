@@ -1,16 +1,5 @@
 # Model Training
 
-- [1.Yml Configuration ](#1-Yml-Configuration)
-- [2. Basic Concepts](#1-basic-concepts)
-  * [2.1 Learning Rate](#11-learning-rate)
-  * [2.2 Regularization](#12-regularization)
-  * [2.3 Evaluation Indicators](#13-evaluation-indicators-)
-- [3. Data and Vertical Scenes](#2-data-and-vertical-scenes)
-  * [3.1 Training Data](#21-training-data)
-  * [3.2 Vertical Scene](#22-vertical-scene)
-  * [3.3 Build Your Own Dataset](#23-build-your-own-data-set)
-* [4. FAQ](#3-faq)
-
 
 This article will introduce the basic concepts that is necessary for model training and tuning.
 
@@ -118,17 +107,17 @@ There are several experiences for reference when constructing the data set:
 **Q**: How to choose a suitable network input shape when training CRNN recognition?
 
     A: The general height is 32, the longest width is selected, there are two methods:
-
+    
     (1) Calculate the aspect ratio distribution of training sample images. The selection of the maximum aspect ratio considers 80% of the training samples.
-
+    
     (2) Count the number of texts in training samples. The selection of the longest number of characters considers the training sample that satisfies 80%. Then the aspect ratio of Chinese characters is approximately considered to be 1, and that of English is 3:1, and the longest width is estimated.
 
 **Q**: During the recognition training, the accuracy of the training set has reached 90, but the accuracy of the verification set has been kept at 70, what should I do?
 
     A: If the accuracy of the training set is 90 and the test set is more than 70, it should be over-fitting. There are two methods to try:
-
+    
     (1) Add more augmentation methods or increase the [probability] of augmented prob (https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppocr/data/imaug/rec_img_aug.py#L341), The default is 0.4.
-
+    
     (2) Increase the [l2 dcay value] of the system (https://github.com/PaddlePaddle/PaddleOCR/blob/a501603d54ff5513fc4fc760319472e59da25424/configs/rec/ch_ppocr_v1.1/rec_chinese_lite_train_v1.1.yml#L47)
 
 **Q**: When the recognition model is trained, loss can drop normally, but acc is always 0

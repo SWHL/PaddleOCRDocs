@@ -1,30 +1,4 @@
-
 # PP-Structure Quick Start
-
-- [PP-Structure Quick Start](#pp-structure-quick-start)
-  - [1. Environment Preparation](#1-environment-preparation)
-    - [1.1 Install PaddlePaddle](#11-install-paddlepaddle)
-    - [1.2 Install PaddleOCR Whl Package](#12-install-paddleocr-whl-package)
-  - [2. Quick Use](#2-quick-use)
-    - [2.1 Use by command line](#21-use-by-command-line)
-      - [2.1.1 image orientation + layout analysis + table recognition](#211-image-orientation--layout-analysis--table-recognition)
-      - [2.1.2 layout analysis + table recognition](#212-layout-analysis--table-recognition)
-      - [2.1.3 layout analysis](#213-layout-analysis)
-      - [2.1.4 table recognition](#214-table-recognition)
-      - [2.1.5 Key Information Extraction](#215-key-information-extraction)
-      - [2.1.6 layout recovery(PDF to Word)](#216-layout-recoverypdf-to-word)
-    - [2.2 Use by python script](#22-use-by-python-script)
-      - [2.2.1 image orientation + layout analysis + table recognition](#221-image-orientation--layout-analysis--table-recognition)
-      - [2.2.2 layout analysis + table recognition](#222-layout-analysis--table-recognition)
-      - [2.2.3 layout analysis](#223-layout-analysis)
-      - [2.2.4 table recognition](#224-table-recognition)
-      - [2.2.5 Key Information Extraction](#225-key-information-extraction)
-      - [2.2.6 layout recovery](#226-layout-recovery)
-    - [2.3 Result description](#23-result-description)
-      - [2.3.1 layout analysis + table recognition](#231-layout-analysis--table-recognition)
-      - [2.3.2 Key Information Extraction](#232-key-information-extraction)
-    - [2.4 Parameter Description](#24-parameter-description)
-  - [3. Summary](#3-summary)
 
 
 ## 1. Environment Preparation

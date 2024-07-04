@@ -117,16 +117,12 @@ After executing the command, the predicted identification information will be pr
 
 ONNXRuntime result：
 
-<div align="center">
-    <img src="../../doc/imgs_results/multi_lang/img_12.jpg" width=800">
-</div>
+![](./images/lite_demo_onnx.png)
+
 
 Paddle Inference result：
 
-<div align="center">
-    <img src="../../doc/imgs_results/multi_lang/img_12.jpg" width=800">
-</div>
-
+![](./images/lite_demo_paddle.png)
 
 Using ONNXRuntime to predict, terminal output:
 ```

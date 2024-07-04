@@ -1,22 +1,8 @@
-[English](README.md) | 简体中文
+---
+typora-copy-images-to: images
+---
 
 # 关键信息抽取
-
-- [关键信息抽取](#关键信息抽取)
-    - [1. 简介](#1-简介)
-    - [2. 精度与性能](#2-精度与性能)
-    - [3. 效果演示](#3-效果演示)
-        - [3.1 SER](#31-ser)
-        - [3.2 RE](#32-re)
-    - [4. 使用](#4-使用)
-        - [4.1 准备环境](#41-准备环境)
-        - [4.2 快速开始](#42-快速开始)
-            - [4.2.1 准备数据](#421-准备数据)
-            - [4.2.2 基于动态图的预测](#422-基于动态图的预测)
-            - [4.2.3 基于PaddleInference的预测](#423-基于paddleinference的预测)
-        - [4.3 更多](#43-更多)
-    - [5. 参考链接](#5-参考链接)
-    - [6. License](#6-license)
 
 
 ## 1. 简介
@@ -66,21 +52,13 @@ PP-Structure中关键信息抽取模块的主要特性如下：
 
 对于SER任务，效果如下所示。
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68.jpg" width="600">
-</div>
+![img](./images/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808.jpg" width="600">
-</div>
+![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a.png" width="600">
-</div>
+![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a.png)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539735-37b5c2ef-629d-43fe-9abb-44bb717ef7ee.jpg" width="600">
-</div>
+![img](./images/185539735-37b5c2ef-629d-43fe-9abb-44bb717ef7ee.jpg)
 
 **注意：** 测试图片来源于[XFUND数据集](https://github.com/doc-analysis/XFUND)、[发票数据集](https://aistudio.baidu.com/aistudio/datasetdetail/165561)以及合成的身份证数据集。
 
@@ -96,17 +74,11 @@ PP-Structure中关键信息抽取模块的主要特性如下：
 
 对于RE任务，效果如下所示。
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg" width="600">
-</div>
+![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg" width="600">
-</div>
+![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185540291-f64e5daf-6d42-4e7c-bbbb-471e3fac4fcc.png" width="600">
-</div>
+![img](./images/185540291-f64e5daf-6d42-4e7c-bbbb-471e3fac4fcc.png)
 
 
 红色框是问题，蓝色框是答案。绿色线条表示连接的两端为一个key-value的pair。

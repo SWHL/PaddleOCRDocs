@@ -1,18 +1,3 @@
-English | [简体中文](readme.md)
-
-- [Service deployment based on PaddleHub Serving](#service-deployment-based-on-paddlehub-serving)
-  - [1. Update](#1-update)
-  - [2. Quick start service](#2-quick-start-service)
-    - [2.1 Install PaddleHub](#21-install-paddlehub)
-    - [2.2 Download inference model](#22-download-inference-model)
-    - [2.3 Install Service Module](#23-install-service-module)
-    - [2.4 Start service](#24-start-service)
-      - [2.4.1 Start with command line parameters (CPU only)](#241-start-with-command-line-parameters-cpu-only)
-      - [2.4.2 Start with configuration file（CPU and GPU）](#242-start-with-configuration-filecpugpu)
-  - [3. Send prediction requests](#3-send-prediction-requests)
-  - [4. Returned result format](#4-returned-result-format)
-  - [5. User-defined service module modification](#5-user-defined-service-module-modification)
-
 PaddleOCR provides 2 service deployment methods:
 - Based on **PaddleHub Serving**: Code path is `./deploy/hubserving`. Please follow this tutorial.
 - Based on **PaddleServing**: Code path is `./deploy/pdserving`. Please refer to the [tutorial](../../deploy/pdserving/README.md) for usage.
@@ -161,7 +146,7 @@ python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 
 Two parameters need to be passed to the script:
 - **server_url**:service address, the format of which is
-`http://[ip_address]:[port]/predict/[module_name]`
+  `http://[ip_address]:[port]/predict/[module_name]`
 
   For example, if using the configuration file to start the text angle classification, text detection, text recognition, detection+classification+recognition 3 stages, table recognition and PP-Structure service,
 

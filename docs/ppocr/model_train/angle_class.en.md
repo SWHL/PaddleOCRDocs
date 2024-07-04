@@ -13,7 +13,7 @@ The text line image obtained after text detection is sent to the recognition mod
 
 Example of 0 and 180 degree data samples：
 
-![](../imgs_results/angle_class_example.jpg)
+![img](./images/angle_class_example.jpg)
 
 ## 2. Data Preparation
 
@@ -138,7 +138,7 @@ python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model
 
 Input image:
 
-![](../imgs_words_en/word_10.png)
+![](./images/word_1-20240704115432742.jpg)
 
 Get the prediction result of the input image:
 

@@ -1,17 +1,4 @@
-English | [简体中文](README_ch.md)
-
 # PP-Structure
-
-- [PP-Structure](#pp-structure)
-    - [1. Introduction](#1-introduction)
-    - [2. Features](#2-features)
-    - [3. Results](#3-results)
-        - [3.1 Layout analysis and table recognition](#31-layout-analysis-and-table-recognition)
-        - [3.1.1 版面识别返回单字坐标](#311-版面识别返回单字坐标)
-        - [3.2 Layout recovery](#32-layout-recovery)
-        - [3.3 KIE](#33-kie)
-    - [4. Quick start](#4-quick-start)
-    - [5. Model List](#5-model-list)
 
 ## 1. Introduction
 

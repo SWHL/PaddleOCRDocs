@@ -1,17 +1,11 @@
-English | [简体中文](README_ch.md)
-
 # PP-OCR Deployment
-
-- [Paddle Deployment Introduction](#1)
-- [PP-OCR Deployment](#2)
 
 ## Paddle Deployment Introduction
 
 Paddle provides a variety of deployment schemes to meet the deployment requirements of different scenarios. Please choose according to the actual situation:
 
-<div align="center">
-    <img src="../doc/deployment_en.png" width="800">
-</div>
+![img](./images/deployment-20240704135743247.png)
+
 
 
 ## PP-OCR Deployment

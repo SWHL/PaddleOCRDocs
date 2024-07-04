@@ -1,26 +1,6 @@
 # Text Recognition
 
-- [1. Data Preparation](#DATA_PREPARATION)
-  * [1.1 Custom Dataset](#Custom_Dataset)
-  * [1.2 Dataset Download](#Dataset_download)
-  * [1.3 Dictionary](#Dictionary)
-  * [1.4 Add Space Category](#Add_space_category)
-  * [1.5 Data Augmentation](#Data_Augmentation)
-- [2. Training](#TRAINING)
-  * [2.1 Start Training](#21-start-training)
-  * [2.2 Load Trained Model and Continue Training](#22-load-trained-model-and-continue-training)
-  * [2.3 Training with New Backbone](#23-training-with-new-backbone)
-  * [2.4 Mixed Precision Training](#24-amp-training)
-  * [2.5 Distributed Training](#25-distributed-training)
-  * [2.6 Training with knowledge distillation](#kd)
-  * [2.7 Multi-language Training](#Multi_language)
-  * [2.8 Training on other platform(Windows/macOS/Linux DCU)](#28)
-  * [2.9 Fine-tuning](#29)
-- [3. Evaluation and Test](#3-evaluation-and-test)
-  * [3.1 Evaluation](#31-evaluation)
-  * [3.2 Test](#32-test)
-- [4. Inference](#4-inference)
-- [5. FAQ](#5-faq)
+
 
 ## 1. Data Preparation
 
@@ -286,7 +266,7 @@ If you want to speed up your training further, you can use [Auto Mixed Precision
 python3 tools/train.py -c configs/rec/rec_icdar15_train.yml \
      -o Global.pretrained_model=./pretrain_models/rec_mv3_none_bilstm_ctc_v2.0_train \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
- ```
+```
 
 ### 2.5 Distributed Training
 
