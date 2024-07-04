@@ -1,20 +1,8 @@
-# 基于PP-OCRv3的PCB字符识别
+---
+typora-copy-images-to: images
+---
 
-- [1. 项目介绍](#1-项目介绍)
-- [2. 安装说明](#2-安装说明)
-- [3. 数据准备](#3-数据准备)
-- [4. 文本检测](#4-文本检测)
-  - [4.1 预训练模型直接评估](#41-预训练模型直接评估)
-  - [4.2 预训练模型+验证集padding直接评估](#42-预训练模型验证集padding直接评估)
-  - [4.3 预训练模型+fine-tune](#43-预训练模型fine-tune)
-- [5. 文本识别](#5-文本识别)
-  - [5.1 预训练模型直接评估](#51-预训练模型直接评估)
-  - [5.2 三种fine-tune方案](#52-三种fine-tune方案)
-- [6. 模型导出](#6-模型导出)
-- [7. 端对端评测](#7-端对端评测)
-- [8. Jetson部署](#8-Jetson部署)
-- [9. 总结](#9-总结)
-- [更多资源](#更多资源)
+# 基于PP-OCRv3的PCB字符识别
 
 # 1. 项目介绍
 
@@ -26,8 +14,7 @@
 
 针对本场景，PaddleOCR基于全新的PP-OCRv3通过合成数据、微调以及其他场景适配方法完成小字符文本识别任务，满足企业上线要求。PCB检测、识别效果如 **图1** 所示：
 
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/95d8e95bf1ab476987f2519c0f8f0c60a0cdc2c444804ed6ab08f2f7ab054880', width='500'></div>
-<div align=center>图1 PCB检测识别效果</div>
+<img src="./images/95d8e95bf1ab476987f2519c0f8f0c60a0cdc2c444804ed6ab08f2f7ab054880-0096678.png" style="zoom: 33%;" />
 
 注：欢迎在AIStudio领取免费算力体验线上实训，项目链接: [基于PP-OCRv3实现PCB字符识别](https://aistudio.baidu.com/aistudio/projectdetail/4008973)
 
@@ -53,8 +40,7 @@ pip install -r /home/aistudio/PaddleOCR/requirements.txt
 
 我们通过图片合成工具生成 **图2** 所示的PCB图片，整图只有高25、宽150左右、文字区域高9、宽45左右，包含垂直和水平2种方向的文本：
 
-<div align=center><img src="https://ai-studio-static-online.cdn.bcebos.com/bb7a345687814a3d83a29790f2a2b7d081495b3a920b43988c93da6039cad653" width="1000" ></div>
-<div align=center>图2 数据集示例</div>
+![](./images/bb7a345687814a3d83a29790f2a2b7d081495b3a920b43988c93da6039cad653.jpeg)
 
 暂时不开源生成的PCB数据集，但是通过更换背景，通过如下代码生成数据即可：
 
@@ -77,8 +63,7 @@ output_dir：生成图片存储路径
 
 这里生成 **100张** 相同尺寸和文本的图片，如  **图3** 所示，方便大家跑通实验。通过如下代码解压数据集：
 
-<div align=center><img src="https://ai-studio-static-online.cdn.bcebos.com/3277b750159f4b68b2b58506bfec9005d49aeb5fb1d9411e83f96f9ff7eb66a5" width="1000" ></div>
-<div align=center>图3 案例提供数据集示例</div>
+<img src="./images/3277b750159f4b68b2b58506bfec9005d49aeb5fb1d9411e83f96f9ff7eb66a5.png" style="zoom:50%;" />
 
 
 ```python
@@ -192,8 +177,7 @@ python tools/eval.py \
 
 考虑到PCB图片比较小，宽度只有25左右、高度只有140-170左右，我们在原图的基础上进行padding，再进行检测评估，padding前后效果对比如 **图4** 所示：
 
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/e61e6ba685534eda992cea30a63a9c461646040ffd0c4d208a5eebb85897dcf7' width='600'></div>
-<div align=center>图4 padding前后对比图</div>
+<img src="./images/e61e6ba685534eda992cea30a63a9c461646040ffd0c4d208a5eebb85897dcf7-0096772.jpeg" style="zoom: 50%;" />
 
 将图片都padding到300*300大小，因为坐标信息发生了变化，我们同时要修改标注文件，在`/home/aistudio/dataset`目录里也提供了padding之后的图片，大家也可以尝试训练和评估：
 
@@ -374,8 +358,8 @@ Eval.dataset.label_file_list：添加公开通用识别数据标注文件
 Eval.dataset.ratio_list：数据和公开通用识别数据每次采样比例，按实际修改即可
 ```
 如 **图5** 所示：
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/0fa18b25819042d9bbf3397c3af0e21433b23d52f7a84b0a8681b8e6a308d433' wdith=''></div>
-<div align=center>图5 添加公开通用识别数据配置文件示例</div>
+
+![](./images/0fa18b25819042d9bbf3397c3af0e21433b23d52f7a84b0a8681b8e6a308d433.png)
 
 
 我们提取Student模型的参数，在PCB数据集上进行fine-tune，可以参考如下代码：
@@ -465,8 +449,8 @@ python3 tools/infer/predict_det.py \
 ```
 
 结果存储在`inference_results`目录下，检测如下图所示：
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/5939ae15a1f0445aaeec15c68107dbd897740a1ddd284bf8b583bb6242099157' width=''></div>
-<div align=center>图6 检测结果</div>
+
+![](./images/5939ae15a1f0445aaeec15c68107dbd897740a1ddd284bf8b583bb6242099157.jpeg)
 
 
 同理，导出识别模型并进行推理。
@@ -520,8 +504,8 @@ python3 tools/infer/predict_system.py  \
 ```
 
 端到端预测结果存储在`det_res_infer`文件夹内，结果如下图所示：
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/c570f343c29846c792da56ebaca16c50708477514dd048cea8bef37ffa85d03f'></div>
-<div align=center>图7 检测+识别结果</div>
+
+![](./images/c570f343c29846c792da56ebaca16c50708477514dd048cea8bef37ffa85d03f.jpeg)
 
 # 7. 端对端评测
 
@@ -579,8 +563,8 @@ python3 tools/end2end/eval_end2end.py ./save_gt_label/ ./save_PPOCRV2_infer/
 ```
 
 使用`预训练模型+fine-tune'检测模型`、`预训练模型 + 2W张PCB图片funetune`识别模型，在300张PCB图片上评估得到如下结果，fmeasure为主要关注的指标:
-<div align=center><img src='https://ai-studio-static-online.cdn.bcebos.com/37206ea48a244212ae7a821d50d1fd51faf3d7fe97ac47a29f04dfcbb377b019', width='700'></div>
-<div align=center>图8 端到端评估指标</div>
+
+![](./images/37206ea48a244212ae7a821d50d1fd51faf3d7fe97ac47a29f04dfcbb377b019.png)
 
 ```
 注: 使用上述命令不能跑出该结果，因为数据集不相同，可以更换为自己训练好的模型，按上述流程运行
