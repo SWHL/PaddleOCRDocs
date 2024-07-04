@@ -60,7 +60,7 @@ python3 tools/infer/predict_rec.py --image_dir="doc/imgs_words/en/word_1.png" --
 ````
 The inference results are as follows:
 
-![](../../doc/imgs_words/en/word_1.png)
+![img](./images/word_1-20240704184113913.png)
 
 ````
 Predicts of doc/imgs_words/en/word_1.png:('joint ', 0.9999969601631165)

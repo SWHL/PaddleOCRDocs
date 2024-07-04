@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # CT
 
 ## 1. 算法简介
@@ -43,8 +47,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img623.jpg" --det_
 
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_img623_ct.jpg)
-
+![img](./images/det_res_img623_ct.jpg)
 
 ### 4.2 C++推理
 

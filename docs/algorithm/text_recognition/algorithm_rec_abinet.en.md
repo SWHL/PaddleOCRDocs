@@ -75,7 +75,7 @@ For ABINet text recognition model inference, the following commands can be execu
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_r45_abinet/' --rec_algorithm='ABINet' --rec_image_shape='3,32,128' --rec_char_dict_path='./ppocr/utils/ic15_dict.txt'
 ```
 
-![](../imgs_words_en/word_10.png)
+![img](./images/word_10.png)
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
 The result is as follows:

@@ -1,9 +1,5 @@
 # 关键信息抽取算法-LayoutXLM
-
-
-
 ## 1. 算法简介
-
 
 论文信息：
 
@@ -60,9 +56,8 @@ python3 kie/predict_kie_token_ser.py \
 
 SER可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
-<div align="center">
-    <img src="./images/zh_val_42_ser.jpg" width="800">
-</div>
+![](./images/zh_val_42_ser.jpg)
+
 
 - RE
 
@@ -89,9 +84,8 @@ python3 kie/predict_kie_token_ser_re.py \
 
 RE可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
-<div align="center">
-    <img src="./images/zh_val_42_re.jpg" width="800">
-</div>
+![](./images/zh_val_42_re.jpg)
+
 
 ### 4.2 C++推理部署
 

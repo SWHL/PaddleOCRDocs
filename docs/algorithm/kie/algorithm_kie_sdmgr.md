@@ -3,9 +3,7 @@ typora-copy-images-to: images
 ---
 
 # 关键信息抽取算法-SDMGR
-
 ## 1. 算法简介
-
 
 论文信息：
 

@@ -1,34 +1,9 @@
+---
+typora-copy-images-to: images
+---
+
+
 # 快速构建卡证类OCR
-
-
-- [快速构建卡证类OCR](#快速构建卡证类ocr)
-  - [1. 金融行业卡证识别应用](#1-金融行业卡证识别应用)
-    - [1.1 金融行业中的OCR相关技术](#11-金融行业中的ocr相关技术)
-    - [1.2 金融行业中的卡证识别场景介绍](#12-金融行业中的卡证识别场景介绍)
-    - [1.3 OCR落地挑战](#13-ocr落地挑战)
-  - [2. 卡证识别技术解析](#2-卡证识别技术解析)
-    - [2.1 卡证分类模型](#21-卡证分类模型)
-    - [2.2 卡证识别模型](#22-卡证识别模型)
-  - [3. OCR技术拆解](#3-ocr技术拆解)
-    - [3.1技术流程](#31技术流程)
-    - [3.2 OCR技术拆解---卡证分类](#32-ocr技术拆解---卡证分类)
-      - [卡证分类：数据、模型准备](#卡证分类数据模型准备)
-      - [卡证分类---修改配置文件](#卡证分类---修改配置文件)
-      - [卡证分类---训练](#卡证分类---训练)
-    - [3.2 OCR技术拆解---卡证识别](#32-ocr技术拆解---卡证识别)
-      - [身份证识别：检测+分类](#身份证识别检测分类)
-      - [数据标注](#数据标注)
-  - [4 . 项目实践](#4--项目实践)
-    - [4.1 环境准备](#41-环境准备)
-    - [4.2 配置文件修改](#42-配置文件修改)
-    - [4.3 代码修改](#43-代码修改)
-      - [4.3.1 数据读取](#431-数据读取)
-      - [4.3.2  head修改](#432--head修改)
-      - [4.3.3 修改loss](#433-修改loss)
-      - [4.3.4 后处理](#434-后处理)
-    - [4.4. 模型启动](#44-模型启动)
-  - [5 总结](#5-总结)
-  - [References](#references)
 
 ## 1. 金融行业卡证识别应用
 
@@ -41,7 +16,7 @@
 * 以智能为目标，提升金融数字化水平，实现业务流程自动化，降低人力成本。
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/8bb381f164c54ea9b4043cf66fc92ffdea8aaf851bab484fa6e19bd2f93f154f)
+![](./images/8bb381f164c54ea9b4043cf66fc92ffdea8aaf851bab484fa6e19bd2f93f154f.jpeg)
 
 
 
@@ -51,14 +26,14 @@
 
 应用难点：由于数据的采集来源多样，以及实际采集数据各种噪声：反光、褶皱、模糊、倾斜等各种问题干扰。
 
-![](https://ai-studio-static-online.cdn.bcebos.com/981640e17d05487e961162f8576c9e11634ca157f79048d4bd9d3bc21722afe8)
+![](./images/981640e17d05487e961162f8576c9e11634ca157f79048d4bd9d3bc21722afe8-20240704185952731.jpeg)
 
 
 
 ### 1.3 OCR落地挑战
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/a5973a8ddeff4bd7ac082f02dc4d0c79de21e721b41641cbb831f23c2cb8fce2)
+![](./images/a5973a8ddeff4bd7ac082f02dc4d0c79de21e721b41641cbb831f23c2cb8fce2.jpeg)
 
 
 
@@ -67,7 +42,7 @@
 ## 2. 卡证识别技术解析
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/d7f96effc2434a3ca2d4144ff33c50282b830670c892487d8d7dec151921cce7)
+![](./images/d7f96effc2434a3ca2d4144ff33c50282b830670c892487d8d7dec151921cce7.jpeg)
 
 
 ### 2.1 卡证分类模型
@@ -76,9 +51,9 @@
 
 与其他轻量级模型相比在CPU环境下ImageNet数据集上的表现
 
-![](https://ai-studio-static-online.cdn.bcebos.com/cbda3390cb994f98a3c8a9ba88c90c348497763f6c9f4b4797f7d63d84da5f63)
+![](./images/cbda3390cb994f98a3c8a9ba88c90c348497763f6c9f4b4797f7d63d84da5f63.jpeg)
 
-![](https://ai-studio-static-online.cdn.bcebos.com/dedab7b7fd6543aa9e7f625132b24e3ba3f200e361fa468dac615f7814dfb98d)
+![](./images/dedab7b7fd6543aa9e7f625132b24e3ba3f200e361fa468dac615f7814dfb98d.jpeg)
 
 
 
@@ -88,23 +63,23 @@
 
 * 检测：DBNet  识别：SVRT
 
-![](https://ai-studio-static-online.cdn.bcebos.com/9a7a4e19edc24310b46620f2ee7430f918223b93d4f14a15a52973c096926bad)
+![](./images/9a7a4e19edc24310b46620f2ee7430f918223b93d4f14a15a52973c096926bad.jpeg)
 
 
 * PPOCRv3在文本检测、识别进行了一系列改进优化，在保证精度的同时提升预测效率
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/6afdbb77e8db4aef9b169e4e94c5d90a9764cfab4f2c4c04aa9afdf4f54d7680)
+![](./images/6afdbb77e8db4aef9b169e4e94c5d90a9764cfab4f2c4c04aa9afdf4f54d7680.jpeg)
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/c1a7d197847a4f168848c59b8e625d1d5e8066b778144395a8b9382bb85dc364)
+![](./images/c1a7d197847a4f168848c59b8e625d1d5e8066b778144395a8b9382bb85dc364.jpeg)
 
 
 ## 3. OCR技术拆解
 
 ### 3.1技术流程
 
-![](https://ai-studio-static-online.cdn.bcebos.com/89ba046177864d8783ced6cb31ba92a66ca2169856a44ee59ac2bb18e44a6c4b)
+![](./images/89ba046177864d8783ced6cb31ba92a66ca2169856a44ee59ac2bb18e44a6c4b.jpeg)
 
 
 ### 3.2 OCR技术拆解---卡证分类
@@ -115,7 +90,7 @@
 A  使用爬虫获取无标注数据，将相同类别的放在同一文件夹下，文件名从0开始命名。具体格式如下图所示。
 
 ​    注：卡证类数据，建议每个类别数据量在500张以上
-![](https://ai-studio-static-online.cdn.bcebos.com/6f875b6e695e4fe5aedf427beb0d4ce8064ad7cc33c44faaad59d3eb9732639d)
+![](./images/6f875b6e695e4fe5aedf427beb0d4ce8064ad7cc33c44faaad59d3eb9732639d.jpeg)
 
 
 B  一行命令生成标签文件
@@ -140,7 +115,7 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
   数据处理：训练/评估数据路径
 
 
-  ![](https://ai-studio-static-online.cdn.bcebos.com/e0dc05039c7444c5ab1260ff550a408748df8d4cfe864223adf390e51058dbd5)
+  ![](./images/e0dc05039c7444c5ab1260ff550a408748df8d4cfe864223adf390e51058dbd5.jpeg)
 
 #### 卡证分类---训练
 
@@ -150,7 +125,7 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 ```
 !python /home/aistudio/work/PaddleClas/tools/train.py -c   /home/aistudio/work/PaddleClas/ppcls/configs/PULC/text_image_orientation/PPLCNet_x1_0.yaml
 ```
-![](https://ai-studio-static-online.cdn.bcebos.com/06af09bde845449ba0a676410f4daa1cdc3983ac95034bdbbafac3b7fd94042f)
+![](./images/06af09bde845449ba0a676410f4daa1cdc3983ac95034bdbbafac3b7fd94042f.jpeg)
 
 ​    注：日志中显示了训练结果和评估结果（训练时可以设置固定轮数评估一次）
 
@@ -166,7 +141,7 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 
   * 多行的文本信息，检测结果如何正确拼接
 
-  ![](https://ai-studio-static-online.cdn.bcebos.com/4f8f5533a2914e0a821f4a639677843c32ec1f08a1b1488d94c0b8bfb6e72d2d)
+  ![](./images/4f8f5533a2914e0a821f4a639677843c32ec1f08a1b1488d94c0b8bfb6e72d2d.jpeg)
 
 
 
@@ -177,7 +152,7 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 
 身份证识别：用现有的方法识别
 
-![](https://ai-studio-static-online.cdn.bcebos.com/12d402e6a06d482a88f979e0ebdfb39f4d3fc8b80517499689ec607ddb04fbf3)
+![](./images/12d402e6a06d482a88f979e0ebdfb39f4d3fc8b80517499689ec607ddb04fbf3.jpeg)
 
 
 
@@ -186,27 +161,27 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 
 >   方法：基于现有的dbnet检测模型，加入分类方法。检测同时进行分类，从一定程度上优化识别流程
 
-![](https://ai-studio-static-online.cdn.bcebos.com/e1e798c87472477fa0bfca0da12bb0c180845a3e167a4761b0d26ff4330a5ccb)
+![](./images/e1e798c87472477fa0bfca0da12bb0c180845a3e167a4761b0d26ff4330a5ccb.jpeg)
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/23a5a19c746441309864586e467f995ec8a551a3661640e493fc4d77520309cd)
+![](./images/23a5a19c746441309864586e467f995ec8a551a3661640e493fc4d77520309cd.jpeg)
 
 #### 数据标注
 
 使用PaddleOCRLable进行快速标注
 
-![](https://ai-studio-static-online.cdn.bcebos.com/a73180425fa14f919ce52d9bf70246c3995acea1831843cca6c17d871b8f5d95)
+![](./images/a73180425fa14f919ce52d9bf70246c3995acea1831843cca6c17d871b8f5d95.jpeg)
 
 
 * 修改PPOCRLabel.py，将下图中的kie参数设置为True
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/d445cf4d850e4063b9a7fc6a075c12204cf912ff23ec471fa2e268b661b3d693)
+![](./images/d445cf4d850e4063b9a7fc6a075c12204cf912ff23ec471fa2e268b661b3d693.jpeg)
 
 
 * 数据标注踩坑分享
 
-![](https://ai-studio-static-online.cdn.bcebos.com/89f42eccd600439fa9e28c97ccb663726e4e54ce3a854825b4c3b7d554ea21df)
+![](./images/89f42eccd600439fa9e28c97ccb663726e4e54ce3a854825b4c3b7d554ea21df.jpeg)
 
 ​    注：两者只有标注有差别，训练参数数据集都相同
 
@@ -237,7 +212,7 @@ AIStudio项目链接：[快速构建卡证类OCR](https://aistudio.baidu.com/ais
 
 具体修改说明如下：
 
-![](https://ai-studio-static-online.cdn.bcebos.com/fcdf517af5a6466294d72db7450209378d8efd9b77764e329d3f2aff3579a20c)
+![](./images/fcdf517af5a6466294d72db7450209378d8efd9b77764e329d3f2aff3579a20c.jpeg)
 
   注：在上述的配置文件的Global变量中需要添加以下两个参数：
 
@@ -246,19 +221,19 @@ AIStudio项目链接：[快速构建卡证类OCR](https://aistudio.baidu.com/ais
 ​     上述两个参数根据实际的情况配置即可
 
 
-![](https://ai-studio-static-online.cdn.bcebos.com/0b056be24f374812b61abf43305774767ae122c8479242f98aa0799b7bfc81d4)
+![](./images/0b056be24f374812b61abf43305774767ae122c8479242f98aa0799b7bfc81d4.jpeg)
 
 其中lable_list内容如下例所示，***建议第一个参数设置为 background，不要设置为实际要提取的关键信息种类***：
 
-![](https://ai-studio-static-online.cdn.bcebos.com/9fc78bbcdf754898b9b2c7f000ddf562afac786482ab4f2ab063e2242faa542a)
+![](./images/9fc78bbcdf754898b9b2c7f000ddf562afac786482ab4f2ab063e2242faa542a.jpeg)
 
 配置文件中的其他设置说明
 
-![](https://ai-studio-static-online.cdn.bcebos.com/c7fc5e631dd44bc8b714630f4e49d9155a831d9e56c64e2482ded87081d0db22)
+![](./images/c7fc5e631dd44bc8b714630f4e49d9155a831d9e56c64e2482ded87081d0db22.jpeg)
 
-![](https://ai-studio-static-online.cdn.bcebos.com/8d1022ac25d9474daa4fb236235bd58760039d58ad46414f841559d68e0d057f)
+![](./images/8d1022ac25d9474daa4fb236235bd58760039d58ad46414f841559d68e0d057f.jpeg)
 
-![](https://ai-studio-static-online.cdn.bcebos.com/ee927ad9ebd442bb96f163a7ebbf4bc95e6bedee97324a51887cf82de0851fd3)
+![](./images/ee927ad9ebd442bb96f163a7ebbf4bc95e6bedee97324a51887cf82de0851fd3.jpeg)
 
 
 
@@ -334,13 +309,13 @@ class DetLabelEncode(object):
 举例说明：
 这是检测的mask图，图中有四个mask那么实际对应的分类应该是4类
 
-![](https://ai-studio-static-online.cdn.bcebos.com/42d2188d3d6b498880952e12c3ceae1efabf135f8d9f4c31823f09ebe02ba9d2)
+![](./images/42d2188d3d6b498880952e12c3ceae1efabf135f8d9f4c31823f09ebe02ba9d2.jpeg)
 
 
 
 label_list中第一个为关键分类，则得到的分类Mask实际如下，与上图相比，少了一个box：
 
-![](https://ai-studio-static-online.cdn.bcebos.com/864604967256461aa7c5d32cd240645e9f4c70af773341d5911f22d5a3e87b5f)
+![](./images/864604967256461aa7c5d32cd240645e9f4c70af773341d5911f22d5a3e87b5f.jpeg)
 
 
 
@@ -493,7 +468,7 @@ class EastRandomCropData(object):
 
 主要修改 ppocr/modeling/heads/det_db_head.py，将Head类中的最后一层的输出修改为实际的分类数，同时在DBHead中新增分类的head。
 
-![](https://ai-studio-static-online.cdn.bcebos.com/0e25da2ccded4af19e95c85c3d3287ab4d53e31a4eed4607b6a4cb637c43f6d3)
+![](./images/0e25da2ccded4af19e95c85c3d3287ab4d53e31a4eed4607b6a4cb637c43f6d3.jpeg)
 
 
 
@@ -502,7 +477,7 @@ class EastRandomCropData(object):
 
 修改PaddleOCR/ppocr/losses/det_db_loss.py中的DBLoss类，分类采用交叉熵损失函数进行计算。
 
-![](https://ai-studio-static-online.cdn.bcebos.com/dc10a070018d4d27946c26ec24a2a85bc3f16422f4964f72a9b63c6170d954e1)
+![](./images/dc10a070018d4d27946c26ec24a2a85bc3f16422f4964f72a9b63c6170d954e1.jpeg)
 
 
 #### 4.3.4 后处理

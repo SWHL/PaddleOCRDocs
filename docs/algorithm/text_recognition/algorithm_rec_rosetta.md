@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # Rosetta
 
 ## 1. 算法简介
@@ -63,7 +67,7 @@ python3 tools/infer/predict_rec.py --image_dir="doc/imgs_words/en/word_1.png" --
 
 推理结果如下所示：
 
-![](../../doc/imgs_words/en/word_1.png)
+![img](./images/word_1-20240704184113913.png)
 
 ```
 Predicts of doc/imgs_words/en/word_1.png:('joint', 0.9999982714653015)

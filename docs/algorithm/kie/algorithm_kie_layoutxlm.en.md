@@ -28,10 +28,7 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 
 Please refer to [KIE tutorial](./kie_en.md)。PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different models.
 
-
-
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 
 - SER
@@ -60,9 +57,7 @@ python3 kie/predict_kie_token_ser.py \
 The SER visualization results are saved in the `./output` directory by default. The results are as follows.
 
 
-<div align="center">
-    <img src="./images/zh_val_42_ser.jpg" width="800">
-</div>
+![](./images/zh_val_42_ser.jpg)
 
 
 - RE
@@ -91,10 +86,7 @@ python3 kie/predict_kie_token_ser_re.py \
 ```
 The RE visualization results are saved in the `./output` directory by default. The results are as follows.
 
-
-<div align="center">
-    <img src="./images/zh_val_42_re.jpg" width="800">
-</div>
+![](./images/zh_val_42_re.jpg)
 
 
 ### 4.2 C++ Inference
