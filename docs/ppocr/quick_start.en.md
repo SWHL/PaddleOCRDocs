@@ -100,6 +100,7 @@ If you do not use the provided test image, you can replace the following `--imag
 
 **Version**
 paddleocr uses the PP-OCRv4 model by default(`--ocr_version PP-OCRv4`). If you want to use other versions, you can set the parameter `--ocr_version`, the specific version description is as follows:
+
 |  version name |  description |
 |    ---    |   ---   |
 | PP-OCRv4 | support Chinese and English detection and recognition, direction classifier, support multilingual recognition |
@@ -207,6 +208,7 @@ for idx in range(len(result)):
         continue
     for line in res:
         print(line)
+
 # draw the result
 import fitz
 from PIL import Image
