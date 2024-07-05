@@ -24,8 +24,9 @@ For the compilation process of different development environments, please refer 
 
 ### 1.2 Prepare Paddle-Lite library
 
-There are two ways to obtain the Paddle-Lite library：
-1. [Recommended] Download directly, the download link of the Paddle-Lite library is as follows：
+There are two ways to obtain the Paddle-Lite library:
+
+1. [Recommended] Download directly, the download link of the Paddle-Lite library is as follows:
 
       | Platform | Paddle-Lite library download link |
       | --- | --- |
@@ -36,14 +37,15 @@ There are two ways to obtain the Paddle-Lite library：
 
     **Note: It is recommended to use paddlelite>=2.10 version of the prediction library, other prediction library versions [download link](https://github.com/PaddlePaddle/Paddle-Lite/tags)**
 
-2. Compile Paddle-Lite to get the prediction library. The compilation method of Paddle-Lite is as follows：
-```
-git clone https://github.com/PaddlePaddle/Paddle-Lite.git
-cd Paddle-Lite
-# Switch to Paddle-Lite release/v2.10 stable branch
-git checkout release/v2.10
-./lite/tools/build_android.sh  --arch=armv8  --with_cv=ON --with_extra=ON
-```
+2. Compile Paddle-Lite to get the prediction library. The compilation method of Paddle-Lite is as follows:
+
+   ```bash
+   git clone https://github.com/PaddlePaddle/Paddle-Lite.git
+   cd Paddle-Lite
+   # Switch to Paddle-Lite release/v2.10 stable branch
+   git checkout release/v2.10
+   ./lite/tools/build_android.sh  --arch=armv8  --with_cv=ON --with_extra=ON
+   ```
 
 Note: When compiling Paddle-Lite to obtain the Paddle-Lite library, you need to turn on the two options `--with_cv=ON --with_extra=ON`, `--arch` means the `arm` version, here is designated as armv8,
 
@@ -53,7 +55,8 @@ After directly downloading the Paddle-Lite library and decompressing it, you can
 `Paddle-Lite/build.lite.android.armv8.gcc/inference_lite_lib.android.armv8/` folder.
 
 The structure of the prediction library is as follows:
-```
+
+```text
 inference_lite_lib.android.armv8/
 |-- cxx                                        C++ prebuild library
 |   |-- include                                C++
@@ -79,7 +82,6 @@ inference_lite_lib.android.armv8/
 ```
 
 ## 2 Run
-
 ### 2.1 Inference Model Optimization
 
 Paddle Lite provides a variety of strategies to automatically optimize the original training model, including quantization, sub-graph fusion, hybrid scheduling, Kernel optimization and so on. In order to make the optimization process more convenient and easy to use, Paddle Lite provide opt tools to automatically complete the optimization steps and output a lightweight, optimal executable model.
@@ -99,12 +101,13 @@ If you directly use the model in the above table for deployment, you can skip th
 
 If the model to be deployed is not in the above table, you need to follow the steps below to obtain the optimized model.
 
-- Step 1: Refer to [document](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html) to install paddlelite, which is used to convert paddle inference model to paddlelite required for running nb model
-```
+Step 1: Refer to [document](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html) to install paddlelite, which is used to convert paddle inference model to paddlelite required for running nb model
+```bash
 pip install paddlelite==2.10 # The paddlelite version should be the same as the prediction library version
 ```
+
 After installation, the following commands can view the help information
-```
+```bash
 paddle_lite_opt
 ```
 
@@ -122,11 +125,12 @@ Introduction to paddle_lite_opt parameters:
 
 `--model_dir` is suitable for the non-combined mode of the model to be optimized, and the inference model of PaddleOCR is the combined mode, that is, the model structure and model parameters are stored in a single file.
 
-- Step 2: Use paddle_lite_opt to convert the inference model to the mobile model format.
+
+Step 2: Use paddle_lite_opt to convert the inference model to the mobile model format.
 
 The following takes the ultra-lightweight Chinese model of PaddleOCR as an example to introduce the use of the compiled opt file to complete the conversion of the inference model to the Paddle-Lite optimized model
 
-```
+```bash
 # 【[Recommendation] Download the Chinese and English inference model of PP-OCRv3
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_slim_infer.tar && tar xf  ch_PP-OCRv3_det_slim_infer.tar
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_slim_infer.tar && tar xf  ch_PP-OCRv2_rec_slim_quant_infer.tar
@@ -144,55 +148,61 @@ After the conversion is successful, there will be more files ending with `.nb` i
 ### 2.2 Run optimized model on Phone
 
 Some preparatory work is required first.
- 1. Prepare an Android phone with arm8. If the compiled prediction library and opt file are armv7, you need an arm7 phone and modify ARM_ABI = arm7 in the Makefile.
- 2. Make sure the phone is connected to the computer, open the USB debugging option of the phone, and select the file transfer mode.
- 3. Install the adb tool on the computer.
+
+1. Prepare an Android phone with arm8. If the compiled prediction library and opt file are armv7, you need an arm7 phone and modify ARM_ABI = arm7 in the Makefile.
+
+2. Make sure the phone is connected to the computer, open the USB debugging option of the phone, and select the file transfer mode.
+3. Install the adb tool on the computer.
 
     3.1. Install ADB for MAC:
-    ```
+    ```bash
     brew cask install android-platform-tools
     ```
+
     3.2. Install ADB for Linux
-    ```
+    ```bash
     sudo apt update
     sudo apt install -y wget adb
     ```
+
     3.3. Install ADB for windows
 
-    To install on win, you need to go to Google's Android platform to download the adb package for installation：[link](https://developer.android.com/studio)
+    To install on win, you need to go to Google's Android platform to download the adb package for installation:[link](https://developer.android.com/studio)
 
     Verify whether adb is installed successfully
-     ```
+    ```
     adb devices
-     ```
+    ```
+
     If there is device output, it means the installation is successful。
     ```
-       List of devices attached
-       744be294    device
+    List of devices attached
+    744be294    device
     ```
 
- 4. Prepare optimized models, prediction library files, test images and dictionary files used.
- ```
- git clone https://github.com/PaddlePaddle/PaddleOCR.git
- cd PaddleOCR/deploy/lite/
- # run prepare.sh
- sh prepare.sh /{lite prediction library path}/inference_lite_lib.android.armv8
+4. Prepare optimized models, prediction library files, test images and dictionary files used.
 
- #
- cd /{lite prediction library path}/inference_lite_lib.android.armv8/
- cd demo/cxx/ocr/
- # copy paddle-lite C++ .so file to debug/ directory
- cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
+   ```bash
+   git clone https://github.com/PaddlePaddle/PaddleOCR.git
+   cd PaddleOCR/deploy/lite/
+   # run prepare.sh
+   sh prepare.sh /{lite prediction library path}/inference_lite_lib.android.armv8
 
- cd inference_lite_lib.android.armv8/demo/cxx/ocr/
- cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
- ```
+   #
+   cd /{lite prediction library path}/inference_lite_lib.android.armv8/
+   cd demo/cxx/ocr/
+   # copy paddle-lite C++ .so file to debug/ directory
+   cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
+
+   cd inference_lite_lib.android.armv8/demo/cxx/ocr/
+   cp ../../../cxx/lib/libpaddle_light_api_shared.so ./debug/
+   ```
 
 Prepare the test image, taking PaddleOCR/doc/imgs/11.jpg as an example, copy the image file to the demo/cxx/ocr/debug/ folder. Prepare the model files optimized by the lite opt tool, ch_PP-OCRv3_det_slim_opt.nb , ch_PP-OCRv3_rec_slim_opt.nb , and place them under the demo/cxx/ocr/debug/ folder.
 
 The structure of the OCR demo is as follows after the above command is executed:
 
-```
+```text
 demo/cxx/ocr/
 |-- debug/
 |   |--ch_PP-OCRv3_det_slim_opt.nb           Detection model
@@ -215,51 +225,53 @@ demo/cxx/ocr/
 
 **Note**:
 1. `ppocr_keys_v1.txt` is a Chinese dictionary file. If the nb model is used for English recognition or other language recognition, dictionary file should be replaced with a dictionary of the corresponding language. PaddleOCR provides a variety of dictionaries under ppocr/utils/, including:
-```
-dict/french_dict.txt     # french
-dict/german_dict.txt     # german
-ic15_dict.txt       # english
-dict/japan_dict.txt      # japan
-dict/korean_dict.txt     # korean
-ppocr_keys_v1.txt   # chinese
-```
+
+   ```python
+   dict/french_dict.txt     # french
+   dict/german_dict.txt     # german
+   ic15_dict.txt       # english
+   dict/japan_dict.txt      # japan
+   dict/korean_dict.txt     # korean
+   ppocr_keys_v1.txt   # chinese
+   ```
 
 2.  `config.txt` of the detector and classifier, as shown below:
-```
-max_side_len  960         #  Limit the maximum image height and width to 960
-det_db_thresh  0.3        # Used to filter the binarized image of DB prediction, setting 0.-0.3 has no obvious effect on the result
-det_db_box_thresh  0.5    # DDB post-processing filter box threshold, if there is a missing box detected, it can be reduced as appropriate
-det_db_unclip_ratio  1.6  # Indicates the compactness of the text box, the smaller the value, the closer the text box to the text
-use_direction_classify  0  # Whether to use the direction classifier, 0 means not to use, 1 means to use
-rec_image_height  48      # The height of the input image of the recognition model, the PP-OCRv3 model needs to be set to 48, and the PP-OCRv2 model needs to be set to 32
-```
+
+    ```python
+    max_side_len  960         #  Limit the maximum image height and width to  960
+    det_db_thresh  0.3        # Used to filter the binarized image of DB  prediction, setting 0.-0.3 has no obvious effect on the result
+    det_db_box_thresh  0.5    # DDB post-processing filter box threshold, if  there is a missing box detected, it can be reduced as appropriate
+    det_db_unclip_ratio  1.6  # Indicates the compactness of the text box,  the smaller the value, the closer the text box to the text
+    use_direction_classify  0  # Whether to use the direction classifier, 0  means not to use, 1 means to use
+    rec_image_height  48      # The height of the input image of the  recognition model, the PP-OCRv3 model needs to be set to 48, and the  PP-OCRv2 model needs to be set to 32
+    ```
 
 3. Run Model on phone
 
-After the above steps are completed, you can use adb to push the file to the phone to run, the steps are as follows:
+   After the above steps are completed, you can use adb to push the file to the phone to run, the steps are as follows:
 
- ```bash
- # Execute the compilation and get the executable file ocr_db_crnn
- # The first execution of this command will download dependent libraries such as opencv. After the download is complete, you need to execute it again
- make -j
- # Move the compiled executable file to the debug folder
- mv ocr_db_crnn ./debug/
- # Push the debug folder to the phone
- adb push debug /data/local/tmp/
- adb shell
- cd /data/local/tmp/debug
- export LD_LIBRARY_PATH=${PWD}:$LD_LIBRARY_PATH
- # The use of ocr_db_crnn is:
- # ./ocr_db_crnn Mode Detection model file Orientation classifier model file Recognition model file  Hardware  Precision  Threads Batchsize  Test image path Dictionary file path
- ./ocr_db_crnn system ch_PP-OCRv3_det_slim_opt.nb  ch_PP-OCRv3_rec_slim_opt.nb  ch_ppocr_mobile_v2.0_cls_slim_opt.nb  arm8 INT8 10 1  ./11.jpg  config.txt  ppocr_keys_v1.txt  True
-# precision can be INT8 for quantitative model or FP32 for normal model.
+   ```bash
+   # Execute the compilation and get the executable file ocr_db_crnn
+   # The first execution of this command will download dependent libraries such as opencv. After the download is complete, you need to execute it again
+   make -j
+   # Move the compiled executable file to the debug folder
+   mv ocr_db_crnn ./debug/
+   # Push the debug folder to the phone
+   adb push debug /data/local/tmp/
+   adb shell
+   cd /data/local/tmp/debug
+   export LD_LIBRARY_PATH=${PWD}:$LD_LIBRARY_PATH
+   # The use of ocr_db_crnn is:
+   # ./ocr_db_crnn Mode Detection model file Orientation classifier model file Recognition model file  Hardware  Precision  Threads Batchsize  Test image path Dictionary file path
+   ./ocr_db_crnn system ch_PP-OCRv3_det_slim_opt.nb  ch_PP-OCRv3_rec_slim_opt.nb  ch_ppocr_mobile_v2.0_cls_slim_opt.nb  arm8 INT8 10 1  ./11.jpg  config.txt  ppocr_keys_v1.txt  True
+   # precision can be INT8 for quantitative model or FP32 for normal model.
 
-# Only using detection model
-./ocr_db_crnn  det ch_PP-OCRv3_det_slim_opt.nb arm8 INT8 10 1 ./11.jpg  config.txt
+   # Only using detection model
+   ./ocr_db_crnn  det ch_PP-OCRv3_det_slim_opt.nb arm8 INT8 10 1 ./11.jpg  config.txt
 
-# Only using recognition model
-./ocr_db_crnn  rec ch_PP-OCRv3_rec_slim_opt.nb arm8 INT8 10 1 word_1.jpg ppocr_keys_v1.txt config.txt
- ```
+   # Only using recognition model
+   ./ocr_db_crnn  rec ch_PP-OCRv3_rec_slim_opt.nb arm8 INT8 10 1 word_1.jpg ppocr_keys_v1.txt config.txt
+   ```
 
 If you modify the code, you need to recompile and push to the phone.
 

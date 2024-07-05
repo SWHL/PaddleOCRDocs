@@ -5,11 +5,8 @@ Go to the `ppstructure` directory
 
 ```bash
 cd ppstructure
-````
 
-download model
-
-```bash
+# download model
 mkdir inference && cd inference
 # Download the PP-StructureV2 layout analysis model and unzip it
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/layout/picodet_lcnet_x1_0_layout_infer.tar && tar xf picodet_lcnet_x1_0_layout_infer.tar
@@ -21,7 +18,9 @@ wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar 
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/slanet/ch_ppstructure_mobile_v2.0_SLANet_infer.tar && tar xf ch_ppstructure_mobile_v2.0_SLANet_infer.tar
 cd ..
 ```
+
 ### 1.1 layout analysis + table recognition
+
 ```bash
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
                           --rec_model_dir=inference/ch_PP-OCRv3_rec_infer \

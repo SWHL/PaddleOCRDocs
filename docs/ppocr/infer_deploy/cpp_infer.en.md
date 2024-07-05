@@ -1,24 +1,10 @@
-English | [简体中文](readme_ch.md)
-
 # Server-side C++ Inference
-
-- [1. Prepare the Environment](#1)
-    - [1.1 Environment](#11)
-    - [1.2 Compile OpenCV](#12)
-    - [1.3 Compile or Download or the Paddle Inference Library](#13)
-- [2. Compile and Run the Demo](#2)
-    - [2.1 Export the inference model](#21)
-    - [2.2 Compile PaddleOCR C++ inference demo](#22)
-    - [2.3 Run the demo](#23)
-- [3. FAQ](#3)
-
 
 This chapter introduces the C++ deployment steps of the PaddleOCR model. C++ is better than Python in terms of performance. Therefore, in CPU and GPU deployment scenarios, C++ deployment is mostly used.
 This section will introduce how to configure the C++ environment and deploy PaddleOCR in Linux (CPU\GPU) environment. For Windows deployment please refer to [Windows](./docs/windows_vs2019_build.md) compilation guidelines.
 
 
 ## 1. Prepare the Environment
-
 ### 1.1 Environment
 
 - Linux, docker is recommended.
@@ -26,7 +12,6 @@ This section will introduce how to configure the C++ environment and deploy Padd
 
 
 ### 1.2 Compile OpenCV
-
 * First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
 
 ```bash
@@ -40,7 +25,7 @@ Finally, you will see the folder of `opencv-3.4.7/` in the current directory.
 * Compile OpenCV, the OpenCV source path (`root_path`) and installation path (`install_path`) should be set by yourself. Enter the OpenCV source code path and compile it in the following way.
 
 
-```shell
+```bash
 root_path=your_opencv_root_path
 install_path=${root_path}/opencv3
 
@@ -104,17 +89,17 @@ Finally you will see the folder of `paddle_inference/` in the current path.
 
 #### 1.3.2 Compile the inference source code
 * If you want to get the latest Paddle inference library features, you can download the latest code from Paddle GitHub repository and compile the inference library from the source code. It is recommended to download the inference library with paddle version greater than or equal to 2.0.1.
-* You can refer to [Paddle inference library] (https://www.paddlepaddle.org.cn/documentation/docs/en/advanced_guide/inference_deployment/inference/build_and_install_lib_en.html) to get the Paddle source code from GitHub, and then compile To generate the latest inference library. The method of using git to access the code is as follows.
+* You can refer to [Paddle inference library](https://www.paddlepaddle.org.cn/documentation/docs/en/advanced_guide/inference_deployment/inference/build_and_install_lib_en.html) to get the Paddle source code from GitHub, and then compile To generate the latest inference library. The method of using git to access the code is as follows.
 
 
-```shell
+```bash
 git clone https://github.com/PaddlePaddle/Paddle.git
 git checkout develop
 ```
 
 * Enter the Paddle directory and run the following commands to compile the paddle inference library.
 
-```shell
+```bash
 rm -rf build
 mkdir build
 cd build
@@ -178,13 +163,13 @@ inference/
 
 * The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
 
-```shell
+```bash
 sh tools/build.sh
 ```
 
 Specifically, you should modify the paths in `tools/build.sh`. The related content is as follows.
 
-```shell
+```bash
 OPENCV_DIR=your_opencv_dir
 LIB_DIR=your_paddle_inference_dir
 CUDA_LIB_DIR=your_cuda_lib_dir
@@ -202,7 +187,7 @@ or the generated Paddle inference library path (`build/paddle_inference_install_
 ### 2.3 Run the demo
 
 Execute the built executable file:
-```shell
+```bash
 ./build/ppocr [--param1] [--param2] [...]
 ```
 
@@ -211,7 +196,7 @@ Execute the built executable file:
 Specifically,
 
 ##### 1. det+cls+rec：
-```shell
+```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
@@ -223,7 +208,7 @@ Specifically,
 ```
 
 ##### 2. det+rec：
-```shell
+```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs/12.jpg \
@@ -234,7 +219,7 @@ Specifically,
 ```
 
 ##### 3. det
-```shell
+```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --image_dir=../../doc/imgs/12.jpg \
     --det=true \
@@ -242,7 +227,7 @@ Specifically,
 ```
 
 ##### 4. cls+rec：
-```shell
+```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -253,7 +238,7 @@ Specifically,
 ```
 
 ##### 5. rec
-```shell
+```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
     --use_angle_cls=false \
@@ -263,7 +248,7 @@ Specifically,
 ```
 
 ##### 6. cls
-```shell
+```bash
 ./build/ppocr --cls_model_dir=inference/cls \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -274,7 +259,7 @@ Specifically,
 ```
 
 ##### 7. layout+table
-```shell
+```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \
@@ -286,7 +271,7 @@ Specifically,
 ```
 
 ##### 8. layout
-```shell
+```bash
 ./build/ppocr --layout_model_dir=inference/layout \
     --image_dir=../../ppstructure/docs/table/1.png \
     --type=structure \
@@ -297,7 +282,7 @@ Specifically,
 ```
 
 ##### 9. table
-```shell
+```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \

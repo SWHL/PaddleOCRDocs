@@ -8,7 +8,8 @@ The pipeline of PP-StructureV2 system is shown below. The document image first p
 
 - In the layout analysis task, the image first goes through the layout analysis model to divide the image into different areas such as text, table, and figure, and then analyze these areas separately. For example, the table area is sent to the form recognition module for structured recognition, and the text area is sent to the OCR engine for text recognition. Finally, the layout recovery module restores it to a word or pdf file with the same layout as the original image;
 - In the key information extraction task, the OCR engine is first used to extract the text content, and then the SER(semantic entity recognition) module obtains the semantic entities in the image, and finally the RE(relationship extraction) module obtains the correspondence between the semantic entities, thereby extracting the required key information.
-<img src="https://user-images.githubusercontent.com/14270174/195265734-6f4b5a7f-59b1-4fcc-af6d-89afc9bd51e1.jpg" width="100%"/>
+
+![img](./images/195265734-6f4b5a7f-59b1-4fcc-af6d-89afc9bd51e1-20240705140834325.jpg)
 
 More technical details: 👉 [PP-StructureV2 Technical Report](https://arxiv.org/abs/2210.05391)
 
@@ -39,14 +40,15 @@ PP-StructureV2 supports the independent use or flexible collocation of each modu
 The figure shows the pipeline of layout analysis + table recognition. The image is first divided into four areas of image, text, title and table by layout analysis, and then OCR detection and recognition is performed on the three areas of image, text and title, and the table is performed table recognition, where the image will also be stored for use.
 <img src="docs/table/ppstructure.GIF" width="100%"/>
 
-### 3.1.1 版面识别返回单字坐标
+### 3.1.1 Layout recognition returns the coordinates of a single word
 The following figure shows the result of layout analysis on single word， please refer to the [doc](./return_word_pos.md)。
 ![show_0_mdf_v2](https://github.com/PaddlePaddle/PaddleOCR/assets/43341135/799450d4-d2c5-4b61-b490-e160dc0f515c)
 
 ### 3.2 Layout recovery
 
 The following figure shows the effect of layout recovery based on the results of layout analysis and table recognition in the previous section.
-<img src="./docs/recovery/recovery.jpg" width="100%"/>
+
+![img](./images/ppstructure.gif)
 
 ### 3.3 KIE
 
@@ -54,45 +56,27 @@ The following figure shows the effect of layout recovery based on the results of
 
 Different colored boxes in the figure represent different categories.
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/197464552-69de557f-edff-4c7f-acbf-069df1ba097f.png" width="600">
-</div>
+![img](./images/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68-20240705093932704.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/25809855/186095702-9acef674-12af-4d09-97fc-abf4ab32600e.png" width="600">
-</div>
+![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808-20240705094001639.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539141-68e71c75-5cf7-4529-b2ca-219d29fa5f68.jpg" width="600">
-</div>
+![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a-20240705094013236.png)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808.jpg" width="600">
-</div>
+![img](./images/197464552-69de557f-edff-4c7f-acbf-069df1ba097f.png)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a.png" width="600">
-</div>
+![img](./images/186095702-9acef674-12af-4d09-97fc-abf4ab32600e.png)
 
 * RE
 
 In the figure, the red box represents `Question`, the blue box represents `Answer`, and `Question` and `Answer` are connected by green lines.
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/25809855/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d.png" width="600">
-</div>
+![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb-20240705094037073.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/25809855/186095641-5843b4da-34d7-4c1c-943a-b1036a859fe3.png" width="600">
-</div>
+![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f-20240705094043151.jpg)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg" width="600">
-</div>
+![img](./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d.png)
 
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/14270174/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg" width="600">
-</div>
+![img](./images/186095641-5843b4da-34d7-4c1c-943a-b1036a859fe3.png)
 
 ## 4. Quick start
 
