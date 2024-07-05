@@ -147,35 +147,35 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
 ### 2.2 与手机联调
 
-首先需要进行一些准备工作。
- 1. 准备一台arm8的安卓手机，如果编译的预测库和opt文件是armv7，则需要arm7的手机，并修改Makefile中`ARM_ABI = arm7`。
- 2. 打开手机的USB调试选项，选择文件传输模式，连接电脑。
- 3. 电脑上安装adb工具，用于调试。 adb安装方式如下：
+首先需要进行一些准备工作：
+1. 准备一台arm8的安卓手机，如果编译的预测库和opt文件是armv7，则需要arm7的手机，并修改Makefile中`ARM_ABI = arm7`。
+2. 打开手机的USB调试选项，选择文件传输模式，连接电脑。
+3. 电脑上安装adb工具，用于调试。 adb安装方式如下：
 
-    3.1. MAC电脑安装ADB:
-    ```
-    brew cask install android-platform-tools
-    ```
-    3.2. Linux安装ADB
-    ```
-    sudo apt update
-    sudo apt install -y wget adb
-    ```
-    3.3. Window安装ADB
+   3.1. MAC电脑安装ADB:
+   ```
+   brew cask install android-platform-tools
+   ```
+   3.2. Linux安装ADB
+   ```
+   sudo apt update
+   sudo apt install -y wget adb
+   ```
+   3.3. Window安装ADB
 
-    win上安装需要去谷歌的安卓平台下载adb软件包进行安装：[链接](https://developer.android.com/studio)
+   win上安装需要去谷歌的安卓平台下载adb软件包进行安装：[链接](https://developer.android.com/studio)
 
-    打开终端，手机连接电脑，在终端中输入
-    ```
-    adb devices
-    ```
-    如果有device输出，则表示安装成功。
-    ```
-       List of devices attached
-       744be294    device
-    ```
+   打开终端，手机连接电脑，在终端中输入
+   ```
+   adb devices
+   ```
+   如果有device输出，则表示安装成功。
+   ```
+      List of devices attached
+      744be294    device
+   ```
 
- 4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
+4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
    ```bash
    git clone https://github.com/PaddlePaddle/PaddleOCR.git
    cd PaddleOCR/deploy/lite/
@@ -240,29 +240,29 @@ rec_image_height  48      # 识别模型输入图像的高度，PP-OCRv3模型�
 
 3. 启动调试
 
- 上述步骤完成后就可以使用adb将文件push到手机上运行，步骤如下：
+上述步骤完成后就可以使用adb将文件push到手机上运行，步骤如下：
 
- ```bash
- # 执行编译，得到可执行文件ocr_db_crnn, 第一次执行此命令会下载opencv等依赖库，下载完成后，需要再执行一次
- make -j
+```bash
+# 执行编译，得到可执行文件ocr_db_crnn, 第一次执行此命令会下载opencv等依赖库，下载完成后，需要再执行一次
+make -j
 
- # 将编译的可执行文件移动到debug文件夹中
- mv ocr_db_crnn ./debug/
- # 将debug文件夹push到手机上
- adb push debug /data/local/tmp/
- adb shell
- cd /data/local/tmp/debug
- export LD_LIBRARY_PATH=${PWD}:$LD_LIBRARY_PATH
- # 开始使用，ocr_db_crnn可执行文件的使用方式为:
- # ./ocr_db_crnn 预测模式  检测模型文件 方向分类器模型文件  识别模型文件 运行硬件 运行精度 线程数  batchsize  测试图像路径  参数配置路径  字典文件路径 是否使用benchmark参数
- ./ocr_db_crnn system  ch_PP-OCRv3_det_slim_opt.nb  ch_PP-OCRv3_rec_slim_opt.nb  ch_ppocr_mobile_v2.0_cls_slim_opt.nb  arm8 INT8 10 1  ./11.jpg  config.txt  ppocr_keys_v1.txt  True
+# 将编译的可执行文件移动到debug文件夹中
+mv ocr_db_crnn ./debug/
+# 将debug文件夹push到手机上
+adb push debug /data/local/tmp/
+adb shell
+cd /data/local/tmp/debug
+export LD_LIBRARY_PATH=${PWD}:$LD_LIBRARY_PATH
+# 开始使用，ocr_db_crnn可执行文件的使用方式为:
+# ./ocr_db_crnn 预测模式  检测模型文件 方向分类器模型文件  识别模型文件 运行硬件 运行精度 线程数  batchsize  测试图像路径  参数配置路径  字典文件路径 是否使用benchmark参数
+./ocr_db_crnn system  ch_PP-OCRv3_det_slim_opt.nb  ch_PP-OCRv3_rec_slim_opt.nb  ch_ppocr_mobile_v2.0_cls_slim_opt.nb  arm8 INT8 10 1  ./11.jpg  config.txt  ppocr_keys_v1.txt  True
 
 # 仅使用文本检测模型，使用方式如下：
 ./ocr_db_crnn  det ch_PP-OCRv3_det_slim_opt.nb arm8 INT8 10 1 ./11.jpg  config.txt
 
 # 仅使用文本识别模型，使用方式如下：
 ./ocr_db_crnn  rec ch_PP-OCRv3_rec_slim_opt.nb arm8 INT8 10 1 word_1.jpg ppocr_keys_v1.txt config.txt
- ```
+```
 
  如果对代码做了修改，则需要重新编译并push到手机上。
 
