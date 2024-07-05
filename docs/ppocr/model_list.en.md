@@ -4,17 +4,6 @@
 > 2. Compared with [models 1.1](https://github.com/PaddlePaddle/PaddleOCR/blob/develop/doc/doc_en/models_list_en.md), which are trained with static graph programming paradigm, models 2.0 or higher are the dynamic graph trained version and achieve close performance.
 > 3. All models in this tutorial are from the PaddleOCR series, for more introduction to algorithms and models based on the public dataset, you can refer to [algorithm overview tutorial](./algorithm_overview_en.md).
 
-- [OCR Model List（V3, updated on 2022.4.28）]()
-  - [1. Text Detection Model](#1-text-detection-model)
-    - [1.1 Chinese Detection Model](#1.1)
-    - [2.2 English Detection Model](#1.2)
-    - [1.3 Multilingual Detection Model](#1.3)
-  - [2. Text Recognition Model](#2-text-recognition-model)
-    - [2.1 Chinese Recognition Model](#21-chinese-recognition-model)
-    - [2.2 English Recognition Model](#22-english-recognition-model)
-    - [2.3 Multilingual Recognition Model（Updating...）](#23-multilingual-recognition-modelupdating)
-  - [3. Text Angle Classification Model](#3-text-angle-classification-model)
-  - [4. Paddle-Lite Model](#4-paddle-lite-model)
 
 The downloadable models provided by PaddleOCR include the `inference model`, `trained model`, `pre-trained model` and `nb model`. The differences between the models are as follows:
 

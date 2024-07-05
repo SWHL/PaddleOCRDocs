@@ -1,6 +1,9 @@
+---
+comments: true
+typora-copy-images-to: images
+---
+
 # Text Recognition
-
-
 
 ## 1. Data Preparation
 
@@ -27,7 +30,7 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 
 The data format is as follows, (a) is the original picture, (b) is the Ground Truth text file corresponding to each picture:
 
-![](../datasets/icdar_rec.png)
+![img](./images/icdar_rec-20240705125531563.png)
 
 
 - Multilingual dataset
@@ -403,7 +406,7 @@ python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global
 
 Input image:
 
-![](../imgs_words/en/word_1.png)
+![img](./images/word_1-20240705125617007.png)
 
 Get the prediction result of the input image:
 
@@ -421,7 +424,7 @@ python3 tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v
 
 Input image:
 
-![](../imgs_words/ch/word_1.jpg)
+![img](./images/word_1-20240705125622749.jpg)
 
 Get the prediction result of the input image:
 

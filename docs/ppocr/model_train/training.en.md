@@ -1,17 +1,5 @@
 # Model Training
 
-- [1.Yml Configuration ](#1-Yml-Configuration)
-- [2. Basic Concepts](#1-basic-concepts)
-  * [2.1 Learning Rate](#11-learning-rate)
-  * [2.2 Regularization](#12-regularization)
-  * [2.3 Evaluation Indicators](#13-evaluation-indicators-)
-- [3. Data and Vertical Scenes](#2-data-and-vertical-scenes)
-  * [3.1 Training Data](#21-training-data)
-  * [3.2 Vertical Scene](#22-vertical-scene)
-  * [3.3 Build Your Own Dataset](#23-build-your-own-data-set)
-* [4. FAQ](#3-faq)
-
-
 This article will introduce the basic concepts that is necessary for model training and tuning.
 
 At the same time, it will briefly introduce the structure of the training data and how to prepare the data to fine-tune model in vertical scenes.

@@ -42,10 +42,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_di
 ```
 
 
-
 ## 2. 文本识别模型推理
-
-
 ### 2.1 超轻量中文识别模型推理
 
 **注意** `PP-OCRv3`的识别模型使用的输入shape为`3,48,320`, 如果使用其他识别模型，则需根据模型设置参数`--rec_image_shape`。此外，`PP-OCRv3`的识别模型默认使用的`rec_algorithm`为`SVTR_LCNet`，注意和原始`SVTR`的区别。

@@ -7,17 +7,6 @@ typora-copy-images-to: images
 This article introduces the use of the Python inference engine for the PP-OCR model library. The content is in order of text detection, text recognition, direction classifier and the prediction method of the three in series on the CPU and GPU.
 
 
-- [Python Inference for PP-OCR Model Zoo](#python-inference-for-pp-ocr-model-zoo)
-  - [Text Detection Model Inference](#text-detection-model-inference)
-  - [Text Recognition Model Inference](#text-recognition-model-inference)
-    - [1. Lightweight Chinese Recognition Model Inference](#1-lightweight-chinese-recognition-model-inference)
-    - [2. English Recognition Model Inference](#2-english-recognition-model-inference)
-    - [3. Multilingual Model Inference](#3-multilingual-model-inference)
-  - [Angle Classification Model Inference](#angle-classification-model-inference)
-  - [Text Detection Angle Classification and Recognition Inference Concatenation](#text-detection-angle-classification-and-recognition-inference-concatenation)
-  - [TensorRT Inference](TensorRT-Inference)
-
-
 ## Text Detection Model Inference
 
 The default configuration is based on the inference setting of the DB text detection model. For lightweight Chinese detection model inference, you can execute the following commands:
@@ -32,7 +21,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/00018069.jpg" --det_m
 
 The visual text detection results are saved to the ./inference_results folder by default, and the name of the result file is prefixed with 'det_res'. Examples of results are as follows:
 
-
+![img](./images/det_res_00018069.jpg)
 
 You can use the parameters `limit_type` and `det_limit_side_len` to limit the size of the input image,
 The optional parameters of `limit_type` are [`max`, `min`], and
@@ -71,7 +60,7 @@ tar xf ch_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_10.png" --rec_model_dir="./ch_PP-OCRv3_rec_infer/" --rec_image_shape=3,48,320
 ```
 
-![](../imgs_words_en/word_10.png)
+![img](./images/word_10-20240705125952800.png)
 
 After executing the command, the prediction results (recognized text and score) of the above image will be printed on the screen.
 
@@ -89,7 +78,7 @@ tar xf en_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./en_PP-OCRv3_rec_infer/" --rec_char_dict_path="ppocr/utils/en_dict.txt"
 ```
 
-![](../imgs_words/en/word_1.png)
+![img](./images/word_1-20240705130000169.png)
 
 
 After executing the command, the prediction result of the above figure is:
@@ -109,7 +98,7 @@ wget wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/korean_mobil
 
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" --rec_model_dir="./your inference model" --rec_char_dict_path="ppocr/utils/dict/korean_dict.txt" --vis_font_path="doc/fonts/korean.ttf"
 ```
-![](../imgs_words/korean/1.jpg)
+![img](./images/1-20240705130006988.jpg)
 
 After executing the command, the prediction result of the above figure is:
 
@@ -129,7 +118,7 @@ wget  https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_i
 tar xf ch_ppocr_mobile_v2.0_cls_infer.tar
 python3 tools/infer/predict_cls.py --image_dir="./doc/imgs_words_en/word_10.png" --cls_model_dir="ch_ppocr_mobile_v2.0_cls_infer"
 ```
-![](../imgs_words_en/word_10.png)
+![img](./images/word_10-20240705130012673.png)
 
 After executing the command, the prediction results (classification angle and score) of the above image will be printed on the screen.
 

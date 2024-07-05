@@ -1,25 +1,5 @@
 # Knowledge Distillation
 
-+ [Knowledge Distillation](#0)
-  + [1. Introduction](#1)
-    - [1.1 Introduction to Knowledge Distillation](#11)
-    - [1.2 Introduction to PaddleOCR Knowledge Distillation](#12)
-  + [2. Configuration File Analysis](#2)
-    + [2.1 Recognition Model Configuration File Analysis](#21)
-      - [2.1.1 Model Structure](#211)
-      - [2.1.2 Loss Function ](#212)
-      - [2.1.3 Post-processing](#213)
-      - [2.1.4 Metric Calculation](#214)
-      - [2.1.5 Fine-tuning Distillation Model](#215)
-    + [2.2 Detection Model Configuration File Analysis](#22)
-      - [2.2.1 Model Structure](#221)
-      - [2.2.2 Loss Function](#222)
-      - [2.2.3 Post-processing](#223)
-      - [2.2.4 Metric Calculation](#224)
-      - [2.2.5 Fine-tuning Distillation Model](#225)
-
-
-
 ## 1. Introduction
 ### 1.1 Introduction to Knowledge Distillation
 

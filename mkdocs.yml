@@ -107,7 +107,7 @@ plugins:
             文本检测: Text Detection
             文本识别: Text Recognition
             文本方向分类器: Text Angle Classification
-            模型压缩: Model compression
+            模型压缩: Model Compression
             模型量化: Model Quantization
             模型裁剪: Model Prune
             知识蒸馏: Knowledge Distillation
@@ -216,7 +216,7 @@ nav:
   - PP-OCR 文本检测识别:
     - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
-    - 模型库: ppocr/ppocr_model.md
+    - 模型库: ppocr/model_list.md
     - 模型训练:
       - 基本概念: ppocr/model_train/training.md
       - 文本检测: ppocr/model_train/detection.md
