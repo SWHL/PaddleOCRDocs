@@ -1,6 +1,9 @@
+---
+typora-copy-images-to: images
+---
+
+
 # DRRG
-
-
 ## 1. Introduction
 
 Paper:

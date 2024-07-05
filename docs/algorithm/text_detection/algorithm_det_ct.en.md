@@ -1,3 +1,8 @@
+---
+typora-copy-images-to: images
+---
+
+
 # CT
 
 ## 1. Introduction

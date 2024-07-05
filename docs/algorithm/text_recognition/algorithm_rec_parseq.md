@@ -10,6 +10,7 @@
 
 原论文分别使用真实文本识别数据集(Real)和合成文本识别数据集(Synth)进行训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估。
 其中：
+
 - 真实文本识别数据集(Real)包含COCO-Text, RCTW17, Uber-Text, ArT, LSVT, MLT19, ReCTS, TextOCR, OpenVINO数据集
 - 合成文本识别数据集(Synth)包含MJSynth和SynthText数据集
 

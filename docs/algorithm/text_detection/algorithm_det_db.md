@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # DB与DB++
 
 ## 1. 算法简介
@@ -51,9 +55,9 @@ DB文本检测模型推理，可以执行如下命令：
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_db/" --det_algorithm="DB"
 ```
 
-可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
+可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为`det_res`。结果示例如下：
 
-![](../imgs_results/det_res_img_10_db.jpg)
+![img](./images/det_res_img_10_db.jpg)
 
 **注意**：由于ICDAR2015数据集只有1000张训练图像，且主要针对英文场景，所以上述模型对中文文本图像检测效果会比较差。
 

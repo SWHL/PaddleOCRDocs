@@ -1,3 +1,8 @@
+---
+typora-copy-images-to: images
+---
+
+
 # EAST
 
 ## 1. Introduction
@@ -45,9 +50,9 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 ```
 
 
-The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'det_res'.
+The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with `det_res`.
 
-![](../imgs_results/det_res_img_10_east.jpg)
+![img](./images/det_res_img_10_east.jpg)
 
 
 ### 4.2 C++ Inference

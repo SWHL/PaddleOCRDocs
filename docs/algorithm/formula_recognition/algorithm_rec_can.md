@@ -39,10 +39,12 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 **注意：**
+
 - 我们提供的数据集，即[`CROHME数据集`](https://paddleocr.bj.bcebos.com/dataset/CROHME.tar)将手写公式存储为黑底白字的格式，若您自行准备的数据集与之相反，即以白底黑字模式存储，请在训练时做出如下修改
 ```
 python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Train.dataset.transforms.GrayImageChannelFormat.inverse=False
 ```
+
 - 默认每训练1个epoch（1105次iteration）进行1次评估，若您更改训练的batch_size，或更换数据集，请在训练时作出如下修改
 ```
 python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Global.eval_batch_step=[0, {length_of_dataset//batch_size}]

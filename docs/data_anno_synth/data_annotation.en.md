@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # DATA ANNOTATION TOOLS
 
 There are the commonly used data annotation tools, which will be continuously updated. Welcome to contribute tools~

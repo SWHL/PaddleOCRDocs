@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # EAST
 
 ## 1. 算法简介
@@ -42,9 +46,9 @@ EAST文本检测模型推理，需要设置参数--det_algorithm="EAST"，执行
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_r50_east/" --det_algorithm="EAST"
 ```
 
-可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。
+可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为`det_res`。
 
-![](../imgs_results/det_res_img_10_east.jpg)
+![img](./images/det_res_img_10_east.jpg)
 
 ### 4.2 C++推理
 

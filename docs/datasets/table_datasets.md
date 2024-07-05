@@ -1,3 +1,9 @@
+---
+comments: true
+typora-copy-images-to: images
+---
+
+
 # 表格识别数据集
 
 这里整理了常用表格识别数据集，持续更新中，欢迎各位小伙伴贡献数据集～
@@ -32,8 +38,5 @@
 ## 3. WTW中文场景表格数据集
 - **数据简介**：WTW中文场景表格数据集包含表格检测和表格数据两部分数据，数据集中同时包含扫描和拍照两张场景的图像。
 
-https://github.com/wangwen-whu/WTW-Dataset/blob/main/demo/20210816_210413.gif
+  ![img](./images/20210816_210413.gif)
 
-<div align="center">
-    <img src="https://github.com/wangwen-whu/WTW-Dataset/blob/main/demo/20210816_210413.gif" width="500">
-</div>

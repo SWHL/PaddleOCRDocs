@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # SAST
 
 ## 1. 算法简介
@@ -45,7 +49,7 @@ python3 tools/infer/predict_det.py --det_algorithm="SAST" --image_dir="./doc/img
 ```
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_img_10_sast.jpg)
+![img](./images/det_res_img_10_sast.jpg)
 
 #### (2). 弯曲文本检测模型（Total-Text）
 首先将SAST文本检测训练过程中保存的模型，转换成inference model。以基于Resnet50_vd骨干网络，在Total-Text英文数据集训练的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_totaltext_v2.0_train.tar))，可以使用如下命令进行转换：
@@ -61,7 +65,7 @@ python3 tools/infer/predict_det.py --det_algorithm="SAST" --image_dir="./doc/img
 ```
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_img623_sast.jpg)
+![img](./images/det_res_img623_sast.jpg)
 
 **注意**：本代码库中，SAST后处理Locality-Aware NMS有python和c++两种版本，c++版速度明显快于python版。由于c++版本nms编译版本问题，只有python3.5环境下会调用c++版nms，其他情况将调用python版nms。
 

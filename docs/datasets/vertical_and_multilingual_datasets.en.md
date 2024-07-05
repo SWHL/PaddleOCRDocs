@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 # Vertical multi-language OCR dataset
 Here we have sorted out the commonly used vertical multi-language OCR dataset datasets, which are being updated continuously. We welcome you to contribute datasets ～
 - [Chinese urban license plate dataset](#Chinese urban license plate dataset)

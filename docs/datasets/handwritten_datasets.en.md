@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 # Handwritten OCR dataset
 Here we have sorted out the commonly used handwritten OCR dataset datasets, which are being updated continuously. We welcome you to contribute datasets ~
 - [Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset](#Institute of automation, Chinese Academy of Sciences - handwritten Chinese dataset)

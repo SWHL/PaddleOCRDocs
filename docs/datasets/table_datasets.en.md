@@ -1,6 +1,9 @@
+---
+comments: true
+---
+
+
 # Table Recognition Datasets
-
-
 Here are the commonly used table recognition datasets, which are being updated continuously. Welcome to contribute datasets~
 
 ## Dataset Summary

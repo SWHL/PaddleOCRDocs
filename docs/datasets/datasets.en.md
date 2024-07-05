@@ -1,4 +1,7 @@
-## DATASET
+---
+comments: true
+---
+
 This is a collection of commonly used Chinese datasets, which is being updated continuously. You are welcome to contribute to this list～
 
 In addition to opensource data, users can also use synthesis tools to synthesize data themselves. Current available synthesis tools include [text_renderer](https://github.com/Sanster/text_renderer), [SynthText](https://github.com/ankush-me/SynthText), [TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator), etc.

@@ -234,11 +234,11 @@ use_direction_classify  0  # Whether to use the direction classifier, 0 means no
 rec_image_height  48      # The height of the input image of the recognition model, the PP-OCRv3 model needs to be set to 48, and the PP-OCRv2 model needs to be set to 32
 ```
 
- 5. Run Model on phone
+3. Run Model on phone
 
 After the above steps are completed, you can use adb to push the file to the phone to run, the steps are as follows:
 
- ```
+ ```bash
  # Execute the compilation and get the executable file ocr_db_crnn
  # The first execution of this command will download dependent libraries such as opencv. After the download is complete, you need to execute it again
  make -j

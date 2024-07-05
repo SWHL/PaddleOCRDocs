@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 # DATA SYNTHESIS TOOLS
 
 In addition to open source data, users can also use synthesis tools to synthesize data.

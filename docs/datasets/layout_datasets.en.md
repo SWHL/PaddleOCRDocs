@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 ## Layout Analysis Dataset
 
 Here are the common datasets of layout anlysis, which are being updated continuously. Welcome to contribute datasets.

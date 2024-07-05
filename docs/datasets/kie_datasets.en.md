@@ -1,3 +1,8 @@
+---
+comments: true
+---
+
+
 ## Key Information Extraction dataset
 
 Here are the common datasets key information extraction, which are being updated continuously. Welcome to contribute datasets.

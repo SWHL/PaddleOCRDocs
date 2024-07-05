@@ -238,11 +238,11 @@ use_direction_classify  0  # 是否使用方向分类器，0表示不使用，1�
 rec_image_height  48      # 识别模型输入图像的高度，PP-OCRv3模型设置为48，PP-OCRv2模型需要设置为32
 ```
 
- 5. 启动调试
+3. 启动调试
 
  上述步骤完成后就可以使用adb将文件push到手机上运行，步骤如下：
 
- ```
+ ```bash
  # 执行编译，得到可执行文件ocr_db_crnn, 第一次执行此命令会下载opencv等依赖库，下载完成后，需要再执行一次
  make -j
 

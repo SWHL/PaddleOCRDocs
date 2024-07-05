@@ -1,3 +1,8 @@
+---
+typora-copy-images-to: images
+---
+
+
 # DRRG
 
 ## 1. 算法简介
