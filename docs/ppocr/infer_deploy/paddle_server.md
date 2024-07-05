@@ -2,14 +2,14 @@
 typora-copy-images-to: images
 ---
 
-# PPOCR 服务化部署
+## PPOCR 服务化部署
 
 PaddleOCR提供2种服务部署方式：
 - 基于PaddleHub Serving的部署：代码路径为"`./deploy/hubserving`"，使用方法参考[文档](../../deploy/hubserving/readme.md)；
 - 基于PaddleServing的部署：代码路径为"`./deploy/pdserving`"，按照本教程使用。
 
 
-# 基于PaddleServing的服务部署
+### 基于PaddleServing的服务部署
 
 本文档将介绍如何使用[PaddleServing](https://github.com/PaddlePaddle/Serving/blob/develop/README_CN.md) 工具部署PP-OCR动态图模型的pipeline在线服务。
 
@@ -31,13 +31,13 @@ PaddleServing 支持多种语言部署，本例中提供了python pipeline 和 C
 AIStudio演示案例可参考 [基于PaddleServing的OCR服务化部署实战](https://aistudio.baidu.com/aistudio/projectdetail/3630726)。
 
 
-## 环境准备
+#### 环境准备
 
 需要准备PaddleOCR的运行环境和Paddle Serving的运行环境。
 
 - 准备PaddleOCR的运行环境[链接](../../doc/doc_ch/installation.md)
 
-    ```
+    ```bash
     git clone https://github.com/PaddlePaddle/PaddleOCR
 
     # 进入到工作目录
@@ -65,7 +65,7 @@ pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
 
 **Note:** 如果要安装最新版本的PaddleServing参考[链接](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Latest_Packages_CN.md)。
 
-## 模型转换
+### 模型转换
 
 使用PaddleServing做服务化部署时，需要将保存的inference模型转换为serving易于部署的模型。
 
@@ -97,6 +97,7 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
 ```
 
 检测模型转换完成后，会在当前文件夹多出`ppocr_det_v3_serving` 和`ppocr_det_v3_client`的文件夹，具备如下格式：
+
 ```
 |- ppocr_det_v3_serving/
   |- __model__
@@ -111,7 +112,7 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
 ```
 识别模型同理。
 
-## Paddle Serving pipeline部署
+### Paddle Serving pipeline部署
 
 1. 确认工作目录下文件结构：
 
@@ -130,6 +131,7 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
     python3 web_service.py --config=config.yml &>log.txt &
     ```
     成功启动服务后，log.txt中会打印类似如下日志
+
     ![img](./images/start_server.png)
 
 3. 发送服务请求：
@@ -192,7 +194,7 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
     2021-05-13 03:42:36,979         chl2(In: ['rec'], Out: ['@DAGExecutor']) size[0/0]
     ```
 
-## Paddle Serving C++ 部署
+### Paddle Serving C++ 部署
 
 基于python的服务部署，显然具有二次开发便捷的优势，然而真正落地应用，往往需要追求更优的性能。PaddleServing 也提供了性能更优的C++部署版本。
 
@@ -204,11 +206,9 @@ C++ 服务部署在环境搭建和数据准备阶段与 python 相同，区别�
 
 首先需要下载Serving代码库, 把OCR文本检测预处理相关代码替换到Serving库中
 
-```
+```bash
 git clone https://github.com/PaddlePaddle/Serving
-
 cp -rf general_detection_op.cpp Serving/core/general-server/op
-
 ```
 
 具体可参考官方文档：[如何编译Serving](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Compile_CN.md)，注意需要开启 WITH_OPENCV 选项。
@@ -219,7 +219,7 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
 
 一个服务启动两个模型串联，只需要在--model后依次按顺序传入模型文件夹的相对路径，且需要在--op后依次传入自定义C++OP类名称：
 
-    ```
+    ```bash
     # 启动服务，运行日志保存在log.txt
     python3 -m paddle_serving_server.serve --model ppocr_det_v3_serving ppocr_rec_v3_serving --op GeneralDetectionOp GeneralInferOp --port 8181 &>log.txt &
     ```
@@ -231,7 +231,7 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
 
    由于需要在C++Server部分进行前后处理，为了加速传入C++Server的仅仅是图片的base64编码的字符串，故需要手动修改
    ppocr_det_v3_client/serving_client_conf.prototxt 中 feed_type 字段 和 shape 字段，修改成如下内容：
-   ```
+   ```bash
     feed_var {
     name: "x"
     alias_name: "x"
@@ -241,7 +241,8 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
     }
    ```
    启动客户端
-   ```
+
+   ```bash
     python3 ocr_cpp_client.py ppocr_det_v3_client ppocr_rec_v3_client
    ```
 
@@ -252,9 +253,7 @@ cp -rf general_detection_op.cpp Serving/core/general-server/op
 
     在200张真实图片上测试，把检测长边限制为960。T4 GPU 上 QPS 峰值可达到51左右,约为pipeline的 2.12 倍。
 
-
-
-## Windows用户
+### Windows用户
 
 Windows用户不能使用上述的启动方式，需要使用Web Service，详情参见[Windows平台使用Paddle Serving指导](https://github.com/PaddlePaddle/Serving/blob/develop/doc/Windows_Tutorial_CN.md)
 
@@ -277,12 +276,12 @@ python3 ocr_web_server.py cpu(使用cpu方式)
 
 2. 发送服务请求
 
-```
+```bash
 python3 ocr_web_client.py
 ```
 
 
-## FAQ
+### FAQ
 **Q1**： 发送请求后没有结果返回或者提示输出解码报错
 
 **A1**： 启动服务和发送请求时不要设置代理，可以在启动服务前和发送请求前关闭代理，关闭代理的命令是：

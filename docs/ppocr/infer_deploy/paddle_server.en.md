@@ -1,12 +1,10 @@
-# OCR Pipeline WebService
-
-(English|[简体中文](./README_CN.md))
+## OCR Pipeline WebService
 
 PaddleOCR provides two service deployment methods:
 - Based on **PaddleHub Serving**: Code path is "`./deploy/hubserving`". Please refer to the [tutorial](../../deploy/hubserving/readme_en.md)
 - Based on **PaddleServing**: Code path is "`./deploy/pdserving`". Please follow this tutorial.
 
-# Service deployment based on PaddleServing
+### Service deployment based on PaddleServing
 
 This document will introduce how to use the [PaddleServing](https://github.com/PaddlePaddle/Serving/blob/develop/README.md) to deploy the PPOCR dynamic graph model as a pipeline online service.
 
@@ -26,7 +24,7 @@ PaddleServing supports deployment in multiple languages. In this example, two de
 The introduction and tutorial of Paddle Serving service deployment framework reference [document](https://github.com/PaddlePaddle/Serving/blob/develop/README.md).
 
 
-## Environmental preparation
+### Environmental preparation
 
 PaddleOCR operating environment and Paddle Serving operating environment are needed.
 
@@ -57,7 +55,7 @@ pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
    **note:** If you want to install the latest version of PaddleServing, refer to [link](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Latest_Packages_CN.md).
 
 
-## Model conversion
+### Model conversion
 When using PaddleServing for service deployment, you need to convert the saved inference model into a serving model that is easy to deploy.
 
 Firstly, download the [inference model](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.3/README_ch.md#pp-ocr%E7%B3%BB%E5%88%97%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8%E6%9B%B4%E6%96%B0%E4%B8%AD) of PPOCR
@@ -100,7 +98,7 @@ After the detection model is converted, there will be additional folders of `ppo
 ```
 The recognition model is the same.
 
-## Paddle Serving pipeline deployment
+### Paddle Serving pipeline deployment
 
 1. Download the PaddleOCR code, if you have already downloaded it, you can skip this step.
     ```
@@ -188,7 +186,7 @@ The recognition model is the same.
     2021-05-13 03:42:36,979         chl2(In: ['rec'], Out: ['@DAGExecutor']) size[0/0]
     ```
 
-## C++ Serving
+### C++ Serving
 
 Service deployment based on python obviously has the advantage of convenient secondary development. However, the real application often needs to pursue better performance. PaddleServing also provides a more performant C++ deployment version.
 
@@ -230,7 +228,7 @@ The C++ service deployment is the same as python in the environment setup and da
     After successfully running, the predicted result of the model will be printed in the cmd window. An example of the result is:
     ![](./imgs/results.png)
 
-## WINDOWS Users
+### WINDOWS Users
 
 Windows does not support Pipeline Serving, if we want to lauch paddle serving on Windows, we should use Web Service, for more infomation please refer to [Paddle Serving for Windows Users](https://github.com/PaddlePaddle/Serving/blob/develop/doc/Windows_Tutorial_EN.md)
 
@@ -259,7 +257,7 @@ python3 ocr_web_server.py cpu(for cpu user)
 python3 ocr_web_client.py
 ```
 
-## FAQ
+### FAQ
 **Q1**: No result return after sending the request.
 
 **A1**: Do not set the proxy when starting the service and sending the request. You can close the proxy before starting the service and before sending the request. The command to close the proxy is:

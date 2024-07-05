@@ -42,7 +42,7 @@ CT text detection model inference, you can execute the following command:
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img623.jpg" --det_model_dir="./inference/det_ct/" --det_algorithm="CT"
 ```
 
-The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'det_res'. Examples of results are as follows:
+The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with `det_res`. Examples of results are as follows:
 
 ![img](./images/det_res_img623_ct.jpg)
 

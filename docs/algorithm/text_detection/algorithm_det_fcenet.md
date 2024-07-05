@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: images
+---
+
 # FCENet
 
 ## 1. 算法简介
@@ -41,7 +45,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_img_10_fce.jpg)
+![img](./images/det_res_img_10_fce.jpg)
 
 如果想执行弯曲文本检测，可以执行如下命令：
 
@@ -51,7 +55,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img623.jpg" --det_
 
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：
 
-![](../imgs_results/det_res_img623_fce.jpg)
+![img](./images/det_res_img623_fce.jpg)
 
 **注意**：由于CTW1500数据集只有1000张训练图像，且主要针对英文场景，所以上述模型对中文文本图像检测效果会比较差。
 

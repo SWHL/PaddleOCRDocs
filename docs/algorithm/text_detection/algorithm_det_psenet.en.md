@@ -42,7 +42,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'det_res'. Examples of results are as follows:
 
-![](../imgs_results/det_res_img_10_pse.jpg)
+![img](./images/det_res_img_10_pse.jpg)
 
 If you want to perform curved text detection, you can execute the following command:
 
@@ -52,7 +52,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 
 The visualized text detection results are saved to the `./inference_results` folder by default, and the name of the result file is prefixed with 'det_res'. Examples of results are as follows:
 
-![](../imgs_results/det_res_img_10_pse_poly.jpg)
+![](./images/det_res_img_10_pse_poly.jpg)
 
 **Note**: Since the ICDAR2015 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese or curved text images.
 
