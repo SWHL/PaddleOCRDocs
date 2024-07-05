@@ -28,23 +28,20 @@ On the TD_TR dataset, the text detection result is as follows:
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
-
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [text detection training tutorial](./detection_en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, convert the model saved in the DB text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_db_v2.0_train.tar)), you can use the following command to convert:
 
-```shell
+```bash
 python3 tools/export_model.py -c configs/det/det_r50_vd_db.yml -o Global.pretrained_model=./det_r50_vd_db_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/det_db
 ```
 
 DB text detection model inference, you can execute the following command:
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_db/"
 ```
 
@@ -54,26 +51,20 @@ The visualized text detection results are saved to the `./inference_results` fol
 
 **Note**: Since the ICDAR2015 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese text images.
 
-
 ### 4.2 C++ Inference
-
 With the inference model prepared, refer to the [cpp infer](../../deploy/cpp_infer/) tutorial for C++ inference.
 
 ### 4.3 Serving
-
 With the inference model prepared, refer to the [pdserving](../../deploy/pdserving/) tutorial for service deployment by Paddle Serving.
 
 ### 4.4 More
-
 More deployment schemes supported for DB:
 
 - Paddle2ONNX: with the inference model prepared, please refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @inproceedings{liao2020real,
   title={Real-time scene text detection with differentiable binarization},

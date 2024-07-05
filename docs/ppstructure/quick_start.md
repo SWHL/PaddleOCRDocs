@@ -288,7 +288,7 @@ convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0
 PP-Structure的返回结果为一个dict组成的list，示例如下：
 
 #### 2.3.1 版面分析+表格识别
-```shell
+```bash
 [
   {   'type': 'Text',
       'bbox': [34, 432, 345, 462],

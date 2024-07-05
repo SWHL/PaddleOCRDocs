@@ -71,22 +71,17 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 ```
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @InProceedings{bautista2022parseq,
   title={Scene Text Recognition with Permuted Autoregressive Sequence Models},

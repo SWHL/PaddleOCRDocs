@@ -301,7 +301,7 @@ Eval:
 ### 2.2. 断点训练
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定Global.checkpoints指定要加载的模型路径：
-```shell
+```bash
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -357,7 +357,7 @@ args1: args1
 
 如果您想进一步加快训练速度，可以使用[自动混合精度训练](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_cn.html)， 以单机单卡为例，命令如下：
 
-```shell
+```bash
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml \
      -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True

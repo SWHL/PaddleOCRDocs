@@ -21,7 +21,7 @@ comments: true
 您可以根据需求使用[PaddleClas](https://github.com/PaddlePaddle/PaddleClas/tree/release/2.0/ppcls/modeling/architectures)中的模型更换backbone，
 对应的backbone预训练模型可以从[PaddleClas repo 主页中找到下载链接](https://github.com/PaddlePaddle/PaddleClas/blob/release%2F2.0/README_cn.md#resnet%E5%8F%8A%E5%85%B6vd%E7%B3%BB%E5%88%97)。
 
-```shell
+```bash
 cd PaddleOCR/
 # 根据backbone的不同选择下载对应的预训练模型
 # 下载MobileNetV3的预训练模型
@@ -39,7 +39,7 @@ wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/ResNet50_v
 
 *如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false*
 
-```shell
+```bash
 # 单机单卡训练 mv3_db 模型
 python3 tools/train.py -c configs/det/det_mv3_db.yml \
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
@@ -54,7 +54,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/
 有关配置文件的详细解释，请参考[链接](./config.md)。
 
 您也可以通过-o参数在不需要修改yml文件的情况下，改变训练的参数，比如，调整训练的学习率为0.0001
-```shell
+```bash
 python3 tools/train.py -c configs/det/det_mv3_db.yml -o Optimizer.base_lr=0.0001
 ```
 
@@ -62,7 +62,7 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml -o Optimizer.base_lr=0.0001
 ### 2.2 断点训练
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定Global.checkpoints指定要加载的模型路径：
-```shell
+```bash
 python3 tools/train.py -c configs/det/det_mv3_db.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -121,7 +121,7 @@ args1: args1
 
 如果您想进一步加快训练速度，可以使用[自动混合精度训练](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_cn.html)， 以单机单卡为例，命令如下：
 
-```shell
+```bash
 python3 tools/train.py -c configs/det/det_mv3_db.yml \
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
@@ -181,7 +181,7 @@ PaddleOCR计算三个OCR检测相关的指标，分别是：Precision、Recall�
 
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Global.checkpoints`指向保存的参数文件。
 
-```shell
+```bash
 python3 tools/eval.py -c configs/det/det_mv3_db.yml  -o Global.checkpoints="{path/to/weights}/best_accuracy"
 ```
 
@@ -191,18 +191,18 @@ python3 tools/eval.py -c configs/det/det_mv3_db.yml  -o Global.checkpoints="{pat
 
 测试单张图像的检测效果：
 
-```shell
+```bash
 python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./doc/imgs_en/img_10.jpg" Global.pretrained_model="./output/det_db/best_accuracy"
 ```
 
 测试DB模型时，调整后处理阈值：
-```shell
+```bash
 python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./doc/imgs_en/img_10.jpg" Global.pretrained_model="./output/det_db/best_accuracy"  PostProcess.box_thresh=0.6 PostProcess.unclip_ratio=2.0
 ```
 * 注：`box_thresh`、`unclip_ratio`是DB后处理参数，其他检测模型不支持。
 
 测试文件夹下所有图像的检测效果：
-```shell
+```bash
 python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./doc/imgs_en/" Global.pretrained_model="./output/det_db/best_accuracy"
 ```
 
@@ -215,19 +215,19 @@ inference 模型（`paddle.jit.save`保存的模型）
 与checkpoints模型相比，inference 模型会额外保存模型的结构信息，在预测部署、加速推理上性能优越，灵活方便，适合于实际系统集成。
 
 检测模型转inference 模型方式：
-```shell
+```bash
 # 加载配置文件`det_mv3_db.yml`，从`output/det_db`目录下加载`best_accuracy`模型，inference模型保存在`./output/det_db_inference`目录下
 python3 tools/export_model.py -c configs/det/det_mv3_db.yml -o Global.pretrained_model="./output/det_db/best_accuracy" Global.save_inference_dir="./output/det_db_inference/"
 ```
 
 DB检测模型inference 模型预测：
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --det_algorithm="DB" --det_model_dir="./output/det_db_inference/" --image_dir="./doc/imgs/" --use_gpu=True
 ```
 如果是其他检测，比如EAST模型，det_algorithm参数需要修改为EAST，默认为DB算法：
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --det_algorithm="EAST" --det_model_dir="./output/det_db_inference/" --image_dir="./doc/imgs/" --use_gpu=True
 ```
 

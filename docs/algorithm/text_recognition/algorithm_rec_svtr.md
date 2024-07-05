@@ -48,7 +48,7 @@ SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`SVTR`识别模型时需要**更换配置文件**为`SVTR`的[配置文件](../../configs/rec/rec_svtrnet.yml)。
 
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
-```shell
+```bash
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_svtrnet.yml
 
@@ -60,7 +60,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 可下载`SVTR`提供的模型文件和配置文件：[下载地址](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) ，以`SVTR-T`为例，使用如下命令进行评估：
 
-```shell
+```bash
 # 下载包含SVTR-T的模型文件和配置文件的tar压缩包并解压
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar && tar xf rec_svtr_tiny_none_ctc_en_train.tar
 # 注意将pretrained_model的路径设置为本地路径。
@@ -70,7 +70,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_tiny
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
-```shell
+```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
@@ -82,7 +82,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6l
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。下面以`SVTR-T`在英文数据集训练的模型为例（[模型和配置文件下载地址](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) )，可以使用如下命令进行转换：
 
-```shell
+```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy Global.save_inference_dir=./inference/rec_svtr_tiny_stn_en
 ```
@@ -101,7 +101,7 @@ python3 tools/export_model.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny
 
 执行如下命令进行模型推理：
 
-```shell
+```bash
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_svtr_tiny_stn_en/' --rec_algorithm='SVTR' --rec_image_shape='3,64,256' --rec_char_dict_path='./ppocr/utils/ic15_dict.txt'
 # 预测文件夹下所有图像时，可修改image_dir为文件夹，如 --image_dir='./doc/imgs_words_en/'。
 ```
@@ -109,7 +109,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 执行命令后，上面图像的预测结果（识别的文本和得分）会打印到屏幕上，示例如下：
 结果如下：
-```shell
+```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 ```
 

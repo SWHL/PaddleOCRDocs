@@ -205,7 +205,7 @@ Eval:
 If you expect to load trained model and continue the training again, you can specify the parameter `Global.checkpoints` as the model path to be loaded.
 
 For example:
-```shell
+```bash
 python3 tools/train.py -c configs/rec/rec_icdar15_train.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -265,7 +265,7 @@ After adding the four-part modules of the network, you only need to configure th
 
 If you want to speed up your training further, you can use [Auto Mixed Precision Training](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_cn.html), taking a single machine and a single gpu as an example, the commands are as follows:
 
-```shell
+```bash
 python3 tools/train.py -c configs/rec/rec_icdar15_train.yml \
      -o Global.pretrained_model=./pretrain_models/rec_mv3_none_bilstm_ctc_v2.0_train \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True

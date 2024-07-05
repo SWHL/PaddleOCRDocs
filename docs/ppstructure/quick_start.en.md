@@ -270,7 +270,7 @@ convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0
 The return of PP-Structure is a list of dicts, the example is as follows:
 
 #### 2.3.1 layout analysis + table recognition
-```shell
+```bash
 [
   {   'type': 'Text',
       'bbox': [34, 432, 345, 462],

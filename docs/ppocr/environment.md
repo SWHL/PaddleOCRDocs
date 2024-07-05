@@ -52,7 +52,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 - 创建新的conda环境
 
-  ```shell
+  ```bash
   # 在命令行输入以下命令，创建名为paddle_env的环境
   # 此处为加速下载，使用清华源
   conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  # 这是一行命令
@@ -66,7 +66,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 
-  ```shell
+  ```bash
   # 激活paddle_env环境
   conda activate paddle_env
   # 查看当前python的位置
@@ -108,20 +108,20 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
   - 输入以下命令，在终端中打开`~/.bash_profile`：
 
-     ```shell
+     ```bash
      vim ~/.bash_profile
      ```
 
   - 在`~/.bash_profile`中将conda添加为环境变量：
 
-     ```shell
+     ```bash
      # 先按i进入编辑模式
      # 在第一行输入：
      export PATH="~/opt/anaconda3/bin:$PATH"
      # 若安装时自定义了安装位置，则将~/opt/anaconda3/bin改为自定义的安装目录下的bin文件夹
      ```
 
-    ```shell
+    ```bash
     # 修改后的~/.bash_profile文件应如下（其中xxx为用户名）：
     export PATH="~/opt/anaconda3/bin:$PATH"
     # >>> conda initialize >>>
@@ -149,7 +149,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 - 创建新的conda环境
 
-  ```shell
+  ```bash
   # 在命令行输入以下命令，创建名为paddle_env的环境
   # 此处为加速下载，使用清华源
   conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -163,7 +163,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 
-  ```shell
+  ```bash
   # 激活paddle_env环境
   conda activate paddle_env
   # 查看当前python的位置
@@ -196,13 +196,13 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
 - 下载法2：直接使用linux命令行下载
 
-  ```shell
+  ```bash
     # 首先安装wget
   sudo apt-get install wget  # Ubuntu
     sudo yum install wget  # CentOS
   ```
 
-  ```shell
+  ```bash
     # 然后使用wget从清华源上下载
   # 如要下载Anaconda3-2021.05-Linux-x86_64.sh，则下载命令如下：
     wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.05-Linux-x86_64.sh
@@ -223,21 +223,21 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
   - 在终端中打开`~/.bashrc`：
 
-    ```shell
+    ```bash
     # 在终端中输入以下命令：
     vim ~/.bashrc
     ```
 
   - 在`~/.bashrc`中将conda添加为环境变量：
 
-    ```shell
+    ```bash
     # 先按i进入编辑模式
     # 在第一行输入：
     export PATH="~/anaconda3/bin:$PATH"
     # 若安装时自定义了安装位置，则将~/anaconda3/bin改为自定义的安装目录下的bin文件夹
     ```
 
-     ```shell
+     ```bash
       # 修改后的~/.bash_profile文件应如下（其中xxx为用户名）：
       export PATH="~/opt/anaconda3/bin:$PATH"
       # >>> conda initialize >>>
@@ -265,7 +265,7 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
 - 创建新的conda环境
 
-   ```shell
+   ```bash
    # 在命令行输入以下命令，创建名为paddle_env的环境
    # 此处为加速下载，使用清华源
    conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -279,7 +279,7 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
 - 激活刚创建的conda环境，在命令行中输入以下命令：
 
-  ```shell
+  ```bash
   # 激活paddle_env环境
   conda activate paddle_env
   ```

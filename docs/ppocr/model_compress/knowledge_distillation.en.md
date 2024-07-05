@@ -329,7 +329,7 @@ There are two ways to fine-tune the recognition distillation task.
 2. Do not use knowledge distillation in fine-tuning: In this case, you need to first extract the student model parameters from the pre-training model. The specific steps are as follows.
 
 - First download the pre-trained model and unzip it.
-```shell
+```bash
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
 tar -xf ch_PP-OCRv3_rec_train.tar
 ```

@@ -127,7 +127,7 @@ Predicts of ./doc/imgs_words/ch/word_4.jpg:['0', 0.9999982]
 
 以超轻量中文OCR模型推理为例，在执行预测时，需要通过参数`image_dir`指定单张图像或者图像集合的路径，也支持PDF文件、参数`det_model_dir`,`cls_model_dir`和`rec_model_dir`分别指定检测，方向分类和识别的inference模型路径。参数`use_angle_cls`用于控制是否启用方向分类模型。`use_mp`表示是否使用多进程（Paddle Inference并不是线程安全，建议使用多进程）。`total_process_num`表示在使用多进程时的进程数。可视化识别结果默认保存到 ./inference_results 文件夹里面。
 
-```shell
+```bash
 # 使用方向分类器
 python3 tools/infer/predict_system.py --image_dir="./doc/imgs/00018069.jpg" --det_model_dir="./ch_PP-OCRv3_det_infer/" --cls_model_dir="./cls/" --rec_model_dir="./ch_PP-OCRv3_rec_infer/" --use_angle_cls=true
 # 不使用方向分类器

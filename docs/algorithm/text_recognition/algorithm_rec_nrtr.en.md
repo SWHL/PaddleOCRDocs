@@ -80,7 +80,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
 The result is as follows:
-```shell
+```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9465042352676392)
 ```
 

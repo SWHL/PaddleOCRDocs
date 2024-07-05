@@ -4,7 +4,6 @@ typora-copy-images-to: images
 
 
 # PSENet
-
 ## 1. Introduction
 
 Paper:
@@ -25,23 +24,21 @@ Please prepare your environment referring to [prepare the environment](./environ
 
 
 ## 3. Model Training / Evaluation / Prediction
-
 The above PSE model is trained using the ICDAR2015 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).
 
 After the data download is complete, please refer to [Text Detection Training Tutorial](./detection_en.md) for training. PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, convert the model saved in the PSE text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/det_r50_vd_pse_v2.0_train.tar)), you can use the following command to convert:
 
-```shell
+```bash
 python3 tools/export_model.py -c configs/det/det_r50_vd_pse.yml -o Global.pretrained_model=./det_r50_vd_pse_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/det_pse
 ```
 
 PSE text detection model inference, to perform non-curved text detection, you can run the following commands:
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_pse/" --det_algorithm="PSE" --det_pse_box_type=quad
 ```
 
@@ -51,7 +48,7 @@ The visualized text detection results are saved to the `./inference_results` fol
 
 If you want to perform curved text detection, you can execute the following command:
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_pse/" --det_algorithm="PSE" --det_pse_box_type=poly
 ```
 
@@ -63,22 +60,17 @@ The visualized text detection results are saved to the `./inference_results` fol
 
 
 ### 4.2 C++ Inference
-
 Since the post-processing is not written in CPP, the PSE text detection model does not support CPP inference.
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @inproceedings{wang2019shape,
   title={Shape robust text detection with progressive scale expansion network},

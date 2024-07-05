@@ -2,9 +2,7 @@
 typora-copy-images-to: images
 ---
 
-
 # FCENet
-
 ## 1. Introduction
 
 Paper:
@@ -21,25 +19,22 @@ On the CTW1500 dataset, the text detection result is as follows:
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
-
 ## 3. Model Training / Evaluation / Prediction
-
 The above FCE model is trained using the CTW1500 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).
 
 After the data download is complete, please refer to [Text Detection Training Tutorial](./detection_en.md) for training. PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, convert the model saved in the FCE text detection training process into an inference model. Taking the model based on the Resnet50_vd_dcn backbone network and trained on the CTW1500 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/contribution/det_r50_dcn_fce_ctw_v2.0_train.tar)), you can use the following command to convert:
 
-```shell
+```bash
 python3 tools/export_model.py -c configs/det/det_r50_vd_dcn_fce_ctw.yml -o Global.pretrained_model=./det_r50_dcn_fce_ctw_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/det_fce
 ```
 
 FCE text detection model inference, to perform non-curved text detection, you can run the following commands:
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_fce/" --det_algorithm="FCE" --det_fce_box_type=quad
 ```
 
@@ -49,7 +44,7 @@ The visualized text detection results are saved to the `./inference_results` fol
 
 If you want to perform curved text detection, you can execute the following command:
 
-```shell
+```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img623.jpg" --det_model_dir="./inference/det_fce/" --det_algorithm="FCE" --det_fce_box_type=poly
 ```
 
@@ -61,22 +56,17 @@ The visualized text detection results are saved to the `./inference_results` fol
 
 
 ### 4.2 C++ Inference
-
 Since the post-processing is not written in CPP, the FCE text detection model does not support CPP inference.
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @InProceedings{zhu2021fourier,
   title={Fourier Contour Embedding for Arbitrary-Shaped Text Detection},

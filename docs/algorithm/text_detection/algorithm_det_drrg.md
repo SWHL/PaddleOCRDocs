@@ -2,9 +2,7 @@
 typora-copy-images-to: images
 ---
 
-
 # DRRG
-
 ## 1. 算法简介
 
 论文信息：
@@ -21,37 +19,28 @@ typora-copy-images-to: images
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-
 ## 3. 模型训练、评估、预测
 
 上述DRRG模型使用CTW1500文本检测公开数据集训练得到，数据集下载可参考 [ocr_datasets](./dataset/ocr_datasets.md)。
 
 数据下载完成后，请参考[文本检测训练教程](./detection.md)进行训练。PaddleOCR对代码进行了模块化，训练不同的检测模型只需要**更换配置文件**即可。
 
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
-
 由于模型前向运行时需要多次转换为Numpy数据进行运算，因此DRRG的动态图转静态图暂未支持。
 
 ### 4.2 C++推理
-
 暂未支持
 
 ### 4.3 Serving服务化部署
-
 暂未支持
 
 ### 4.4 更多推理部署
-
 暂未支持
 
 ## 5. FAQ
 
-
 ## 引用
-
 ```bibtex
 @inproceedings{zhang2020deep,
   title={Deep relational reasoning graph network for arbitrary shape text detection},

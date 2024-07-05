@@ -2,9 +2,7 @@
 typora-copy-images-to: images
 ---
 
-
 # SAST
-
 ## 1. Introduction
 
 Paper:
@@ -29,24 +27,21 @@ On the Total-text dataset, the text detection result is as follows:
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
-
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [text detection training tutorial](./detection_en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 #### (1). Quadrangle text detection model (ICDAR2015)
 First, convert the model saved in the SAST text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as an example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_icdar15_v2.0_train.tar)), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/det/det_r50_vd_sast_icdar15.yml -o Global.pretrained_model=./det_r50_vd_sast_icdar15_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/det_sast_ic15
 ```
 
 **For SAST quadrangle text detection model inference, you need to set the parameter `--det_algorithm="SAST"`**, run the following command:
 
-```
+```bash
 python3 tools/infer/predict_det.py --det_algorithm="SAST" --image_dir="./doc/imgs_en/img_10.jpg" --det_model_dir="./inference/det_sast_ic15/"
 ```
 
@@ -57,13 +52,13 @@ The visualized text detection results are saved to the `./inference_results` fol
 #### (2). Curved text detection model (Total-Text)
 First, convert the model saved in the SAST text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the Total-Text English dataset as an example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_totaltext_v2.0_train.tar)), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/det/det_r50_vd_sast_totaltext.yml -o Global.pretrained_model=./det_r50_vd_sast_totaltext_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/det_sast_tt
 ```
 
 For SAST curved text detection model inference, you need to set the parameter `--det_algorithm="SAST"` and `--det_box_type=poly`, run the following command:
 
-```
+```bash
 python3 tools/infer/predict_det.py --det_algorithm="SAST" --image_dir="./doc/imgs_en/img623.jpg" --det_model_dir="./inference/det_sast_tt/" --det_box_type='poly'
 ```
 
@@ -74,22 +69,17 @@ The visualized text detection results are saved to the `./inference_results` fol
 **Note**: SAST post-processing locality aware NMS has two versions: Python and C++. The speed of C++ version is obviously faster than that of Python version. Due to the compilation version problem of NMS of C++ version, C++ version NMS will be called only in Python 3.5 environment, and python version NMS will be called in other cases.
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @inproceedings{wang2019single,
   title={A Single-Shot Arbitrarily-Shaped Text Detector based on Context Attended Multi-Task Learning},

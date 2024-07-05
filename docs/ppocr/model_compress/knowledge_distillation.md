@@ -316,7 +316,7 @@ Metric:
 （2）微调时不使用知识蒸馏：这种情况，需要首先将预训练模型中的学生模型参数提取出来，具体步骤如下。
 
 * 首先下载预训练模型并解压。
-```shell
+```bash
 # 下面预训练模型并解压
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
 tar -xf ch_PP-OCRv3_rec_train.tar
