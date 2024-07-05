@@ -1,6 +1,4 @@
 # KIE Algorithm - LayoutXLM
-
-
 ## 1. Introduction
 
 Paper:
@@ -20,30 +18,24 @@ On XFUND_zh dataset, the algorithm reproduction Hmean is as follows.
 
 
 ## 2. Environment
-
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
 
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [KIE tutorial](./kie_en.md)。PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different models.
 
 ## 4. Inference and Deployment
 ### 4.1 Python Inference
 
-- SER
-
+#### SER
 First, we need to export the trained model into inference model. Take LayoutXLM model trained on XFUND_zh as an example ([trained model download link](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar)). Use the following command to export.
-
-
 ``` bash
 wget https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar
 tar -xf ser_LayoutXLM_xfun_zh.tar
 python3 tools/export_model.py -c configs/kie/layoutlm_series/ser_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./ser_LayoutXLM_xfun_zh Global.save_inference_dir=./inference/ser_layoutxlm_infer
 ```
 
-Use the following command to infer using LayoutXLM SER model.
-
+Use the following command to infer using LayoutXLM SER model:
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
@@ -56,11 +48,9 @@ python3 kie/predict_kie_token_ser.py \
 
 The SER visualization results are saved in the `./output` directory by default. The results are as follows.
 
-
 ![](./images/zh_val_42_ser.jpg)
 
-
-- RE
+#### RE
 
 First, we need to export the trained model into inference model. Take LayoutXLM model trained on XFUND_zh as an example ([trained model download link](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh.tar)). Use the following command to export.
 
@@ -71,9 +61,7 @@ tar -xf re_LayoutXLM_xfun_zh.tar
 python3 tools/export_model.py -c configs/kie/layoutlm_series/re_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./re_LayoutXLM_xfun_zh Global.save_inference_dir=./inference/re_layoutxlm_infer
 ```
 
-Use the following command to infer using LayoutXLM RE model.
-
-
+Use the following command to infer using LayoutXLM RE model:
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
@@ -90,21 +78,17 @@ The RE visualization results are saved in the `./output` directory by default. T
 
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
 ## Citation
-
 ```bibtex
 @article{DBLP:journals/corr/abs-2104-08836,
   author    = {Yiheng Xu and

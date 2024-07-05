@@ -19,50 +19,39 @@ typora-copy-images-to: images
 | --- | --- | --- | --- | --- |
 |SDMGR|VGG6|[configs/kie/sdmgr/kie_unet_sdmgr.yml](../../configs/kie/sdmgr/kie_unet_sdmgr.yml)|86.70%|[训练模型]( https://paddleocr.bj.bcebos.com/dygraph_v2.1/kie/kie_vgg16.tar)/[推理模型(coming soon)]()|
 
-
-
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-
-
 ## 3. 模型训练、评估、预测
-
 SDMGR是一个关键信息提取算法，将每个检测到的文本区域分类为预定义的类别，如订单ID、发票号码，金额等。
 
 训练和测试的数据采用wildreceipt数据集，通过如下指令下载数据集：
-
 ```bash
 wget https://paddleocr.bj.bcebos.com/ppstructure/dataset/wildreceipt.tar && tar xf wildreceipt.tar
 ```
 
 创建数据集软链到PaddleOCR/train_data目录下：
-```
+```bash
 cd PaddleOCR/ && mkdir train_data && cd train_data
-
 ln -s ../../wildreceipt ./
 ```
 
-
 ### 3.1 模型训练
-
 训练采用的配置文件是`configs/kie/sdmgr/kie_unet_sdmgr.yml`，配置文件中默认训练数据路径是`train_data/wildreceipt`，准备好数据后，可以通过如下指令执行训练：
 
-```
+```bash
 python3 tools/train.py -c configs/kie/sdmgr/kie_unet_sdmgr.yml -o Global.save_model_dir=./output/kie/
 ```
 
 ### 3.2 模型评估
-
 执行下面的命令进行模型评估
 
 ```bash
 python3 tools/eval.py -c configs/kie/sdmgr/kie_unet_sdmgr.yml -o Global.checkpoints=./output/kie/best_accuracy
 ```
 
-输出信息示例如下所示。
-
-```py
+输出信息示例如下所示:
+```bash
 [2022/08/10 05:22:23] ppocr INFO: metric eval ***************
 [2022/08/10 05:22:23] ppocr INFO: hmean:0.8670120239257812
 [2022/08/10 05:22:23] ppocr INFO: fps:10.18816520530961
@@ -84,29 +73,21 @@ python3 tools/infer_kie.py -c configs/kie/kie_unet_sdmgr.yml -o Global.checkpoin
 
 
 ## 4. 推理部署
-
 ### 4.1 Python推理
-
 暂不支持
 
 ### 4.2 C++推理部署
-
 暂不支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
-
 
 ## 5. FAQ
 
 ## 引用
-
-
 ```bibtex
 @misc{sun2021spatial,
       title={Spatial Dual-Modality Graph Reasoning for Key Information Extraction},

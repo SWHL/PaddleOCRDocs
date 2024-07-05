@@ -15,22 +15,14 @@ VI-LayoutXLM基于LayoutXLM进行改进，在下游任务训练过程中，去�
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-
-
 ## 3. 模型训练、评估、预测
-
 请参考[关键信息抽取教程](./kie.md)。PaddleOCR对代码进行了模块化，训练不同的关键信息抽取模型只需要**更换配置文件**即可。
 
-
 ## 4. 推理部署
-
-
 ### 4.1 Python推理
-
-- SER
+#### SER
 
 首先将训练得到的模型转换成inference model。以VI-LayoutXLM模型在XFUND_zh数据集上训练的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layoutxlm_xfund_pretrained.tar)），可以使用下面的命令进行转换。
-
 ``` bash
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layoutxlm_xfund_pretrained.tar
 tar -xf ser_vi_layoutxlm_xfund_pretrained.tar
@@ -38,7 +30,6 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund
 ```
 
 VI-LayoutXLM模型基于SER任务进行推理，可以执行如下命令：
-
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
@@ -54,9 +45,7 @@ SER可视化结果默认保存到`./output`文件夹里面，结果示例如下�
 
 ![](./images/zh_val_42_ser.jpg)
 
-
-- RE
-
+#### RE
 首先将训练得到的模型转换成inference model。以VI-LayoutXLM模型在XFUND_zh数据集上训练的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layoutxlm_xfund_pretrained.tar)），可以使用下面的命令进行转换。
 
 ``` bash
@@ -85,23 +74,17 @@ RE可视化结果默认保存到`./output`文件夹里面，结果示例如下�
 ![](images/zh_val_42_re.jpg)
 
 ### 4.2 C++推理部署
-
 暂不支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
-
 
 ## 5. FAQ
 
 ## 引用
-
-
 ```bibtex
 @article{DBLP:journals/corr/abs-2104-08836,
   author    = {Yiheng Xu and

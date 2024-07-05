@@ -2,7 +2,6 @@
 comments: true
 hide:
   - navigation
-#   - toc
 ---
 
 - Web online experience

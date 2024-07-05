@@ -1,5 +1,3 @@
-
-
 ## 1. Introduction
 
 Paper:
@@ -16,15 +14,13 @@ Using CROHME handwrittem mathematical expression recognition datasets for traini
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
-
 ## 3. Model Training / Evaluation / Prediction
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
 Training:
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
-
-```
+```bash
 #Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_d28_can.yml
 
@@ -33,25 +29,21 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 Evaluation:
-
-```
+```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
 ```
 
 Prediction:
-
-```
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_d28_can.yml -o Architecture.Head.attdecoder.is_train=False Global.infer_img='./doc/crohme_demo/hme_00.jpg' Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
 ```
 
-
 ## 4. Inference and Deployment
 ### 4.1 Python Inference
 First, the model saved during the CAN handwritten mathematical expression recognition training process is converted into an inference model. you can use the following command to convert:
-
-```
+```bash
 python3 tools/export_model.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams Global.save_inference_dir=./inference/rec_d28_can/ Architecture.Head.attdecoder.is_train=False
 
 # The default output max length of the model is 36. If you need to predict a longer sequence, please specify its output sequence as an appropriate value when exporting the model, as: Architecture.Head.max_ text_ length=72
@@ -59,28 +51,24 @@ python3 tools/export_model.py -c configs/rec/rec_d28_can.yml -o Global.pretraine
 
 For CAN handwritten mathematical expression recognition model inference, the following commands can be executed:
 
-```
+```bash
 python3 tools/infer/predict_rec.py --image_dir="./doc/datasets/crohme_demo/hme_00.jpg" --rec_algorithm="CAN" --rec_batch_num=1 --rec_model_dir="./inference/rec_d28_can/" --rec_char_dict_path="./ppocr/utils/dict/latex_symbol_dict.txt"
 
 # If you need to predict on a picture with black characters on a white background, please set: -- rec_ image_ inverse=False
 ```
 
-
 ### 4.2 C++ Inference
 Not supported
-
 
 ### 4.3 Serving
 Not supported
 
-
 ### 4.4 More
 Not supported
 
-
 ## 5. FAQ
-## Citation
 
+## Citation
 ```bibtex
 @misc{https://doi.org/10.48550/arxiv.2207.11463,
   doi = {10.48550/ARXIV.2207.11463},

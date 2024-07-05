@@ -27,11 +27,9 @@ Please refer to [KIE tutorial](./kie_en.md). PaddleOCR has modularized the code 
 
 ### 4.1 Python Inference
 
-- SER
+#### SER
 
 First, we need to export the trained model into inference model. Take VI-LayoutXLM model trained on XFUND_zh as an example ([trained model download link](https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layoutxlm_xfund_pretrained.tar)). Use the following command to export.
-
-
 ``` bash
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layoutxlm_xfund_pretrained.tar
 tar -xf ser_vi_layoutxlm_xfund_pretrained.tar
@@ -39,8 +37,6 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund
 ```
 
 Use the following command to infer using VI-LayoutXLM SER model.
-
-
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
@@ -54,15 +50,10 @@ python3 kie/predict_kie_token_ser.py \
 
 The SER visualization results are saved in the `./output` folder by default. The results are as follows.
 
-
 ![](./images/zh_val_42_ser.jpg)
 
-
-- RE
-
+#### RE
 First, we need to export the trained model into inference model. Take VI-LayoutXLM model trained on XFUND_zh as an example ([trained model download link](https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layoutxlm_xfund_pretrained.tar)). Use the following command to export.
-
-
 ``` bash
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layoutxlm_xfund_pretrained.tar
 tar -xf re_vi_layoutxlm_xfund_pretrained.tar
@@ -70,8 +61,6 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_
 ```
 
 Use the following command to infer using VI-LayoutXLM RE model.
-
-
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
@@ -87,26 +76,20 @@ python3 kie/predict_kie_token_ser_re.py \
 
 The RE visualization results are saved in the `./output` folder by default. The results are as follows.
 
-
 ![](./images/zh_val_42_re.jpg)
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
 ## Citation
-
-
 ```bibtex
 @article{DBLP:journals/corr/abs-2104-08836,
   author    = {Yiheng Xu and

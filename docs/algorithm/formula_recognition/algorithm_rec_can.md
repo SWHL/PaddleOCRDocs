@@ -3,7 +3,6 @@ typora-copy-images-to: images
 ---
 
 # 手写数学公式识别算法-CAN
-
 ## 1. 算法简介
 
 论文信息：
@@ -21,16 +20,14 @@ typora-copy-images-to: images
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-
 ## 3. 模型训练、评估、预测
 ### 3.1 模型训练
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`CAN`识别模型时需要**更换配置文件**为`CAN`的[配置文件](../../configs/rec/rec_d28_can.yml)。
 
 #### 启动训练
-
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
-```shell
+```bash
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_d28_can.yml
 
@@ -41,28 +38,27 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 **注意：**
 
 - 我们提供的数据集，即[`CROHME数据集`](https://paddleocr.bj.bcebos.com/dataset/CROHME.tar)将手写公式存储为黑底白字的格式，若您自行准备的数据集与之相反，即以白底黑字模式存储，请在训练时做出如下修改
-```
-python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Train.dataset.transforms.GrayImageChannelFormat.inverse=False
-```
+  ```bash
+  python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Train.dataset.transforms.GrayImageChannelFormat.inverse=False
+  ```
 
 - 默认每训练1个epoch（1105次iteration）进行1次评估，若您更改训练的batch_size，或更换数据集，请在训练时作出如下修改
-```
-python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Global.eval_batch_step=[0, {length_of_dataset//batch_size}]
-```
+  ```bash
+  python3 tools/train.py -c configs/rec/rec_d28_can.yml -o Global.eval_batch_step=[0, {length_of_dataset//batch_size}]
+  ```
 
 ### 3.2 评估
 
 可下载已训练完成的[模型文件](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)，使用如下命令进行评估：
 
-```shell
+```bash
 # 注意将pretrained_model的路径设置为本地路径。若使用自行训练保存的模型，请注意修改路径和文件名为{path/to/weights}/{model_name}。
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
 ```
 
 ### 3.3 预测
-
 使用如下命令进行单张图片预测：
-```shell
+```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c configs/rec/rec_d28_can.yml -o Architecture.Head.attdecoder.is_train=False Global.infer_img='./doc/datasets/crohme_demo/hme_00.jpg' Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
 
@@ -74,14 +70,14 @@ python3 tools/infer_rec.py -c configs/rec/rec_d28_can.yml -o Architecture.Head.a
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar) )，可以使用如下命令进行转换：
 
-```shell
+```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams Global.save_inference_dir=./inference/rec_d28_can/ Architecture.Head.attdecoder.is_train=False
 
 # 目前的静态图模型默认的输出长度最大为36，如果您需要预测更长的序列，请在导出模型时指定其输出序列为合适的值，例如 Architecture.Head.max_text_length=72
 ```
 **注意：**
-- 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否是所需要的字典文件。
+如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否是所需要的字典文件。
 
 转换成功后，在目录下有三个文件：
 ```
@@ -93,7 +89,7 @@ python3 tools/export_model.py -c configs/rec/rec_d28_can.yml -o Global.pretraine
 
 执行如下命令进行模型推理：
 
-```shell
+```bash
 python3 tools/infer/predict_rec.py --image_dir="./doc/datasets/crohme_demo/hme_00.jpg" --rec_algorithm="CAN" --rec_batch_num=1 --rec_model_dir="./inference/rec_d28_can/" --rec_char_dict_path="./ppocr/utils/dict/latex_symbol_dict.txt"
 
 # 预测文件夹下所有图像时，可修改image_dir为文件夹，如 --image_dir='./doc/datasets/crohme_demo/'。
@@ -104,12 +100,12 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/datasets/crohme_demo/hme_0
 ![测试图片样例](./images/hme_00.jpg)
 
 执行命令后，上面图像的预测结果（识别的文本）会打印到屏幕上，示例如下：
-```shell
+```bash
 Predicts of ./doc/imgs_hme/hme_00.jpg:['x _ { k } x x _ { k } + y _ { k } y x _ { k }', []]
 ```
 
-
 **注意**：
+
 - 需要注意预测图像为**黑底白字**，即手写公式部分为白色，背景为黑色的图片。
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中CAN的预处理为您的预处理方法。
