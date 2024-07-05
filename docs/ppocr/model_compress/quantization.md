@@ -13,6 +13,7 @@
 量化多适用于轻量模型在移动端的部署，当训练出一个模型后，如果希望进一步的压缩模型大小并加速预测，可使用量化的方法压缩模型。
 
 模型量化主要包括五个步骤：
+
 1. 安装 PaddleSlim
 2. 准备训练好的模型
 3. 量化训练
@@ -34,7 +35,8 @@ PaddleOCR提供了一系列训练好的[模型](../../../doc/doc_ch/models_list.
 
 
 量化训练的代码位于slim/quantization/quant.py 中，比如训练检测模型，以PPOCRv3检测模型为例，训练指令如下：
-```
+
+```bash
 # 下载检测预训练模型：
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 tar xf ch_PP-OCRv3_det_distill_train.tar

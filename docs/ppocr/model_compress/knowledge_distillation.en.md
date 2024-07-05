@@ -227,7 +227,6 @@ Take the recognition model as an example. The output result of each sub-network 
 ```
 
 #### 2.1.2 Loss Function
-
 In the knowledge distillation task, the loss function configuration is as follows.
 
 ```yaml

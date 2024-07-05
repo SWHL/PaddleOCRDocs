@@ -28,11 +28,9 @@ After training, if you want to further compress the model size and accelerate th
 pip3 install paddleslim==2.3.2
 ```
 
-
 ### 2. Download Pre-trained Model
 PaddleOCR provides a series of pre-trained [models](../../../doc/doc_en/models_list_en.md).
 If the model to be quantified is not in the list, you need to follow the [Regular Training](../../../doc/doc_en/quickstart_en.md) method to get the trained model.
-
 
 ### 3. Quant-Aware Training
 Quantization training includes offline quantization training and online quantization training.
@@ -40,7 +38,8 @@ Online quantization training is more effective. It is necessary to load the pre-
 After the quantization strategy is defined, the model can be quantified.
 
 The code for quantization training is located in `slim/quantization/quant.py`. For example, the training instructions of slim PPOCRv3 detection model are as follows:
-```
+
+```bash
 # download provided model
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 tar xf ch_PP-OCRv3_det_distill_train.tar
