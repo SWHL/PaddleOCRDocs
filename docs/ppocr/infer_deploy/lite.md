@@ -79,7 +79,6 @@ inference_lite_lib.android.armv8/
 ```
 
 ## 2 开始运行
-
 ### 2.1 模型优化
 
 Paddle-Lite 提供了多种策略来自动优化原始的模型，其中包括量化、子图融合、混合调度、Kernel优选等方法，使用Paddle-lite的opt工具可以自动
@@ -100,12 +99,13 @@ Paddle-Lite 提供了多种策略来自动优化原始的模型，其中包括�
 
 如果要部署的模型不在上述表格中，则需要按照如下步骤获得优化后的模型。
 
-- 步骤1：参考[文档](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html)安装paddlelite，用于转换paddle inference model为paddlelite运行所需的nb模型
-```
+步骤1：参考[文档](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html)安装paddlelite，用于转换paddle inference model为paddlelite运行所需的nb模型
+```bash
 pip install paddlelite==2.10  # paddlelite版本要与预测库版本一致
 ```
+
 安装完后，如下指令可以查看帮助信息
-```
+```bash
 paddle_lite_opt
 ```
 
@@ -123,11 +123,11 @@ paddle_lite_opt 参数介绍：
 
 `--model_dir`适用于待优化的模型是非combined方式，PaddleOCR的inference模型是combined方式，即模型结构和模型参数使用单独一个文件存储。
 
-- 步骤2：使用paddle_lite_opt将inference模型转换成移动端模型格式。
+步骤2：使用paddle_lite_opt将inference模型转换成移动端模型格式。
 
 下面以PaddleOCR的超轻量中文模型为例，介绍使用编译好的opt文件完成inference模型到Paddle-Lite优化模型的转换。
 
-```
+```bash
 # 【推荐】 下载 PP-OCRv3版本的中英文 inference模型
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_slim_infer.tar && tar xf  ch_PP-OCRv3_det_slim_infer.tar
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_slim_infer.tar && tar xf  ch_PP-OCRv2_rec_slim_quant_infer.tar
@@ -138,7 +138,6 @@ paddle_lite_opt --model_file=./ch_PP-OCRv3_det_slim_infer/inference.pdmodel  --p
 paddle_lite_opt --model_file=./ch_PP-OCRv3_rec_slim_infer/inference.pdmodel  --param_file=./ch_PP-OCRv3_rec_slim_infer/inference.pdiparams  --optimize_out=./ch_PP-OCRv3_rec_slim_opt --valid_targets=arm  --optimize_out_type=naive_buffer
 # 转换方向分类器模型
 paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdmodel  --param_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdiparams  --optimize_out=./ch_ppocr_mobile_v2.0_cls_slim_opt --valid_targets=arm  --optimize_out_type=naive_buffer
-
 ```
 
 转换成功后，inference模型目录下会多出`.nb`结尾的文件，即是转换成功的模型文件。
@@ -148,31 +147,36 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 ### 2.2 与手机联调
 
 首先需要进行一些准备工作：
+
 1. 准备一台arm8的安卓手机，如果编译的预测库和opt文件是armv7，则需要arm7的手机，并修改Makefile中`ARM_ABI = arm7`。
+
 2. 打开手机的USB调试选项，选择文件传输模式，连接电脑。
+
 3. 电脑上安装adb工具，用于调试。 adb安装方式如下：
 
    3.1. MAC电脑安装ADB:
-   ```
+   ```bash
    brew cask install android-platform-tools
    ```
+
    3.2. Linux安装ADB
-   ```
+   ```bash
    sudo apt update
    sudo apt install -y wget adb
    ```
-   3.3. Window安装ADB
 
+   3.3. Window安装ADB
    win上安装需要去谷歌的安卓平台下载adb软件包进行安装：[链接](https://developer.android.com/studio)
 
    打开终端，手机连接电脑，在终端中输入
-   ```
+   ```bash
    adb devices
    ```
    如果有device输出，则表示安装成功。
-   ```
-      List of devices attached
-      744be294    device
+
+   ```bash
+   List of devices attached
+   744be294    device
    ```
 
 4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
@@ -194,49 +198,48 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
  执行完成后，ocr文件夹下将有如下文件格式：
 
-```
-demo/cxx/ocr/
-|-- debug/
-|   |--ch_PP-OCRv3_det_slim_opt.nb           优化后的检测模型文件
-|   |--ch_PP-OCRv3_rec_slim_opt.nb           优化后的识别模型文件
-|   |--ch_ppocr_mobile_v2.0_cls_slim_opt.nb           优化后的文字方向分类器模型文件
-|   |--11.jpg                           待测试图像
-|   |--ppocr_keys_v1.txt                中文字典文件
-|   |--libpaddle_light_api_shared.so    C++预测库文件
-|   |--config.txt                       超参数配置
-|-- config.txt                  超参数配置
-|-- cls_process.cc              方向分类器的预处理和后处理文件
-|-- cls_process.h
-|-- crnn_process.cc             识别模型CRNN的预处理和后处理文件
-|-- crnn_process.h
-|-- db_post_process.cc          检测模型DB的后处理文件
-|-- db_post_process.h
-|-- Makefile                    编译文件
-|-- ocr_db_crnn.cc              C++预测源文件
-```
+   ```text
+   demo/cxx/ocr/
+   |-- debug/
+   |   |--ch_PP-OCRv3_det_slim_opt.nb           优化后的检测模型文件
+   |   |--ch_PP-OCRv3_rec_slim_opt.nb           优化后的识别模型文件
+   |   |--ch_ppocr_mobile_v2.0_cls_slim_opt.nb           优化后的文字方向分类器模型文件
+   |   |--11.jpg                           待测试图像
+   |   |--ppocr_keys_v1.txt                中文字典文件
+   |   |--libpaddle_light_api_shared.so    C++预测库文件
+   |   |--config.txt                       超参数配置
+   |-- config.txt                  超参数配置
+   |-- cls_process.cc              方向分类器的预处理和后处理文件
+   |-- cls_process.h
+   |-- crnn_process.cc             识别模型CRNN的预处理和后处理文件
+   |-- crnn_process.h
+   |-- db_post_process.cc          检测模型DB的后处理文件
+   |-- db_post_process.h
+   |-- Makefile                    编译文件
+   |-- ocr_db_crnn.cc              C++预测源文件
+   ```
 
 #### 注意：
-1. ppocr_keys_v1.txt是中文字典文件，如果使用的 nb 模型是英文数字或其他语言的模型，需要更换为对应语言的字典。
-PaddleOCR 在ppocr/utils/下存放了多种字典，包括：
-```
-dict/french_dict.txt     # 法语字典
-dict/german_dict.txt     # 德语字典
-ic15_dict.txt       # 英文字典
-dict/japan_dict.txt      # 日语字典
-dict/korean_dict.txt     # 韩语字典
-ppocr_keys_v1.txt   # 中文字典
-...
-```
+1. ppocr_keys_v1.txt是中文字典文件，如果使用的 nb 模型是英文数字或其他语言的模型，需要更换为对应语言的字典。PaddleOCR 在ppocr/utils/下存放了多种字典，包括：
+   ```text
+   dict/french_dict.txt     # 法语字典
+   dict/german_dict.txt     # 德语字典
+   ic15_dict.txt       # 英文字典
+   dict/japan_dict.txt      # 日语字典
+   dict/korean_dict.txt     # 韩语字典
+   ppocr_keys_v1.txt   # 中文字典
+   ...
+   ```
 
 2.  `config.txt` 包含了检测器、分类器、识别器的超参数，如下：
-```
-max_side_len  960         # 输入图像长宽大于960时，等比例缩放图像，使得图像最长边为960
-det_db_thresh  0.3        # 用于过滤DB预测的二值化图像，设置为0.-0.3对结果影响不明显
-det_db_box_thresh  0.5    # 检测器后处理过滤box的阈值，如果检测存在漏框情况，可酌情减小
-det_db_unclip_ratio  1.6  # 表示文本框的紧致程度，越小则文本框更靠近文本
-use_direction_classify  0  # 是否使用方向分类器，0表示不使用，1表示使用
-rec_image_height  48      # 识别模型输入图像的高度，PP-OCRv3模型设置为48，PP-OCRv2模型需要设置为32
-```
+    ```python
+    max_side_len  960         # 输入图像长宽大于960时，等比例缩放图像，使得图像最长边 为960
+    det_db_thresh  0.3        # 用于过滤DB预测的二值化图像，设置为0.-0.3对结果影响不 明显
+    det_db_box_thresh  0.5    # 检测器后处理过滤box的阈值，如果检测存在漏框情况，可酌 情减小
+    det_db_unclip_ratio  1.6  # 表示文本框的紧致程度，越小则文本框更靠近文本
+    use_direction_classify  0  # 是否使用方向分类器，0表示不使用，1表示使用
+    rec_image_height  48      # 识别模型输入图像的高度，PP-OCRv3模型设置为48， PP-OCRv2模型需要设置为32
+    ```
 
 3. 启动调试
 
