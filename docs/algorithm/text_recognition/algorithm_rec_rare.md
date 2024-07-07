@@ -24,28 +24,26 @@
 
 ### 3.1 训练
 
-```
-#单卡训练（训练周期长，不建议）
+```bash
+# 单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
 ```
 
 ### 3.2 评估
 
-```
+```bash
 # GPU评估, Global.pretrained_model为待评估模型
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 3.3 预测
 
-```
+```bash
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
 首先将RARE文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，在MJSynth和SynthText两个文字识别数据集训练得到的模型为例（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_att_v2.0_train.tar) )，可以使用如下命令进行转换：
 
@@ -68,11 +66,9 @@ Predicts of doc/imgs_words/en/word_1.png:('joint ', 0.9999969601631165)
 
 
 ### 4.2 C++推理
-
 暂不支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
@@ -83,9 +79,7 @@ RARE模型还支持以下推理部署方式：
 
 ## 5. FAQ
 
-
 ## 引用
-
 ```bibtex
 @inproceedings{2016Robust,
   title={Robust Scene Text Recognition with Automatic Rectification},

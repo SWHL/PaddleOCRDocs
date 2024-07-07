@@ -24,23 +24,23 @@ Please refer to [Text Recognition Training Tutorial](./recognition_en.md). Paddl
 
 ### 3.1 Training
 
-````
-#Single card training (long training period, not recommended)
+````bash
+#  Single card training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
-#Multi-card training, specify the card number through the --gpus parameter
+# Multi-card training, specify the card number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml
 ````
 
 ### 3.2 Evaluation
 
-````
+````bash
 # GPU evaluation, Global.pretrained_model is the model to be evaluated
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ````
 
 ### 3.3 Prediction
 
-````
+````bash
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ````
 
@@ -67,11 +67,9 @@ Predicts of doc/imgs_words/en/word_1.png:('joint ', 0.9999969601631165)
 ````
 
 ### 4.2 C++ Inference
-
 Not currently supported
 
 ### 4.3 Serving
-
 Not currently supported
 
 ### 4.4 More
@@ -82,7 +80,7 @@ The RARE model also supports the following inference deployment methods:
 
 ## 5. FAQ
 
-## Quote
+## Citation
 
 ````bibtex
 @inproceedings{2016Robust,

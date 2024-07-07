@@ -6,11 +6,8 @@ This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the mo
 >
 Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm_en.md) guideline.
 
-
-
 ## 1. Two-stage OCR Algorithms
 ### 1.1 Text Detection Algorithms
-
 Supported text detection algorithms (Click the link to get the tutorial):
 
 - [x]  [DB && DB++](./algorithm_det_db_en.md)

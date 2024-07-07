@@ -12,16 +12,13 @@
 
 
 ## 3. 模型训练、评估、预测
-
 ### 3.1 模型训练
-
-
 训练命令：
 ```bash
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml
 
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 # Rec 学生模型
 python -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml
 # Rec 教师模型
@@ -31,15 +28,12 @@ python -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c 
 ```
 
 ### 3.2 评估
-
-
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Global.pretrained_model=output/rec_repsvtr_gtc/best_accuracy
 ```
 
 ### 3.3 预测
-
 使用如下命令进行单张图片预测：
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
@@ -47,9 +41,7 @@ python3 tools/infer_rec.py -c tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gt
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
 ```
 
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model，以RepSVTR为例，可以使用如下命令进行转换：
 
@@ -58,8 +50,7 @@ python3 tools/infer_rec.py -c tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gt
 python3 tools/export_model.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Global.pretrained_model=output/rec_repsvtr_gtc/best_accuracy Global.save_inference_dir=./inference/rec_repsvtr_infer
 ```
 
-**注意：**
-- 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
+**注意：** 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
 
 转换成功后，在目录下有三个文件：
 ```
@@ -91,21 +82,17 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中SVTR的预处理为您的预处理方法。
 
 ### 4.2 C++推理部署
-
 由于C++预处理后处理还未支持SVTRv2
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
 
 ## 5. FAQ
 
 ## 引用
-
 ```bibtex
 @article{Du2022SVTR,
   title     = {SVTR: Scene Text Recognition with a Single Visual Model},

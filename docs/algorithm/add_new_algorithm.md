@@ -25,21 +25,21 @@ PaddleOCR内置了大量图像操作相关模块，对于没有没有内置的�
 1. 在 [ppocr/data/imaug](../../ppocr/data/imaug) 文件夹下新建文件，如my_module.py。
 2. 在 my_module.py 文件内添加相关代码，示例代码如下:
 
-```python
-class MyModule:
-    def __init__(self, *args, **kwargs):
-        # your init code
-        pass
+    ```python
+    class MyModule:
+        def __init__(self, *args, **kwargs):
+            # your init code
+            pass
 
-    def __call__(self, data):
-        img = data['image']
-        label = data['label']
-        # your process code
+        def __call__(self, data):
+            img = data['image']
+            label = data['label']
+            # your process code
 
-        data['image'] = img
-        data['label'] = label
-        return data
-```
+            data['image'] = img
+            data['label'] = label
+            return data
+    ```
 
 3. 在 [ppocr/data/imaug/\__init\__.py](../../ppocr/data/imaug/__init__.py) 文件内导入添加的模块。
 
@@ -77,23 +77,23 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的常用模块，
 1. 在 [ppocr/modeling/backbones](../../ppocr/modeling/backbones) 文件夹下新建文件，如my_backbone.py。
 2. 在 my_backbone.py 文件内添加相关代码，示例代码如下:
 
-```python
-import paddle
-import paddle.nn as nn
-import paddle.nn.functional as F
+    ```python
+    import paddle
+    import paddle.nn as nn
+    import paddle.nn.functional as F
 
 
-class MyBackbone(nn.Layer):
-    def __init__(self, *args, **kwargs):
-        super(MyBackbone, self).__init__()
-        # your init code
-        self.conv = nn.xxxx
+    class MyBackbone(nn.Layer):
+        def __init__(self, *args, **kwargs):
+            super(MyBackbone, self).__init__()
+            # your init code
+            self.conv = nn.xxxx
 
-    def forward(self, inputs):
-        # your network forward
-        y = self.conv(inputs)
-        return y
-```
+        def forward(self, inputs):
+            # your network forward
+            y = self.conv(inputs)
+            return y
+    ```
 
 3. 在 [ppocr/modeling/backbones/\__init\__.py](../../ppocr/modeling/backbones/__init__.py)文件内导入添加的模块。
 
@@ -127,34 +127,34 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的后处理模块
 1. 在 [ppocr/postprocess](../../ppocr/postprocess) 文件夹下新建文件，如 my_postprocess.py。
 2. 在 my_postprocess.py 文件内添加相关代码，示例代码如下:
 
-```python
-import paddle
+    ```python
+    import paddle
 
 
-class MyPostProcess:
-    def __init__(self, *args, **kwargs):
-        # your init code
-        pass
+    class MyPostProcess:
+        def __init__(self, *args, **kwargs):
+            # your init code
+            pass
 
-    def __call__(self, preds, label=None, *args, **kwargs):
-        if isinstance(preds, paddle.Tensor):
-            preds = preds.numpy()
-        # you preds decode code
-        preds = self.decode_preds(preds)
-        if label is None:
-            return preds
-        # you label decode code
-        label = self.decode_label(label)
-        return preds, label
+        def __call__(self, preds, label=None, *args, **kwargs):
+            if isinstance(preds, paddle.Tensor):
+                preds = preds.numpy()
+            # you preds decode code
+            preds = self.decode_preds(preds)
+            if label is None:
+                return preds
+            # you label decode code
+            label = self.decode_label(label)
+            return preds, label
 
-    def decode_preds(self, preds):
-        # you preds decode code
-        pass
+        def decode_preds(self, preds):
+            # you preds decode code
+            pass
 
-    def decode_label(self, preds):
-        # you label decode code
-        pass
-```
+        def decode_label(self, preds):
+            # you label decode code
+            pass
+    ```
 
 3. 在 [ppocr/postprocess/\__init\__.py](../../ppocr/postprocess/__init__.py)文件内导入添加的模块。
 
@@ -176,23 +176,23 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的损失函数模
 1. 在 [ppocr/losses](../../ppocr/losses) 文件夹下新建文件，如 my_loss.py。
 2. 在 my_loss.py 文件内添加相关代码，示例代码如下:
 
-```python
-import paddle
-from paddle import nn
+    ```python
+    import paddle
+    from paddle import nn
 
 
-class MyLoss(nn.Layer):
-    def __init__(self, **kwargs):
-        super(MyLoss, self).__init__()
-        # you init code
-        pass
+    class MyLoss(nn.Layer):
+        def __init__(self, **kwargs):
+            super(MyLoss, self).__init__()
+            # you init code
+            pass
 
-    def __call__(self, predicts, batch):
-        label = batch[1]
-        # your loss code
-        loss = self.loss(input=predicts, label=label)
-        return {'loss': loss}
-```
+        def __call__(self, predicts, batch):
+            label = batch[1]
+            # your loss code
+            loss = self.loss(input=predicts, label=label)
+            return {'loss': loss}
+    ```
 
 3. 在 [ppocr/losses/\__init\__.py](../../ppocr/losses/__init__.py)文件内导入添加的模块。
 
@@ -213,42 +213,42 @@ Loss:
 1. 在 [ppocr/metrics](../../ppocr/metrics) 文件夹下新建文件，如my_metric.py。
 2. 在 my_metric.py 文件内添加相关代码，示例代码如下:
 
-```python
+    ```python
 
-class MyMetric(object):
-    def __init__(self, main_indicator='acc', **kwargs):
-        # main_indicator is used for select best model
-        self.main_indicator = main_indicator
-        self.reset()
+    class MyMetric(object):
+        def __init__(self, main_indicator='acc', **kwargs):
+            # main_indicator is used for select best model
+            self.main_indicator = main_indicator
+            self.reset()
 
-    def __call__(self, preds, batch, *args, **kwargs):
-        # preds is out of postprocess
-        # batch is out of dataloader
-        labels = batch[1]
-        cur_correct_num = 0
-        cur_all_num = 0
-        # you metric code
-        self.correct_num += cur_correct_num
-        self.all_num += cur_all_num
-        return {'acc': cur_correct_num / cur_all_num, }
+        def __call__(self, preds, batch, *args, **kwargs):
+            # preds is out of postprocess
+            # batch is out of dataloader
+            labels = batch[1]
+            cur_correct_num = 0
+            cur_all_num = 0
+            # you metric code
+            self.correct_num += cur_correct_num
+            self.all_num += cur_all_num
+            return {'acc': cur_correct_num / cur_all_num, }
 
-    def get_metric(self):
-        """
-        return metrics {
-                 'acc': 0,
-                 'norm_edit_dis': 0,
-            }
-        """
-        acc = self.correct_num / self.all_num
-        self.reset()
-        return {'acc': acc}
+        def get_metric(self):
+            """
+            return metrics {
+                    'acc': 0,
+                    'norm_edit_dis': 0,
+                }
+            """
+            acc = self.correct_num / self.all_num
+            self.reset()
+            return {'acc': acc}
 
-    def reset(self):
-        # reset metric
-        self.correct_num = 0
-        self.all_num = 0
+        def reset(self):
+            # reset metric
+            self.correct_num = 0
+            self.all_num = 0
 
-```
+    ```
 
 3. 在 [ppocr/metrics/\__init\__.py](../../ppocr/metrics/__init__.py)文件内导入添加的模块。
 
@@ -269,22 +269,22 @@ Metric:
 
 1. 在 [ppocr/optimizer/optimizer.py](../../ppocr/optimizer/optimizer.py) 文件内创建自己的优化器，示例代码如下:
 
-```python
-from paddle import optimizer as optim
+    ```python
+    from paddle import optimizer as optim
 
 
-class MyOptim(object):
-    def __init__(self, learning_rate=0.001, *args, **kwargs):
-        self.learning_rate = learning_rate
+    class MyOptim(object):
+        def __init__(self, learning_rate=0.001, *args, **kwargs):
+            self.learning_rate = learning_rate
 
-    def __call__(self, parameters):
-        # It is recommended to wrap the built-in optimizer of paddle
-        opt = optim.XXX(
-            learning_rate=self.learning_rate,
-            parameters=parameters)
-        return opt
+        def __call__(self, parameters):
+            # It is recommended to wrap the built-in optimizer of paddle
+            opt = optim.XXX(
+                learning_rate=self.learning_rate,
+                parameters=parameters)
+            return opt
 
-```
+    ```
 
 在优化器模块添加之后，只需要配置文件中进行配置即可使用，如:
 

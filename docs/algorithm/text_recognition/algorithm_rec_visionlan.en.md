@@ -18,14 +18,13 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 
 
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
 ### Training:
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```
+```bash
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r45_visionlan.yml
 
@@ -33,30 +32,29 @@ python3 tools/train.py -c configs/rec/rec_r45_visionlan.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r45_visionlan.yml
 ```
 
-Evaluation:
-
-```
+### Evaluation:
+```bash
 # GPU evaluation
 python3 tools/eval.py -c configs/rec/rec_r45_visionlan.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
+### Prediction:
 
-```
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_r45_visionlan.yml -o Global.infer_img='./doc/imgs_words/en/word_2.png' Global.pretrained_model=./rec_r45_visionlan_train/best_accuracy
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, the model saved during the VisionLAN text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/VisionLAN/rec_r45_visionlan_train.tar)) ), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/rec/rec_r45_visionlan.yml -o Global.pretrained_model=./rec_r45_visionlan_train/best_accuracy Global.save_inference_dir=./inference/rec_r45_visionlan/
 ```
 
 **Note:**
+
 - If you are training the model on your own dataset and have modified the dictionary file, please pay attention to modify the `character_dict_path` in the configuration file to the modified dictionary file.
 - If you modified the input size during training, please modify the `infer_shape` corresponding to VisionLAN in the `tools/export_model.py` file.
 
@@ -71,7 +69,7 @@ After the conversion is successful, there are three files in the directory:
 
 For VisionLAN text recognition model inference, the following commands can be executed:
 
-```
+```bash
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words/en/word_2.png' --rec_model_dir='./inference/rec_r45_visionlan/' --rec_algorithm='VisionLAN' --rec_image_shape='3,64,256' --rec_char_dict_path='./ppocr/utils/ic15_dict.txt' --use_space_char=False
 ```
 
@@ -84,24 +82,19 @@ Predicts of ./doc/imgs_words/en/word_2.png:('yourself', 0.9999493)
 ```
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
-
 1. Note that the MJSynth and SynthText datasets come from [VisionLAN repo](https://github.com/wangyuxin87/VisionLAN).
 2. We use the pre-trained model provided by the VisionLAN authors for finetune training. The dictionary for the pre-trained model is 'ppocr/utils/ic15_dict.txt'.
 
 ## Citation
-
 ```bibtex
 @inproceedings{wang2021two,
   title={From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network},

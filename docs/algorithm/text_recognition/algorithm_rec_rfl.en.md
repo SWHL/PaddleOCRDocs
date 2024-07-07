@@ -44,26 +44,25 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ```
 
-Evaluation:
+### Evaluation:
 
-```
+```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
+### Prediction:
 
-```
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, the model saved during the RFL text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl.tar)) ), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy  Global.save_inference_dir=./inference/rec_resnet_rfl_att
 ```
 
@@ -82,7 +81,7 @@ After the conversion is successful, there are three files in the directory:
 
 For RFL text recognition model inference, the following commands can be executed:
 
-```
+```bash
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_resnet_rfl_att/' --rec_algorithm='RFL' --rec_image_shape='1,32,100'
 ```
 
@@ -95,21 +94,17 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999927282333374)
 ```
 
 ### 4.2 C++ Inference
-
 Not supported
 
 ### 4.3 Serving
-
 Not supported
 
 ### 4.4 More
-
 Not supported
 
 ## 5. FAQ
 
 ## Citation
-
 ```bibtex
 @article{2021Reciprocal,
   title     = {Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition},

@@ -13,20 +13,16 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 | --- | --- | --- | --- | --- |
 |SRN|Resnet50_vd_fpn|[rec_r50_fpn_srn.yml](../../configs/rec/rec_r50_fpn_srn.yml)|86.31%|[train model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r50_vd_srn_train.tar)|
 
-
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
-
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
 ### Training:
-
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```
+```bash
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r50_fpn_srn.yml
 
@@ -34,32 +30,29 @@ python3 tools/train.py -c configs/rec/rec_r50_fpn_srn.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r50_fpn_srn.yml
 ```
 
-Evaluation:
-
-```
+### Evaluation:
+```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
-
-```
+### Prediction:
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, the model saved during the SRN text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r50_vd_srn_train.tar) ), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model=./rec_r50_vd_srn_train/best_accuracy  Global.save_inference_dir=./inference/rec_srn
 ```
 
 For SRN text recognition model inference, the following commands can be executed:
 
-```
+```bash
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_srn/" --rec_image_shape="1,64,256" --rec_char_type="ch" --rec_algorithm="SRN" --rec_char_dict_path="ppocr/utils/ic15_dict.txt" --use_space_char=False
 ```
 

@@ -16,7 +16,6 @@
 2. SVTR从字符组件的角度出发，逐渐的合并字符组件，自下而上地完成字符的识别。
 3. SVTR引入了局部和全局Mixing，分别用于提取字符组件特征和字符间依赖关系，与多尺度的特征一起，形成多粒度特征描述。
 
-
 SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 
 * 中文数据集来自于[Chinese Benckmark](https://arxiv.org/abs/2112.15093) ，SVTR的中文训练评估策略遵循该论文。
@@ -28,14 +27,11 @@ SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 | SVTR Base  | 97.08  | 91.50 |   96.03   | 85.20  | 89.92 | 91.67 | 92.33 |  83.73  |  95.66  | 95.62 | 95.81 | 91.61 | 71.40 | [英文](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_base_none_ctc_en_train.tar)  /                                              -                                             |
 | SVTR Large | 97.20  | 91.65 |   96.30   | 86.58  | 88.37 | 95.14 | 92.82 |  84.54  |  96.35  | 96.54 | 96.74 | 92.24 | 72.10 | [英文](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_large_none_ctc_en_train.tar) / [中文](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_large_none_ctc_ch_train.tar) |
 
-
-
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
 
 ## 3. 模型训练、评估、预测
-
 ### 3.1 模型训练
 
 #### 数据集准备
@@ -52,7 +48,7 @@ SVTR在场景文本识别公开数据集上的精度(%)和模型文件如下：
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_svtrnet.yml
 
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_svtrnet.yml
 ```
 
@@ -68,7 +64,6 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_tiny
 ```
 
 ### 3.3 预测
-
 使用如下命令进行单张图片预测：
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
@@ -76,9 +71,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6l
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
 ```
 
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。下面以`SVTR-T`在英文数据集训练的模型为例（[模型和配置文件下载地址](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) )，可以使用如下命令进行转换：
 
@@ -87,8 +80,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6l
 python3 tools/export_model.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy Global.save_inference_dir=./inference/rec_svtr_tiny_stn_en
 ```
 
-**注意：**
-- 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
+**注意：** 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
 
 转换成功后，在目录下有三个文件：
 ```
@@ -120,19 +112,15 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中SVTR的预处理为您的预处理方法。
 
 ### 4.2 C++推理部署
-
 由于C++预处理后处理还未支持SVTR，所以暂未支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
 
 ## 5. FAQ
-
 - 1. GPU和CPU速度对比
   - 由于`SVTR`使用的算子大多为矩阵相乘，在GPU环境下，速度具有优势，但在CPU开启mkldnn加速环境下，`SVTR`相比于被优化的卷积网络没有优势。
 - 2. SVTR模型转ONNX失败
@@ -153,7 +141,6 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 
 
 ## 引用
-
 ```bibtex
 @article{Du2022SVTR,
   title     = {SVTR: Scene Text Recognition with a Single Visual Model},

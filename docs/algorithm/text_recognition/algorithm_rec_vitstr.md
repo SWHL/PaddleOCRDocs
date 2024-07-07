@@ -19,25 +19,21 @@
 
 
 ## 3. 模型训练、评估、预测
-
 ### 3.1 模型训练
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`ViTSTR`识别模型时需要**更换配置文件**为`ViTSTR`的[配置文件](../../configs/rec/rec_vitstr_none_ce.yml)。
 
 #### 启动训练
-
-
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 ```bash
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_vitstr_none_ce.yml
 
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_vitstr_none_ce.yml
 ```
 
 ### 3.2 评估
-
 可下载已训练完成的[模型文件](#model)，使用如下命令进行评估：
 
 ```bash
@@ -46,7 +42,6 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec
 ```
 
 ### 3.3 预测
-
 使用如下命令进行单张图片预测：
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
@@ -54,9 +49,7 @@ python3 tools/infer_rec.py -c configs/rec/rec_vitstr_none_ce.yml -o Global.infer
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
 ```
 
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/rec_vitstr_none_ce_train.tar) )，可以使用如下命令进行转换：
 
@@ -65,6 +58,7 @@ python3 tools/infer_rec.py -c configs/rec/rec_vitstr_none_ce.yml -o Global.infer
 python3 tools/export_model.py -c configs/rec/rec_vitstr_none_ce.yml -o Global.pretrained_model=./rec_vitstr_none_ce_train/best_accuracy Global.save_inference_dir=./inference/rec_vitstr/
 ```
 **注意：**
+
 - 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否是所需要的字典文件。
 - 如果您修改了训练时的输入大小，请修改`tools/export_model.py`文件中的对应ViTSTR的`infer_shape`。
 
@@ -93,21 +87,18 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9998350143432617)
 
 **注意**：
 
-### 训练上述模型采用的图像分辨率是[1，224，224]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
+- 训练上述模型采用的图像分辨率是[1，224，224]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中ViTSTR的预处理为您的预处理方法。
 
 
 ### 4.2 C++推理部署
-
 由于C++预处理后处理还未支持ViTSTR，所以暂未支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
 
 ## 5. FAQ
@@ -116,7 +107,6 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9998350143432617)
 2. 我们仅仅复现了`ViTSTR`中的tiny版本，如果需要使用small、base版本，可将[ViTSTR源repo](https://github.com/roatienza/deep-text-recognition-benchmark) 中的预训练权重转为Paddle权重使用。
 
 ## 引用
-
 ```bibtex
 @article{Atienza2021ViTSTR,
   title     = {Vision Transformer for Fast and Efficient Scene Text Recognition},

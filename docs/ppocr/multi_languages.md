@@ -57,7 +57,7 @@ pip install paddleocr
 ```
 
 本地构建并安装
-```
+```bash
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本号
 ```

@@ -18,22 +18,20 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 ## 2. Environment
 Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
 
-
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
 ### Training:
 
 The SEED model needs to additionally load the [language model](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.en.300.bin.gz) trained by FastText, and install the fasttext dependencies:
 
-```
+```bash
 python3 -m pip install fasttext==0.9.1
 ```
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```
+```bash
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_resnet_stn_bilstm_att.yml
 
@@ -41,43 +39,36 @@ python3 tools/train.py -c configs/rec/rec_resnet_stn_bilstm_att.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_resnet_stn_bilstm_att.yml
 ```
 
-Evaluation:
+### Evaluation:
 
-```
+```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
+### Prediction:
 
-```
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
-
 Not support
 
 ### 4.2 C++ Inference
-
 Not support
 
 ### 4.3 Serving
-
 Not support
 
 ### 4.4 More
-
 Not support
 
 ## 5. FAQ
 
-
 ## Citation
-
 ```bibtex
 @inproceedings{qiao2020seed,
   title={Seed: Semantics enhanced encoder-decoder framework for scene text recognition},

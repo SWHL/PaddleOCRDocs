@@ -25,12 +25,12 @@ Paddle2ONNX 支持将 PaddlePaddle 模型格式转化到 ONNX 模型格式，算
 更多细节可参考 [Paddle2ONNX](https://github.com/PaddlePaddle/Paddle2ONNX/blob/develop/README_zh.md)
 
 - 安装 Paddle2ONNX
-```
+```bash
 python3 -m pip install paddle2onnx
 ```
 
 - 安装 ONNXRuntime
-```
+```bash
 python3 -m pip install onnxruntime
 ```
 

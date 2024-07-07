@@ -75,7 +75,6 @@ More deployment schemes supported for STAR-Net:
 ## 5. FAQ
 
 ## Citation
-
 ```bibtex
 @inproceedings{liu2016star,
   title={STAR-Net: a spatial attention residue network for scene text recognition.},

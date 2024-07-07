@@ -28,7 +28,7 @@
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_r45_abinet.yml
 
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r45_abinet.yml
 ```
 ### 3.2 评估
@@ -86,7 +86,7 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999995231628418)
 
 **注意**：
 
-### 训练上述模型采用的图像分辨率是[3，32，128]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
+- 训练上述模型采用的图像分辨率是[3，32，128]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中ABINet的预处理为您的预处理方法。
 

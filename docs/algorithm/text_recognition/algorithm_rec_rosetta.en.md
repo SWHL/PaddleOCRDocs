@@ -16,33 +16,28 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 Please refer to [Operating Environment Preparation](./environment_en.md) to configure the PaddleOCR operating environment, and refer to [Project Clone](./clone_en.md) to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [Text Recognition Training Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**. Take the backbone network based on Resnet34_vd as an example:
 
 ### 3.1 Training
-
-```
-#Single card training (long training period, not recommended)
+```bash
+# Single card training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r34_vd_none_none_ctc.yml
-#Multi-card training, specify the card number through the --gpus parameter
+# Multi-card training, specify the card number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/rec/rec_r34_vd_none_none_ctc.yml
 ```
 
 ### 3.2 Evaluation
-
-```
+```bash
 # GPU evaluation, Global.pretrained_model is the model to be evaluated
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 3.3 Prediction
-
-```
+```bash
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, convert the model saved during the Rosetta text recognition training process into an inference model. Take the model trained on the MJSynth and SynthText text recognition datasets based on the Resnet34_vd backbone network as an example ( [Model download address](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_none_ctc_v2.0_train.tar) ), which can be converted using the following command:
 
@@ -60,28 +55,24 @@ The inference results are as follows:
 
 ![img](./images/word_1-20240704183926496.png)
 
-```
+```bash
 Predicts of doc/imgs_words/en/word_1.png:('joint', 0.9999982714653015)
 ```
 
 ### 4.2 C++ Inference
-
 Not currently supported
 
 ### 4.3 Serving
-
 Not currently supported
 
 ### 4.4 More
-
 The Rosetta model also supports the following inference deployment methods:
 
 - Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
 
 ## 5. FAQ
 
-## Quote
-
+## Citation
 ```bibtex
 @inproceedings{2018Rosetta,
   title={Rosetta: Large Scale System for Text Detection and Recognition in Images},

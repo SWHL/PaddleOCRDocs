@@ -24,7 +24,6 @@ Please refer to [KIE tutorial](./kie_en.md). PaddleOCR has modularized the code 
 
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 
 #### SER

@@ -30,7 +30,7 @@ typora-copy-images-to: images
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 
-#多卡训练，通过--gpus参数指定卡号
+# 多卡训练，通过--gpus参数指定卡号
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 ```
 

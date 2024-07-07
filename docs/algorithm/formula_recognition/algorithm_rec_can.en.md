@@ -28,7 +28,7 @@ python3 tools/train.py -c configs/rec/rec_d28_can.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_d28_can.yml
 ```
 
-Evaluation:
+### Evaluation:
 ```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_d28_can.yml -o Global.pretrained_model=./rec_d28_can_train/best_accuracy.pdparams
