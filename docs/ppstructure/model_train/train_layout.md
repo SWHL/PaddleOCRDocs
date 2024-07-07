@@ -421,12 +421,9 @@ preprocess_time(ms): 2172.50, inference_time(ms): 11.90, postprocess_time(ms): 1
 
 ![img](./images/layout_res.jpg)
 
-
-
-
 ## Citations
 
-```
+```bibtex
 @inproceedings{zhong2019publaynet,
   title={PubLayNet: largest dataset ever for document layout analysis},
   author={Zhong, Xu and Tang, Jianbin and Yepes, Antonio Jimeno},

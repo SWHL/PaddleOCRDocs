@@ -1,6 +1,7 @@
 ## OCR Pipeline WebService
 
 PaddleOCR provides two service deployment methods:
+
 - Based on **PaddleHub Serving**: Code path is "`./deploy/hubserving`". Please refer to the [tutorial](../../deploy/hubserving/readme_en.md)
 - Based on **PaddleServing**: Code path is "`./deploy/pdserving`". Please follow this tutorial.
 

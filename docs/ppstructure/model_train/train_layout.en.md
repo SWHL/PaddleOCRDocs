@@ -421,7 +421,7 @@ The result of visualization layout is shown in the following figure
 
 ## Citations
 
-```
+```bibtex
 @inproceedings{zhong2019publaynet,
   title={PubLayNet: largest dataset ever for document layout analysis},
   author={Zhong, Xu and Tang, Jianbin and Yepes, Antonio Jimeno},
