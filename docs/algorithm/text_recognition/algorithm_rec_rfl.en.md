@@ -22,23 +22,23 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 
 PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-Training:
+### Training:
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
 ```
 #step1:train the CNT branch
-#Single GPU training (long training period, not recommended)
+# Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_resnet_rfl_visual.yml
 
-#Multi GPU training, specify the gpu number through the --gpus parameter
+# Multi GPU training, specify the gpu number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_resnet_rfl_visual.yml
 
 #step2:joint training of CNT and Att branches
-#Single GPU training (long training period, not recommended)
+# Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 
-#Multi GPU training, specify the gpu number through the --gpus parameter
+# Multi GPU training, specify the gpu number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_resnet_rfl_att.yml  -o Global.pretrained_model={path/to/weights}/best_accuracy
 
 

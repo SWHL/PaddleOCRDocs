@@ -23,7 +23,7 @@
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
-- 训练
+### 训练
 
 SEED模型需要额外加载FastText训练好的[语言模型](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.en.300.bin.gz) ,并且安装 fasttext 依赖：
 
@@ -42,7 +42,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_res
 
 ```
 
-- 评估
+### 评估
 
 ```
 # GPU 评估， Global.pretrained_model 为待测权重

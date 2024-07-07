@@ -23,15 +23,15 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-Training:
+### Training:
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
 ```
-#Single GPU training (long training period, not recommended)
+# Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r31_sar.yml
 
-#Multi GPU training, specify the gpu number through the --gpus parameter
+# Multi GPU training, specify the gpu number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_r31_sar.yml
 ```
 

@@ -22,7 +22,6 @@ On the ICDAR2015 dataset, the text detection result is as follows:
 ## 2. Environment
 Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
 
-
 ## 3. Model Training / Evaluation / Prediction
 The above PSE model is trained using the ICDAR2015 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).
 
@@ -57,7 +56,6 @@ The visualized text detection results are saved to the `./inference_results` fol
 ![](./images/det_res_img_10_pse_poly.jpg)
 
 **Note**: Since the ICDAR2015 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese or curved text images.
-
 
 ### 4.2 C++ Inference
 Since the post-processing is not written in CPP, the PSE text detection model does not support CPP inference.

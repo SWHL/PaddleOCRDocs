@@ -73,18 +73,14 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 由于C++预处理后处理还未支持RobustScanner，所以暂未支持
 
 ### 4.3 Serving服务化部署
-
 暂不支持
 
 ### 4.4 更多推理部署
-
 暂不支持
 
 ## 5. FAQ
 
-
 ## 引用
-
 ```bibtex
 @article{2020RobustScanner,
   title={RobustScanner: Dynamically Enhancing Positional Clues for Robust Text Recognition},

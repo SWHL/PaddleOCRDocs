@@ -27,7 +27,6 @@ After the data download is complete, please refer to [Text Detection Training Tu
 
 ## 4. Inference and Deployment
 ### 4.1 Python Inference
-
 First, convert the model saved in the EAST text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_east_v2.0_train.tar)), you can use the following command to convert:
 
 ```bash

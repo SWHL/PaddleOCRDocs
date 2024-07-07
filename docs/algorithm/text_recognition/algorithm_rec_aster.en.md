@@ -1,5 +1,4 @@
 # STAR-Net
-
 ## 1. Introduction
 
 Paper:
@@ -22,69 +21,58 @@ Please refer to ["Environment Preparation"](./environment_en.md) to configure th
 
 
 ## 3. Model Training / Evaluation / Prediction
-
 Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-Training:
-
+### Training:
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```
-#Single GPU training (long training period, not recommended)
+```bash
+# Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml
 
-#Multi GPU training, specify the gpu number through the --gpus parameter
+# Multi GPU training, specify the gpu number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34_vd_tps_bilstm_ctc.yml
 ```
 
-Evaluation:
+### Evaluation:
 
-```
+```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
-
-```
+### Prediction:
+```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. Inference and Deployment
-
 ### 4.1 Python Inference
 First, the model saved during the STAR-Net text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.1/rec/rec_r31_STAR-Net_train.tar) ), you can use the following command to convert:
 
-```
+```bash
 python3 tools/export_model.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model=./rec_r34_vd_tps_bilstm_ctc_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/rec_starnet
 ```
 
 For STAR-Net text recognition model inference, the following commands can be executed:
 
-```
+```bash
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./inference/rec_starnet/" --rec_image_shape="3, 32, 100" --rec_char_dict_path="./ppocr/utils/ic15_dict.txt"
 ```
 
 ### 4.2 C++ Inference
-
 With the inference model prepared, refer to the [cpp infer](../../deploy/cpp_infer/) tutorial for C++ inference.
 
-
 ### 4.3 Serving
-
 With the inference model prepared, refer to the [pdserving](../../deploy/pdserving/) tutorial for service deployment by Paddle Serving.
 
-
 ### 4.4 More
-
 More deployment schemes supported for STAR-Net:
 
 - Paddle2ONNX: with the inference model prepared, please refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
 
-
 ## 5. FAQ
-
 
 ## Citation
 

@@ -26,7 +26,6 @@ After the data download is complete, please refer to [Text Detection Training Tu
 
 ## 4. Inference and Deployment
 ### 4.1 Python Inference
-
 Since the model needs to be converted to Numpy data for many times in the forward, DRRG dynamic graph to static graph is not supported.
 
 ### 4.2 C++ Inference

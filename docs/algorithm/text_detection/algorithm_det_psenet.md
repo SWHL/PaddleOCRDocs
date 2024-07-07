@@ -3,7 +3,6 @@ typora-copy-images-to: images
 ---
 
 # PSENet
-
 ## 1. 算法简介
 
 论文信息：
@@ -21,16 +20,12 @@ typora-copy-images-to: images
 ## 2. 环境配置
 请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
 
-
 ## 3. 模型训练、评估、预测
-
 上述PSE模型使用ICDAR2015文本检测公开数据集训练得到，数据集下载可参考 [ocr_datasets](./dataset/ocr_datasets.md)。
 
 数据下载完成后，请参考[文本检测训练教程](./detection.md)进行训练。PaddleOCR对代码进行了模块化，训练不同的检测模型只需要**更换配置文件**即可。
 
-
 ## 4. 推理部署
-
 ### 4.1 Python推理
 首先将PSE文本检测训练过程中保存的模型，转换成inference model。以基于Resnet50_vd骨干网络，在ICDAR2015英文数据集训练的模型为例（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/det_r50_vd_pse_v2.0_train.tar) )，可以使用如下命令进行转换：
 
@@ -61,7 +56,6 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs_en/img_10.jpg" --det_
 **注意**：由于ICDAR2015数据集只有1000张训练图像，且主要针对英文场景，所以上述模型对中文或弯曲文本图像检测效果会比较差。
 
 ### 4.2 C++推理
-
 由于后处理暂未使用CPP编写，PSE文本检测模型暂不支持CPP推理。
 
 ### 4.3 Serving服务化部署

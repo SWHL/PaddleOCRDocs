@@ -92,7 +92,7 @@ Predicts of ./doc/imgs_words/en/word_2.png:('yourself', 0.9999493)
 
 **注意**：
 
-- 训练上述模型采用的图像分辨率是[3，64，256]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
+### 训练上述模型采用的图像分辨率是[3，64，256]，需要通过参数`rec_image_shape`设置为您训练时的识别图像形状。
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中VisionLAN的预处理为您的预处理方法。
 

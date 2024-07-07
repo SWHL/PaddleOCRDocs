@@ -30,7 +30,6 @@ typora-copy-images-to: images
 ## 3. 模型训练、评估、预测
 请参考[文本检测训练教程](./detection.md)。PaddleOCR对代码进行了模块化，训练不同的检测模型只需要**更换配置文件**即可。
 
-
 ## 4. 推理部署
 ### 4.1 Python推理
 #### (1). 四边形文本检测模型（ICDAR2015）

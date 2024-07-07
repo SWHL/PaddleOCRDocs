@@ -22,7 +22,7 @@
 
 请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
-- 训练
+### 训练
 
 在完成数据准备后，便可以启动训练，训练命令如下：
 
@@ -33,7 +33,7 @@ python3 tools/train.py -c configs/rec/rec_satrn.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_satrn.yml
 ```
 
-- 评估
+### 评估
 
 ```
 # GPU 评估， Global.pretrained_model 为待测权重

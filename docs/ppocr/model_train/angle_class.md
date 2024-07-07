@@ -27,7 +27,7 @@ ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/cls/dataset
 ```
 
 请参考下文组织您的数据。
-- 训练集
+### 训练集
 
 首先建议将训练图片放入同一个文件夹，并用一个txt文件（cls_gt_train.txt）记录图片路径和标签。
 
