@@ -6,47 +6,30 @@ typora-copy-images-to: images
 # 快速构建卡证类OCR
 
 ## 1. 金融行业卡证识别应用
-
 ### 1.1 金融行业中的OCR相关技术
 
-* 《“十四五”数字经济发展规划》指出，2020年我国数字经济核心产业增加值占GDP比重达7.8％，随着数字经济迈向全面扩展，到2025年该比例将提升至10％。
+《“十四五”数字经济发展规划》指出，2020年我国数字经济核心产业增加值占GDP比重达7.8％，随着数字经济迈向全面扩展，到2025年该比例将提升至10％。
 
-* 在过去数年的跨越发展与积累沉淀中，数字金融、金融科技已在对金融业的重塑与再造中充分印证了其自身价值。
+在过去数年的跨越发展与积累沉淀中，数字金融、金融科技已在对金融业的重塑与再造中充分印证了其自身价值。
 
-* 以智能为目标，提升金融数字化水平，实现业务流程自动化，降低人力成本。
-
+以智能为目标，提升金融数字化水平，实现业务流程自动化，降低人力成本。
 
 ![](./images/8bb381f164c54ea9b4043cf66fc92ffdea8aaf851bab484fa6e19bd2f93f154f.jpeg)
 
-
-
 ### 1.2 金融行业中的卡证识别场景介绍
-
 应用场景：身份证、银行卡、营业执照、驾驶证等。
 
 应用难点：由于数据的采集来源多样，以及实际采集数据各种噪声：反光、褶皱、模糊、倾斜等各种问题干扰。
 
 ![](./images/981640e17d05487e961162f8576c9e11634ca157f79048d4bd9d3bc21722afe8-20240704185952731.jpeg)
 
-
-
 ### 1.3 OCR落地挑战
-
-
 ![](./images/a5973a8ddeff4bd7ac082f02dc4d0c79de21e721b41641cbb831f23c2cb8fce2.jpeg)
 
-
-
-
-
 ## 2. 卡证识别技术解析
-
-
 ![](./images/d7f96effc2434a3ca2d4144ff33c50282b830670c892487d8d7dec151921cce7.jpeg)
 
-
 ### 2.1 卡证分类模型
-
 卡证分类：基于PPLCNet
 
 与其他轻量级模型相比在CPU环境下ImageNet数据集上的表现
@@ -55,83 +38,63 @@ typora-copy-images-to: images
 
 ![](./images/dedab7b7fd6543aa9e7f625132b24e3ba3f200e361fa468dac615f7814dfb98d.jpeg)
 
-
-
-* 模型来自模型库PaddleClas，它是一个图像识别和图像分类任务的工具集，助力使用者训练出更好的视觉模型和应用落地。
+模型来自模型库PaddleClas，它是一个图像识别和图像分类任务的工具集，助力使用者训练出更好的视觉模型和应用落地。
 
 ### 2.2 卡证识别模型
-
-* 检测：DBNet  识别：SVRT
+检测：DBNet  识别：SVRT
 
 ![](./images/9a7a4e19edc24310b46620f2ee7430f918223b93d4f14a15a52973c096926bad.jpeg)
 
-
-* PPOCRv3在文本检测、识别进行了一系列改进优化，在保证精度的同时提升预测效率
-
+PPOCRv3在文本检测、识别进行了一系列改进优化，在保证精度的同时提升预测效率
 
 ![](./images/6afdbb77e8db4aef9b169e4e94c5d90a9764cfab4f2c4c04aa9afdf4f54d7680.jpeg)
 
-
 ![](./images/c1a7d197847a4f168848c59b8e625d1d5e8066b778144395a8b9382bb85dc364.jpeg)
 
-
 ## 3. OCR技术拆解
-
 ### 3.1技术流程
 
 ![](./images/89ba046177864d8783ced6cb31ba92a66ca2169856a44ee59ac2bb18e44a6c4b.jpeg)
 
 
 ### 3.2 OCR技术拆解---卡证分类
-
 ####  卡证分类：数据、模型准备
-
-
 A  使用爬虫获取无标注数据，将相同类别的放在同一文件夹下，文件名从0开始命名。具体格式如下图所示。
 
-​    注：卡证类数据，建议每个类别数据量在500张以上
+​注：卡证类数据，建议每个类别数据量在500张以上
+
 ![](./images/6f875b6e695e4fe5aedf427beb0d4ce8064ad7cc33c44faaad59d3eb9732639d.jpeg)
 
 
-B  一行命令生成标签文件
+B 一行命令生成标签文件
 
-```
+```bash
 tree -r -i -f | grep -E "jpg|JPG|jpeg|JPEG|png|PNG|webp" | awk -F "/" '{print $0" "$2}' > train_list.txt
 ```
 
 C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.4/docs/zh_CN/models/PP-LCNet.md)
 
-
-
 ####  卡证分类---修改配置文件
-
-
 配置文件主要修改三个部分：
 
-  全局参数：预训练模型路径/训练轮次/图像尺寸
+  - 全局参数：预训练模型路径/训练轮次/图像尺寸
+  - 模型结构：分类数
+  - 数据处理：训练/评估数据路径
 
-  模型结构：分类数
-
-  数据处理：训练/评估数据路径
-
-
-  ![](./images/e0dc05039c7444c5ab1260ff550a408748df8d4cfe864223adf390e51058dbd5.jpeg)
+![](./images/e0dc05039c7444c5ab1260ff550a408748df8d4cfe864223adf390e51058dbd5.jpeg)
 
 #### 卡证分类---训练
-
-
 指定配置文件启动训练：
 
-```
+```bash
 !python /home/aistudio/work/PaddleClas/tools/train.py -c   /home/aistudio/work/PaddleClas/ppcls/configs/PULC/text_image_orientation/PPLCNet_x1_0.yaml
 ```
+
 ![](./images/06af09bde845449ba0a676410f4daa1cdc3983ac95034bdbbafac3b7fd94042f.jpeg)
 
-​    注：日志中显示了训练结果和评估结果（训练时可以设置固定轮数评估一次）
-
+​注：日志中显示了训练结果和评估结果（训练时可以设置固定轮数评估一次）
 
 ### 3.2 OCR技术拆解---卡证识别
-
 卡证识别（以身份证检测为例）
 存在的困难及问题：
 
@@ -143,8 +106,6 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 
   ![](./images/4f8f5533a2914e0a821f4a639677843c32ec1f08a1b1488d94c0b8bfb6e72d2d.jpeg)
 
-
-
 * OCR技术拆解---OCR工具库
 
     PaddleOCR是一个丰富、领先且实用的OCR工具库，助力开发者训练出更好的模型并应用落地
@@ -155,11 +116,8 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 ![](./images/12d402e6a06d482a88f979e0ebdfb39f4d3fc8b80517499689ec607ddb04fbf3.jpeg)
 
 
-
-
 ####  身份证识别：检测+分类
-
->   方法：基于现有的dbnet检测模型，加入分类方法。检测同时进行分类，从一定程度上优化识别流程
+> 方法：基于现有的dbnet检测模型，加入分类方法。检测同时进行分类，从一定程度上优化识别流程
 
 ![](./images/e1e798c87472477fa0bfca0da12bb0c180845a3e167a4761b0d26ff4330a5ccb.jpeg)
 
@@ -167,17 +125,13 @@ C [下载预训练模型 ](https://github.com/PaddlePaddle/PaddleClas/blob/relea
 ![](./images/23a5a19c746441309864586e467f995ec8a551a3661640e493fc4d77520309cd.jpeg)
 
 #### 数据标注
-
 使用PaddleOCRLable进行快速标注
 
 ![](./images/a73180425fa14f919ce52d9bf70246c3995acea1831843cca6c17d871b8f5d95.jpeg)
 
-
 * 修改PPOCRLabel.py，将下图中的kie参数设置为True
 
-
 ![](./images/d445cf4d850e4063b9a7fc6a075c12204cf912ff23ec471fa2e268b661b3d693.jpeg)
-
 
 * 数据标注踩坑分享
 
@@ -192,34 +146,32 @@ AIStudio项目链接：[快速构建卡证类OCR](https://aistudio.baidu.com/ais
 ### 4.1 环境准备
 
 1）拉取[paddleocr](https://github.com/PaddlePaddle/PaddleOCR)项目，如果从github上拉取速度慢可以选择从gitee上获取。
-```
+```bash
 !git clone https://github.com/PaddlePaddle/PaddleOCR.git  -b release/2.6  /home/aistudio/work/
 ```
 
 2）获取并解压预训练模型，如果要使用其他模型可以从模型库里自主选择合适模型。
-```
+```bash
 !wget -P work/pre_trained/   https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 !tar -vxf /home/aistudio/work/pre_trained/ch_PP-OCRv3_det_distill_train.tar -C /home/aistudio/work/pre_trained
 ```
-3） 安装必要依赖
-```
+3）安装必要依赖
+```bash
 !pip install -r /home/aistudio/work/requirements.txt
 ```
 
 ### 4.2 配置文件修改
-
-修改配置文件 *work/configs/det/detmv3db.yml*
+修改配置文件 `work/configs/det/detmv3db.yml`
 
 具体修改说明如下：
 
 ![](./images/fcdf517af5a6466294d72db7450209378d8efd9b77764e329d3f2aff3579a20c.jpeg)
 
-  注：在上述的配置文件的Global变量中需要添加以下两个参数：
+注：在上述的配置文件的Global变量中需要添加以下两个参数：
 
-​      label_list 为标签表
-​     num_classes 为分类数
-​     上述两个参数根据实际的情况配置即可
-
+​  - label_list 为标签表
+​  - num_classes 为分类数
+​上述两个参数根据实际的情况配置即可
 
 ![](./images/0b056be24f374812b61abf43305774767ae122c8479242f98aa0799b7bfc81d4.jpeg)
 
@@ -236,17 +188,9 @@ AIStudio项目链接：[快速构建卡证类OCR](https://aistudio.baidu.com/ais
 ![](./images/ee927ad9ebd442bb96f163a7ebbf4bc95e6bedee97324a51887cf82de0851fd3.jpeg)
 
 
-
-
 ### 4.3 代码修改
-
-
 #### 4.3.1 数据读取
-
-
-
-* 修改 PaddleOCR/ppocr/data/imaug/label_ops.py中的DetLabelEncode
-
+修改 PaddleOCR/ppocr/data/imaug/label_ops.py中的DetLabelEncode
 
 ```python
 class DetLabelEncode(object):
@@ -304,7 +248,7 @@ class DetLabelEncode(object):
         return data
 ```
 
-* 修改 PaddleOCR/ppocr/data/imaug/make_shrink_map.py中的MakeShrinkMap类。这里需要注意的是，如果我们设置的label_list中的第一个参数为要检测的信息那么会得到如下的mask,
+修改P`addleOCR/ppocr/data/imaug/make_shrink_map.py`中的MakeShrinkMap类。这里需要注意的是，如果我们设置的label_list中的第一个参数为要检测的信息那么会得到如下的mask,
 
 举例说明：
 这是检测的mask图，图中有四个mask那么实际对应的分类应该是4类
@@ -312,11 +256,9 @@ class DetLabelEncode(object):
 ![](./images/42d2188d3d6b498880952e12c3ceae1efabf135f8d9f4c31823f09ebe02ba9d2.jpeg)
 
 
-
 label_list中第一个为关键分类，则得到的分类Mask实际如下，与上图相比，少了一个box：
 
 ![](./images/864604967256461aa7c5d32cd240645e9f4c70af773341d5911f22d5a3e87b5f.jpeg)
-
 
 
 ```python
@@ -393,7 +335,7 @@ class MakeShrinkMap(object):
         return data
 ```
 
-由于在训练数据中会对数据进行resize设置，yml中的操作为：EastRandomCropData，所以需要修改PaddleOCR/ppocr/data/imaug/random_crop_data.py中的EastRandomCropData
+由于在训练数据中会对数据进行resize设置，yml中的操作为：`EastRandomCropData`，所以需要修改`PaddleOCR/ppocr/data/imaug/random_crop_data.py`中的`EastRandomCropData`
 
 
 ```python
@@ -463,29 +405,18 @@ class EastRandomCropData(object):
 ```
 
 #### 4.3.2  head修改
-
-
-
-主要修改 ppocr/modeling/heads/det_db_head.py，将Head类中的最后一层的输出修改为实际的分类数，同时在DBHead中新增分类的head。
+主要修改`ppocr/modeling/heads/det_db_head.py`，将Head类中的最后一层的输出修改为实际的分类数，同时在DBHead中新增分类的head。
 
 ![](./images/0e25da2ccded4af19e95c85c3d3287ab4d53e31a4eed4607b6a4cb637c43f6d3.jpeg)
 
-
-
 #### 4.3.3 修改loss
-
-
-修改PaddleOCR/ppocr/losses/det_db_loss.py中的DBLoss类，分类采用交叉熵损失函数进行计算。
+修改`PaddleOCR/ppocr/losses/det_db_loss.py`中的DBLoss类，分类采用交叉熵损失函数进行计算。
 
 ![](./images/dc10a070018d4d27946c26ec24a2a85bc3f16422f4964f72a9b63c6170d954e1.jpeg)
 
 
 #### 4.3.4 后处理
-
-
-
-由于涉及到eval以及后续推理能否正常使用，我们需要修改后处理的相关代码，修改位置 PaddleOCR/ppocr/postprocess/db_postprocess.py中的DBPostProcess类
-
+由于涉及到eval以及后续推理能否正常使用，我们需要修改后处理的相关代码，修改位置`PaddleOCR/ppocr/postprocess/db_postprocess.py`中的DBPostProcess类
 
 ```python
 class DBPostProcess(object):
@@ -717,34 +648,29 @@ class DBPostProcess(object):
 ```
 
 ### 4.4. 模型启动
-
 在完成上述步骤后我们就可以正常启动训练
 
-```
+```bash
 !python /home/aistudio/work/PaddleOCR/tools/train.py  -c  /home/aistudio/work/PaddleOCR/configs/det/det_mv3_db.yml
 ```
 
 其他命令：
-```
+```bash
 !python /home/aistudio/work/PaddleOCR/tools/eval.py  -c  /home/aistudio/work/PaddleOCR/configs/det/det_mv3_db.yml
 !python /home/aistudio/work/PaddleOCR/tools/infer_det.py  -c  /home/aistudio/work/PaddleOCR/configs/det/det_mv3_db.yml
 ```
+
 模型推理
-```
+```bash
 !python /home/aistudio/work/PaddleOCR/tools/infer/predict_det.py --image_dir="/home/aistudio/work/test_img/" --det_model_dir="/home/aistudio/work/PaddleOCR/output/infer"
 ```
 
 ## 5 总结
-
 1. 分类+检测在一定程度上能够缩短用时，具体的模型选取要根据业务场景恰当选择。
 2. 数据标注需要多次进行测试调整标注方法，一般进行检测模型微调，需要标注至少上百张。
 3. 设置合理的batch_size以及resize大小，同时注意lr设置。
 
-
 ##  References
-
-1 https://github.com/PaddlePaddle/PaddleOCR
-
-2 https://github.com/PaddlePaddle/PaddleClas
-
-3 https://blog.csdn.net/YY007H/article/details/124491217
+1. https://github.com/PaddlePaddle/PaddleOCR
+2. https://github.com/PaddlePaddle/PaddleClas
+3. https://blog.csdn.net/YY007H/article/details/124491217

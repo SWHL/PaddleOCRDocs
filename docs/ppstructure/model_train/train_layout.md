@@ -116,7 +116,7 @@ json文件包含所有图像的标注，数据以字典嵌套的方式存放，�
 
   ```
   {
-  
+
       'segmentation':             # 物体的分割标注
       'area': 60518.099043117836, # 物体的区域面积
       'iscrowd': 0,               # iscrowd
@@ -266,7 +266,7 @@ python3 tools/eval.py \
 
 会输出以下信息，打印出mAP、AP0.5等信息。
 
-```py
+```python
  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.935
  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.979
  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.956

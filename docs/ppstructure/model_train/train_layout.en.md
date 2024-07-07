@@ -111,7 +111,7 @@ The JSON file contains the annotations of all images, and the data is stored in 
 
   ```
   {
-  
+
       'segmentation':             # Segmentation annotation of objects
       'area': 60518.099043117836, # Area of object
       'iscrowd': 0,               # iscrowd
@@ -261,7 +261,7 @@ python3 tools/eval.py \
 
 The following information will be printed out, such as mAP, AP0.5, etc.
 
-```py
+```python
  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.935
  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.979
  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.956

@@ -195,7 +195,7 @@ Architecture:
 
 最终模型`forward`输出为一个字典，key为所有的子网络名称，例如这里为`Student`与`Teacher`，value为对应子网络的输出，可以为`Tensor`（只返回该网络的最后一层）和`dict`（也返回了中间的特征信息）。
 
-在识别任务中，为了添加更多损失函数，保证蒸馏方法的可扩展性，将每个子网络的输出保存为`dict`，其中包含子模块输出。以该识别模型为例，每个子网络的输出结果均为`dict`，key包含`backbone_out`,`neck_out`, `head_out`，`value`为对应模块的tensor，最终对于上述配置文件，`DistillationModel`的输出格式如下。
+在识别任务中，为了添加更多损失函数，保证蒸馏方法的可扩展性，将每个子网络的输出保存为`dict`，其中包含子模块输出。以该识别模型为例，每个子网络的输出结果均为`dict`，key包含`backbone_out`,`neck_out`, `head_out`，`value`为对应模块的tensor，最终对于上述配置文件，`DistillationModel`的输出格式如下：
 
 ```json
 {
@@ -313,7 +313,7 @@ Metric:
 
 （1）基于知识蒸馏的微调：这种情况比较简单，下载预训练模型，在[ch_PP-OCRv3_rec_distillation.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml)中配置好预训练模型路径以及自己的数据路径，即可进行模型微调训练。
 
-（2）微调时不使用知识蒸馏：这种情况，需要首先将预训练模型中的学生模型参数提取出来，具体步骤如下。
+（2）微调时不使用知识蒸馏：这种情况，需要首先将预训练模型中的学生模型参数提取出来，具体步骤如下：
 
 * 首先下载预训练模型并解压。
 ```bash
@@ -466,7 +466,7 @@ Architecture:
 
 最终模型`forward`输出为一个字典，key为所有的子网络名称，例如这里为`Student`与`Teacher`，value为对应子网络的输出，可以为`Tensor`（只返回该网络的最后一层）和`dict`（也返回了中间的特征信息）。
 
-在蒸馏任务中，为了方便添加蒸馏损失函数，每个网络的输出保存为`dict`，其中包含子模块输出。每个子网络的输出结果均为`dict`，key包含`backbone_out`,`neck_out`, `head_out`，`value`为对应模块的tensor，最终对于上述配置文件，`DistillationModel`的输出格式如下。
+在蒸馏任务中，为了方便添加蒸馏损失函数，每个网络的输出保存为`dict`，其中包含子模块输出。每个子网络的输出结果均为`dict`，key包含`backbone_out`,`neck_out`, `head_out`，`value`为对应模块的tensor，最终对于上述配置文件，`DistillationModel`的输出格式如下：
 
 ```json
 {

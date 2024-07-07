@@ -17,7 +17,7 @@
 
 ### 1.2 编译opencv库
 
-* 首先需要从opencv官网上下载在Linux环境下源码编译的包，以opencv3.4.7为例，下载命令如下。
+* 首先需要从opencv官网上下载在Linux环境下源码编译的包，以opencv3.4.7为例，下载命令如下：
 
 ```bash
 cd deploy/cpp_infer
@@ -148,7 +148,7 @@ build/paddle_inference_install_dir/
 
 ### 2.1 准备模型
 
-直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](../../doc/doc_ch/inference_ppocr.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下。
+直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](../../doc/doc_ch/inference_ppocr.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下：
 
 ```
 inference/
@@ -378,7 +378,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 * PaddleOCR也支持多语言的预测，更多支持的语言和模型可以参考[识别文档](../../doc/doc_ch/recognition.md)中的多语言字典与模型部分，如果希望进行多语言预测，只需将修改`rec_char_dict_path`（字典文件路径）以及`rec_model_dir`（inference模型路径）字段即可。
 
-最终屏幕上会输出检测结果如下。
+最终屏幕上会输出检测结果如下：
 
 - ocr
 

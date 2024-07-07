@@ -202,7 +202,7 @@ python tools/eval.py \
 
 基于预训练模型，在生成的1500图片上进行fine-tune训练和评估，其中train数据1200张，val数据300张，修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml`中的以下字段：
 
-```
+```yaml
 Global.epoch_num: 这里设置为1，方便快速跑通，实际中根据数据量调整该值
 Global.save_model_dir：模型保存路径
 Global.pretrained_model：指向预训练模型路径，'./pretrain_models/en_PP-OCRv3_det_distill_train/student.pdparams'
@@ -323,7 +323,7 @@ python3 tools/eval.py \
 
 接着我们看需要修改的参数，以上方案均需要修改配置文件`configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml`的参数，**修改一次即可**：
 
-```
+```yaml
 Global.pretrained_model：指向预训练模型路径,'pretrain_models/ch_PP-OCRv3_rec_train/best_accuracy'
 Optimizer.lr.values：学习率，本实验设置为0.0005
 Train.loader.batch_size_per_card: batch size,默认128，因为数据量小于128，因此我们设置为8，数据量大可以按默认的训练
@@ -332,7 +332,7 @@ Metric.ignore_space: 忽略空格，本实验设置为True
 ```
 
 **更换不同的方案**每次需要修改的参数：
-```
+```yaml
 Global.epoch_num: 这里设置为1，方便快速跑通，实际中根据数据量调整该值
 Global.save_model_dir：指向模型保存路径
 Train.dataset.data_dir：指向训练集图片存放目录

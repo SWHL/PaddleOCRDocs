@@ -177,7 +177,7 @@ ppocr 支持使用自己的数据进行自定义训练或finetune, 其中识别�
 
 以 `rec_french_lite_train.yml` 为例：
 
-```
+```yaml
 Global:
   ...
   # 添加自定义字典，如修改字典请将路径指向新字典

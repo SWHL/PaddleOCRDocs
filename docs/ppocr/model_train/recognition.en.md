@@ -138,7 +138,7 @@ For training Chinese data, it is recommended to use
 [ch_PP-OCRv3_rec_distillation.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml). If you want to try the result of other algorithms on the Chinese data set, please refer to the following instructions to modify the configuration file:
 
 Take `ch_PP-OCRv3_rec_distillation.yml` as an example:
-```
+```yaml
 Global:
   ...
   # Add a custom dictionary, such as modify the dictionary, please point the path to the new dictionary
@@ -310,7 +310,7 @@ If you want to finetune on the basis of the existing model effect, please refer 
 
 Take `rec_french_lite_train` as an example:
 
-```
+```yaml
 Global:
   ...
   # Add a custom dictionary, such as modify the dictionary, please point the path to the new dictionary

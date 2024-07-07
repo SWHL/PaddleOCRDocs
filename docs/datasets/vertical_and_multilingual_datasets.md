@@ -56,7 +56,7 @@ comments: true
 
 - **数据来源**: [https://github.com/lepture/captcha](https://github.com/lepture/captcha)
 
-- **数据简介**: 这是一个数据合成的工具包，可以根据输入的文本，输出验证码图片，使用该工具包生成几张demo图片如下。
+- **数据简介**: 这是一个数据合成的工具包，可以根据输入的文本，输出验证码图片，使用该工具包生成几张demo图片如下：
 
     ![](./images/captcha_demo.png)
 
