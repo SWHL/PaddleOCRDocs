@@ -10,7 +10,6 @@ This section will introduce how to configure the C++ environment and deploy Padd
 - Linux, docker is recommended.
 - Windows.
 
-
 ### 1.2 Compile OpenCV
 * First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
 
@@ -81,7 +80,7 @@ opencv3/
 
 * After downloading, use the following command to extract files.
 
-```
+```bash
 tar -xf paddle_inference.tgz
 ```
 
@@ -134,7 +133,6 @@ build/paddle_inference_install_dir/
 
 
 ## 2. Compile and Run the Demo
-
 ### 2.1 Export the inference model
 
 * You can refer to [Model inference](../../doc/doc_ch/inference.md) and export the inference model. After the model is exported, assuming it is placed in the `inference` directory, the directory structure is as follows.
@@ -158,9 +156,7 @@ inference/
 |   |--inference.pdmodel
 ```
 
-
 ### 2.2 Compile PaddleOCR C++ inference demo
-
 * The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
 
 ```bash
@@ -183,9 +179,7 @@ or the generated Paddle inference library path (`build/paddle_inference_install_
 
 * After the compilation is completed, an executable file named `ppocr` will be generated in the `build` folder.
 
-
 ### 2.3 Run the demo
-
 Execute the built executable file:
 ```bash
 ./build/ppocr [--param1] [--param2] [...]
@@ -293,7 +287,7 @@ Specifically,
 
 More parameters are as follows,
 
-- Common parameters
+Common parameters
 
 |parameter|data type|default|meaning|
 | --- | --- | --- | --- |
@@ -305,7 +299,7 @@ More parameters are as follows,
 |output|str|./output|Path where visualization results are saved|
 
 
-- forward
+forward
 
 |parameter|data type|default|meaning|
 | :---: | :---: | :---: | :---: |
@@ -314,7 +308,7 @@ More parameters are as follows,
 |cls|bool|false|Whether to perform text direction classification in the forward direction|
 
 
-- Detection related parameters
+Detection related parameters
 
 |parameter|data type|default|meaning|
 | --- | --- | --- | --- |
@@ -326,7 +320,7 @@ More parameters are as follows,
 |det_db_score_mode|string|slow| slow: use polygon box to calculate bbox score, fast: use rectangle box to calculate. Use rectangular box to calculate faster, and polygonal box more accurate for curved text area.|
 |visualize|bool|true|Whether to visualize the results，when it is set as true, the prediction results will be saved in the folder specified by the `output` field on an image with the same name as the input image.|
 
-- Classifier related parameters
+Classifier related parameters
 
 |parameter|data type|default|meaning|
 | --- | --- | --- | --- |
@@ -335,7 +329,7 @@ More parameters are as follows,
 |cls_thresh|float|0.9|Score threshold of the  direction classifier|
 |cls_batch_num|int|1|batch size of classifier|
 
-- Recognition related parameters
+Recognition related parameters
 
 |parameter|data type|default|meaning|
 | --- | --- | --- | --- |
@@ -345,7 +339,7 @@ More parameters are as follows,
 |rec_img_h|int|48|image height of recognition|
 |rec_img_w|int|320|image width of recognition|
 
-- Layout related parameters
+Layout related parameters
 
 |parameter|data type|default|meaning|
 | :---: | :---: | :---: | :---: |
@@ -355,7 +349,7 @@ More parameters are as follows,
 |layout_nms_threshold|float|0.5|Threshold of nms.|
 
 
-- Table recognition related parameters
+Table recognition related parameters
 
 |parameter|data type|default|meaning|
 | :---: | :---: | :---: | :---: |
@@ -365,7 +359,7 @@ More parameters are as follows,
 |merge_no_span_structure|bool|true|Whether to merge <td> and </td> to <td></td|
 
 
-* Multi-language inference is also supported in PaddleOCR, you can refer to [recognition tutorial](../../doc/doc_en/recognition_en.md) for more supported languages and models in PaddleOCR. Specifically, if you want to infer using multi-language models, you just need to modify values of `rec_char_dict_path` and `rec_model_dir`.
+Multi-language inference is also supported in PaddleOCR, you can refer to [recognition tutorial](../../doc/doc_en/recognition_en.md) for more supported languages and models in PaddleOCR. Specifically, if you want to infer using multi-language models, you just need to modify values of `rec_char_dict_path` and `rec_model_dir`.
 
 
 The detection results will be shown on the screen, which is as follows.

@@ -11,7 +11,6 @@ typora-copy-images-to: images
 ![img](./images/deployment.png)
 
 
-
 ## PP-OCR 推理部署
 
 PP-OCR模型已打通多种场景部署方案，点击链接获取具体的使用教程。

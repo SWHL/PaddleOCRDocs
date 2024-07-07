@@ -79,17 +79,13 @@ opencv3/
 |-- share
 ```
 
-
 ### 1.3 下载或者编译Paddle预测库
-
 可以选择直接下载安装或者从源码编译，下文分别进行具体说明。
 
 #### 1.3.1 直接下载安装
-
 [Paddle预测库官网](https://www.paddlepaddle.org.cn/inference/master/guides/install/download_lib.html#linux) 上提供了不同cuda版本的Linux预测库，可以在官网查看并选择合适的预测库版本（*建议选择paddle版本>=2.0.1版本的预测库* ）。
 
 下载之后解压:
-
 ```bash
 tar -xf paddle_inference.tgz
 ```
@@ -97,17 +93,16 @@ tar -xf paddle_inference.tgz
 最终会在当前的文件夹中生成`paddle_inference/`的子文件夹。
 
 #### 1.3.2 预测库源码编译
-
 如果希望获取最新预测库特性，可以从github上克隆最新Paddle代码进行编译，生成最新的预测库。
 
-* 使用git获取代码:
+使用git获取代码:
 
 ```bash
 git clone https://github.com/PaddlePaddle/Paddle.git
 git checkout develop
 ```
 
-* 进入Paddle目录，进行编译:
+进入Paddle目录，进行编译:
 
 ```bash
 rm -rf build
@@ -130,7 +125,7 @@ make inference_lib_dist
 更多编译参数选项介绍可以参考[Paddle预测库编译文档](https://www.paddlepaddle.org.cn/documentation/docs/zh/2.0/guides/05_inference_deployment/inference/build_and_install_lib_cn.html#congyuanmabianyi)。
 
 
-* 编译完成之后，可以在`build/paddle_inference_install_dir/`文件下看到生成了以下文件及文件夹。
+编译完成之后，可以在`build/paddle_inference_install_dir/`文件下看到生成了以下文件及文件夹。
 
 ```
 build/paddle_inference_install_dir/
@@ -144,8 +139,6 @@ build/paddle_inference_install_dir/
 
 
 ## 2. 开始运行
-
-
 ### 2.1 准备模型
 
 直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](../../doc/doc_ch/inference_ppocr.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下：
@@ -169,9 +162,7 @@ inference/
 |   |--inference.pdmodel
 ```
 
-
 ### 2.2 编译PaddleOCR C++预测demo
-
 编译命令如下，其中Paddle C++预测库、opencv等其他依赖库的地址需要换成自己机器上的实际地址。
 
 ```bash
@@ -179,7 +170,6 @@ sh tools/build.sh
 ```
 
 具体的，需要修改`tools/build.sh`中环境路径，相关内容如下：
-
 ```bash
 OPENCV_DIR=your_opencv_dir
 LIB_DIR=your_paddle_inference_dir
@@ -189,16 +179,12 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 其中，`OPENCV_DIR`为opencv编译安装的地址；`LIB_DIR`为下载(`paddle_inference`文件夹)或者编译生成的Paddle预测库地址(`build/paddle_inference_install_dir`文件夹)；`CUDA_LIB_DIR`为cuda库文件地址，在docker中为`/usr/local/cuda/lib64`；`CUDNN_LIB_DIR`为cudnn库文件地址，在docker中为`/usr/lib/x86_64-linux-gnu/`。**注意：以上路径都写绝对路径，不要写相对路径。**
 
-
 编译完成之后，会在`build`文件夹下生成一个名为`ppocr`的可执行文件。
 
-
 ### 2.3 运行demo
-
 本demo支持系统串联调用，也支持单个功能的调用，如，只使用检测或识别功能。
 
 **注意** ppocr默认使用`PP-OCRv3`模型，识别模型使用的输入shape为`3,48,320`, 如需使用旧版本的PP-OCR模型，则需要设置参数`--rec_img_h=32`。
-
 
 运行方式：
 ```bash
@@ -304,7 +290,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 更多支持的可调节参数解释如下：
 
-- 通用参数
+通用参数
 
 |           参数名称           | 类型  | 默认参数 |                               意义                                |
 | :--------------------------: | :---: | :------: | :---------------------------------------------------------------: |
@@ -315,7 +301,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |        enable_mkldnn         | bool  |   true   |                         是否使用mkldnn库                          |
 |            output            |  str  | ./output |                       可视化结果保存的路径                        |
 
-- 前向相关
+前向相关
 
 | 参数名称 | 类型  | 默认参数 |           意义           |
 | :------: | :---: | :------: | :----------------------: |
@@ -324,7 +310,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |   cls    | bool  |  false   | 前向是否执行文字方向分类 |
 
 
-- 检测模型相关
+检测模型相关
 
 |      参数名称       |  类型  | 默认参数 |                                                     意义                                                     |
 | :-----------------: | :----: | :------: | :----------------------------------------------------------------------------------------------------------: |
@@ -336,7 +322,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |  det_db_score_mode  | string |   slow   | slow:使用多边形框计算bbox score，fast:使用矩形框计算。矩形框计算速度更快，多边形框对弯曲文本区域计算更准确。 |
 |      visualize      |  bool  |   true   |       是否对结果进行可视化，为1时，预测结果会保存在`output`字段指定的文件夹下和输入图像同名的图像上。        |
 
-- 方向分类器相关
+方向分类器相关
 
 |   参数名称    |  类型  | 默认参数 |             意义              |
 | :-----------: | :----: | :------: | :---------------------------: |
@@ -345,7 +331,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |  cls_thresh   | float  |   0.9    |     方向分类器的得分阈值      |
 | cls_batch_num |  int   |    1     |      方向分类器batchsize      |
 
-- 文字识别模型相关
+文字识别模型相关
 
 |      参数名称      |  类型  |              默认参数               |              意义               |
 | :----------------: | :----: | :---------------------------------: | :-----------------------------: |
@@ -356,7 +342,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |     rec_img_w      |  int   |                 320                 |    文字识别模型输入图像宽度     |
 
 
-- 版面分析模型相关
+版面分析模型相关
 
 |        参数名称        |  类型  |                           默认参数                           |              意义               |
 | :--------------------: | :----: | :----------------------------------------------------------: | :-----------------------------: |
@@ -366,7 +352,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |  layout_nms_threshold  | float  |                             0.5                              |            nms的阈值            |
 
 
-- 表格识别模型相关
+表格识别模型相关
 
 |        参数名称         |  类型  |                      默认参数                      |                                         意义                                         |
 | :---------------------: | :----: | :------------------------------------------------: | :----------------------------------------------------------------------------------: |
@@ -374,7 +360,6 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |  table_char_dict_path   | string | ../../ppocr/utils/dict/table_structure_dict_ch.txt |                                       字典文件                                       |
 |      table_max_len      |  int   |                        488                         | 表格识别模型输入图像长边大小，最终网络输入图像大小为（table_max_len，table_max_len） |
 | merge_no_span_structure |  bool  |                        true                        |                          是否合并<td> 和 </td> 为<td></td>                           |
-
 
 * PaddleOCR也支持多语言的预测，更多支持的语言和模型可以参考[识别文档](../../doc/doc_ch/recognition.md)中的多语言字典与模型部分，如果希望进行多语言预测，只需将修改`rec_char_dict_path`（字典文件路径）以及`rec_model_dir`（inference模型路径）字段即可。
 
