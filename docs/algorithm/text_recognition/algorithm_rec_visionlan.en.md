@@ -1,5 +1,8 @@
-# VisionLAN
+---
+comments: true
+---
 
+# VisionLAN
 ## 1. Introduction
 
 Paper:

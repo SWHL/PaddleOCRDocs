@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # OCR Model List（V3, updated on 2022.4.28）
 > **Note**
 > 1. Compared with model v2, the 3rd version of the detection model has an improvement in accuracy, and the 2.1 version of the recognition model has optimizations in accuracy and speed with CPU.
@@ -18,8 +22,6 @@ The relationship of the above models is as follows.
 ![](../imgs_en/model_prod_flow_en.png)
 
 ## 1. Text Detection Model
-
-
 ### 1. Chinese Detection Model
 
 |model name|description|config|model size|download|

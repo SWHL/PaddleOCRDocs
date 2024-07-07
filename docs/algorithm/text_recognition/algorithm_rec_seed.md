@@ -1,5 +1,8 @@
-# SEED
+---
+comments: true
+---
 
+# SEED
 ## 1. 算法简介
 
 论文信息：

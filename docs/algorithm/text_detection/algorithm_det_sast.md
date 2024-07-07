@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # SAST
@@ -55,7 +56,7 @@ python3 tools/export_model.py -c configs/det/det_r50_vd_sast_totaltext.yml -o Gl
 ```
 
 SAST文本检测模型推理，需要设置参数`--det_algorithm="SAST"`，同时，还需要增加参数`--det_box_type=poly`，可以执行如下命令：
-```
+```bash
 python3 tools/infer/predict_det.py --det_algorithm="SAST" --image_dir="./doc/imgs_en/img623.jpg" --det_model_dir="./inference/det_sast_tt/" --det_box_type='poly'
 ```
 可视化文本检测结果默认保存到`./inference_results`文件夹里面，结果文件的名称前缀为'det_res'。结果示例如下：

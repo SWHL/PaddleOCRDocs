@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Text Detection
 
 This section uses the icdar2015 dataset as an example to introduce the training, evaluation, and testing of the detection model in PaddleOCR.
@@ -25,7 +29,6 @@ wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/ResNet50_v
 ```
 
 ## 2. Training
-
 ### 2.1 Start Training
 
 *If CPU version installed, please set the parameter `use_gpu` to `false` in the configuration.*
@@ -56,7 +59,7 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
 **Note:** For multi-Node multi-GPU training, you need to replace the `ips` value in the preceding command with the address of your machine, and the machines must be able to ping each other. In addition, it requires activating commands separately on multiple machines when we start the training. The command for viewing the IP address of the machine is `ifconfig`.
 
 If you want to further speed up the training, you can use [automatic mixed precision training](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_en.html). for single card training, the command is as follows:
-```
+```bash
 python3 tools/train.py -c configs/det/det_mv3_db.yml \
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
@@ -162,11 +165,9 @@ GPU mode is not supported, you need to set `use_gpu` to False in the configurati
 Running on a DCU device requires setting the environment variable `export HIP_VISIBLE_DEVICES=0,1,2,3`, and the rest of the training and evaluation prediction commands are exactly the same as the Linux GPU.
 
 ### 2.8 Fine-tuning
-
 In actual use, it is recommended to load the official pre-trained model and fine-tune it in your own data set. For the fine-tuning method of the detection model, please refer to: [Model Fine-tuning Tutorial](./finetune_en.md).
 
 ## 3. Evaluation and Test
-
 ### 3.1 Evaluation
 
 PaddleOCR calculates three indicators for evaluating performance of OCR detection task: Precision, Recall, and Hmean(F-Score).

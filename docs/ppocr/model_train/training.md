@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PP-OCR模型训练
 
 本文将介绍模型训练时需掌握的基本概念，和训练时的调优方法。
@@ -21,7 +25,7 @@ PaddleOCR模型使用配置文件管理网络训练、评估的参数。在配�
 学习率是训练神经网络的重要超参数之一，它代表在每一次迭代中梯度向损失函数最优解移动的步长。
 在PaddleOCR中提供了多种学习率更新策略,可以通过配置文件修改，例如：
 
-```
+```yaml
 Optimizer:
   ...
   lr:
@@ -38,7 +42,7 @@ warmup_epoch 代表在前5个epoch中，学习率将逐渐从0增加到base_lr�
 
 正则化可以有效的避免算法过拟合，PaddleOCR中提供了L1、L2正则方法，L1 和 L2 正则化是最常用的正则化方法。L1 正则化向目标函数添加正则化项，以减少参数的绝对值总和；而 L2 正则化中，添加正则化项的目的在于减少参数平方的总和。配置方法如下：
 
-```
+```yaml
 Optimizer:
   ...
   regularizer:
@@ -56,7 +60,6 @@ Optimizer:
 
 
 ## 3. 数据与垂类场景
-
 ### 3.1 训练数据
 目前开源的模型，数据集和量级如下：
 
@@ -72,13 +75,11 @@ Optimizer:
 其中，公开数据集都是开源的，用户可自行搜索下载，也可参考[中文数据集](dataset/datasets.md)，合成数据暂不开源，用户可使用开源合成工具自行合成，可参考的合成工具包括[text_renderer](https://github.com/Sanster/text_renderer) 、[SynthText](https://github.com/ankush-me/SynthText) 、[TextRecognitionDataGenerator](https://github.com/Belval/TextRecognitionDataGenerator) 等。
 
 ### 3.2 垂类场景
-
 PaddleOCR主要聚焦通用OCR，如果有垂类需求，您可以用PaddleOCR+垂类数据自己训练；
 如果缺少带标注的数据，或者不想投入研发成本，建议直接调用开放的API，开放的API覆盖了目前比较常见的一些垂类。
 
 
 ### 3.3 自己构建数据集
-
 在构建数据集时有几个经验可供参考：
 
 （1） 训练集的数据量：
@@ -99,17 +100,17 @@ PaddleOCR主要聚焦通用OCR，如果有垂类需求，您可以用PaddleOCR+�
 **Q**：训练CRNN识别时，如何选择合适的网络输入shape？
 
     A：一般高度采用32，最长宽度的选择，有两种方法：
-    
+
     （1）统计训练样本图像的宽高比分布。最大宽高比的选取考虑满足80%的训练样本。
-    
+
     （2）统计训练样本文字数目。最长字符数目的选取考虑满足80%的训练样本。然后中文字符长宽比近似认为是1，英文认为3：1，预估一个最长宽度。
 
 **Q**：识别训练时，训练集精度已经到达90了，但验证集精度一直在70，涨不上去怎么办？
 
     A：训练集精度90，测试集70多的话，应该是过拟合了，有两个可尝试的方法：
-    
+
     （1）加入更多的增广方式或者调大增广prob的[概率](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppocr/data/imaug/rec_img_aug.py#L341)，默认为0.4。
-    
+
     （2）调大系统的[l2 dcay值](https://github.com/PaddlePaddle/PaddleOCR/blob/a501603d54ff5513fc4fc760319472e59da25424/configs/rec/ch_ppocr_v1.1/rec_chinese_lite_train_v1.1.yml#L47)
 
 **Q**: 识别模型训练时，loss能正常下降，但acc一直为0
@@ -119,10 +120,7 @@ PaddleOCR主要聚焦通用OCR，如果有垂类需求，您可以用PaddleOCR+�
 ***
 
 具体的训练教程可点击下方链接跳转：
-
 - [文本检测模型训练](./detection.md)
-
 - [文本识别模型训练](./recognition.md)
-
 - [文本方向分类器训练](./angle_class.md)
 - [知识蒸馏](./knowledge_distillation.md)

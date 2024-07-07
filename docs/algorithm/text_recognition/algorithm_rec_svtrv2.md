@@ -1,7 +1,9 @@
+---
+comments: true
+---
+
 # 场景文本识别算法-SVTRv2
-
 ## 1. 算法简介
-
 ### SVTRv2算法简介
 
 [PaddleOCR 算法模型挑战赛 - 赛题一：OCR 端到端识别任务](https://aistudio.baidu.com/competition/detail/1131/0/introduction)排行榜第一算法。主要思路：1、检测和识别模型的Backbone升级为RepSVTR；2、识别教师模型升级为SVTRv2，可识别长文本。

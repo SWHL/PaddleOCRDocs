@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 表格识别算法-SLANet-LCNetV2
 
 ## 1. 算法简介

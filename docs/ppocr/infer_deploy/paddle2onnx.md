@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # Paddle2ONNX模型转化与预测
@@ -7,14 +8,12 @@ typora-copy-images-to: images
 本章节介绍 PaddleOCR 模型如何转化为 ONNX 模型，并基于 ONNXRuntime 引擎预测。
 
 ## 1. 环境准备
-
 需要准备 PaddleOCR、Paddle2ONNX 模型转化环境，和 ONNXRuntime 预测环境
 
 ###  PaddleOCR
-
 克隆PaddleOCR的仓库，使用 main 分支，并进行安装，由于 PaddleOCR 仓库比较大，git clone 速度比较慢，所以本教程已下载
 
-```
+```bash
 git clone  -b main https://github.com/PaddlePaddle/PaddleOCR.git
 cd PaddleOCR && python3 -m pip install -e .
 ```
@@ -35,8 +34,6 @@ python3 -m pip install onnxruntime
 ```
 
 ## 2. 模型转换
-
-
 - Paddle 模型下载
 
 有两种方式获取Paddle静态图模型：在 [model_list](../../doc/doc_ch/models_list.md) 中下载PaddleOCR提供的预测模型；
@@ -44,7 +41,7 @@ python3 -m pip install onnxruntime
 
 以 PP-OCRv3 中文检测、识别、分类模型为例：
 
-```
+```bash
 wget -nc  -P ./inference https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar
 cd ./inference && tar xf ch_PP-OCRv3_det_infer.tar && cd ..
 
@@ -59,7 +56,7 @@ cd ./inference && tar xf ch_ppocr_mobile_v2.0_cls_infer.tar && cd ..
 
 使用 Paddle2ONNX 将Paddle静态图模型转换为ONNX模型格式：
 
-```
+```bash
 paddle2onnx --model_dir ./inference/ch_PP-OCRv3_det_infer \
 --model_filename inference.pdmodel \
 --params_filename inference.pdiparams \
@@ -90,7 +87,7 @@ paddle2onnx --model_dir ./inference/ch_ppocr_mobile_v2.0_cls_infer \
 
 * 注意：[当前Paddle2ONNX版本(v1.2.3)](https://github.com/PaddlePaddle/Paddle2ONNX/releases/tag/v1.2.3)现已默认支持动态shape，即 `float32[p2o.DynamicDimension.0,3,p2o.DynamicDimension.1,p2o.DynamicDimension.2]`，选项 `--input_shape_dict` 已废弃。如果有shape调整需求可使用如下命令进行Paddle模型输入shape调整。
 
-  ```
+  ```bash
   python3 -m paddle2onnx.optimize --input_model inference/det_onnx/model.onnx \
     --output_model inference/det_onnx/model.onnx \
     --input_shape_dict "{'x': [-1,3,-1,-1]}"
@@ -100,7 +97,7 @@ paddle2onnx --model_dir ./inference/ch_ppocr_mobile_v2.0_cls_infer \
 
 以中文OCR模型为例，使用 ONNXRuntime 预测可执行如下命令：
 
-```
+```bash
 python3 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 --det_model_dir=./inference/det_onnx/model.onnx  \
 --rec_model_dir=./inference/rec_onnx/model.onnx  \
@@ -110,7 +107,7 @@ python3 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 
 以中文OCR模型为例，使用 Paddle Inference 预测可执行如下命令：
 
-```
+```bash
 python3 tools/infer/predict_system.py --use_gpu=False \
 --cls_model_dir=./inference/ch_ppocr_mobile_v2.0_cls_infer \
 --rec_model_dir=./inference/ch_PP-OCRv3_rec_infer \
@@ -130,7 +127,7 @@ Paddle Inference 执行效果：
 ![](./images/lite_demo_paddle.png)
 
 使用 ONNXRuntime 预测，终端输出：
-```
+```bash
 [2022/02/22 17:48:27] root DEBUG: dt_boxes num : 38, elapse : 0.043187856674194336
 [2022/02/22 17:48:27] root DEBUG: rec_res num  : 38, elapse : 0.592170000076294
 [2022/02/22 17:48:27] root DEBUG: 0  Predict time of ./deploy/lite/imgs/lite_demo.png: 0.642s
@@ -175,7 +172,7 @@ Paddle Inference 执行效果：
 
 使用 Paddle Inference 预测，终端输出：
 
-```
+```bash
 [2022/02/22 17:47:25] root DEBUG: dt_boxes num : 38, elapse : 0.11791276931762695
 [2022/02/22 17:47:27] root DEBUG: rec_res num  : 38, elapse : 2.6206860542297363
 [2022/02/22 17:47:27] root DEBUG: 0  Predict time of ./deploy/lite/imgs/lite_demo.png: 2.746s

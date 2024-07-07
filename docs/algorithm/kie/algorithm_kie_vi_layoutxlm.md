@@ -1,5 +1,9 @@
-# 关键信息抽取算法-VI-LayoutXLM
+---
+comments: true
+---
 
+
+# 关键信息抽取算法-VI-LayoutXLM
 ## 1. 算法简介
 
 VI-LayoutXLM基于LayoutXLM进行改进，在下游任务训练过程中，去除视觉骨干网络模块，最终精度基本无损的情况下，模型推理速度进一步提升。

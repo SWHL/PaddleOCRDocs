@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 ## PPOCR 服务化部署

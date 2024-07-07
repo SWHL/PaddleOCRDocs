@@ -1,11 +1,8 @@
+---
+comments: true
+---
+
 # Text Direction Classification
-
-- [1. Method Introduction](#method-introduction)
-- [2. Data Preparation](#data-preparation)
-- [3. Training](#training)
-- [4. Evaluation](#evaluation)
-- [5. Prediction](#prediction)
-
 
 ## 1. Method Introduction
 The angle classification is used in the scene where the image is not 0 degrees. In this scene, it is necessary to perform a correction operation on the text line detected in the picture. In the PaddleOCR system,
@@ -16,12 +13,11 @@ Example of 0 and 180 degree data samples：
 ![img](./images/angle_class_example.jpg)
 
 ## 2. Data Preparation
-
 Please organize the dataset as follows:
 
 The default storage path for training data is `PaddleOCR/train_data/cls`, if you already have a dataset on your disk, just create a soft link to the dataset directory:
 
-```
+```bash
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/cls/dataset
 ```
 
@@ -35,7 +31,7 @@ First put the training images in the same folder (train_images), and use a txt f
 
 0 and 180 indicate that the angle of the image is 0 degrees and 180 degrees, respectively.
 
-```
+```text
 " Image file name           Image annotation "
 
 train/word_001.jpg   0
@@ -44,7 +40,7 @@ train/word_002.jpg   180
 
 The final training set should have the following file structure:
 
-```
+```text
 |-train_data
     |-cls
         |- cls_gt_train.txt
@@ -60,7 +56,7 @@ The final training set should have the following file structure:
 Similar to the training set, the test set also needs to be provided a folder
 containing all images (test) and a cls_gt_test.txt. The structure of the test set is as follows:
 
-```
+```text
 |-train_data
     |-cls
         |- cls_gt_test.txt
@@ -77,7 +73,7 @@ PaddleOCR provides training scripts, evaluation scripts, and prediction scripts.
 
 Start training:
 
-```
+```bash
 # Set PYTHONPATH path
 export PYTHONPATH=$PYTHONPATH:.
 # GPU training Support single card and multi-card training, specify the card number through --gpus.
@@ -118,7 +114,7 @@ If the evaluation set is large, the test will be time-consuming. It is recommend
 
 The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/cls/cls_mv3.yml` file.
 
-```
+```bash
 export CUDA_VISIBLE_DEVICES=0
 # GPU evaluation, Global.checkpoints is the weight to be tested
 python3 tools/eval.py -c configs/cls/cls_mv3.yml -o Global.checkpoints={path/to/weights}/best_accuracy
@@ -131,7 +127,7 @@ Using the model trained by paddleocr, you can quickly get prediction through the
 
 Use `Global.infer_img` to specify the path of the predicted picture or folder, and use `Global.checkpoints` to specify the weight:
 
-```
+```bash
 # Predict English results
 python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.load_static_weights=false Global.infer_img=doc/imgs_words_en/word_10.png
 ```
@@ -142,7 +138,7 @@ Input image:
 
 Get the prediction result of the input image:
 
-```
+```bash
 infer_img: doc/imgs_words_en/word_10.png
      result: ('0', 0.9999995)
 ```

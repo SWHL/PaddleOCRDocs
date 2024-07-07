@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # paddleocr package使用说明
 
 ## 1 快速上手

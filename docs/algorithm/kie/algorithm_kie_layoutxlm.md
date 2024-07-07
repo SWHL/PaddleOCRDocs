@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 关键信息抽取算法-LayoutXLM
 ## 1. 算法简介
 

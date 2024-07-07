@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # 表格识别

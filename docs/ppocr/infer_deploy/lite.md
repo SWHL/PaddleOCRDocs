@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # 端侧部署

@@ -1,16 +1,9 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # PP-OCRv3
-
-- [1. 简介](#1)
-- [2. 检测优化](#2)
-- [3. 识别优化](#3)
-- [4. 端到端评估](#4)
-
-
-
 ## 1. 简介
 
 PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与PP-OCRv2相同的pipeline，针对检测模型和识别模型进行了优化。其中，检测模块仍基于DB算法优化，而识别模块不再采用CRNN，换成了IJCAI 2022最新收录的文本识别算法[SVTR](https://arxiv.org/abs/2205.00159)，并对其进行产业适配。PP-OCRv3系统框图如下所示（粉色框中为PP-OCRv3新增策略）：
@@ -38,10 +31,7 @@ PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与P
 - 英文数字场景，相比于PP-OCRv2英文模型提升11%；
 - 多语言场景，优化80+语种识别效果，平均准确率提升超5%。
 
-
-
 ## 2. 检测优化
-
 PP-OCRv3检测模型是对PP-OCRv2中的[CML](https://arxiv.org/pdf/2109.03144.pdf)（Collaborative Mutual Learning) 协同互学习文本检测蒸馏策略进行了升级。如下图所示，CML的核心思想结合了①传统的Teacher指导Student的标准蒸馏与 ②Students网络之间的DML互学习，可以让Students网络互学习的同时，Teacher网络予以指导。PP-OCRv3分别针对教师模型和学生模型进行进一步效果优化。其中，在对教师模型优化时，提出了大感受野的PAN结构LK-PAN和引入了DML（Deep Mutual Learning）蒸馏策略；在对学生模型优化时，提出了残差注意力机制的FPN结构RSE-FPN。
 
 ![img](./images/ppocrv3_det_cml.png)
@@ -81,11 +71,7 @@ RSE-FPN（Residual Squeeze-and-Excitation FPN）如下图所示，引入残差�
 
 ![img](./images/RSEFPN.png)
 
-
-
-
 ## 3. 识别优化
-
 PP-OCRv3的识别模块是基于文本识别算法[SVTR](https://arxiv.org/abs/2205.00159)优化。SVTR不再采用RNN结构，通过引入Transformers结构更加有效地挖掘文本行图像的上下文信息，从而提升文本识别能力。直接将PP-OCRv2的识别模型，替换成SVTR_Tiny，识别准确率从74.8%提升到80.1%（+5.3%），但是预测速度慢了将近11倍，CPU上预测一条文本行，将近100ms。因此，如下图所示，PP-OCRv3采用如下6个优化策略进行识别模型加速。
 
 ![img](./images/v3_rec_pipeline.png)
@@ -114,8 +100,6 @@ SVTR_LCNet是针对文本识别任务，将基于Transformer的[SVTR](https://ar
 SVTR_Tiny 网络结构如下所示：
 
 ![img](./images/svtr_tiny.png)
-
-
 
 由于 MKLDNN 加速库支持的模型结构有限，SVTR 在 CPU+MKLDNN 上相比 PP-OCRv2 慢了10倍。PP-OCRv3 期望在提升模型精度的同时，不带来额外的推理耗时。通过分析发现，SVTR_Tiny 结构的主要耗时模块为 Mixing Block，因此我们对 SVTR_Tiny 的结构进行了一系列优化（详细速度数据请参考下方消融实验表格）:
 
@@ -152,14 +136,11 @@ SVTR_Tiny 网络结构如下所示：
 
 ![img](./images/GTC.png)
 
-
 **（3）TextConAug：挖掘文字上下文信息的数据增广策略**
 
 TextConAug是一种挖掘文字上下文信息的数据增广策略，主要思想来源于论文[ConCLR](https://www.cse.cuhk.edu.hk/~byu/papers/C139-AAAI2022-ConCLR.pdf)，作者提出ConAug数据增广，在一个batch内对2张不同的图像进行联结，组成新的图像并进行自监督对比学习。PP-OCRv3将此方法应用到有监督的学习任务中，设计了TextConAug数据增强方法，可以丰富训练数据上下文信息，提升训练数据多样性。使用该策略，识别模型的准确率进一步提升到76.3%（+0.5%）。TextConAug示意图如下所示：
 
 ![img](./images/recconaug.png)
-
-
 
 **（4）TextRotNet：自监督的预训练模型**
 
@@ -178,11 +159,7 @@ UIM（Unlabeled Images Mining）是一种非常简单的无标注数据挖掘方
 
 <img src="../images/UIM.png" alt="img" style="zoom:67%;" />
 
-
-
-
 ## 4. 端到端评估
-
 经过以上优化，最终PP-OCRv3在速度可比情况下，中文场景端到端Hmean指标相比于PP-OCRv2提升5%，效果大幅提升。具体指标如下表所示：
 
 | Model | Hmean |  Model Size (M) | Time Cost (CPU, ms) | Time Cost (T4 GPU, ms) |

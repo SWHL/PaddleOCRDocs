@@ -7,13 +7,9 @@ comments: true
 
 本节以icdar2015数据集为例，介绍PaddleOCR中检测模型训练、评估、测试的使用方式。
 
-
 ## 1. 准备数据和模型
-
 ### 1.1 准备数据集
-
 准备数据集可参考 [ocr_datasets](./dataset/ocr_datasets.md) 。
-
 
 ### 1.2 下载预训练模型
 
@@ -34,9 +30,7 @@ wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/ResNet50_v
 
 
 ## 2. 开始训练
-
 ### 2.1 启动训练
-
 *如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false*
 
 ```bash
@@ -127,10 +121,7 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
 ```
 
-
-
 ### 2.5 分布式训练
-
 多机多卡训练时，通过 `--ips` 参数设置使用的机器IP地址，通过 `--gpus` 参数设置使用的GPU ID：
 
 ```bash
@@ -140,19 +131,12 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
 
 **注意:** （1）采用多机多卡训练时，需要替换上面命令中的ips值为您机器的地址，机器之间需要能够相互ping通；（2）训练时需要在多个机器上分别启动命令。查看机器ip地址的命令为`ifconfig`；（3）更多关于分布式训练的性能优势等信息，请参考：[分布式训练教程](./distributed_training.md)。
 
-
-
-
 ### 2.6 知识蒸馏训练
-
 PaddleOCR支持了基于知识蒸馏的检测模型训练过程，更多内容可以参考[知识蒸馏说明文档](./knowledge_distillation.md)。
 
 **注意：** 知识蒸馏训练目前只支持PP-OCR使用的`DB`和`CRNN`算法。
 
-
-
 ### 2.7 其他训练环境
-
 - Windows GPU/CPU
 在Windows平台上与Linux平台略有不同:
 Windows平台只支持`单卡`的训练与预测，指定GPU进行训练`set CUDA_VISIBLE_DEVICES=0`
@@ -167,16 +151,10 @@ DCU设备上运行需要设置环境变量 `export HIP_VISIBLE_DEVICES=0,1,2,3`�
 
 
 ### 2.8 模型微调
-
 实际使用过程中，建议加载官方提供的预训练模型，在自己的数据集中进行微调，关于检测模型的微调方法，请参考：[模型微调教程](./finetune.md)。
 
-
-
 ## 3. 模型评估与预测
-
-
 ### 3.1 指标评估
-
 PaddleOCR计算三个OCR检测相关的指标，分别是：Precision、Recall、Hmean（F-Score）。
 
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Global.checkpoints`指向保存的参数文件。
@@ -185,12 +163,8 @@ PaddleOCR计算三个OCR检测相关的指标，分别是：Precision、Recall�
 python3 tools/eval.py -c configs/det/det_mv3_db.yml  -o Global.checkpoints="{path/to/weights}/best_accuracy"
 ```
 
-
-
 ### 3.2 测试检测效果
-
 测试单张图像的检测效果：
-
 ```bash
 python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./doc/imgs_en/img_10.jpg" Global.pretrained_model="./output/det_db/best_accuracy"
 ```
@@ -206,9 +180,7 @@ python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./
 python3 tools/infer_det.py -c configs/det/det_mv3_db.yml -o Global.infer_img="./doc/imgs_en/" Global.pretrained_model="./output/det_db/best_accuracy"
 ```
 
-
 ## 4. 模型导出与预测
-
 inference 模型（`paddle.jit.save`保存的模型）
 一般是模型训练，把模型结构和模型参数保存在文件中的固化模型，多用于预测部署场景。
 训练过程中保存的模型是checkpoints模型，保存的只有模型的参数，多用于恢复训练等。
@@ -232,8 +204,6 @@ python3 tools/infer/predict_det.py --det_algorithm="EAST" --det_model_dir="./out
 ```
 
 更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](./inference_args.md)。
-
-
 
 ## 5. FAQ
 

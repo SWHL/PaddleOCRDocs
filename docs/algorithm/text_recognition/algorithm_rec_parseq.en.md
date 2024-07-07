@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PasreQ
 ## 1. Introduction
 

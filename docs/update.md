@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 更新
 #### 2022.5.9 发布PaddleOCR v2.5。发布内容包括：
 - [PP-OCRv3](./ppocr_introduction.md#pp-ocrv3)，速度可比情况下，中文场景效果相比于PP-OCRv2再提升5%，英文场景提升11%，80语种多语言模型平均识别准确率提升5%以上；

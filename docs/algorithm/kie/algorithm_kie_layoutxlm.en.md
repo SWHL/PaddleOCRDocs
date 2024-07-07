@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # KIE Algorithm - LayoutXLM
 ## 1. Introduction
 

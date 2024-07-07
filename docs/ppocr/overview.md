@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PP-OCR
 
 ## 1. 简介

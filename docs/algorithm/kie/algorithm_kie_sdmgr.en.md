@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 # KIE Algorithm - SDMGR
 ## 1. Introduction

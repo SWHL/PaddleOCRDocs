@@ -1,6 +1,8 @@
+---
+comments: true
+---
+
 # KIE Algorithm - VI-LayoutXLM
-
-
 ## 1. Introduction
 
 VI-LayoutXLM is improved based on LayoutXLM. In the process of downstream finetuning, the visual backbone network module is removed, and the model infernce speed is further improved on the basis of almost lossless accuracy.

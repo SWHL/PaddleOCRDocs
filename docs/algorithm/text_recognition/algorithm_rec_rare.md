@@ -1,5 +1,8 @@
-# RARE
+---
+comments: true
+---
 
+# RARE
 ## 1. 算法简介
 
 论文信息：

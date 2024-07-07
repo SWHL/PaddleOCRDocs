@@ -1,3 +1,8 @@
+
+---
+comments: true
+---
+
 # PaddleOCR Quick Start
 
 **Note:** This tutorial mainly introduces the usage of PP-OCR series models, please refer to [PP-Structure Quick Start](../../ppstructure/docs/quickstart_en.md) for the quick use of document analysis related functions.

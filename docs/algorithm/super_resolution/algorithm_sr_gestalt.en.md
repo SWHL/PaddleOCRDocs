@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Text Gestalt
 ## 1. Introduction
 

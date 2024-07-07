@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 ## OCR Pipeline WebService
 
 PaddleOCR provides two service deployment methods:
@@ -254,7 +258,7 @@ python3 ocr_web_server.py cpu(for cpu user)
 
 2. Client Send Requests
 
-```
+```bash
 python3 ocr_web_client.py
 ```
 

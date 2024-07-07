@@ -280,7 +280,7 @@ The following information will be printed out, such as mAP, AP0.5, etc.
 
 If you use the provided pre-training model for evaluation or the FGD distillation training model, replace the `weights` model path and execute the following command for evaluation:
 
-```
+```bash
 python3 tools/eval.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \
@@ -313,7 +313,7 @@ python3 tools/infer.py \
 
 If you use the provided pre-training model for prediction or the FGD distillation training model, change the `weights` model path and execute the following command to make the prediction:
 
-```
+```bash
 python3 tools/infer.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \

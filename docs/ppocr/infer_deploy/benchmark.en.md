@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Benchmark
 
 This document gives the performance of the series models for Chinese and English recognition.

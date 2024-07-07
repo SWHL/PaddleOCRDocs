@@ -1,12 +1,13 @@
+---
+comments: true
+---
+
 # 服务器端C++预测
 
 本章节介绍PaddleOCR 模型的C++部署方法。C++在性能计算上优于Python，因此，在大多数CPU、GPU部署场景，多采用C++的部署方式，本节将介绍如何在Linux\Windows (CPU\GPU)环境下配置C++环境并完成PaddleOCR模型部署。
 
 
-
 ## 1. 准备环境
-
-
 ### 1.1 运行准备
 
 - Linux环境，推荐使用docker。

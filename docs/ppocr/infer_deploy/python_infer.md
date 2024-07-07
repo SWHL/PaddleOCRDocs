@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 本文介绍针对PP-OCR模型库的Python推理引擎使用方法，内容依次为文本检测、文本识别、方向分类器以及三者串联在CPU、GPU上的预测方法。
@@ -9,7 +10,7 @@ typora-copy-images-to: images
 
 文本检测模型推理，默认使用DB模型的配置参数。超轻量中文检测模型推理，可以执行如下命令：
 
-```
+```bash
 # 下载超轻量中文检测模型：
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar
 tar xf ch_PP-OCRv3_det_infer.tar
@@ -36,11 +37,9 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_di
 ```
 
 如果想使用CPU进行预测，执行命令如下
-
 ```bash
 python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_dir="./ch_PP-OCRv3_det_infer/"  --use_gpu=False
 ```
-
 
 ## 2. 文本识别模型推理
 ### 2.1 超轻量中文识别模型推理
@@ -49,7 +48,7 @@ python3 tools/infer/predict_det.py --image_dir="./doc/imgs/1.jpg" --det_model_di
 
 超轻量中文识别模型推理，可以执行如下命令：
 
-```
+```bash
 # 下载超轻量中文识别模型：
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar
 tar xf ch_PP-OCRv3_rec_infer.tar
@@ -64,12 +63,10 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/ch/word_4.jpg" 
 Predicts of ./doc/imgs_words/ch/word_4.jpg:('实力活力', 0.9956803321838379)
 ```
 
-
 ### 2.2 英文识别模型推理
-
 英文识别模型推理，可以执行如下命令， 注意修改字典路径：
 
-```
+```bash
 # 下载英文数字识别模型：
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_infer.tar
 tar xf en_PP-OCRv3_rec_infer.tar
@@ -80,14 +77,14 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 
 执行命令后，上图的预测结果为：
 
-```
+```bash
 Predicts of ./doc/imgs_words/en/word_1.png: ('JOINT', 0.998160719871521)
 ```
 
 ### 2.3 多语言模型的推理
 
 如果您需要预测的是其他语言模型，可以在[此链接](./models_list.md#%E5%A4%9A%E8%AF%AD%E8%A8%80%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9E%8B)中找到对应语言的inference模型，在使用inference模型预测时，需要通过`--rec_char_dict_path`指定使用的字典路径, 同时为了得到正确的可视化结果，需要通过 `--vis_font_path` 指定可视化的字体路径，`doc/fonts/` 路径下有默认提供的小语种字体，例如韩文识别：
-```
+```bash
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/korean_mobile_v2.0_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" --rec_model_dir="./your inference model" --rec_char_dict_path="ppocr/utils/dict/korean_dict.txt" --vis_font_path="doc/fonts/korean.ttf"
 ```
@@ -96,16 +93,15 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" -
 
 执行命令后，上图的预测结果为：
 
-``` text
+```text
 Predicts of ./doc/imgs_words/korean/1.jpg:('바탕으로', 0.9948904)
 ```
-
 
 ## 3. 方向分类模型推理
 
 方向分类模型推理，可以执行如下命令：
 
-```
+```bash
 # 下载超轻量中文方向分类器模型：
 wget  https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar
 tar xf ch_ppocr_mobile_v2.0_cls_infer.tar
@@ -115,11 +111,9 @@ python3 tools/infer/predict_cls.py --image_dir="./doc/imgs_words/ch/word_4.jpg" 
 ![img](./images/word_1.jpg)
 
 执行命令后，上面图像的预测结果（分类的方向和得分）会打印到屏幕上，示例如下：
-
-```
+```bash
 Predicts of ./doc/imgs_words/ch/word_4.jpg:['0', 0.9999982]
 ```
-
 
 ## 4. 文本检测、方向分类和文字识别串联推理
 
@@ -138,16 +132,13 @@ python3 tools/infer/predict_system.py --image_dir="./doc/imgs/00018069.jpg" --de
 python3 tools/infer/predict_system.py --image_dir="./xxx.pdf" --det_model_dir="./ch_PP-OCRv3_det_infer/" --cls_model_dir="./cls/" --rec_model_dir="./ch_PP-OCRv3_rec_infer/" --use_angle_cls=true --page_num=2
 ```
 
-
 执行命令后，识别结果图像如下：
 
 ![img](./images/system_res_00018069_v3.jpg)
 
 更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](./inference_args.md)。
 
-
 ## 5. TensorRT推理
-
 Paddle Inference 采用子图的形式集成 TensorRT，针对 GPU 推理场景，TensorRT 可对一些子图进行优化，包括 OP 的横向和纵向融合，过滤冗余的 OP，并为 OP 自动选择最优的 kernel，加快推理速度。
 
 如果希望使用Paddle Inference进行TRT推理，一般需要2个步骤。

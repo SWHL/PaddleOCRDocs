@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # 版面分析
@@ -285,7 +286,7 @@ python3 tools/eval.py \
 
 若使用**提供的预训练模型进行评估**，或使用**FGD蒸馏训练的模型**，更换`weights`模型路径，执行如下命令进行评估：
 
-```
+```bash
 python3 tools/eval.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \
@@ -318,7 +319,7 @@ python3 tools/infer.py \
 
 若使用**提供的预训练模型进行预测**，或使用**FGD蒸馏训练的模型**，更换`weights`模型路径，执行如下命令进行预测：
 
-```
+```bash
 python3 tools/infer.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \

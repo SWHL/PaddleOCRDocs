@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 场景文本识别算法-VisionLAN
 ## 1. 算法简介
 

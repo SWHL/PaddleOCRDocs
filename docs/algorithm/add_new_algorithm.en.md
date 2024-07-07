@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Add New Algorithm
 
 PaddleOCR decomposes an algorithm into the following parts, and modularizes each part to make it more convenient to develop new algorithms.

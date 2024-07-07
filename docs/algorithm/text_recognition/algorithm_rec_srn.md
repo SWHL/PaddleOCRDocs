@@ -1,7 +1,9 @@
+---
+comments: true
+---
+
 # SRN
-
 ## 1. 算法简介
-
 论文信息：
 > [Towards Accurate Scene Text Recognition with Semantic Reasoning Networks](https://arxiv.org/abs/2003.12294#)
 > Deli Yu, Xuan Li, Chengquan Zhang, Junyu Han, Jingtuo Liu, Errui Ding

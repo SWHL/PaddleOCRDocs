@@ -1,5 +1,8 @@
-# SEED
+---
+comments: true
+---
 
+# SEED
 ## 1. Introduction
 
 Paper:

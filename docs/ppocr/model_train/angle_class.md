@@ -4,8 +4,6 @@ typora-copy-images-to: images
 ---
 
 # 文本方向分类器
-
-
 ## 1. 方法介绍
 文本方向分类器主要用于图片非0度的场景下，在这种场景下需要对图片里检测到的文本行进行一个转正的操作。在PaddleOCR系统内，
 文字检测之后得到的文本行图片经过仿射变换之后送入识别模型，此时只需要对文字进行一个0和180度的角度分类，因此PaddleOCR内置的
@@ -17,32 +15,30 @@ typora-copy-images-to: images
 
 
 ## 2. 数据准备
-
 请按如下步骤设置数据集：
 
 训练数据的默认存储路径是 `PaddleOCR/train_data/cls`,如果您的磁盘上已有数据集，只需创建软链接至数据集目录：
 
-```
+```bash
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/cls/dataset
 ```
 
 请参考下文组织您的数据。
 ### 训练集
-
 首先建议将训练图片放入同一个文件夹，并用一个txt文件（cls_gt_train.txt）记录图片路径和标签。
 
 **注意：** 默认请将图片路径和图片标签用 `\t` 分割，如用其他方式分割将造成训练报错
 
 0和180分别表示图片的角度为0度和180度
 
-```
+```text
 " 图像文件名                 图像标注信息 "
 train/cls/train/word_001.jpg   0
 train/cls/train/word_002.jpg   180
 ```
 
 最终训练集应有如下文件结构：
-```
+```text
 |-train_data
     |-cls
         |- cls_gt_train.txt
@@ -57,7 +53,7 @@ train/cls/train/word_002.jpg   180
 
 同训练集类似，测试集也需要提供一个包含所有图片的文件夹（test）和一个cls_gt_test.txt，测试集的结构如下所示：
 
-```
+```text
 |-train_data
     |-cls
         |- cls_gt_test.txt
@@ -69,7 +65,6 @@ train/cls/train/word_002.jpg   180
 ```
 
 ## 3. 启动训练
-
 将准备好的txt文件和图片文件夹路径分别写入配置文件的 `Train/Eval.dataset.label_file_list` 和 `Train/Eval.dataset.data_dir` 字段下，`Train/Eval.dataset.data_dir`字段下的路径和文件里记载的图片名构成了图片的绝对路径。
 
 PaddleOCR提供了训练脚本、评估脚本和预测脚本。
@@ -78,7 +73,7 @@ PaddleOCR提供了训练脚本、评估脚本和预测脚本。
 
 *如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false*
 
-```
+```bash
 # GPU训练 支持单卡，多卡训练，通过 '--gpus' 指定卡号。
 # 启动训练，下面的命令已经写入train.sh文件中，只需修改文件里的配置文件路径即可
 python3 -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c configs/cls/cls_mv3.yml
@@ -96,9 +91,7 @@ PaddleOCR提供了多种数据增强方式，如果您希望在训练时加入�
 
 *由于OpenCV的兼容性问题，扰动操作暂时只支持linux*
 
-
 ## 4. 训练
-
 PaddleOCR支持训练和评估交替进行, 可以在 `configs/cls/cls_mv3.yml` 中修改 `eval_batch_step` 设置评估频率，默认每1000个iter评估一次。训练过程中将会保存如下内容：
 ```bash
 ├── best_accuracy.pdopt # 最佳模型的优化器参数
@@ -120,12 +113,11 @@ PaddleOCR支持训练和评估交替进行, 可以在 `configs/cls/cls_mv3.yml` 
 
 评估数据集可以通过修改`configs/cls/cls_mv3.yml`文件里的`Eval.dataset.label_file_list` 字段设置。
 
-```
+```bash
 export CUDA_VISIBLE_DEVICES=0
 # GPU 评估， Global.checkpoints 为待测权重
 python3 tools/eval.py -c configs/cls/cls_mv3.yml -o Global.checkpoints={path/to/weights}/best_accuracy
 ```
-
 
 ## 6. 预测
 
@@ -135,7 +127,7 @@ python3 tools/eval.py -c configs/cls/cls_mv3.yml -o Global.checkpoints={path/to/
 
 通过 `Global.infer_img` 指定预测图片或文件夹路径，通过 `Global.checkpoints` 指定权重：
 
-```
+```bash
 # 预测分类结果
 python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.load_static_weights=false Global.infer_img=doc/imgs_words/ch/word_1.jpg
 ```
@@ -146,7 +138,7 @@ python3 tools/infer_cls.py -c configs/cls/cls_mv3.yml -o Global.pretrained_model
 
 得到输入图像的预测结果：
 
-```
+```bash
 infer_img: doc/imgs_words/ch/word_1.jpg
      result: ('0', 0.9998784)
 ```

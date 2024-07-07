@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Model Training
 
 This article will introduce the basic concepts that is necessary for model training and tuning.

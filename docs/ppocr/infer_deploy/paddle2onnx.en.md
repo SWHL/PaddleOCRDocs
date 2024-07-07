@@ -1,16 +1,18 @@
+---
+comments: true
+---
+
 # Paddle2ONNX model transformation and prediction
 
 This chapter describes how the PaddleOCR model is converted into an ONNX model and predicted based on the ONNXRuntime engine.
 
 ## 1. Environment preparation
-
 Need to prepare PaddleOCR, Paddle2ONNX model conversion environment, and ONNXRuntime prediction environment
 
 ###  PaddleOCR
-
 Clone the PaddleOCR repository, use the release/2.6 branch, and install it.
 
-```
+```bash
 git clone  -b release/2.6 https://github.com/PaddlePaddle/PaddleOCR.git
 cd PaddleOCR && python3.7 setup.py install
 ```
@@ -20,21 +22,18 @@ cd PaddleOCR && python3.7 setup.py install
 Paddle2ONNX supports converting the PaddlePaddle model format to the ONNX model format. The operator currently supports exporting ONNX Opset 9~11 stably, and some Paddle operators support lower ONNX Opset conversion.
 For more details, please refer to [Paddle2ONNX](https://github.com/PaddlePaddle/Paddle2ONNX/blob/develop/README_en.md)
 
-
 - install Paddle2ONNX
-```
+```bash
 python3.7 -m pip install paddle2onnx
 ```
 
 - install ONNXRuntime
-```
+```bash
 # It is recommended to install version 1.9.0, and the version number can be changed according to the environment
 python3.7 -m pip install onnxruntime==1.9.0
 ```
 
 ## 2. Model conversion
-
-
 - Paddle model download
 
 There are two ways to obtain the Paddle model: Download the prediction model provided by PaddleOCR in [model_list](../../doc/doc_en/models_list_en.md);
@@ -42,7 +41,7 @@ Refer to [Model Export Instructions](../../doc/doc_en/inference_en.md#1-convert-
 
 Take the PP-OCRv3 detection, recognition, and classification model as an example:
 
-```
+```bash
 wget -nc -P ./inference https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar
 cd ./inference && tar xf en_PP-OCRv3_det_infer.tar && cd ..
 
@@ -57,7 +56,7 @@ cd ./inference && tar xf ch_ppocr_mobile_v2.0_cls_infer.tar && cd ..
 
 Convert Paddle inference model to ONNX model format using Paddle2ONNX:
 
-```
+```bash
 paddle2onnx --model_dir ./inference/en_PP-OCRv3_det_infer \
 --model_filename inference.pdmodel \
 --params_filename inference.pdiparams \
@@ -85,14 +84,15 @@ paddle2onnx --model_dir ./inference/ch_ppocr_mobile_v2.0_cls_infer \
 After execution, the ONNX model will be saved in `./inference/det_onnx/`, `./inference/rec_onnx/`, `./inference/cls_onnx/` paths respectively
 
 * Note: For the OCR model, the conversion process must be in the form of dynamic shape, that is, add the option --input_shape_dict="{'x': [-1, 3, -1, -1]}", otherwise the prediction result may be the same as Predicting directly with Paddle is slightly different.
-  In addition, the following models do not currently support conversion to ONNX models:
+
+In addition, the following models do not currently support conversion to ONNX models:
   NRTR, SAR, RARE, SRN
 
 ## 3. prediction
 
 Take the English OCR model as an example, use **ONNXRuntime** to predict and execute the following commands:
 
-```
+```bash
 python3.7 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 --det_model_dir=./inference/det_onnx/model.onnx  \
 --rec_model_dir=./inference/rec_onnx/model.onnx  \
@@ -103,7 +103,7 @@ python3.7 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 
 Taking the English OCR model as an example, use **Paddle Inference** to predict and execute the following commands:
 
-```
+```bash
 python3.7 tools/infer/predict_system.py --use_gpu=False \
 --cls_model_dir=./inference/ch_ppocr_mobile_v2.0_cls_infer \
 --rec_model_dir=./inference/en_PP-OCRv3_rec_infer \
@@ -125,7 +125,7 @@ Paddle Inference result：
 ![](./images/lite_demo_paddle.png)
 
 Using ONNXRuntime to predict, terminal output:
-```
+```bash
 [2022/10/10 12:06:28] ppocr DEBUG: dt_boxes num : 11, elapse : 0.3568880558013916
 [2022/10/10 12:06:31] ppocr DEBUG: rec_res num  : 11, elapse : 2.6445000171661377
 [2022/10/10 12:06:31] ppocr DEBUG: 0  Predict time of doc/imgs_en/img_12.jpg: 3.021s
@@ -146,7 +146,7 @@ Using ONNXRuntime to predict, terminal output:
 
 Using Paddle Inference to predict, terminal output:
 
-```
+```bash
 [2022/10/10 12:06:28] ppocr DEBUG: dt_boxes num : 11, elapse : 0.3568880558013916
 [2022/10/10 12:06:31] ppocr DEBUG: rec_res num  : 11, elapse : 2.6445000171661377
 [2022/10/10 12:06:31] ppocr DEBUG: 0  Predict time of doc/imgs_en/img_12.jpg: 3.021s

@@ -1,9 +1,12 @@
-English | [简体中文](README_ch.md)
+---
+comments: true
+---
 
 # PP-OCR Deployment
 
-- [Paddle Deployment Introduction](#1)
-- [PP-OCR Deployment](#2)
+- [PP-OCR Deployment](#pp-ocr-deployment)
+  - [Paddle Deployment Introduction](#paddle-deployment-introduction)
+  - [PP-OCR Deployment](#pp-ocr-deployment-1)
 
 ## Paddle Deployment Introduction
 

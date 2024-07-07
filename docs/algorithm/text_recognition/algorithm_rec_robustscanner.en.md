@@ -1,5 +1,8 @@
-# RobustScanner
+---
+comments: true
+---
 
+# RobustScanner
 ## 1. Introduction
 
 Paper:

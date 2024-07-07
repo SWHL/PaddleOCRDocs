@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 # 知识蒸馏
 ## 1. 简介
@@ -342,8 +345,8 @@ paddle.save(s_params, "ch_PP-OCRv3_rec_train/student.pdparams")
 
 
 ### 2.2 检测配置文件解析
-
 检测模型蒸馏的配置文件在PaddleOCR/configs/det/ch_PP-OCRv3/目录下，包含两个个蒸馏配置文件：
+
 - ch_PP-OCRv3_det_cml.yml，采用cml蒸馏，采用一个大模型蒸馏两个小模型，且两个小模型互相学习的方法
 - ch_PP-OCRv3_det_dml.yml，采用DML的蒸馏，两个Student模型互蒸馏的方法
 
@@ -352,7 +355,7 @@ paddle.save(s_params, "ch_PP-OCRv3_rec_train/student.pdparams")
 
 知识蒸馏任务中，模型结构配置如下所示：
 
-```
+```yaml
 Architecture:
   name: DistillationModel          # 结构名称，蒸馏任务中，为DistillationModel，用于构建对应的结构
   algorithm: Distillation          # 算法名称
@@ -397,7 +400,7 @@ Architecture:
 
 下面介绍[ch_PP-OCRv3_det_cml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml)的配置文件参数：
 
-```
+```yaml
 Architecture:
   name: DistillationModel
   algorithm: Distillation
@@ -560,6 +563,7 @@ Metric:
 #### 2.2.5 检测蒸馏模型finetune
 
 PP-OCRv3检测蒸馏有两种方式：
+
 - 采用ch_PP-OCRv3_det_cml.yml，采用cml蒸馏，同样Teacher模型设置为PaddleOCR提供的模型或者您训练好的大模型
 - 采用ch_PP-OCRv3_det_dml.yml，采用DML的蒸馏，两个Student模型互蒸馏的方法，在PaddleOCR采用的数据集上相比单独训练Student模型有1%-2%的提升。
 
@@ -569,7 +573,7 @@ PP-OCRv3检测蒸馏有两种方式：
 
 
 另外，由于PaddleOCR提供的蒸馏预训练模型包含了多个模型的参数，如果您希望提取Student模型的参数，可以参考如下代码：
-```
+```bash
 # 下载蒸馏训练模型的参数
 wget https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv3_det_distill_train.tar
 ```

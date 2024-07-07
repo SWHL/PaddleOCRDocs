@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 多语言模型
 
 **近期更新**
@@ -26,21 +30,9 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 本文档将简要介绍小语种模型的使用方法。
 
-- [1 安装](#安装)
-    - [1.1 paddle 安装](#paddle安装)
-    - [1.2 paddleocr package 安装](#paddleocr_package_安装)
-
-- [2 快速使用](#快速使用)
-    - [2.1 命令行运行](#命令行运行)
-    - [2.2 python 脚本运行](#python_脚本运行)
-- [3 自定义训练](#自定义训练)
-- [4 预测部署](#预测部署)
-- [4 支持语种及缩写](#语种缩写)
-
 ## 1 安装
-
 ### 1.1 paddle 安装
-```
+```bash
 # cpu
 pip install paddlepaddle
 
@@ -50,9 +42,8 @@ pip install paddlepaddle-gpu
 
 ### 1.2 paddleocr package 安装
 
-
 pip 安装
-```
+```bash
 pip install paddleocr
 ```
 
@@ -63,12 +54,11 @@ pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本�
 ```
 
 ## 2 快速使用
-
 ### 2.1 命令行运行
 
 查看帮助信息
 
-```
+```bash
 paddleocr -h
 ```
 
@@ -77,15 +67,12 @@ paddleocr -h
 Paddleocr目前支持80个语种，可以通过修改--lang参数进行切换，具体支持的[语种](#语种缩写)可查看表格。
 
 ``` bash
-
 paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```
 
 <img src="https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_en/254.jpg" alt="img" style="zoom:67%;" />
 
 ![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/img_02.jpg)
-
-
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 ```text
@@ -113,13 +100,13 @@ paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 
 * 检测预测
 
-```
+```bash
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ```
 
 结果是一个list，每个item只包含文本框
 
-```
+```bash
 [[26.0, 457.0], [137.0, 457.0], [137.0, 477.0], [26.0, 477.0]]
 [[25.0, 425.0], [372.0, 425.0], [372.0, 448.0], [25.0, 448.0]]
 [[128.0, 397.0], [273.0, 397.0], [273.0, 414.0], [128.0, 414.0]]
@@ -132,7 +119,7 @@ ppocr 也支持在python脚本中运行，便于嵌入到您自己的代码中 �
 
 * 整图预测（检测+识别）
 
-```
+```python
 from paddleocr import PaddleOCR, draw_ocr
 
 # 同样也是通过修改 lang 参数切换语种
@@ -211,7 +198,7 @@ Eval:
 
 - 启动训练：
 
-```
+```bash
 # 下载预训练模型
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/french_mobile_v2.0_rec_train.tar
 tar -xf french_mobile_v2.0_rec_train.tar
@@ -234,7 +221,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 - [服务化部署](../../deploy/hubserving/readme.md)
 - [端侧部署](../../deploy/lite/readme_ch.md)
 - [Benchmark](./benchmark.md)
-
 
 
 ## 5 支持语种及缩写

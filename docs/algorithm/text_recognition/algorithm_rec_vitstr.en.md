@@ -1,7 +1,9 @@
+---
+comments: true
+---
+
 # ViTSTR
-
 ## 1. Introduction
-
 Paper:
 > [Vision Transformer for Fast and Efficient Scene Text Recognition](https://arxiv.org/abs/2105.08582)
 > Rowel Atienza

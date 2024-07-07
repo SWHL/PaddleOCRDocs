@@ -13,7 +13,7 @@ To prepare datasets, refer to [ocr_datasets](./dataset/datasets_en.md) .
 
 PaddleOCR provides label files for training the icdar2015 dataset, which can be downloaded in the following ways:
 
-```
+```bash
 # Training set label
 wget -P ./train_data/ic15_data  https://paddleocr.bj.bcebos.com/dataset/rec_gt_train.txt
 # Test Set Label
@@ -23,7 +23,7 @@ wget -P ./train_data/ic15_data  https://paddleocr.bj.bcebos.com/dataset/rec_gt_t
 PaddleOCR also provides a data format conversion script, which can convert ICDAR official website label to a data format
 supported by PaddleOCR. The data conversion tool is in `ppocr/utils/gen_label.py`, here is the training set as an example:
 
-```
+```bash
 # convert the official gt to rec_gt_label.txt
 python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_label="rec_gt_label.txt"
 ```
@@ -36,6 +36,7 @@ The data format is as follows, (a) is the original picture, (b) is the Ground Tr
 - Multilingual dataset
 
 The multi-language model training method is the same as the Chinese model. The training data set is 100w synthetic data. A small amount of fonts and test data can be downloaded using the following two methods.
+
 * [Baidu Netdisk](https://pan.baidu.com/s/1bS_u207Rm7YbY33wOECKDA) ,Extraction code:frgi.
 * [Google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
 
@@ -46,7 +47,7 @@ Finally, a dictionary ({word_dict_name}.txt) needs to be provided so that when t
 
 Therefore, the dictionary needs to contain all the characters that you want to be recognized correctly. {word_dict_name}.txt needs to be written in the following format and saved in the `utf-8` encoding format:
 
-```
+```text
 l
 d
 a
@@ -104,7 +105,7 @@ PaddleOCR provides training scripts, evaluation scripts, and prediction scripts.
 
 First download the pretrain model, you can download the trained model to finetune on the icdar2015 data:
 
-```
+```bash
 cd PaddleOCR/
 # Download the pre-trained model of en_PP-OCRv3
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar
@@ -115,7 +116,7 @@ tar -xf en_PP-OCRv3_rec_train.tar && rm -rf en_PP-OCRv3_rec_train.tar
 
 Start training:
 
-```
+```bash
 # GPU training Support single card and multi-card training
 # Training icdar15 English data and The training log will be automatically saved as train.log under "{save_model_dir}"
 
@@ -356,32 +357,26 @@ GPU mode is not supported, you need to set `use_gpu` to False in the configurati
 Running on a DCU device requires setting the environment variable `export HIP_VISIBLE_DEVICES=0,1,2,3`, and the rest of the training and evaluation prediction commands are exactly the same as the Linux GPU.
 
 ## 2.9 Fine-tuning
-
 In actual use, it is recommended to load the official pre-trained model and fine-tune it in your own data set. For the fine-tuning method of the recognition model, please refer to: [Model Fine-tuning Tutorial](./finetune_en.md).
 
 ## 3. Evaluation and Test
-
 ### 3.1 Evaluation
-
 The model parameters during training are saved in the `Global.save_model_dir` directory by default. When evaluating indicators, you need to set `Global.checkpoints` to point to the saved parameter file. The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml` file.
 
 
-```
+```bash
 # GPU evaluation, Global.checkpoints is the weight to be tested
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints={path/to/weights}/best_accuracy
 ```
 
 ### 3.2 Test
-
-
 Using the model trained by paddleocr, you can quickly get prediction through the following script.
 
 The default prediction picture is stored in `infer_img`, and the trained weight is specified via `-o Global.checkpoints`:
 
-
 According to the `save_model_dir` and `save_epoch_step` fields set in the configuration file, the following parameters will be saved:
 
-```
+```text
 output/rec/
 ├── best_accuracy.pdopt
 ├── best_accuracy.pdparams
@@ -398,7 +393,7 @@ output/rec/
 
 Among them, best_accuracy.* is the best model on the evaluation set; iter_epoch_x.* is the model saved at intervals of `save_epoch_step`; latest.* is the model of the last epoch.
 
-```
+```bash
 # Predict English results
 python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model={path/to/weights}/best_accuracy  Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -410,14 +405,14 @@ Input image:
 
 Get the prediction result of the input image:
 
-```
+```bash
 infer_img: doc/imgs_words/en/word_1.png
         result: ('joint', 0.9998967)
 ```
 
 The configuration file used for prediction must be consistent with the training. For example, you completed the training of the Chinese model with `python3 tools/train.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0.yml`, you can use the following command to predict the Chinese model:
 
-```
+```bash
 # Predict Chinese results
 python3 tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/ch/word_1.jpg
 ```
@@ -428,7 +423,7 @@ Input image:
 
 Get the prediction result of the input image:
 
-```
+```bash
 infer_img: doc/imgs_words/ch/word_1.jpg
         result: ('韩国小馆', 0.997218)
 ```
@@ -443,7 +438,7 @@ Compared with the checkpoints model, the inference model will additionally save 
 
 The recognition model is converted to the inference model in the same way as the detection, as follows:
 
-```
+```bash
 # -c Set the training algorithm yml configuration file
 # -o Set optional parameters
 # Global.pretrained_model parameter Set the training model address to be converted without adding the file suffix .pdmodel, .pdopt or .pdparams.
@@ -456,8 +451,7 @@ If you have a model trained on your own dataset with a different dictionary file
 
 After the conversion is successful, there are three files in the model save directory:
 
-```
-
+```text
 inference/en_PP-OCRv3_rec/
     ├── inference.pdiparams         # The parameter file of recognition inference model
     ├── inference.pdiparams.info    # The parameter information of recognition inference model, which can be ignored
@@ -468,7 +462,7 @@ inference/en_PP-OCRv3_rec/
 
   If the text dictionary is modified during training, when using the inference model to predict, you need to specify the dictionary path used by `--rec_char_dict_path`
 
-  ```
+  ```bash
   python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./your inference model" --rec_image_shape="3, 32, 100" --rec_char_dict_path="your text dict path"
   ```
 

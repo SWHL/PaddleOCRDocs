@@ -1,5 +1,6 @@
 ---
 typora-copy-images-to: images
+comments: true
 ---
 
 # 运行环境准备
@@ -14,17 +15,8 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 > 如果您已经安装Python环境，可以直接参考[PaddleOCR快速开始](./quickstart.md)
 
-* [1. Python环境搭建](#1)
-  + [1.1 Windows](#1.1)
-  + [1.2 Mac](#1.2)
-  + [1.3 Linux](#1.3)
-
-
 ## 1. Python环境搭建
-
-
 ### 1.1 Windows
-
 #### 1.1.1 安装Anaconda
 
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
@@ -80,7 +72,6 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 
 ### 1.2 Mac
-
 #### 1.2.1 安装Anaconda
 
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
@@ -97,9 +88,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - 建议安装vscode或pycharm等代码编辑器
 
 #### 1.2.2 打开终端并创建conda环境
-
 - 打开终端
-
   - 同时按下command键和空格键，在聚焦搜索中输入"终端"，双击进入终端
 
 - **将conda加入环境变量**

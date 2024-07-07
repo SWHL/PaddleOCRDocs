@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Server-side C++ Inference
 
 This chapter introduces the C++ deployment steps of the PaddleOCR model. C++ is better than Python in terms of performance. Therefore, in CPU and GPU deployment scenarios, C++ deployment is mostly used.

@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # SPIN: Structure-Preserving Inner Offset Network for Scene Text Recognition
 
 ## 1. Introduction

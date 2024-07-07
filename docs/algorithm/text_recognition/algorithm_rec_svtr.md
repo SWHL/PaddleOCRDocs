@@ -1,7 +1,9 @@
+---
+comments: true
+---
+
 # 场景文本识别算法-SVTR
-
 ## 1. 算法简介
-
 论文信息：
 > [SVTR: Scene Text Recognition with a Single Visual Model](https://arxiv.org/abs/2205.00159)
 > Yongkun Du and Zhineng Chen and Caiyan Jia and Xiaoting Yin and Tianlun Zheng and Chenxia Li and Yuning Du and Yu-Gang Jiang

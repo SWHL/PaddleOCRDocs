@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 # PP-OCR Models Quantization
 
@@ -8,6 +11,7 @@ so as to reduce model calculation complexity and improve model inference perform
 This example uses PaddleSlim provided [APIs of Quantization](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/zh_cn/api_cn/dygraph/quanter/qat.rst) to compress the OCR model.
 
 It is recommended that you could understand following pages before reading this example：
+
 - [The training strategy of OCR model](../../../doc/doc_en/quickstart_en.md)
 - [PaddleSlim Document](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/zh_cn/api_cn/dygraph/quanter/qat.rst)
 
