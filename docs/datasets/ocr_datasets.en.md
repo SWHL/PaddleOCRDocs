@@ -44,7 +44,7 @@ After registering and logging in, download the part marked in the red box in the
 Decompress the downloaded dataset to the working directory, assuming it is decompressed under PaddleOCR/train_data/. Then download the PaddleOCR format annotation file from the table above.
 
 PaddleOCR also provides a data format conversion script, which can convert the official website label to the PaddleOCR format. The data conversion tool is in `ppocr/utils/gen_label.py`, here is the training set as an example:
-```
+```bash
 # Convert the label file downloaded from the official website to train_icdar2015_label.txt
 python gen_label.py --mode="det" --root_path="/path/to/icdar_c4_train_imgs/"  \
                     --input_path="/path/to/ch4_training_localization_transcription_gt" \
@@ -52,7 +52,7 @@ python gen_label.py --mode="det" --root_path="/path/to/icdar_c4_train_imgs/"  \
 ```
 
 After decompressing the data set and downloading the annotation file, PaddleOCR/train_data/ has two folders and two files, which are:
-```
+```text
 /PaddleOCR/train_data/icdar2015/text_localization/
   └─ icdar_c4_train_imgs/         Training data of icdar dataset
   └─ ch4_test_images/             Testing data of icdar dataset
@@ -60,11 +60,8 @@ After decompressing the data set and downloading the annotation file, PaddleOCR/
   └─ test_icdar2015_label.txt     Test annotation of icdar dataset
 ```
 
-
 ## 2. Text recognition
-
 ### 2.1 PaddleOCR text recognition format annotation
-
 The text recognition algorithm in PaddleOCR supports two data formats:
  - `lmdb` is used to train data sets stored in lmdb format, use [lmdb_dataset.py](../../../ppocr/data/lmdb_dataset.py) to load;
  - `common dataset` is used to train data sets stored in text files, use [simple_dataset.py](../../../ppocr/data/simple_dataset.py) to load.
@@ -78,7 +75,7 @@ It is recommended to put the training images in the same folder, and use a txt f
 
 * Note: by default, the image path and image label are split with \t, if you use other methods to split, it will cause training error
 
-```
+```text
 " Image file name           Image annotation "
 
 train_data/rec/train/word_001.jpg   简单可依赖
@@ -88,7 +85,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 The final training set should have the following file structure:
 
-```
+```text
 |-train_data
   |-rec
     |- rec_gt_train.txt
@@ -103,7 +100,7 @@ The final training set should have the following file structure:
 
 Similar to the training set, the test set also needs to be provided a folder containing all images (test) and a rec_gt_test.txt. The structure of the test set is as follows:
 
-```
+```text
 |-train_data
   |-rec
     |-ic15_data
@@ -130,7 +127,7 @@ Then download the PaddleOCR format annotation file from the table above.
 
 PaddleOCR also provides a data format conversion script, which can convert the ICDAR official website label to the data format supported by PaddleOCR. The data conversion tool is in `ppocr/utils/gen_label.py`, here is the training set as an example:
 
-```
+```bash
 # Convert the label file downloaded from the official website to rec_gt_label.txt
 python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_label="rec_gt_label.txt"
 ```
@@ -143,7 +140,7 @@ The data format is as follows, (a) is the original picture, (b) is the Ground Tr
 
 The default storage path for PaddleOCR training data is `PaddleOCR/train_data`, if you already have a dataset on your disk, just create a soft link to the dataset directory:
 
-```
+```bash
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows

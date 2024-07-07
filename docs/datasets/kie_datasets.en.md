@@ -29,9 +29,7 @@ Here are the common datasets key information extraction, which are being updated
 
 - **Download address**: https://github.com/doc-analysis/XFUND/releases/tag/v1.0
 
-
 ## 3. wildreceipt dataset
-
 - **Data source**: https://arxiv.org/abs/2103.14470
 - **Data introduction**: wildreceipt is an English receipt dataset, which contains 26 different categories. There are 1267 training images and 472 evaluation images, in which 50,000 textlines and boxes are annotated. Part of the image and the annotation box visualization are shown below.
 

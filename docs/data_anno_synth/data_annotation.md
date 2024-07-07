@@ -6,7 +6,6 @@ comments: true
 
 这里整理了常用的数据标注工具，持续更新中，欢迎各位小伙伴贡献工具～
 
-
 ### 1. labelImg
 - 工具描述：矩形标注
 - 工具地址：https://github.com/tzutalin/labelImg

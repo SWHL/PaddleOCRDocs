@@ -16,11 +16,8 @@ comments: true
 - **下载地址**：http://www.nlpr.ia.ac.cn/databases/handwriting/Download.html
 - **使用建议**：数据为单字，白色背景，可以大量合成文字行进行训练。白色背景可以处理成透明状态，方便添加各种背景。对于需要语义的情况，建议从真实语料出发，抽取单字组成文字行
 
-
 ## NIST手写单字数据集-英文(NIST Handprinted Forms and Characters Database)
-
 - **数据来源**: [https://www.nist.gov/srd/nist-special-database-19](https://www.nist.gov/srd/nist-special-database-19)
-
 - **数据简介**: NIST19数据集适用于手写文档和字符识别的模型训练，从3600位作者的手写样本表格中提取得到，总共包含81万张字符图片。其中9张图片示例如下：
 
     ![](./images/nist_demo.png)

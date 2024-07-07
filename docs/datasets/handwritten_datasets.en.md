@@ -18,14 +18,10 @@ Here we have sorted out the commonly used handwritten OCR dataset datasets, whic
 - **Download address**:http://www.nlpr.ia.ac.cn/databases/handwriting/Download.html
 - **使用建议**:Data for single character, white background, can form a large number of text lines for training. White background can be processed into transparent state, which is convenient to add various backgrounds. For the case of semantic needs, it is suggested to extract single character from real corpus to form text lines.
 
-
 ## NIST handwritten single character dataset - English(NIST Handprinted Forms and Characters Database)
-
 - **Data source**: [https://www.nist.gov/srd/nist-special-database-19](https://www.nist.gov/srd/nist-special-database-19)
-
 - **Data introduction**: NIST19 dataset is suitable for handwritten document and character recognition model training. It is extracted from the handwritten sample form of 3600 authors and contains 810000 character images in total. Nine of them are shown below.
 
     ![](./images/nist_demo.png)
-
 
 - **Download address**: [https://www.nist.gov/srd/nist-special-database-19](https://www.nist.gov/srd/nist-special-database-19)

@@ -5,6 +5,7 @@ comments: true
 
 # Vertical multi-language OCR dataset
 Here we have sorted out the commonly used vertical multi-language OCR dataset datasets, which are being updated continuously. We welcome you to contribute datasets ～
+
 - [Chinese urban license plate dataset](#Chinese urban license plate dataset)
 - [Bank credit card dataset](#Bank credit card dataset)
 - [Captcha dataset-Captcha](#Captcha dataset-Captcha)
@@ -12,10 +13,10 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
 
 
 ## Chinese urban license plate dataset
-
 - **Data source**：[https://github.com/detectRecog/CCPD](https://github.com/detectRecog/CCPD)
 
 - **Data introduction**: It contains more than 250000 vehicle license plate images and vehicle license plate detection and recognition information labeling. It contains the following license plate image information in different scenes.
+
     * CCPD-Base: General license plate picture
     * CCPD-DB: The brightness of license plate area is bright, dark or uneven
     * CCPD-FN: The license plate is farther or closer to the camera location
@@ -53,28 +54,18 @@ Here we have sorted out the commonly used vertical multi-language OCR dataset da
 
 - **Download address**: [https://cdn.kesci.com/cmb2017-2.zip](https://cdn.kesci.com/cmb2017-2.zip)
 
-
-
 ## Captcha dataset-Captcha
-
 - **Data source**: [https://github.com/lepture/captcha](https://github.com/lepture/captcha)
-
 - **Data introduction**: This is a toolkit for data synthesis. You can output captcha images according to the input text. Use the toolkit to generate several demo images as follows.
 
     ![](./images/captcha_demo.png)
 
 - **Download address**: The dataset is generated and has no download address.
 
-
-
 ## multi-language dataset(Multi-lingual scene text detection and recognition)
-
 - **Data source**: [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)
-
 - **Data introduction**: Multi language detection dataset MLT contains both language recognition and detection tasks.
     * In the detection task, the training set contains 10000 images in 10 languages, and each language contains 1000 training images. The test set contains 10000 images.
     * In the recognition task, the training set contains 111998 samples.
-
-
 - **Download address**: The training set is large and can be downloaded in two parts. It can only be downloaded after registering on the website:
 [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)

@@ -4,14 +4,10 @@ comments: true
 
 
 # 垂类多语言OCR数据集
-
 这里整理了常用垂类和多语言OCR数据集，持续更新中，欢迎各位小伙伴贡献数据集～
 
-
 ## 中国城市车牌数据集
-
 - **数据来源**：[https://github.com/detectRecog/CCPD](https://github.com/detectRecog/CCPD)
-
 - **数据简介**: 包含超过25万张中国城市车牌图片及车牌检测、识别信息的标注。包含以下几种不同场景中的车牌图片信息。
     * CCPD-Base: 通用车牌图片
     * CCPD-DB: 车牌区域亮度较亮、较暗或者不均匀
@@ -25,14 +21,11 @@ comments: true
 
     ![](./images/ccpd_demo.png)
 
-
 - **下载地址**
     * 百度云下载地址(提取码是hm0U): [https://pan.baidu.com/s/1i5AOjAbtkwb17Zy-NQGqkw](https://pan.baidu.com/s/1i5AOjAbtkwb17Zy-NQGqkw)
     * Google drive下载地址：[https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view](https://drive.google.com/file/d/1rdEsCUcIUaYOVRkx5IMTRNA7PcGMmSgc/view)
 
-
 ## 银行信用卡数据集
-
 - **数据来源**: [https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870](https://www.kesci.com/home/dataset/5954cf1372ead054a5e25870)
 
 - **数据简介**: 训练数据共提供了三类数据
@@ -50,28 +43,18 @@ comments: true
 
 - **下载地址**: [https://cdn.kesci.com/cmb2017-2.zip](https://cdn.kesci.com/cmb2017-2.zip)
 
-
-
 ## 验证码数据集-Captcha
-
 - **数据来源**: [https://github.com/lepture/captcha](https://github.com/lepture/captcha)
-
 - **数据简介**: 这是一个数据合成的工具包，可以根据输入的文本，输出验证码图片，使用该工具包生成几张demo图片如下：
 
     ![](./images/captcha_demo.png)
 
 - **下载地址**: 该数据集是生成得到，无下载地址。
 
-
-
 ## 多语言数据集(Multi-lingual scene text detection and recognition)
-
 - **数据来源**: [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)
-
 - **数据简介**: 多语言检测数据集MLT同时包含了语种识别和检测任务。
     * 在检测任务中，训练集包含10000张图片，共有10种语言，每种语言包含1000张训练图片。测试集包含10000张图片。
     * 在识别任务中，训练集包含111998个样本。
-
-
 - **下载地址**: 训练集较大，分2部分下载，需要在网站上注册之后才能下载：
 [https://rrc.cvc.uab.es/?ch=15&com=downloads](https://rrc.cvc.uab.es/?ch=15&com=downloads)

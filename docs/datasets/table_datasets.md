@@ -19,7 +19,6 @@ typora-copy-images-to: images
 ## 1. PubTabNet数据集
 - **数据简介**：PubTabNet数据集的训练集合中包含50万张图像，验证集合中包含0.9万张图像。部分图像可视化如下所示。
 
-
 <div align="center">
     <img src="../images/table_PubTabNet_demo/PMC524509_007_00.png" width="500">
     <img src="../images/table_PubTabNet_demo/PMC535543_007_01.png" width="500">
@@ -39,4 +38,3 @@ typora-copy-images-to: images
 - **数据简介**：WTW中文场景表格数据集包含表格检测和表格数据两部分数据，数据集中同时包含扫描和拍照两张场景的图像。
 
   ![img](./images/20210816_210413.gif)
-

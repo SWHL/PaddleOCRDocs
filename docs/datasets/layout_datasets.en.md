@@ -7,10 +7,7 @@ comments: true
 
 Here are the common datasets of layout anlysis, which are being updated continuously. Welcome to contribute datasets.
 
-
 Most of the layout analysis datasets are object detection datasets. In addition to open source datasets, you can also label or synthesize datasets using tools such as [labelme](https://github.com/wkentaro/labelme) and so on.
-
-
 
 #### 1. PubLayNet dataset
 
@@ -24,8 +21,6 @@ Most of the layout analysis datasets are object detection datasets. In addition 
 
 - **Download address**: https://developer.ibm.com/exchanges/data/all/publaynet/
 - **Note**: When using this dataset, you need to follow [CDLA-Permissive](https://cdla.io/permissive-1-0/) license.
-
-
 
 #### 2、CDLA数据集
 - **Data source**: https://github.com/buptlihang/CDLA

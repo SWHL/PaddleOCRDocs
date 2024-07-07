@@ -11,7 +11,7 @@ comments: true
 ### 1.1 PaddleOCR 文字检测数据格式
 
 PaddleOCR 中的文本检测算法支持的标注文件格式如下，中间用"\t"分隔：
-```
+```text
 " 图像文件名                    json.dumps编码的图像标注信息"
 ch4_test_images/img_61.jpg    [{"transcription": "MASA", "points": [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
 ```
@@ -41,7 +41,7 @@ ICDAR 2015 数据集包含1000张训练图像和500张测试图像。ICDAR 2015 
 
 PaddleOCR 也提供了数据格式转换脚本，可以将官网 label 转换支持的数据格式。 数据转换工具在 `ppocr/utils/gen_label.py`, 这里以训练集为例：
 
-```
+```bash
 # 将官网下载的标签文件转换为 train_icdar2015_label.txt
 python gen_label.py --mode="det" --root_path="/path/to/icdar_c4_train_imgs/"  \
                     --input_path="/path/to/ch4_training_localization_transcription_gt" \
@@ -137,12 +137,13 @@ ICDAR 2015 数据集可以在上表中链接下载，用于快速验证。也可
 
 PaddleOCR 也提供了数据格式转换脚本，可以将ICDAR官网 label 转换为PaddleOCR支持的数据格式。 数据转换工具在 `ppocr/utils/gen_label.py`, 这里以训练集为例：
 
-```
+```bash
 # 将官网下载的标签文件转换为 rec_gt_label.txt
 python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_label="rec_gt_label.txt"
 ```
 
 数据样式格式如下，(a)为原始图片,(b)为每张图片对应的 Ground Truth 文本文件：
+
 ![](./images/icdar_rec.png)
 
 
@@ -150,7 +151,7 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 
 PaddleOCR训练数据的默认存储路径是 `PaddleOCR/train_data`,如果您的磁盘上已有数据集，只需创建软链接至数据集目录：
 
-```
+```bash
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows
