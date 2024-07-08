@@ -1,5 +1,6 @@
 ---
 comments: true
+typora-copy-images-to: images
 hide:
   - navigation
   - toc
@@ -22,6 +23,10 @@ hide:
 ## 简介
 PaddleOCR 旨在打造一套丰富、领先、且实用的 OCR 工具库，助力开发者训练出更好的模型，并应用落地。
 
+![img](./images/test_add_91.jpg)
+
+![img](./images/00006737.jpg)
+
 ## 🚀 社区
 PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监督。Issues 和 PRs 将在尽力的基础上进行审查。欲了解 PaddlePaddle 社区的完整概况，请访问 [community](https://github.com/PaddlePaddle/community)。
 
@@ -41,75 +46,73 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
     - 发布[PP-OCRv4](./doc/doc_ch/PP-OCRv4_introduction.md)，提供 mobile 和 server 两种模型
     - PP-OCRv4-mobile：速度可比情况下，中文场景效果相比于 PP-OCRv3 再提升 4.5%，英文场景提升 10%，80 语种多语言模型平均识别准确率提升 8%以上
     - PP-OCRv4-server：发布了目前精度最高的 OCR 模型，中英文场景上检测模型精度提升 4.9%， 识别模型精度提升 2%
-    可参考[快速开始](./doc/doc_ch/quickstart.md) 一行命令快速使用，同时也可在飞桨 AI 套件(PaddleX)中的[通用 OCR 产业方案](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286)中低代码完成模型训练、推理、高性能部署全流程
-- 🔨**2022.11 新增实现[4 种前沿算法](doc/doc_ch/algorithm_overview.md)**：文本检测 [DRRG](doc/doc_ch/algorithm_det_drrg.md),  文本识别 [RFL](doc/doc_ch/algorithm_rec_rfl.md), 文本超分[Text Telescope](doc/doc_ch/algorithm_sr_telescope.md)，公式识别[CAN](doc/doc_ch/algorithm_rec_can.md)
-- **2022.10 优化[JS 版 PP-OCRv3 模型](./deploy/paddlejs/README_ch.md)**：模型大小仅 4.3M，预测速度提升 8 倍，配套 web demo 开箱即用
+    可参考[快速开始](./quick_start.md) 一行命令快速使用，同时也可在飞桨 AI 套件(PaddleX)中的[通用 OCR 产业方案](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286)中低代码完成模型训练、推理、高性能部署全流程
+- 🔨**2022.11 新增实现[4 种前沿算法](./algorithm/overview.md)**：文本检测 [DRRG](./algorithm/text_detection/algorithm_det_drrg.md),  文本识别 [RFL](./algorithm/text_recognition/algorithm_rec_rfl.md), 文本超分[Text Telescope](./algorithm/super_resolution/algorithm_sr_telescope.md)，公式识别[CAN](./algorithm/formula_recognition/algorithm_rec_can.md)
+- **2022.10 优化[JS 版 PP-OCRv3 模型](./ppocr/infer_deploy/paddle_js.md)**：模型大小仅 4.3M，预测速度提升 8 倍，配套 web demo 开箱即用
 - **💥 直播回放：PaddleOCR 研发团队详解 PP-StructureV2 优化策略**。微信扫描[下方二维码](#开源社区)，关注公众号并填写问卷后进入官方交流群，获取直播回放链接与 20G 重磅 OCR 学习大礼包（内含 PDF 转 Word 应用程序、10 种垂类模型、《动手学 OCR》电子书等）
 - **🔥2022.8.24 发布 PaddleOCR [release/2.6](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6)**
-- 发布[PP-StructureV2](./ppstructure/README_ch.md)，系统功能性能全面升级，适配中文场景，新增支持[版面复原](./ppstructure/recovery/README_ch.md)，支持**一行命令完成 PDF 转 Word**；
-- [版面分析](./ppstructure/layout/README_ch.md)模型优化：模型存储减少 95%，速度提升 11 倍，平均 CPU 耗时仅需 41ms；
-- [表格识别](./ppstructure/table/README_ch.md)模型优化：设计 3 大优化策略，预测耗时不变情况下，模型精度提升 6%；
-- [关键信息抽取](./ppstructure/kie/README_ch.md)模型优化：设计视觉无关模型结构，语义实体识别精度提升 2.8%，关系抽取精度提升 9.1%。
-- 🔥**2022.8 发布 [OCR 场景应用集合](./applications)**：包含数码管、液晶屏、车牌、高精度 SVTR 模型、手写体识别等**9 个垂类模型**，覆盖通用，制造、金融、交通行业的主要 OCR 垂类应用。
+- 发布[PP-StructureV2](./ppstructure/overview.md)，系统功能性能全面升级，适配中文场景，新增支持[版面复原](./ppstructure/model_train/recovery_to_doc.md)，支持**一行命令完成 PDF 转 Word**；
+- [版面分析](./ppstructure/model_train/train_layout.md)模型优化：模型存储减少 95%，速度提升 11 倍，平均 CPU 耗时仅需 41ms；
+- [表格识别](./ppstructure/model_train/train_table.md)模型优化：设计 3 大优化策略，预测耗时不变情况下，模型精度提升 6%；
+- [关键信息抽取](./ppstructure/model_train/train_kie.md)模型优化：设计视觉无关模型结构，语义实体识别精度提升 2.8%，关系抽取精度提升 9.1%。
+- 🔥**2022.8 发布 [OCR 场景应用集合](./applications/overview.md)**：包含数码管、液晶屏、车牌、高精度 SVTR 模型、手写体识别等**9 个垂类模型**，覆盖通用，制造、金融、交通行业的主要 OCR 垂类应用。
 
 > [更多](./update.md)
 
 
 ## 🌟 特性
-支持多种 OCR 相关前沿算法，在此基础上打造产业级特色模型[PP-OCR](./doc/doc_ch/ppocr_introduction.md)、[PP-Structure](./ppstructure/README_ch.md)和[PP-ChatOCRv2](https://aistudio.baidu.com/community/app/70303)，并打通数据生产、模型训练、压缩、预测部署全流程。
+支持多种 OCR 相关前沿算法，在此基础上打造产业级特色模型[PP-OCR](./ppocr/overview.md)、[PP-Structure](./ppstructure/overview.md)和[PP-ChatOCRv2](https://aistudio.baidu.com/community/app/70303)，并打通数据生产、模型训练、压缩、预测部署全流程。
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/tink2123/test/master/ppocrv4.png">
-</div>
+![](./images/ppocrv4.png)
+
 
 ## 效果展示
 ### 超轻量PP-OCRv3效果展示
 #### PP-OCRv3中文模型
-<div align="center">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
-</div>
+
+![](./images/PP-OCRv3-pic001.jpg)
+
+![](./images/PP-OCRv3-pic002.jpg)
+
+![](./images/PP-OCRv3-pic003.jpg)
 
 #### PP-OCRv3英文数字模型
-<div align="center">
-    <img src="./static/imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/en/en_2.png" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/en/en_3.png" width="800">
-</div>
+
+![](./images/en_1.png)
+
+![](./images/en_2.png)
+
+![](./images/en_3-0398013.png)
 
 #### PP-OCRv3多语言模型
-<div align="center">
-    <img src="./static/imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
-</div>
+
+![img](./images/japan_2.jpg)
+
+![img](./images/korean_1.jpg)
 
 
-### 超轻量PP-OCRv2效果展示
-<div align="center">
-    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
-    <img src="./static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
-</div>
 
+#### PP-Structure 文档分析
 
-### 通用PP-OCR server 2.0 效果展示
-<div align="center">
-    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
-    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
-    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
-</div>
+- 版面分析+表格识别
 
-### 英文识别模型效果展示
-<div align="center">
-    <img src="./static/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
-</div>
+  ![img](./images/ppstructure-20240708082235651.gif)
 
-### 多语言识别模型效果展示
-<div align="center">
-    <img src="./static/imgs_results/french_0.jpg" width="800">
-    <img src="./static/imgs_results/korean.jpg" width="800">
-</div>
+- SER（语义实体识别）
+
+  ![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808-20240708082238739.jpg)
+
+  ![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a-20240708082247529.png)
+
+  ![img](./images/197464552-69de557f-edff-4c7f-acbf-069df1ba097f-20240708082253634.png)
+
+- RE（关系提取）
+
+  ![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb-20240708082310650.jpg)
+
+  ![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f-20240708082316558.jpg)
+
+  ![img](./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d-20240708082323916.png)
 
 ## 许可证书
 本项目的发布受<a href="https://github.com/PaddlePaddle/PaddleOCR/blob/master/LICENSE">Apache 2.0 license</a>许可认证。

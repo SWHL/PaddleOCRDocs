@@ -22,13 +22,10 @@ hide:
 
 PaddleOCR aims to create multilingual, awesome, leading, and practical OCR tools that help users train better models and apply them into practice.
 
-<div align="center">
-    <img src="../static/imgs_results/PP-OCRv3/en/en_4.png" width="800">
-</div>
+![img](./images/test_add_91.jpg)
 
-<div align="center">
-    <img src="../static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
-</div>
+![img](./images/00006737.jpg)
+
 
 ## 🚀 Community
 PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122). Issues and PRs will be reviewed on a best-effort basis. For a complete overview of PaddlePaddle community, please visit [community](https://github.com/PaddlePaddle/community).
@@ -37,28 +34,28 @@ PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOC
 
 ## 📣 Recent updates
 - **🔥2023.8.7 Release PaddleOCR[release/2.7](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7)**
-  - Release [PP-OCRv4](./doc/doc_ch/PP-OCRv4_introduction.md), support mobile version and server version
+  - Release [PP-OCRv4](./ppocr/overview.en.md), support mobile version and server version
     - PP-OCRv4-mobile：When the speed is comparable, the effect of the Chinese scene is improved by 4.5% compared with PP-OCRv3, the English scene is improved by 10%, and the average recognition accuracy of the 80-language multilingual model is increased by more than 8%.
     - PP-OCRv4-server：Release the OCR model with the highest accuracy at present, the detection model accuracy increased by 4.9% in the Chinese and English scenes, and the recognition model accuracy increased by 2%
-        refer [quickstart](./doc/doc_en/quickstart_en.md) quick use by one line command, At the same time, the whole process of model training, reasoning, and high-performance deployment can also be completed with few code in the [General OCR Industry Solution](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286) in PaddleX.
+        refer [quickstart](./quick_start.en.md) quick use by one line command, At the same time, the whole process of model training, reasoning, and high-performance deployment can also be completed with few code in the [General OCR Industry Solution](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286) in PaddleX.
   - Release[PP-ChatOCR](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=332), a new scheme for extracting key information of general scenes using PP-OCR model and ERNIE LLM.
-- 🔨**2022.11 Add implementation of [4 cutting-edge algorithms](doc/doc_ch/algorithm_overview_en.md)**：Text Detection [DRRG](doc/doc_en/algorithm_det_drrg_en.md),  Text Recognition [RFL](./doc/doc_en/algorithm_rec_rfl_en.md), Image Super-Resolution [Text Telescope](doc/doc_en/algorithm_sr_telescope_en.md)，Handwritten Mathematical Expression Recognition [CAN](doc/doc_en/algorithm_rec_can_en.md)
-- **2022.10 release [optimized JS version PP-OCRv3 model](./deploy/paddlejs/README.md)** with 4.3M model size, 8x faster inference time, and a ready-to-use web demo
+- 🔨**2022.11 Add implementation of [4 cutting-edge algorithms](./algorithm/overview.en.md)**：Text Detection [DRRG](./algorithm/text_detection/algorithm_det_drrg.en.md),  Text Recognition [RFL](./algorithm/text_recognition/algorithm_rec_rfl.en.md), Image Super-Resolution [Text Telescope](./algorithm/super_resolution/algorithm_sr_telescope.en.md)，Handwritten Mathematical Expression Recognition [CAN](./algorithm/formula_recognition/algorithm_rec_can.en.md)
+- **2022.10 release [optimized JS version PP-OCRv3 model](./ppocr/infer_deploy/paddle_js.en.md)** with 4.3M model size, 8x faster inference time, and a ready-to-use web demo
 - 💥 **Live Playback: Introduction to PP-StructureV2 optimization strategy**. Scan [the QR code below](#Community) using WeChat, follow the PaddlePaddle official account and fill out the questionnaire to join the WeChat group, get the live link and 20G OCR learning materials (including PDF2Word application, 10 models in vertical scenarios, etc.)
 
 - **🔥2022.8.24 Release PaddleOCR [release/2.6](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6)**
-  - Release [PP-StructureV2](./ppstructure/)，with functions and performance fully upgraded, adapted to Chinese scenes, and new support for [Layout Recovery](./ppstructure/recovery) and **one line command to convert PDF to Word**;
-  - [Layout Analysis](./ppstructure/layout) optimization: model storage reduced by 95%, while speed increased by 11 times, and the average CPU time-cost is only 41ms;
-  - [Table Recognition](./ppstructure/table) optimization: 3 optimization strategies are designed, and the model accuracy is improved by 6% under comparable time consumption;
-  - [Key Information Extraction](./ppstructure/kie) optimization：a visual-independent model structure is designed, the accuracy of semantic entity recognition is increased by 2.8%, and the accuracy of relation extraction is increased by 9.1%.
-- **🔥2022.8 Release [OCR scene application collection](./applications/README_en.md)**
+  - Release [PP-StructureV2](./ppstructure/)，with functions and performance fully upgraded, adapted to Chinese scenes, and new support for [Layout Recovery](./ppstructure/model_train/recovery_to_doc.en.md) and **one line command to convert PDF to Word**;
+  - [Layout Analysis](./ppstructure/model_train/train_layout.en.md) optimization: model storage reduced by 95%, while speed increased by 11 times, and the average CPU time-cost is only 41ms;
+  - [Table Recognition](./ppstructure/model_train/train_table.en.md) optimization: 3 optimization strategies are designed, and the model accuracy is improved by 6% under comparable time consumption;
+  - [Key Information Extraction](./ppstructure/model_train/train_kie.en.md) optimization：a visual-independent model structure is designed, the accuracy of semantic entity recognition is increased by 2.8%, and the accuracy of relation extraction is increased by 9.1%.
+- **🔥2022.8 Release [OCR scene application collection](./applications/overview.md)**
     - Release **9 vertical models** such as digital tube, LCD screen, license plate, handwriting recognition model, high-precision SVTR model, etc, covering the main OCR vertical applications in general, manufacturing, finance, and transportation industries.
-- **2022.8 Add implementation of [8 cutting-edge algorithms](doc/doc_en/algorithm_overview_en.md)**
-  - Text Detection: [FCENet](doc/doc_en/algorithm_det_fcenet_en.md), [DB++](doc/doc_en/algorithm_det_db_en.md)
-  - Text Recognition: [ViTSTR](doc/doc_en/algorithm_rec_vitstr_en.md), [ABINet](doc/doc_en/algorithm_rec_abinet_en.md), [VisionLAN](doc/doc_en/algorithm_rec_visionlan_en.md), [SPIN](doc/doc_en/algorithm_rec_spin_en.md), [RobustScanner](doc/doc_en/algorithm_rec_robustscanner_en.md)
-  - Table Recognition: [TableMaster](doc/doc_en/algorithm_table_master_en.md)
+- **2022.8 Add implementation of [8 cutting-edge algorithms](./algorithm/overview.en.md)**
+  - Text Detection: [FCENet](./algorithm/text_detection/algorithm_det_fcenet.en.md), [DB++](./algorithm/text_detection/algorithm_det_db.en.md)
+  - Text Recognition: [ViTSTR](./algorithm/text_recognition/algorithm_rec_vitstr.en.md), [ABINet](./algorithm/text_recognition/algorithm_rec_abinet.en.md), [VisionLAN](./algorithm/text_recognition/algorithm_rec_visionlan.en.md), [SPIN](./algorithm/text_recognition/algorithm_rec_spin.en.md), [RobustScanner](./algorithm/text_recognition/algorithm_rec_robustscanner.en.md)
+  - Table Recognition: [TableMaster](./algorithm/table_recognition/algorithm_table_master.en.md)
 - **2022.5.9 Release PaddleOCR [release/2.5](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.5)**
-    - Release [PP-OCRv3](./doc/doc_en/ppocr_introduction_en.md#pp-ocrv3): With comparable speed, the effect of Chinese scene is further improved by 5% compared with PP-OCRv2, the effect of English scene is improved by 11%, and the average recognition accuracy of 80 language multilingual models is improved by more than 5%.
+    - Release [PP-OCRv3](./ppocr/overview.en.md#pp-ocrv3): With comparable speed, the effect of Chinese scene is further improved by 5% compared with PP-OCRv2, the effect of English scene is improved by 11%, and the average recognition accuracy of 80 language multilingual models is improved by more than 5%.
     - Release [PPOCRLabelv2](https://github.com/PFCCLab/PPOCRLabel): Add the annotation function for table recognition task, key information extraction task and irregular text image.
     - Release interactive e-book [*"Dive into OCR"*](./doc/doc_en/ocr_book_en.md), covers the cutting-edge theory and code practice of OCR full stack technology.
 - [more](./doc/doc_en/update_en.md)
@@ -107,52 +104,47 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
 ## PP-OCRv3
 
 ### PP-OCRv3 Chinese model
-<div align="center">
-    <img src="../static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic001.jpg" width="800">
-    <img src="../static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic002.jpg" width="800">
-    <img src="../static/imgs_results/PP-OCRv3/ch/PP-OCRv3-pic003.jpg" width="800">
-</div>
+
+![](./images/PP-OCRv3-pic001.jpg)
+
+![](./images/PP-OCRv3-pic002.jpg)
+
+![](./images/PP-OCRv3-pic003.jpg)
 
 ### PP-OCRv3 English model
-<div align="center">
-    <img src="../static/imgs_results/PP-OCRv3/en/en_1.png" width="800">
-    <img src="../static/imgs_results/PP-OCRv3/en/en_2.png" width="800">
-    <img src="../static/imgs_results/PP-OCRv3/en/en_3.png" width="800">
-</div>
+
+![](./images/en_1.png)
+
+![](./images/en_2.png)
+
+![](./images/en_3-0398013.png)
 
 ### PP-OCRv3 Multilingual model
-<div align="center">
-    <img src="../static/imgs_results/PP-OCRv3/multi_lang/japan_2.jpg" width="800">
-    <img src="../static/imgs_results/PP-OCRv3/multi_lang/korean_1.jpg" width="800">
-</div>
 
-## PP-OCRv2
-<div align="center">
-    <img src="../static/imgs_results/PP-OCRv2/PP-OCRv2-pic001.jpg" width="800">
-    <img src="../static/imgs_results/PP-OCRv2/PP-OCRv2-pic002.jpg" width="800">
-    <img src="../static/imgs_results/PP-OCRv2/PP-OCRv2-pic003.jpg" width="800">
-</div>
+![img](./images/japan_2.jpg)
 
-## ch_ppocr_server_2.0
+![img](./images/korean_1.jpg)
 
-<div align="center">
-    <img src="../static/imgs_results/ch_ppocr_mobile_v2.0/00006737.jpg" width="800">
-    <img src="../static/imgs_results/ch_ppocr_mobile_v2.0/00009282.jpg" width="800">
-    <img src="../static/imgs_results/ch_ppocr_mobile_v2.0/00015504.jpg" width="800">
-</div>
+#### PP-StructureV2
+- layout analysis + table recognition
 
-## en_ppocr_mobile_2.0
-<div align="center">
-    <img src="../static/imgs_results/ch_ppocr_mobile_v2.0/img_12.jpg" width="800">
-</div>
+  ![img](./images/ppstructure-20240708082235651.gif)
 
+- SER (Semantic entity recognition)
 
-## (multilingual)_ppocr_mobile_2.0
-<div align="center">
-    <img src="../static/imgs_results/french_0.jpg" width="800">
-    <img src="../static/imgs_results/korean.jpg" width="800">
-</div>
+  ![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808-20240708082238739.jpg)
 
+  ![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a-20240708082247529.png)
+
+  ![img](./images/197464552-69de557f-edff-4c7f-acbf-069df1ba097f-20240708082253634.png)
+
+- RE (Relation Extraction)
+
+  ![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb-20240708082310650.jpg)
+
+  ![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f-20240708082316558.jpg)
+
+  ![img](./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d-20240708082323916.png)
 
 ## 📄 License
 This project is released under <a href="https://github.com/PaddlePaddle/PaddleOCR/blob/master/LICENSE">Apache 2.0 license</a>

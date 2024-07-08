@@ -117,6 +117,7 @@ plugins:
             基于C++预测引擎推理: CPP Inference
             服务化部署: Sever Deployment
             端侧部署: Device-side Deployment
+            网页前端部署: Paddle.js Web Deployment
             Paddle2ONNX模型转化与预测: Paddle2ONNX
             云上飞桨部署工具: Paddle Cloud
             Benchmark: Benchmark
@@ -127,6 +128,7 @@ plugins:
             模型训练: Model Training
             基本概念: Basic concepts
             版面分析: Layout Analysis
+            版面恢复: Recovery To Doc
             表格识别: Table Recognition
             关键信息提取: Key Information Extraction
             推理部署: Deploy
@@ -187,7 +189,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -232,6 +233,7 @@ nav:
       - 基于C++预测引擎推理: ppocr/infer_deploy/cpp_infer.md
       - 服务化部署: ppocr/infer_deploy/paddle_server.md
       - 端侧部署: ppocr/infer_deploy/lite.md
+      - 网页前端部署: ppocr/infer_deploy/paddle_js.md
       - Paddle2ONNX模型转化与预测: ppocr/infer_deploy/paddle2onnx.md
       - 云上飞桨部署工具: ppocr/infer_deploy/paddle_cloud.md
       - Benchmark: ppocr/infer_deploy/benchmark.md
@@ -243,6 +245,7 @@ nav:
       - 基本概念: ppstructure/model_train/training.md
       - 版面分析: ppstructure/model_train/train_layout.md
       - 表格识别: ppstructure/model_train/train_table.md
+      - 版面恢复: ppstructure/recovery_to_doc.md
       - 关键信息提取: ppstructure/model_train/train_kie.md
     - 推理部署:
       - 概述: ppstructure/infer_deploy/index.md
