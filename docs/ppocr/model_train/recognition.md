@@ -8,6 +8,7 @@ typora-copy-images-to: images
 本文提供了PaddleOCR文本识别任务的全流程指南，包括数据准备、模型训练、调优、评估、预测，各个阶段的详细说明：
 
 ## 1. 数据准备
+
 ### 1.1. 准备数据集
 
 PaddleOCR 支持两种数据格式:
@@ -28,7 +29,7 @@ mklink /d <path/to/paddle_ocr>/train_data/dataset <path/to/dataset>
 
 下面以通用数据集为例， 介绍如何准备数据集：
 
-* 训练集
+- 训练集
 
 建议将训练图片放入同一个文件夹，并用一个txt文件（rec_gt_train.txt）记录图片路径和标签，txt文件里的内容如下:
 
@@ -109,8 +110,8 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 
 多语言模型的训练数据集均为100w的合成数据，使用了开源合成工具 [text_renderer](https://github.com/Sanster/text_renderer) ，少量的字体可以通过下面两种方式下载。
 
-* [百度网盘](https://pan.baidu.com/s/1bS_u207Rm7YbY33wOECKDA) 提取码：frgi
-* [google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
+- [百度网盘](https://pan.baidu.com/s/1bS_u207Rm7YbY33wOECKDA) 提取码：frgi
+- [google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
 
 ### 1.4. 字典
 
@@ -129,7 +130,7 @@ n
 
 word_dict.txt 每行有一个单字，将字符与数字索引映射在一起，“and” 将被映射成 [2 5 1]
 
-* 内置字典
+- 内置字典
 
 PaddleOCR内置了一部分字典，可以按需使用。
 
@@ -146,7 +147,6 @@ PaddleOCR内置了一部分字典，可以按需使用。
 `ppocr/utils/dict/german_dict.txt` 是一个包含131个字符的德文字典
 
 `ppocr/utils/en_dict.txt` 是一个包含96个字符的英文字典
-
 
 目前的多语言模型仍处在demo阶段，会持续优化模型并补充语种，**非常欢迎您为我们提供其他语言的字典和字体**，
 如您愿意可将字典文件提交至 [dict](../../ppocr/utils/dict)，我们会在Repo中感谢您。
@@ -225,13 +225,11 @@ log 中自动打印如下信息：
 |  samples  | 当前 batch 内的样本数 |
 |  ips  | 每秒处理图片的数量 |
 
-
 PaddleOCR支持训练和评估交替进行, 可以在 `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml` 中修改 `eval_batch_step` 设置评估频率，默认每500个iter评估一次。评估过程中默认将最佳acc模型，保存为 `output/en_PP-OCRv3_rec/best_accuracy` 。
 
 如果验证集很大，测试将会比较耗时，建议减少评估次数，或训练完再进行评估。
 
 **提示：** 可通过 -c 参数选择 `configs/rec/` 路径下的多种模型配置进行训练，PaddleOCR支持的识别算法可以参考[前沿算法列表](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/doc/doc_ch/algorithm_overview.md#12-%E6%96%87%E6%9C%AC%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95)：
-
 
 训练中文数据，推荐使用[ch_PP-OCRv3_rec_distillation.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml)，如您希望尝试其他算法在中文数据集上的效果，请参考下列说明修改配置文件：
 
@@ -296,11 +294,13 @@ Eval:
     batch_size_per_card: 256
     ...
 ```
+
 **注意，预测/评估时的配置文件请务必与训练一致。**
 
 ### 2.2. 断点训练
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定Global.checkpoints指定要加载的模型路径：
+
 ```bash
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints=./your/trained/model
 ```
@@ -318,6 +318,7 @@ PaddleOCR将网络划分为四部分，分别在[ppocr/modeling](../../ppocr/mod
 ├── necks         # 网络的特征增强模块
 └── heads         # 网络的输出模块
 ```
+
 如果要更换的Backbone 在PaddleOCR中有对应实现，直接修改配置yml文件中`Backbone`部分的参数即可。
 
 如果要使用新的Backbone，更换backbones的例子如下:
@@ -343,7 +344,7 @@ class MyBackbone(nn.Layer):
         return y
 ```
 
-3. 在 [ppocr/modeling/backbones/\__init\__.py](../../ppocr/modeling/backbones/__init__.py)文件内导入添加的`MyBackbone`模块，然后修改配置文件中Backbone进行配置即可使用，格式如下:
+3. 在 [ppocr/modeling/backbones/\_*init\_*.py](../../ppocr/modeling/backbones/__init__.py)文件内导入添加的`MyBackbone`模块，然后修改配置文件中Backbone进行配置即可使用，格式如下:
 
 ```yaml
 Backbone:
@@ -452,8 +453,8 @@ DCU设备上运行需要设置环境变量 `export HIP_VISIBLE_DEVICES=0,1,2,3`�
 
 实际使用过程中，建议加载官方提供的预训练模型，在自己的数据集中进行微调，关于识别模型的微调方法，请参考：[模型微调教程](./finetune.md)。
 
-
 ## 3. 模型评估与预测
+
 ### 3.1. 指标评估
 
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Global.checkpoints`指向保存的参数文件。评估数据集可以通过 `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml`  修改Eval中的 `label_file_path` 设置。
@@ -485,7 +486,8 @@ output/rec/
 ├── latest.states
 └── train.log
 ```
-其中 best_accuracy.* 是评估集上的最优模型；iter_epoch_x.* 是以 `save_epoch_step` 为间隔保存下来的模型；latest.* 是最后一个epoch的模型。
+
+其中 best_accuracy.*是评估集上的最优模型；iter_epoch_x.* 是以 `save_epoch_step` 为间隔保存下来的模型；latest.* 是最后一个epoch的模型。
 
 ```bash
 # 预测英文结果
@@ -558,7 +560,6 @@ inference/en_PP-OCRv3_rec/
   ```bash
   python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./your inference model" --rec_image_shape="3, 48, 320" --rec_char_dict_path="your text dict path"
   ```
-
 
 ## 5. FAQ
 

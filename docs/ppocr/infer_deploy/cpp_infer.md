@@ -7,17 +7,17 @@ comments: true
 本章节介绍PaddleOCR 模型的C++部署方法。C++在性能计算上优于Python，因此，在大多数CPU、GPU部署场景，多采用C++的部署方式，本节将介绍如何在Linux\Windows (CPU\GPU)环境下配置C++环境并完成PaddleOCR模型部署。
 
 ## 1. 准备环境
+
 ### 1.1 运行准备
 
 - Linux环境，推荐使用docker。
 - Windows环境。
 
-* 该文档主要介绍基于Linux环境的PaddleOCR C++预测流程，如果需要在Windows下基于预测库进行C++预测，具体编译方法请参考[Windows下编译教程](./docs/windows_vs2019_build.md)
-
+- 该文档主要介绍基于Linux环境的PaddleOCR C++预测流程，如果需要在Windows下基于预测库进行C++预测，具体编译方法请参考[Windows下编译教程](./windows_vs2019_build.md)
 
 ### 1.2 编译opencv库
 
-* 首先需要从opencv官网上下载在Linux环境下源码编译的包，以opencv3.4.7为例，下载命令如下：
+- 首先需要从opencv官网上下载在Linux环境下源码编译的包，以opencv3.4.7为例，下载命令如下：
 
 ```bash
 cd deploy/cpp_infer
@@ -27,7 +27,7 @@ tar -xf opencv-3.4.7.tar.gz
 
 最终可以在当前目录下看到`opencv-3.4.7/`的文件夹。
 
-* 编译opencv，设置opencv源码路径(`root_path`)以及安装路径(`install_path`)。进入opencv源码路径下，按照下面的方式进行编译。
+- 编译opencv，设置opencv源码路径(`root_path`)以及安装路径(`install_path`)。进入opencv源码路径下，按照下面的方式进行编译。
 
 ```bash
 root_path="your_opencv_root_path"
@@ -80,12 +80,15 @@ opencv3/
 ```
 
 ### 1.3 下载或者编译Paddle预测库
+
 可以选择直接下载安装或者从源码编译，下文分别进行具体说明。
 
 #### 1.3.1 直接下载安装
+
 [Paddle预测库官网](https://www.paddlepaddle.org.cn/inference/master/guides/install/download_lib.html#linux) 上提供了不同cuda版本的Linux预测库，可以在官网查看并选择合适的预测库版本（*建议选择paddle版本>=2.0.1版本的预测库* ）。
 
 下载之后解压:
+
 ```bash
 tar -xf paddle_inference.tgz
 ```
@@ -93,6 +96,7 @@ tar -xf paddle_inference.tgz
 最终会在当前的文件夹中生成`paddle_inference/`的子文件夹。
 
 #### 1.3.2 预测库源码编译
+
 如果希望获取最新预测库特性，可以从github上克隆最新Paddle代码进行编译，生成最新的预测库。
 
 使用git获取代码:
@@ -124,7 +128,6 @@ make inference_lib_dist
 
 更多编译参数选项介绍可以参考[Paddle预测库编译文档](https://www.paddlepaddle.org.cn/documentation/docs/zh/2.0/guides/05_inference_deployment/inference/build_and_install_lib_cn.html#congyuanmabianyi)。
 
-
 编译完成之后，可以在`build/paddle_inference_install_dir/`文件下看到生成了以下文件及文件夹。
 
 ```
@@ -137,13 +140,13 @@ build/paddle_inference_install_dir/
 
 其中`paddle`就是C++预测所需的Paddle库，`version.txt`中包含当前预测库的版本信息。
 
-
 ## 2. 开始运行
+
 ### 2.1 准备模型
 
-直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](../../doc/doc_ch/inference_ppocr.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下：
+直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](./python_infer.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下：
 
-```
+```text
 inference/
 |-- det_db
 |   |--inference.pdiparams
@@ -163,6 +166,7 @@ inference/
 ```
 
 ### 2.2 编译PaddleOCR C++预测demo
+
 编译命令如下，其中Paddle C++预测库、opencv等其他依赖库的地址需要换成自己机器上的实际地址。
 
 ```bash
@@ -170,6 +174,7 @@ sh tools/build.sh
 ```
 
 具体的，需要修改`tools/build.sh`中环境路径，相关内容如下：
+
 ```bash
 OPENCV_DIR=your_opencv_dir
 LIB_DIR=your_paddle_inference_dir
@@ -182,17 +187,21 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 编译完成之后，会在`build`文件夹下生成一个名为`ppocr`的可执行文件。
 
 ### 2.3 运行demo
+
 本demo支持系统串联调用，也支持单个功能的调用，如，只使用检测或识别功能。
 
 **注意** ppocr默认使用`PP-OCRv3`模型，识别模型使用的输入shape为`3,48,320`, 如需使用旧版本的PP-OCR模型，则需要设置参数`--rec_img_h=32`。
 
 运行方式：
+
 ```bash
 ./build/ppocr [--param1] [--param2] [...]
 ```
+
 具体命令如下：
 
-##### 1. 检测+分类+识别：
+##### 1. 检测+分类+识别
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -204,7 +213,8 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
     --cls=true \
 ```
 
-##### 2. 检测+识别：
+##### 2. 检测+识别
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -215,7 +225,8 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
     --cls=false \
 ```
 
-##### 3. 检测：
+##### 3. 检测
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --image_dir=../../doc/imgs/12.jpg \
@@ -223,7 +234,8 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
     --rec=false
 ```
 
-##### 4. 分类+识别：
+##### 4. 分类+识别
+
 ```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
@@ -234,7 +246,8 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
     --cls=true \
 ```
 
-##### 5. 识别：
+##### 5. 识别
+
 ```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -244,7 +257,8 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
     --cls=false \
 ```
 
-##### 6. 分类：
+##### 6. 分类
+
 ```bash
 ./build/ppocr --cls_model_dir=inference/cls \
     --cls_model_dir=inference/cls \
@@ -256,6 +270,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 ```
 
 ##### 7. 版面分析+表格识别
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -268,6 +283,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 ```
 
 ##### 8. 版面分析
+
 ```bash
 ./build/ppocr --layout_model_dir=inference/layout \
     --image_dir=../../ppstructure/docs/table/1.png \
@@ -279,6 +295,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 ```
 
 ##### 9. 表格识别
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -308,7 +325,6 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |   det    | bool  |   true   |   前向是否执行文字检测   |
 |   rec    | bool  |   true   |   前向是否执行文字识别   |
 |   cls    | bool  |  false   | 前向是否执行文字方向分类 |
-
 
 检测模型相关
 
@@ -341,7 +357,6 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |     rec_img_h      |  int   |                 48                  |    文字识别模型输入图像高度     |
 |     rec_img_w      |  int   |                 320                 |    文字识别模型输入图像宽度     |
 
-
 版面分析模型相关
 
 |        参数名称        |  类型  |                           默认参数                           |              意义               |
@@ -350,7 +365,6 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |    layout_dict_path    | string | ../../ppocr/utils/dict/layout_dict/layout_publaynet_dict.txt |            字典文件             |
 | layout_score_threshold | float  |                             0.5                              |        检测框的分数阈值         |
 |  layout_nms_threshold  | float  |                             0.5                              |            nms的阈值            |
-
 
 表格识别模型相关
 
@@ -361,7 +375,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 |      table_max_len      |  int   |                        488                         | 表格识别模型输入图像长边大小，最终网络输入图像大小为（table_max_len，table_max_len） |
 | merge_no_span_structure |  bool  |                        true                        |                          是否合并<td> 和 </td> 为<td></td>                           |
 
-* PaddleOCR也支持多语言的预测，更多支持的语言和模型可以参考[识别文档](../../doc/doc_ch/recognition.md)中的多语言字典与模型部分，如果希望进行多语言预测，只需将修改`rec_char_dict_path`（字典文件路径）以及`rec_model_dir`（inference模型路径）字段即可。
+- PaddleOCR也支持多语言的预测，更多支持的语言和模型可以参考[识别文档](../model_train/recognition.md)中的多语言字典与模型部分，如果希望进行多语言预测，只需将修改`rec_char_dict_path`（字典文件路径）以及`rec_model_dir`（inference模型路径）字段即可。
 
 最终屏幕上会输出检测结果如下：
 
@@ -426,4 +440,4 @@ The table visualized image saved in ./output//7_1.png
 
 ## 3. FAQ
 
- 1.  遇到报错 `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`， 将 `deploy/cpp_infer/external-cmake/auto-log.cmake` 中的github地址改为 https://gitee.com/Double_V/AutoLog 地址即可。
+ 1. 遇到报错 `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`， 将 `deploy/cpp_infer/external-cmake/auto-log.cmake` 中的github地址改为 <https://gitee.com/Double_V/AutoLog> 地址即可。

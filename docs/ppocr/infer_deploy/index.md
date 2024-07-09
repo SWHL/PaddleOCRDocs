@@ -11,17 +11,16 @@ comments: true
 
 ![img](./images/deployment.png)
 
-
 ## PP-OCR 推理部署
 
 PP-OCR模型已打通多种场景部署方案，点击链接获取具体的使用教程。
 
-- [Python 推理](../doc/doc_ch/inference_ppocr.md)
-- [C++ 推理](./cpp_infer/readme_ch.md)
-- [Serving 服务化部署（Python/C++）](./pdserving/README_CN.md)
-- [Paddle-Lite 端侧部署（ARM CPU/OpenCL ARM GPU）](./lite/readme_ch.md)
-- [Paddle.js 部署](./paddlejs/README_ch.md)
-- [Jetson 推理](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/deploy/Jetson/readme_ch.md)
-- [Paddle2ONNX 推理](./paddle2onnx/readme_ch.md)
+- [Python 推理](./python_infer.md)
+- [C++ 推理](./cpp_infer.md)
+- [Serving 服务化部署（Python/C++）](./paddle_server.md)
+- [Paddle-Lite 端侧部署（ARM CPU/OpenCL ARM GPU）](./lite.md)
+- [Paddle.js 部署](./paddle_js.md)
+- [Jetson 推理](./Jetson_infer.md)
+- [Paddle2ONNX 推理](./paddle2onnx.md)
 
-需要PP-OCR以外的学术算法模型的推理部署，请直接进入相应算法主页面，[入口](../doc/doc_ch/algorithm_overview.md)。
+需要PP-OCR以外的学术算法模型的推理部署，请直接进入相应算法主页面，[入口](../../algorithm/overview.md)。
