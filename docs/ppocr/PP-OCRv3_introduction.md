@@ -17,7 +17,6 @@ PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与P
     - DML：教师模型互学习策略；
     - RSE-FPN：残差注意力机制的FPN结构；
 
-
 - 识别模块：
     - SVTR_LCNet：轻量级文本识别网络；
     - GTC：Attention指导CTC训练策略；
@@ -35,7 +34,6 @@ PP-OCRv3在PP-OCRv2的基础上进一步升级。整体的框架图保持了与P
 PP-OCRv3检测模型是对PP-OCRv2中的[CML](https://arxiv.org/pdf/2109.03144.pdf)（Collaborative Mutual Learning) 协同互学习文本检测蒸馏策略进行了升级。如下图所示，CML的核心思想结合了①传统的Teacher指导Student的标准蒸馏与 ②Students网络之间的DML互学习，可以让Students网络互学习的同时，Teacher网络予以指导。PP-OCRv3分别针对教师模型和学生模型进行进一步效果优化。其中，在对教师模型优化时，提出了大感受野的PAN结构LK-PAN和引入了DML（Deep Mutual Learning）蒸馏策略；在对学生模型优化时，提出了残差注意力机制的FPN结构RSE-FPN。
 
 ![img](./images/ppocrv3_det_cml.png)
-
 
 消融实验如下：
 
@@ -57,13 +55,11 @@ LK-PAN (Large Kernel PAN) 是一个具有更大感受野的轻量级[PAN](https:
 
 ![img](./images/LKPAN.png)
 
-
 **（2）DML：教师模型互学习策略**
 
 [DML](https://arxiv.org/abs/1706.00384) （Deep Mutual Learning）互学习蒸馏方法，如下图所示，通过两个结构相同的模型互相学习，可以有效提升文本检测模型的精度。教师模型采用DML策略，hmean从85%提升到86%。将PP-OCRv2中CML的教师模型更新为上述更高精度的教师模型，学生模型的hmean可以进一步从83.2%提升到84.3%。
 
 ![img](./images/teacher_dml.png)
-
 
 **（3）RSE-FPN：残差注意力机制的FPN结构**
 
@@ -75,7 +71,6 @@ RSE-FPN（Residual Squeeze-and-Excitation FPN）如下图所示，引入残差�
 PP-OCRv3的识别模块是基于文本识别算法[SVTR](https://arxiv.org/abs/2205.00159)优化。SVTR不再采用RNN结构，通过引入Transformers结构更加有效地挖掘文本行图像的上下文信息，从而提升文本识别能力。直接将PP-OCRv2的识别模型，替换成SVTR_Tiny，识别准确率从74.8%提升到80.1%（+5.3%），但是预测速度慢了将近11倍，CPU上预测一条文本行，将近100ms。因此，如下图所示，PP-OCRv3采用如下6个优化策略进行识别模型加速。
 
 ![img](./images/v3_rec_pipeline.png)
-
 
 基于上述策略，PP-OCRv3识别模型相比PP-OCRv2，在速度可比的情况下，精度进一步提升4.6%。 具体消融实验如下所示：
 
@@ -106,15 +101,15 @@ SVTR_Tiny 网络结构如下所示：
 
 1. 将 SVTR 网络前半部分替换为 PP-LCNet 的前三个stage，保留4个 Global Mixing Block ，精度为76%，加速69%，网络结构如下所示：
 
-![img](./images/svtr_g4.png)
+    ![img](./images/svtr_g4.png)
 
 2. 将4个 Global Mixing Block 减小到2个，精度为72.9%，加速69%，网络结构如下所示：
 
-![img](./images/svtr_g2.png)
+    ![img](./images/svtr_g2.png)
 
 3. 实验发现 Global Mixing Block 的预测速度与输入其特征的shape有关，因此后移 Global Mixing Block 的位置到池化层之后，精度下降为71.9%，速度超越基于CNN结构的PP-OCRv2-baseline 22%，网络结构如下所示：
 
-![img](./images/LCNet_SVTR.png)
+    ![img](./images/LCNet_SVTR.png)
 
 
 具体消融实验如下所示：
@@ -155,7 +150,7 @@ UDML（Unified-Deep Mutual Learning）联合互学习是PP-OCRv2中就采用的�
 
 **（6）UIM：无标注数据挖掘方案**
 
-UIM（Unlabeled Images Mining）是一种非常简单的无标注数据挖掘方案。核心思想是利用高精度的文本识别大模型对无标注数据进行预测，获取伪标签，并且选择预测置信度高的样本作为训练数据，用于训练小模型。使用该策略，识别模型的准确率进一步提升到79.4%（+1%）。实际操作中，我们使用全量数据集训练高精度SVTR-Tiny模型（acc=82.5%）进行数据挖掘，点击获取[模型下载地址和使用教程](../../applications/高精度中文识别模型.md)。
+UIM（Unlabeled Images Mining）是一种非常简单的无标注数据挖掘方案。核心思想是利用高精度的文本识别大模型对无标注数据进行预测，获取伪标签，并且选择预测置信度高的样本作为训练数据，用于训练小模型。使用该策略，识别模型的准确率进一步提升到79.4%（+1%）。实际操作中，我们使用全量数据集训练高精度SVTR-Tiny模型（acc=82.5%）进行数据挖掘，点击获取[模型下载地址和使用教程](../applications/高精度中文识别模型.md)。
 
 <img src="../images/UIM.png" alt="img" style="zoom:67%;" />
 

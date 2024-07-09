@@ -5,15 +5,13 @@ comments: true
 
 # PaddleOCR Quick Start
 
-**Note:** This tutorial mainly introduces the usage of PP-OCR series models, please refer to [PP-Structure Quick Start](../../ppstructure/docs/quickstart_en.md) for the quick use of document analysis related functions.
+**Note:** This tutorial mainly introduces the usage of PP-OCR series models, please refer to [PP-Structure Quick Start](../ppstructure/overview.en.md) for the quick use of document analysis related functions.
 
 
 ## 1. Installation
-
-
 ### 1.1 Install PaddlePaddle
 
-> If you do not have a Python environment, please refer to [Environment Preparation](./environment_en.md).
+> If you do not have a Python environment, please refer to [Environment Preparation](./environment.en.md).
 
 - If you have CUDA 11 installed on your machine, please run the following command to install
 
@@ -51,7 +49,6 @@ cd /path/to/ppocr_img
 ```
 
 If you do not use the provided test image, you can replace the following `--image_dir` parameter with the corresponding test image path
-
 
 #### 2.1.1 Chinese and English Model
 
@@ -113,9 +110,9 @@ paddleocr uses the PP-OCRv4 model by default(`--ocr_version PP-OCRv4`). If you w
 | PP-OCRv2 | only supports Chinese and English detection and recognition, direction classifier, multilingual model is not updated |
 | PP-OCR   | support Chinese and English detection and recognition, direction classifier, support multilingual recognition |
 
-If you want to add your own trained model, you can add model links and keys in [paddleocr](../../paddleocr.py) and recompile.
+If you want to add your own trained model, you can add model links and keys in [paddleocr](https://github.com/PaddlePaddle/PaddleOCR/blob/c65a66c5fd37dee64916a8b2a2c84ea273d98cac/paddleocr.py) and recompile.
 
-More whl package usage can be found in [whl package](./whl_en.md)
+More whl package usage can be found in [whl package](./whl.en.md)
 
 
 #### 2.1.2 Multi-language Model
@@ -127,6 +124,7 @@ paddleocr --image_dir ./doc/imgs_en/254.jpg --lang=en
 ```
 
 ![](./images/254.jpg)
+
 ![](./images/multi_lang/img_02.jpg)
 
 The result is a list, each item contains a text box, text and recognition confidence
@@ -146,7 +144,7 @@ Commonly used multilingual abbreviations include
 | English             | en           |      | German   | german       |      | Korean   | korean       |
 | Chinese Traditional | chinese_cht  |      | Italian  | it           |      | Russian  | ru           |
 
-A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./multi_languages_en.md)
+A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./multi_languages.en.md)
 
 
 ### 2.2 Use by Code
@@ -282,11 +280,10 @@ image.save("result.jpg")
 
 This example initializes the PaddleOCR instance with angle classification enabled and sets the language to English. The `ocr` method is then called with several parameters to customize the detection and recognition process, including the `slice` parameter for handling image slices.
 
-For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./slice_en.md).
+For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./slice.en.md).
 
 
 ## 3. Summary
-
 In this section, you have mastered the use of PaddleOCR whl package.
 
 PaddleX provides a high-quality ecological model of the paddle. It is a one-stop full-process high-efficiency development platform for training, pressing and pushing. Its mission is to help AI technology to be implemented quickly. The vision is to make everyone an AI Developer! Currently PP-OCRv4 has been launched on PaddleX, you can enter [General OCR](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286) to experience the whole process of model training, compression and inference deployment.

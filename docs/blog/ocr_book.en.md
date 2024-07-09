@@ -1,14 +1,7 @@
 ---
-title: 动手学OCR
-date: 2022-10-02
-authors: [SWHL]
-categories:
-  - General
 comments: true
+typora-copy-images-to: images
 ---
-
-
-<!-- more -->
 
 # E-book: *Dive Into OCR*
 

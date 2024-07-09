@@ -1,5 +1,6 @@
 ---
 comments: true
+typora-copy-images-to: images
 ---
 
 # 多语言模型
@@ -15,18 +16,18 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 其中英文模型支持，大小写字母和常见标点的检测识别，并优化了空格字符的识别：
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/img_12.jpg)
+![img](./images/img_12.jpg)
 
 
 小语种模型覆盖了拉丁语系、阿拉伯语系、中文繁体、韩语、日语等等：
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/japan_2.jpg)
+![img](./images/japan_2-20240709081138234.jpg)
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/french_0.jpg)
+![img](./images/french_0-0483901.jpg)
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/korean_0.jpg)
+![img](./images/korean_0.jpg)
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/arabic_0.jpg)
+![img](./images/arabic_0.jpg)
 
 本文档将简要介绍小语种模型的使用方法。
 
@@ -70,9 +71,9 @@ Paddleocr目前支持80个语种，可以通过修改--lang参数进行切换，
 paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```
 
-<img src="https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_en/254.jpg" alt="img" style="zoom:67%;" />
+<img src="../images/254-20240709081442260.jpg" alt="img" style="zoom:67%;" />
 
-![img](https://github.com/PaddlePaddle/PaddleOCR/raw/8f64b2ed4dad4602b4f41b68cd1154622f8a3beb/doc/imgs_results/multi_lang/img_02.jpg)
+![img](./images/img_02.jpg)
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 ```text
@@ -91,6 +92,8 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```bash
 paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 ```
+
+![img](./images/word_308.png)
 
 结果是一个tuple，返回识别结果和识别置信度
 
@@ -146,7 +149,7 @@ im_show.save('result.jpg')
 
 结果可视化:
 
-![img](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.1/doc/imgs_results/korean.jpg)
+![img](./images/korean-0483916.jpg)
 
 
 ppocr 还支持方向分类， 更多使用方式请参考：[whl包使用说明](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)

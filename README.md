@@ -9,13 +9,13 @@ $ mkdocs serve
 - 其他目录，图像均在所在父目录下的images目录下
 
 ### 注意事项
-- 图像路径只能使用markdown格式，html格式不行
+- 图像路径
     ```python
     # ✔ markdown格式
-    ![](./images/498119182f0a414ab86ae2de752fa31c9ddc3a74a76847049cc57884602cb269-20240704185744623.png)
+    ![](./images/1.png)
 
-    # ❌ html格式
-    <img src="" />
+    # html格式需要多加一级才能正常渲染
+    <img src="../images/1.png" />
     ```
 - 表格前后要有空行，否则不能正确渲染
 - 无序列表在标题行下面，可以正确渲染。在文本行下面不行，需要空出一行

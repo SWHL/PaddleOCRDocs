@@ -13,7 +13,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - CUDA10.1 / CUDA10.2
 - CUDNN 7.6
 
-> 如果您已经安装Python环境，可以直接参考[PaddleOCR快速开始](./quickstart.md)
+> 如果您已经安装Python环境，可以直接参考[PaddleOCR快速开始](./quick_start.md)
 
 ## 1. Python环境搭建
 ### 1.1 Windows
@@ -70,10 +70,8 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 以上anaconda环境和python环境安装完毕
 
-
 ### 1.2 Mac
 #### 1.2.1 安装Anaconda
-
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
   - Anaconda是1个常用的python包管理程序
   - 安装完Anaconda后，可以安装python环境，以及numpy等所需的工具包环境
@@ -177,7 +175,9 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 - **下载Anaconda**：
 
   - 下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+
     ![img](./images/anaconda_download-20240704081644684.png)
+
     - 选择适合您操作系统的版本
     - 可在终端输入`uname -m`查询系统所用的指令集
 

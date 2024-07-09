@@ -6,14 +6,14 @@ comments: true
 > **Note**
 > 1. Compared with model v2, the 3rd version of the detection model has an improvement in accuracy, and the 2.1 version of the recognition model has optimizations in accuracy and speed with CPU.
 > 2. Compared with [models 1.1](https://github.com/PaddlePaddle/PaddleOCR/blob/develop/doc/doc_en/models_list_en.md), which are trained with static graph programming paradigm, models 2.0 or higher are the dynamic graph trained version and achieve close performance.
-> 3. All models in this tutorial are from the PaddleOCR series, for more introduction to algorithms and models based on the public dataset, you can refer to [algorithm overview tutorial](./algorithm_overview_en.md).
+> 3. All models in this tutorial are from the PaddleOCR series, for more introduction to algorithms and models based on the public dataset, you can refer to [algorithm overview tutorial](../algorithm/overview.en.md).
 
 
 The downloadable models provided by PaddleOCR include the `inference model`, `trained model`, `pre-trained model` and `nb model`. The differences between the models are as follows:
 
 |model type|model format|description|
 |--- | --- | --- |
-|inference model|inference.pdmodel、inference.pdiparams|Used for inference based on Paddle inference engine，[detail](./inference_ppocr_en.md)|
+|inference model|inference.pdmodel、inference.pdiparams|Used for inference based on Paddle inference engine，[detail](./infer_deploy/python_infer.en.md)|
 |trained model, pre-trained model|\*.pdparams、\*.pdopt、\*.states |The checkpoints model saved in the training process, which stores the parameters of the model, is mostly used for model evaluation and continuous training.|
 |nb model|\*.nb| Model optimized by Paddle-Lite, which is suitable for mobile-side deployment scenarios (Paddle-Lite is needed for nb model deployment). |
 

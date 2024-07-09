@@ -73,12 +73,12 @@ theme:
 
 plugins:
   - tags
-  - blog:
-      archive: false
-      post_date_format: short
-      blog_toc: true
-      categories_toc: true
-      pagination: false
+  # - blog:
+  #     archive: false
+  #     post_date_format: short
+  #     blog_toc: true
+  #     categories_toc: true
+  #     pagination: false
   - search:
       separator: '[\s\u200b\-_,:!=\[\: )"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - i18n:
@@ -217,7 +217,9 @@ nav:
   - PP-OCR 文本检测识别:
     - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
+    - 运行环境: ppocr/environment.md
     - 模型库: ppocr/model_list.md
+    - 多语言模型: ppocr/multi_languages.md
     - 模型训练:
       - 基本概念: ppocr/model_train/training.md
       - 文本检测: ppocr/model_train/detection.md
@@ -328,4 +330,4 @@ nav:
     - 关键信息提取数据集: datasets/kie_datasets.md
   - FAQ: FAQ.md
   - 博客:
-    - blog/index.md
+    - 动手学OCR: blog/ocr_book.md

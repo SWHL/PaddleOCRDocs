@@ -3,13 +3,12 @@ comments: true
 ---
 
 # PP-OCR
-
 ## 1. Introduction
 
-PP-OCR is a self-developed practical ultra-lightweight OCR system, which is slimed and optimized based on the reimplemented [academic algorithms](algorithm_en.md), considering the balance between **accuracy** and **speed**.
+PP-OCR is a self-developed practical ultra-lightweight OCR system, which is slimed and optimized based on the reimplemented [academic algorithms](../algorithm/overview.en.md), considering the balance between **accuracy** and **speed**.
 
 #### PP-OCR
-PP-OCR is a two-stage OCR system, in which the text detection algorithm is [DB](algorithm_det_db_en.md), and the text recognition algorithm is [CRNN](algorithm_rec_crnn_en.md). Besides, a [text direction classifier](angle_class_en.md) is added between the detection and recognition modules to deal with text in different directions.
+PP-OCR is a two-stage OCR system, in which the text detection algorithm is [DB](../algorithm/text_detection/algorithm_det_db.en.md), and the text recognition algorithm is [CRNN](../algorithm/text_recognition/algorithm_rec_crnn.en.md). Besides, a [text direction classifier](./model_train/angle_class.en.md) is added between the detection and recognition modules to deal with text in different directions.
 
 PP-OCR pipeline is as follows:
 
@@ -46,9 +45,9 @@ For more details, please refer to [PP-OCRv3 technical report](https://arxiv.org/
 
 ## 3. benchmark
 
-For the performance comparison between PP-OCR series models, please check the [benchmark](./benchmark_en.md) documentation.
+For the performance comparison between PP-OCR series models, please check the [benchmark](./infer_deploy/benchmark.en.md) documentation.
 
-## 4. Visualization [more](./visualization.md)
+## 4. Visualization [more](./visualization.en.md)
 
 #### PP-OCRv3 Chinese model
 
@@ -68,9 +67,7 @@ For the performance comparison between PP-OCR series models, please check the [b
 
 
 ## 5. Tutorial
-
 ### 5.1 Quick start
-
 - You can also quickly experience the ultra-lightweight OCR : [Online Experience](https://www.paddlepaddle.org.cn/hub/scene/ocr)
 - Mobile DEMO experience (based on EasyEdge and Paddle-Lite, supports iOS and Android systems): [Sign in to the website to obtain the QR code for  installing the App](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)
 - One line of code quick use: [Quick Start](./quickstart_en.md)
@@ -80,7 +77,6 @@ For the performance comparison between PP-OCR series models, please check the [b
 For more tutorials, including model training, model compression, deployment, etc., please refer to [tutorials](../../README.md#Tutorials)。
 
 ## 6. Model zoo
-
 ## PP-OCR Series Model List（Update on 2022.04.28）
 
 | Model introduction  | Model name | Recommended scene | Detection model  | Direction classifier | Recognition model  |
@@ -92,6 +88,4 @@ For more tutorials, including model training, model compression, deployment, etc
 | Chinese and English general PP-OCR model (143.4M)             | ch_ppocr_server_v2.0_xx | Server            | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar) | [inference model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_rec_infer.tar) / [trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_rec_train.tar) |
 
 
-For more model downloads (including multiple languages), please refer to [PP-OCR series model downloads](./models_list_en.md).
-
-For a new language request, please refer to [Guideline for new language_requests](../../README.md#language_requests).
+For more model downloads (including multiple languages), please refer to [PP-OCR series model downloads](./model_list.en.md).

@@ -40,7 +40,7 @@ pip install paddleocr
 
 PaddleOCR提供了一系列测试图片，点击[这里](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip)下载并解压，然后在终端中切换到相应目录
 
-```
+```bash
 cd /path/to/ppocr_img
 ```
 
@@ -102,10 +102,9 @@ paddleocr默认使用PP-OCRv4模型(`--ocr_version PP-OCRv4`)，如需使用其�
 | PP-OCRv2 | 支持中英文的检测和识别，方向分类器，多语言暂未更新 |
 | PP-OCR   | 支持中、英文检测和识别，方向分类器，支持多语种识别 |
 
-如需新增自己训练的模型，可以在[paddleocr](../../paddleocr.py)中增加模型链接和字段，重新编译即可。
+如需新增自己训练的模型，可以在[paddleocr](https://github.com/PaddlePaddle/PaddleOCR/blob/c65a66c5fd37dee64916a8b2a2c84ea273d98cac/paddleocr.py)中增加模型链接和字段，重新编译即可。
 
 更多whl包使用可参考[whl包文档](./whl.md)
-
 
 #### 2.1.2 多语言模型
 
@@ -116,6 +115,7 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 ```
 
 ![](./images/254.jpg)
+
 ![](./images/multi_lang/img_02.jpg)
 
 

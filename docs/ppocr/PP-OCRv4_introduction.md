@@ -4,22 +4,20 @@ comments: true
 ---
 
 # PP-OCRv4
-
-
 ## 1. 简介
 
 PP-OCRv4在PP-OCRv3的基础上进一步升级。整体的框架图保持了与PP-OCRv3相同的pipeline，针对检测模型和识别模型进行了数据、网络结构、训练策略等多个模块的优化。 PP-OCRv4系统框图如下所示：
 
 ![img](./images/ppocrv4_framework.png)
 
-
-
 从算法改进思路上看，分别针对检测和识别模型，进行了共10个方面的改进：
+
 * 检测模块：
   * LCNetV3：精度更高的骨干网络
   * PFHead：并行head分支融合结构
   * DSR: 训练中动态增加shrink ratio
   * CML：添加Student和Teacher网络输出的KL div loss
+
 * 识别模块：
   * SVTR_LCNetV3：精度更高的骨干网络
   * Lite-Neck：精简的Neck结构
@@ -29,14 +27,12 @@ PP-OCRv4在PP-OCRv3的基础上进一步升级。整体的框架图保持了与P
   * DKD ：DKD蒸馏策略
 
 从效果上看，速度可比情况下，多种场景精度均有大幅提升：
+
 * 中文场景，相对于PP-OCRv3中文模型提升超4%；
 * 英文数字场景，相比于PP-OCRv3英文模型提升6%；
 * 多语言场景，优化80个语种识别效果，平均准确率提升超8%。
 
-
-
 ## 2. 检测优化
-
 PP-OCRv4检测模型在PP-OCRv3检测模型的基础上，在网络结构，训练策略，蒸馏策略三个方面做了优化。首先，PP-OCRv4检测模型使用PP-LCNetV3替换MobileNetv3，并提出并行分支融合的PFhead结构；其次，训练时动态调整shrink ratio的比例；最后，PP-OCRv4对CML的蒸馏loss进行优化，进一步提升文字检测效果。
 
 消融实验如下：
@@ -56,7 +52,7 @@ PP-OCRv4检测模型在PP-OCRv3检测模型的基础上，在网络结构，训�
 
 PFhead结构如下图所示，PFHead在经过第一个转置卷积后，分别进行上采样和转置卷积，上采样的输出通过3x3卷积得到输出结果，然后和转置卷积的分支的结果级联并经过1x1卷积层，最后1x1卷积的结果和转置卷积的结果相加得到最后输出的概率图。PP-OCRv4学生检测模型使用PFhead，hmean从76.22%增加到76.97%。
 
-![img](./images/PFHead.png)
+  ![img](./images/PFHead.png)
 
 
 **（2）DSR: 收缩比例动态调整策略**
@@ -71,9 +67,7 @@ PP-LCNetV3系列模型是PP-LCNet系列模型的延续，覆盖了更大的精�
 
 PP-OCRv4检测模型对PP-OCRv3中的CML（Collaborative Mutual Learning) 协同互学习文本检测蒸馏策略进行了优化。如下图所示，在计算Student Model和Teacher Model的distill Loss时，额外添加KL div loss，让两者输出的response maps分布接近，由此进一步提升Student网络的精度，检测Hmean从79.08%增加到79.56%，端到端指标从61.31%增加到61.87%。
 
-![img](./images/ppocrv4_det_cml.png)
-
-
+  ![img](./images/ppocrv4_det_cml.png)
 
 ## 3. 识别优化
 
@@ -111,13 +105,11 @@ PP-LCNetV3系列模型是PP-LCNet系列模型的延续，覆盖了更大的精�
 
 Lite-Neck整体结构沿用PP-OCRv3版本的结构，在参数上稍作精简，识别模型整体的模型大小可从12M降低到8.5M，而精度不变；在CTCHead中，将Neck输出特征的维度从64提升到120，此时模型大小从8.5M提升到9.6M。
 
-
 **（4）GTC-NRTR：Attention指导CTC训练策略**
 
 GTC（Guided Training of CTC），是PP-OCRv3识别模型的最有效的策略之一，融合多种文本特征的表达，有效的提升文本识别精度。在PP-OCRv4中使用训练更稳定的Transformer模型NRTR作为指导分支，相比V3版本中的SAR基于循环神经网络的结构，NRTR基于Transformer实现解码过程泛化能力更强，能有效指导CTC分支学习，解决简单场景下快速过拟合的问题。使用Lite-Neck和GTC-NRTR两个策略，识别精度提升至73.21%(+0.5%)。
 
 ![img](./images/ppocrv4_gtc.png)
-
 
 
 **（5）Multi-Scale：多尺度训练策略**
@@ -127,7 +119,6 @@ GTC（Guided Training of CTC），是PP-OCRv3识别模型的最有效的策略�
 ![img](./images/multi_scale.png)
 
 
-
 **（6）DKD：蒸馏策略**
 
 识别模型的蒸馏包含两个部分，NRTRhead蒸馏和CTCHead蒸馏;
@@ -135,9 +126,6 @@ GTC（Guided Training of CTC），是PP-OCRv3识别模型的最有效的策略�
 对于NRTR head，使用了DKD loss蒸馏，拉近学生模型和教师模型的NRTR head logits。最终NRTR head的loss是学生与教师间的DKD loss和与ground truth的cross entropy loss的加权和，用于监督学生模型的backbone训练。通过实验，我们发现加入DKD loss后，计算与ground truth的cross entropy loss时去除label smoothing可以进一步提高精度，因此我们在这里使用的是不带label smoothing的cross entropy loss。
 
 对于CTCHead，由于CTC的输出中存在Blank位，即使教师模型和学生模型的预测结果一样，二者的输出的logits分布也会存在差异，影响教师模型向学生模型的知识传递。PP-OCRv4识别模型蒸馏策略中，将CTC输出logits沿着文本长度维度计算均值，将多字符识别问题转换为多字符分类问题，用于监督CTC Head的训练。使用该策略融合NRTRhead DKD蒸馏策略，指标从74.72%提升到75.45%。
-
-
-
 
 ## 4. 端到端评估
 
