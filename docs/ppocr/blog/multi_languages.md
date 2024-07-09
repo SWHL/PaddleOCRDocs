@@ -23,7 +23,7 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 ![img](./images/japan_2-20240709081138234.jpg)
 
-![img](./images/french_0-0483901.jpg)
+![img](./images/french_0.jpg)
 
 ![img](./images/korean_0.jpg)
 
@@ -71,7 +71,7 @@ Paddleocr目前支持80个语种，可以通过修改--lang参数进行切换，
 paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```
 
-<img src="../images/254-20240709081442260.jpg" alt="img" style="zoom:67%;" />
+![](./images/254-20240709081442260.jpg)
 
 ![img](./images/img_02.jpg)
 
@@ -149,7 +149,7 @@ im_show.save('result.jpg')
 
 结果可视化:
 
-![img](./images/korean-0483916.jpg)
+![img](./images/korean.jpg)
 
 
 ppocr 还支持方向分类， 更多使用方式请参考：[whl包使用说明](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)

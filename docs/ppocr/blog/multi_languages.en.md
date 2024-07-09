@@ -23,7 +23,7 @@ The multilingual models cover Latin, Arabic, Traditional Chinese, Korean, Japane
 
 ![img](./images/japan_2-20240709081138234.jpg)
 
-![img](./images/french_0-0483901.jpg)
+![img](./images/french_0.jpg)
 
 ![img](./images/korean_0.jpg)
 
@@ -41,7 +41,6 @@ pip install paddlepaddle
 # gpu
 pip install paddlepaddle-gpu
 ```
-
 
 ### 1.2 PaddleOCR package installation
 ```bash
@@ -72,7 +71,7 @@ The supported languages are listed in the [table](#language_abbreviations).
 paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ```
 
-<img src="../images/254-20240709081442260.jpg" alt="img" style="zoom:67%;" />
+![](./images/254-20240709081442260.jpg)
 
 ![img](./images/img_02.jpg)
 
@@ -105,13 +104,13 @@ The result is a 2-tuple, which contains the recognition result and recognition c
 
 * Detection
 
-```
+```bash
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ```
 
 The result is a list. Each item represents the coordinates of a text box.
 
-```
+```bash
 [[26.0, 457.0], [137.0, 457.0], [137.0, 477.0], [26.0, 477.0]]
 [[25.0, 425.0], [372.0, 425.0], [372.0, 448.0], [25.0, 448.0]]
 [[128.0, 397.0], [273.0, 397.0], [273.0, 414.0], [128.0, 414.0]]
@@ -125,7 +124,7 @@ PPOCR is able to run with Python scripts for easy integration with your own code
 
 * Whole image prediction (detection + recognition)
 
-```
+```python
 from paddleocr import PaddleOCR, draw_ocr
 
 # Also switch the language by modifying the lang parameter
@@ -151,8 +150,8 @@ im_show.save('result.jpg')
 ```
 
 Visualization of results:
-![](https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.1/doc/imgs_results/korean.jpg)
 
+![img](./images/korean.jpg)
 
 PPOCR also supports direction classification. For more detailed usage, please refer to: [whl package instructions](whl_en.md).
 
@@ -178,8 +177,6 @@ If necessary, you can read related documents:
 - [Serving](../../deploy/hubserving/readme_en.md)
 - [Mobile](../../deploy/lite/readme.md)
 - [Benchmark](./benchmark_en.md)
-
-
 
 ## 5 Support languages and abbreviations
 
