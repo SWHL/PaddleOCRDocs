@@ -11,7 +11,7 @@ comments: true
 
 ### 1.1 准备数据集
 
-准备数据集可参考 [ocr_datasets](./dataset/ocr_datasets.md) 。
+准备数据集可参考 [ocr_datasets](../../datasets/ocr_datasets.md) 。
 
 ### 1.2 下载预训练模型
 
@@ -112,7 +112,7 @@ name: MyBackbone
 args1: args1
 ```
 
-**注意**：如果要更换网络的其他模块，可以参考[文档](./add_new_algorithm.md)。
+**注意**：如果要更换网络的其他模块，可以参考[文档](../../algorithm/add_new_algorithm.md)。
 
 ### 2.4 混合精度训练
 
@@ -133,11 +133,11 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
 ```
 
-**注意:** （1）采用多机多卡训练时，需要替换上面命令中的ips值为您机器的地址，机器之间需要能够相互ping通；（2）训练时需要在多个机器上分别启动命令。查看机器ip地址的命令为`ifconfig`；（3）更多关于分布式训练的性能优势等信息，请参考：[分布式训练教程](./distributed_training.md)。
+**注意:** （1）采用多机多卡训练时，需要替换上面命令中的ips值为您机器的地址，机器之间需要能够相互ping通；（2）训练时需要在多个机器上分别启动命令。查看机器ip地址的命令为`ifconfig`；（3）更多关于分布式训练的性能优势等信息，请参考：[分布式训练教程](../blog/distributed_training.md)。
 
 ### 2.6 知识蒸馏训练
 
-PaddleOCR支持了基于知识蒸馏的检测模型训练过程，更多内容可以参考[知识蒸馏说明文档](./knowledge_distillation.md)。
+PaddleOCR支持了基于知识蒸馏的检测模型训练过程，更多内容可以参考[知识蒸馏说明文档](../model_compress/knowledge_distillation.md)。
 
 **注意：** 知识蒸馏训练目前只支持PP-OCR使用的`DB`和`CRNN`算法。
 

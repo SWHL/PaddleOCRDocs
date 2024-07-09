@@ -5,6 +5,7 @@ comments: true
 # Text Direction Classification
 
 ## 1. Method Introduction
+
 The angle classification is used in the scene where the image is not 0 degrees. In this scene, it is necessary to perform a correction operation on the text line detected in the picture. In the PaddleOCR system,
 The text line image obtained after text detection is sent to the recognition model after affine transformation. At this time, only a 0 and 180 degree angle classification of the text is required, so the built-in PaddleOCR text angle classifier **only supports 0 and 180 degree classification**. If you want to support more angles, you can modify the algorithm yourself to support.
 
@@ -13,6 +14,7 @@ Example of 0 and 180 degree data samples：
 ![img](./images/angle_class_example.jpg)
 
 ## 2. Data Preparation
+
 Please organize the dataset as follows:
 
 The default storage path for training data is `PaddleOCR/train_data/cls`, if you already have a dataset on your disk, just create a soft link to the dataset directory:
@@ -23,11 +25,11 @@ ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/cls/dataset
 
 please refer to the following to organize your data.
 
-- Training set
+### Training set
 
 First put the training images in the same folder (train_images), and use a txt file (cls_gt_train.txt) to store the image path and label.
 
-* Note: by default, the image path and image label are split with `\t`, if you use other methods to split, it will cause training error
+- Note: by default, the image path and image label are split with `\t`, if you use other methods to split, it will cause training error
 
 0 and 180 indicate that the angle of the image is 0 degrees and 180 degrees, respectively.
 
@@ -51,7 +53,7 @@ The final training set should have the following file structure:
             | ...
 ```
 
-- Test set
+### Test set
 
 Similar to the training set, the test set also needs to be provided a folder
 containing all images (test) and a cls_gt_test.txt. The structure of the test set is as follows:
@@ -66,12 +68,14 @@ containing all images (test) and a cls_gt_test.txt. The structure of the test se
             |- word_003.jpg
             | ...
 ```
+
 ## 3. Training
+
 Write the prepared txt file and image folder path into the configuration file under the `Train/Eval.dataset.label_file_list` and `Train/Eval.dataset.data_dir` fields, the absolute path of the image consists of the `Train/Eval.dataset.data_dir` field and the image name recorded in the txt file.
 
 PaddleOCR provides training scripts, evaluation scripts, and prediction scripts.
 
-Start training:
+### Start training
 
 ```bash
 # Set PYTHONPATH path
@@ -81,7 +85,7 @@ export PYTHONPATH=$PYTHONPATH:.
 python3 -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c configs/cls/cls_mv3.yml
 ```
 
-- Data Augmentation
+### Data Augmentation
 
 PaddleOCR provides a variety of data augmentation methods. If you want to add disturbance during training, Please uncomment the `RecAug` and `RandAugment` fields under `Train.dataset.transforms` in the configuration file.
 
@@ -91,10 +95,10 @@ Except for RandAugment, each disturbance method is selected with a 50% probabili
 [rec_img_aug.py](../../ppocr/data/imaug/rec_img_aug.py)
 [randaugment.py](../../ppocr/data/imaug/randaugment.py)
 
-
-- Training
+### Training
 
 PaddleOCR supports alternating training and evaluation. You can modify `eval_batch_step` in `configs/cls/cls_mv3.yml` to set the evaluation frequency. By default, it is evaluated every 1000 iter. The following content will be saved during training:
+
 ```bash
 ├── best_accuracy.pdopt # Optimizer parameters for the best model
 ├── best_accuracy.pdparams # Parameters of the best model
@@ -119,9 +123,10 @@ export CUDA_VISIBLE_DEVICES=0
 # GPU evaluation, Global.checkpoints is the weight to be tested
 python3 tools/eval.py -c configs/cls/cls_mv3.yml -o Global.checkpoints={path/to/weights}/best_accuracy
 ```
+
 ## 5. Prediction
 
-* Training engine prediction
+### Training engine prediction
 
 Using the model trained by paddleocr, you can quickly get prediction through the following script.
 

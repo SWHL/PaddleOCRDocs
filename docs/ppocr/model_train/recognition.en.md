@@ -9,7 +9,7 @@ typora-copy-images-to: images
 
 ### 1.1 DataSet Preparation
 
-To prepare datasets, refer to [ocr_datasets](./dataset/datasets_en.md) .
+To prepare datasets, refer to [ocr_datasets](../../datasets/datasets.en.md) .
 
 PaddleOCR provides label files for training the icdar2015 dataset, which can be downloaded in the following ways:
 
@@ -32,14 +32,12 @@ The data format is as follows, (a) is the original picture, (b) is the Ground Tr
 
 ![img](./images/icdar_rec-20240705125531563.png)
 
-
 - Multilingual dataset
 
 The multi-language model training method is the same as the Chinese model. The training data set is 100w synthetic data. A small amount of fonts and test data can be downloaded using the following two methods.
 
-* [Baidu Netdisk](https://pan.baidu.com/s/1bS_u207Rm7YbY33wOECKDA) ,Extraction code:frgi.
-* [Google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
-
+- [Baidu Netdisk](https://pan.baidu.com/s/1bS_u207Rm7YbY33wOECKDA) ,Extraction code:frgi.
+- [Google drive](https://drive.google.com/file/d/18cSWX7wXSy4G0tbKJ0d9PuIaiwRLHpjA/view)
 
 ### 1.2 Dictionary
 
@@ -74,10 +72,8 @@ PaddleOCR has built-in dictionaries, which can be used on demand.
 
 `ppocr/utils/en_dict.txt` is a English dictionary with 96 characters
 
-
 The current multi-language model is still in the demo stage and will continue to optimize the model and add languages. **You are very welcome to provide us with dictionaries and fonts in other languages**,
 If you like, you can submit the dictionary file to [dict](../../ppocr/utils/dict) and we will thank you in the Repo.
-
 
 To customize the dict file, please modify the `character_dict_path` field in `configs/rec/rec_icdar15_train.yml` .
 
@@ -127,18 +123,17 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pre
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model=en_PP-OCRv3_rec_train/best_accuracy
 ```
 
-
 PaddleOCR supports alternating training and evaluation. You can modify `eval_batch_step` in `configs/rec/rec_icdar15_train.yml` to set the evaluation frequency. By default, it is evaluated every 500 iter and the best acc model is saved under `output/rec_CRNN/best_accuracy` during the evaluation process.
 
 If the evaluation set is large, the test will be time-consuming. It is recommended to reduce the number of evaluations, or evaluate after training.
 
-* Tip: You can use the `-c` parameter to select multiple model configurations under the `configs/rec/` path for training. The recognition algorithms supported at [rec_algorithm](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/doc/doc_en/algorithm_overview_en.md):
-
+- Tip: You can use the `-c` parameter to select multiple model configurations under the `configs/rec/` path for training. The recognition algorithms supported at [rec_algorithm](../../algorithm/overview.en.md):
 
 For training Chinese data, it is recommended to use
 [ch_PP-OCRv3_rec_distillation.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml). If you want to try the result of other algorithms on the Chinese data set, please refer to the following instructions to modify the configuration file:
 
 Take `ch_PP-OCRv3_rec_distillation.yml` as an example:
+
 ```yaml
 Global:
   ...
@@ -199,6 +194,7 @@ Eval:
     batch_size_per_card: 256
     ...
 ```
+
 **Note that the configuration file for prediction/evaluation must be consistent with the training.**
 
 ### 2.2 Load Trained Model and Continue Training
@@ -206,6 +202,7 @@ Eval:
 If you expect to load trained model and continue the training again, you can specify the parameter `Global.checkpoints` as the model path to be loaded.
 
 For example:
+
 ```bash
 python3 tools/train.py -c configs/rec/rec_icdar15_train.yml -o Global.checkpoints=./your/trained/model
 ```
@@ -260,7 +257,7 @@ After adding the four-part modules of the network, you only need to configure th
     args1: args1
 ```
 
-**NOTE**: More details about replace Backbone and other mudule can be found in [doc](add_new_algorithm_en.md).
+**NOTE**: More details about replace Backbone and other mudule can be found in [doc](../../algorithm/add_new_algorithm.en.md).
 
 ### 2.4 Mixed Precision Training
 
@@ -281,11 +278,11 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
      -o Global.pretrained_model=./pretrain_models/rec_mv3_none_bilstm_ctc_v2.0_train
 ```
 
-**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](./distributed_training_en.md).
+**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](../blog/distributed_training.en.md).
 
 ### 2.6 Training with Knowledge Distillation
 
-Knowledge distillation is supported in PaddleOCR for text recognition training process. For more details, please refer to [doc](./knowledge_distillation_en.md).
+Knowledge distillation is supported in PaddleOCR for text recognition training process. For more details, please refer to [doc](../model_compress/knowledge_distillation.en.md).
 
 ### 2.7 Multi-language Training
 
@@ -304,8 +301,7 @@ Currently, the multi-language algorithms supported by PaddleOCR are:
 | rec_cyrillic_lite_train.yml |  CRNN |   Mobilenet_v3 small 0.5 |  None   |  BiLSTM |  ctc  | cyrillic   |
 | rec_devanagari_lite_train.yml |  CRNN |   Mobilenet_v3 small 0.5 |  None   |  BiLSTM |  ctc  | devanagari  |
 
-For more supported languages, please refer to : [Multi-language model](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.1/doc/doc_en/multi_languages_en.md#4-support-languages-and-abbreviations)
-
+For more supported languages, please refer to : [Multi-language model](../blog/multi_languages.en.md)
 
 If you want to finetune on the basis of the existing model effect, please refer to the following instructions to modify the configuration file:
 
@@ -357,12 +353,14 @@ GPU mode is not supported, you need to set `use_gpu` to False in the configurati
 Running on a DCU device requires setting the environment variable `export HIP_VISIBLE_DEVICES=0,1,2,3`, and the rest of the training and evaluation prediction commands are exactly the same as the Linux GPU.
 
 ## 2.9 Fine-tuning
-In actual use, it is recommended to load the official pre-trained model and fine-tune it in your own data set. For the fine-tuning method of the recognition model, please refer to: [Model Fine-tuning Tutorial](./finetune_en.md).
+
+In actual use, it is recommended to load the official pre-trained model and fine-tune it in your own data set. For the fine-tuning method of the recognition model, please refer to: [Model Fine-tuning Tutorial](./finetune.en.md).
 
 ## 3. Evaluation and Test
-### 3.1 Evaluation
-The model parameters during training are saved in the `Global.save_model_dir` directory by default. When evaluating indicators, you need to set `Global.checkpoints` to point to the saved parameter file. The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml` file.
 
+### 3.1 Evaluation
+
+The model parameters during training are saved in the `Global.save_model_dir` directory by default. When evaluating indicators, you need to set `Global.checkpoints` to point to the saved parameter file. The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml` file.
 
 ```bash
 # GPU evaluation, Global.checkpoints is the weight to be tested
@@ -370,6 +368,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/PP-
 ```
 
 ### 3.2 Test
+
 Using the model trained by paddleocr, you can quickly get prediction through the following script.
 
 The default prediction picture is stored in `infer_img`, and the trained weight is specified via `-o Global.checkpoints`:
@@ -391,13 +390,12 @@ output/rec/
 └── train.log
 ```
 
-Among them, best_accuracy.* is the best model on the evaluation set; iter_epoch_x.* is the model saved at intervals of `save_epoch_step`; latest.* is the model of the last epoch.
+Among them, best_accuracy._is the best model on the evaluation set; iter_epoch_x._ is the model saved at intervals of `save_epoch_step`; latest.* is the model of the last epoch.
 
 ```bash
 # Predict English results
 python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model={path/to/weights}/best_accuracy  Global.infer_img=doc/imgs_words/en/word_1.png
 ```
-
 
 Input image:
 

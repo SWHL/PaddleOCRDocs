@@ -229,7 +229,7 @@ PaddleOCR支持训练和评估交替进行, 可以在 `configs/rec/PP-OCRv3/en_P
 
 如果验证集很大，测试将会比较耗时，建议减少评估次数，或训练完再进行评估。
 
-**提示：** 可通过 -c 参数选择 `configs/rec/` 路径下的多种模型配置进行训练，PaddleOCR支持的识别算法可以参考[前沿算法列表](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/doc/doc_ch/algorithm_overview.md#12-%E6%96%87%E6%9C%AC%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95)：
+**提示：** 可通过 -c 参数选择 `configs/rec/` 路径下的多种模型配置进行训练，PaddleOCR支持的识别算法可以参考[前沿算法列表](../../algorithm/overview.md)：
 
 训练中文数据，推荐使用[ch_PP-OCRv3_rec_distillation.yml](../../configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml)，如您希望尝试其他算法在中文数据集上的效果，请参考下列说明修改配置文件：
 
@@ -352,7 +352,7 @@ name: MyBackbone
 args1: args1
 ```
 
-**注意**：如果要更换网络的其他模块，可以参考[文档](./add_new_algorithm.md)。
+**注意**：如果要更换网络的其他模块，可以参考[文档](../../algorithm/add_new_algorithm.md)。
 
 ### 2.4. 混合精度训练
 
@@ -373,11 +373,11 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
      -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy
 ```
 
-**注意:** （1）采用多机多卡训练时，需要替换上面命令中的ips值为您机器的地址，机器之间需要能够相互ping通；（2）训练时需要在多个机器上分别启动命令。查看机器ip地址的命令为`ifconfig`；（3）更多关于分布式训练的性能优势等信息，请参考：[分布式训练教程](./distributed_training.md)。
+**注意:** （1）采用多机多卡训练时，需要替换上面命令中的ips值为您机器的地址，机器之间需要能够相互ping通；（2）训练时需要在多个机器上分别启动命令。查看机器ip地址的命令为`ifconfig`；（3）更多关于分布式训练的性能优势等信息，请参考：[分布式训练教程](../blog/distributed_training.md)。
 
 ### 2.6. 知识蒸馏训练
 
-PaddleOCR支持了基于知识蒸馏的文本识别模型训练过程，更多内容可以参考[知识蒸馏说明文档](./knowledge_distillation.md)。
+PaddleOCR支持了基于知识蒸馏的文本识别模型训练过程，更多内容可以参考[知识蒸馏说明文档](../model_compress/knowledge_distillation.md)。
 
 ### 2.7. 多语言模型训练
 
@@ -398,7 +398,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 | rec_cyrillic_lite_train.yml |  CRNN |   Mobilenet_v3 small 0.5 |  None   |  BiLSTM |  ctc  | 斯拉夫字母  |
 | rec_devanagari_lite_train.yml |  CRNN |   Mobilenet_v3 small 0.5 |  None   |  BiLSTM |  ctc  | 梵文字母  |
 
-更多支持语种请参考: [多语言模型](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.1/doc/doc_ch/multi_languages.md#%E8%AF%AD%E7%A7%8D%E7%BC%A9%E5%86%99)
+更多支持语种请参考: [多语言模型](../blog/multi_languages.md)
 
 如您希望在现有模型效果的基础上调优，请参考下列说明修改配置文件：
 

@@ -10,7 +10,7 @@ This section uses the icdar2015 dataset as an example to introduce the training,
 
 ### 1.1 Data Preparation
 
-To prepare datasets, refer to [ocr_datasets](./dataset/ocr_datasets_en.md) .
+To prepare datasets, refer to [ocr_datasets](../../datasets/ocr_datasets.en.md) .
 
 ### 1.2 Download Pre-trained Model
 
@@ -130,7 +130,7 @@ After adding the four-part modules of the network, you only need to configure th
     args1: args1
 ```
 
-**NOTE**: More details about replace Backbone and other mudule can be found in [doc](add_new_algorithm_en.md).
+**NOTE**: More details about replace Backbone and other mudule can be found in [doc](../../algorithm/add_new_algorithm.en.md).
 
 ### 2.4 Mixed Precision Training
 
@@ -151,11 +151,11 @@ python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained
 ```
 
-**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](./distributed_training_en.md).
+**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](../blog/distributed_training.en.md).
 
 ### 2.6 Training with knowledge distillation
 
-Knowledge distillation is supported in PaddleOCR for text detection training process. For more details, please refer to [doc](./knowledge_distillation_en.md).
+Knowledge distillation is supported in PaddleOCR for text detection training process. For more details, please refer to [doc](./../model_compress/knowledge_distillation.en.md).
 
 ### 2.7 Training on other platform(Windows/macOS/Linux DCU)
 
