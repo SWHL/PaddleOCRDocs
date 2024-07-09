@@ -3,17 +3,20 @@ comments: true
 ---
 
 # Mobile deployment based on Paddle-Lite
+
 This tutorial will introduce how to use [Paddle-Lite](https://github.com/PaddlePaddle/Paddle-Lite) to deploy PaddleOCR ultra-lightweight Chinese and English detection models on mobile phones.
 
 Paddle-Lite is a lightweight inference engine for PaddlePaddle. It provides efficient inference capabilities for mobile phones and IoT, and extensively integrates cross-platform hardware to provide lightweight deployment solutions for end-side deployment issues.
 
 ## 1. Preparation
+
 ### Preparation environment
 
 - Computer (for Compiling Paddle Lite)
 - Mobile phone (arm7 or arm8)
 
 ### 1.1 Prepare the cross-compilation environment
+
 The cross-compilation environment is used to compile C++ demos of Paddle Lite and PaddleOCR.
 Supports multiple development environments.
 
@@ -83,6 +86,7 @@ inference_lite_lib.android.armv8/
 ```
 
 ## 2 Run
+
 ### 2.1 Inference Model Optimization
 
 Paddle Lite provides a variety of strategies to automatically optimize the original training model, including quantization, sub-graph fusion, hybrid scheduling, Kernel optimization and so on. In order to make the optimization process more convenient and easy to use, Paddle Lite provide opt tools to automatically complete the optimization steps and output a lightweight, optimal executable model.
@@ -103,11 +107,13 @@ If you directly use the model in the above table for deployment, you can skip th
 If the model to be deployed is not in the above table, you need to follow the steps below to obtain the optimized model.
 
 Step 1: Refer to [document](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html) to install paddlelite, which is used to convert paddle inference model to paddlelite required for running nb model
+
 ```bash
 pip install paddlelite==2.10 # The paddlelite version should be the same as the prediction library version
 ```
 
 After installation, the following commands can view the help information
+
 ```bash
 paddle_lite_opt
 ```
@@ -125,7 +131,6 @@ Introduction to paddle_lite_opt parameters:
 |--record_tailoring_info|When using the function of cutting library files according to the model, set this option to true to record the kernel and OP information contained in the optimized model. The default is false|
 
 `--model_dir` is suitable for the non-combined mode of the model to be optimized, and the inference model of PaddleOCR is the combined mode, that is, the model structure and model parameters are stored in a single file.
-
 
 Step 2: Use paddle_lite_opt to convert the inference model to the mobile model format.
 
@@ -156,11 +161,13 @@ Some preparatory work is required first.
 3. Install the adb tool on the computer.
 
     3.1. Install ADB for MAC:
+
     ```bash
     brew cask install android-platform-tools
     ```
 
     3.2. Install ADB for Linux
+
     ```bash
     sudo apt update
     sudo apt install -y wget adb
@@ -171,12 +178,14 @@ Some preparatory work is required first.
     To install on win, you need to go to Google's Android platform to download the adb package for installation:[link](https://developer.android.com/studio)
 
     Verify whether adb is installed successfully
-    ```
+
+    ```bash
     adb devices
     ```
 
     If there is device output, it means the installation is successful。
-    ```
+
+    ```bash
     List of devices attached
     744be294    device
     ```
@@ -225,6 +234,7 @@ demo/cxx/ocr/
 ```
 
 **Note**:
+
 1. `ppocr_keys_v1.txt` is a Chinese dictionary file. If the nb model is used for English recognition or other language recognition, dictionary file should be replaced with a dictionary of the corresponding language. PaddleOCR provides a variety of dictionaries under ppocr/utils/, including:
 
    ```python
@@ -236,7 +246,7 @@ demo/cxx/ocr/
    ppocr_keys_v1.txt   # chinese
    ```
 
-2.  `config.txt` of the detector and classifier, as shown below:
+2. `config.txt` of the detector and classifier, as shown below:
 
     ```python
     max_side_len  960         #  Limit the maximum image height and width to  960
@@ -279,7 +289,6 @@ If you modify the code, you need to recompile and push to the phone.
 The outputs are as follows:
 
 ![img](./images/lite_demo.png)
-
 
 ## FAQ
 

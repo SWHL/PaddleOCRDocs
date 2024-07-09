@@ -30,7 +30,6 @@ comments: true
 
   除了部署便捷与自运维的优势，PaddleCloud还针对飞桨框架进行了正对性优化，如通过缓存样本数据来加速云上飞桨分布式训练作业、基于飞桨框架和调度器的协同设计来优化集群GPU利用率等。
 
-
 ## 1. PP-OCRv3 Docker化部署
 
 PaddleCloud基于 [Tekton](https://github.com/tektoncd/pipeline) 为OCR模型套件提供了镜像持续构建的能力，并支持CPU、GPU以及常见CUDA版本的镜像。
@@ -193,7 +192,7 @@ PaddleCloud基于Kubernetes的Operator机制为您提供了多个功能强大的
 
 ### 2.1 安装云上飞桨组件
 
-**环境要求**
+#### 环境要求
 
 - [Kubernetes v1.16+](https://kubernetes.io/zh/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)

@@ -9,14 +9,15 @@ comments: true
 
 Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理能力，并广泛整合跨平台硬件，为端侧部署及应用落地问题提供轻量化的部署方案。
 
-
 ## 1. 准备环境
 
 ### 运行准备
+
 - 电脑（编译Paddle Lite）
 - 安卓手机（armv7或armv8）
 
 ### 1.1 准备交叉编译环境
+
 交叉编译环境用于编译 Paddle Lite 和 PaddleOCR 的C++ demo。
 支持多种开发环境，不同开发环境的编译流程请参考对应文档。
 
@@ -27,6 +28,7 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
 ### 1.2 准备预测库
 
 预测库有两种获取方式：
+
 1. [推荐]直接下载，预测库下载链接如下：
 
    | 平台 | 预测库下载链接 |
@@ -39,7 +41,8 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
    **注：建议使用paddlelite>=2.10版本的预测库，其他预测库版本[下载链接](https://github.com/PaddlePaddle/Paddle-Lite/tags)**
 
 2. 编译Paddle-Lite得到预测库，Paddle-Lite的编译方式如下：
-   ```
+
+   ```bash
    git clone https://github.com/PaddlePaddle/Paddle-Lite.git
    cd Paddle-Lite
    # 切换到Paddle-Lite release/v2.10 稳定分支
@@ -54,7 +57,8 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
 直接下载预测库并解压后，可以得到`inference_lite_lib.android.armv8/`文件夹，通过编译Paddle-Lite得到的预测库位于
 `Paddle-Lite/build.lite.android.armv8.gcc/inference_lite_lib.android.armv8/`文件夹下。
 预测库的文件目录如下：
-```
+
+```text
 inference_lite_lib.android.armv8/
 |-- cxx                                        C++ 预测库和头文件
 |   |-- include                                C++ 头文件
@@ -80,6 +84,7 @@ inference_lite_lib.android.armv8/
 ```
 
 ## 2 开始运行
+
 ### 2.1 模型优化
 
 Paddle-Lite 提供了多种策略来自动优化原始的模型，其中包括量化、子图融合、混合调度、Kernel优选等方法，使用Paddle-lite的opt工具可以自动
@@ -101,11 +106,13 @@ Paddle-Lite 提供了多种策略来自动优化原始的模型，其中包括�
 如果要部署的模型不在上述表格中，则需要按照如下步骤获得优化后的模型。
 
 步骤1：参考[文档](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html)安装paddlelite，用于转换paddle inference model为paddlelite运行所需的nb模型
+
 ```bash
 pip install paddlelite==2.10  # paddlelite版本要与预测库版本一致
 ```
 
 安装完后，如下指令可以查看帮助信息
+
 ```bash
 paddle_lite_opt
 ```
@@ -156,11 +163,13 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 3. 电脑上安装adb工具，用于调试。 adb安装方式如下：
 
    3.1. MAC电脑安装ADB:
+
    ```bash
    brew cask install android-platform-tools
    ```
 
    3.2. Linux安装ADB
+
    ```bash
    sudo apt update
    sudo apt install -y wget adb
@@ -170,9 +179,11 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
    win上安装需要去谷歌的安卓平台下载adb软件包进行安装：[链接](https://developer.android.com/studio)
 
    打开终端，手机连接电脑，在终端中输入
+
    ```bash
    adb devices
    ```
+
    如果有device输出，则表示安装成功。
 
    ```bash
@@ -181,6 +192,7 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
    ```
 
 4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
+
    ```bash
    git clone https://github.com/PaddlePaddle/PaddleOCR.git
    cd PaddleOCR/deploy/lite/
@@ -220,8 +232,10 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
    |-- ocr_db_crnn.cc              C++预测源文件
    ```
 
-#### 注意：
+#### 注意
+
 1. ppocr_keys_v1.txt是中文字典文件，如果使用的 nb 模型是英文数字或其他语言的模型，需要更换为对应语言的字典。PaddleOCR 在ppocr/utils/下存放了多种字典，包括：
+
    ```text
    dict/french_dict.txt     # 法语字典
    dict/german_dict.txt     # 德语字典
@@ -232,7 +246,8 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
    ...
    ```
 
-2.  `config.txt` 包含了检测器、分类器、识别器的超参数，如下：
+2. `config.txt` 包含了检测器、分类器、识别器的超参数，如下：
+
     ```python
     max_side_len  960         # 输入图像长宽大于960时，等比例缩放图像，使得图像最长边 为960
     det_db_thresh  0.3        # 用于过滤DB预测的二值化图像，设置为0.-0.3对结果影响不 明显
@@ -275,6 +290,7 @@ export LD_LIBRARY_PATH=${PWD}:$LD_LIBRARY_PATH
 ![img](./images/lite_demo.png)
 
 ## FAQ
+
 Q1：如果想更换模型怎么办，需要重新按照流程走一遍吗？
 
 A1：如果已经走通了上述步骤，更换模型只需要替换 .nb 模型文件即可，同时要注意更新字典

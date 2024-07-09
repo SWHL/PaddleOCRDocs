@@ -123,7 +123,7 @@ The above `Visual Studio The executable file compiled by 2019 is in the director
 
 cd /d D:\projects\cpp\PaddleOCR\deploy\cpp_infer
 
-The executable file ppocr.exe is the sample prediction program. Its main usage is as follows. For more usage, please refer to the [Instructions](../readme_ch.md) section of running demo.
+The executable file ppocr.exe is the sample prediction program. Its main usage is as follows. For more usage, please refer to the [Instructions](./cpp_infer.en.md) section of running demo.
 
 ```shell
 # Switch terminal encoding to utf8

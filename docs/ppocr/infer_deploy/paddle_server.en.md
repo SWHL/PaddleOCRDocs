@@ -6,7 +6,7 @@ comments: true
 
 PaddleOCR provides two service deployment methods:
 
-- Based on **PaddleHub Serving**: Code path is "`./deploy/hubserving`". Please refer to the [tutorial](../../deploy/hubserving/readme_en.md)
+- Based on **PaddleHub Serving**: Code path is "`./deploy/hubserving`". Please refer to the [tutorial](https://github.com/PaddlePaddle/PaddleOCR/blob/db0ad17cf631fafc01650c177e00ce76413af97f/deploy/hubserving/readme_en.md)
 - Based on **PaddleServing**: Code path is "`./deploy/pdserving`". Please follow this tutorial.
 
 ### Service deployment based on PaddleServing
@@ -14,6 +14,7 @@ PaddleOCR provides two service deployment methods:
 This document will introduce how to use the [PaddleServing](https://github.com/PaddlePaddle/Serving/blob/develop/README.md) to deploy the PPOCR dynamic graph model as a pipeline online service.
 
 Some Key Features of Paddle Serving:
+
 - Integrate with Paddle training pipeline seamlessly, most paddle models can be deployed with one line command.
 - Industrial serving features supported, such as models management, online loading, online A/B testing etc.
 - Highly concurrent and efficient communication between clients and servers supported.
@@ -25,53 +26,53 @@ PaddleServing supports deployment in multiple languages. In this example, two de
 | C++ | fast | Slightly difficult | Single model prediction does not need to be compiled, multi-model concatenation needs to be compiled |
 | python | general | easy | single-model/multi-model no compilation required |
 
-
 The introduction and tutorial of Paddle Serving service deployment framework reference [document](https://github.com/PaddlePaddle/Serving/blob/develop/README.md).
-
 
 ### Environmental preparation
 
 PaddleOCR operating environment and Paddle Serving operating environment are needed.
 
-1. Please prepare PaddleOCR operating environment reference [link](../../doc/doc_ch/installation.md).
+1. Please prepare PaddleOCR operating environment reference [link](../environment.en.md).
    Download the corresponding paddlepaddle whl package according to the environment, it is recommended to install version 2.2.2.
 
 2. The steps of PaddleServing operating environment prepare are as follows:
 
+    ```bash
+    # Install serving which used to start the service
+    wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_server_gpu-0.8.3.post102-py3-none-any.whl
+    pip3 install paddle_serving_server_gpu-0.8.3.post102-py3-none-any.whl
 
-```bash
-# Install serving which used to start the service
-wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_server_gpu-0.8.3.post102-py3-none-any.whl
-pip3 install paddle_serving_server_gpu-0.8.3.post102-py3-none-any.whl
+    # Install paddle-serving-server for cuda10.1
+    # wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_server_gpu-0.8.3.post101-py3-none-any.whl
+    # pip3 install paddle_serving_server_gpu-0.8.3.post101-py3-none-any.whl
 
-# Install paddle-serving-server for cuda10.1
-# wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_server_gpu-0.8.3.post101-py3-none-any.whl
-# pip3 install paddle_serving_server_gpu-0.8.3.post101-py3-none-any.whl
+    # Install serving which used to start the service
+    wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_client-0.8.3-cp37-none-any.whl
+    pip3 install paddle_serving_client-0.8.3-cp37-none-any.whl
 
-# Install serving which used to start the service
-wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_client-0.8.3-cp37-none-any.whl
-pip3 install paddle_serving_client-0.8.3-cp37-none-any.whl
-
-# Install serving-app
-wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_app-0.8.3-py3-none-any.whl
-pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
-```
+    # Install serving-app
+    wget https://paddle-serving.bj.bcebos.com/test-dev/whl/paddle_serving_app-0.8.3-py3-none-any.whl
+    pip3 install paddle_serving_app-0.8.3-py3-none-any.whl
+    ```
 
    **note:** If you want to install the latest version of PaddleServing, refer to [link](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Latest_Packages_CN.md).
 
-
 ### Model conversion
+
 When using PaddleServing for service deployment, you need to convert the saved inference model into a serving model that is easy to deploy.
 
-Firstly, download the [inference model](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.3/README_ch.md#pp-ocr%E7%B3%BB%E5%88%97%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8%E6%9B%B4%E6%96%B0%E4%B8%AD) of PPOCR
-```
+Firstly, download the [inference model](../model_list.en.md) of PPOCR
+
+```bash
 # Download and unzip the OCR text detection model
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar -O ch_PP-OCRv3_det_infer.tar && tar -xf ch_PP-OCRv3_det_infer.tar
 # Download and unzip the OCR text recognition model
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar -O ch_PP-OCRv3_rec_infer.tar &&  tar -xf ch_PP-OCRv3_rec_infer.tar
 ```
+
 Then, you can use installed paddle_serving_client tool to convert inference model to mobile model.
-```
+
+```bash
 #  Detection model conversion
 python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_det_infer/ \
                                          --model_filename inference.pdmodel          \
@@ -89,7 +90,8 @@ python3 -m paddle_serving_client.convert --dirname ./ch_PP-OCRv3_rec_infer/ \
 ```
 
 After the detection model is converted, there will be additional folders of `ppocr_det_v3_serving` and `ppocr_det_v3_client` in the current folder, with the following format:
-```
+
+```text
 |- ppocr_det_v3_serving/
   |- __model__
   |- __params__
@@ -101,12 +103,14 @@ After the detection model is converted, there will be additional folders of `ppo
   |- serving_client_conf.stream.prototxt
 
 ```
+
 The recognition model is the same.
 
 ### Paddle Serving pipeline deployment
 
 1. Download the PaddleOCR code, if you have already downloaded it, you can skip this step.
-    ```
+
+    ```bash
     git clone https://github.com/PaddlePaddle/PaddleOCR
 
     # Enter the working directory
@@ -114,7 +118,8 @@ The recognition model is the same.
     ```
 
     The pdserver directory contains the code to start the pipeline service and send prediction requests, including:
-    ```
+
+    ```bash
     __init__.py
     config.yml # Start the service configuration file
     ocr_reader.py # OCR model pre-processing and post-processing code implementation
@@ -123,23 +128,29 @@ The recognition model is the same.
     ```
 
 2. Run the following command to start the service.
-    ```
+
+    ```bash
     # Start the service and save the running log in log.txt
     python3 web_service.py --config=config.yml &>log.txt &
     ```
+
     After the service is successfully started, a log similar to the following will be printed in log.txt
-    ![](./imgs/start_server.png)
+
+    ![](./images/start_server.png)
 
 3. Send service request
-    ```
+
+    ```bash
     python3 pipeline_http_client.py
     ```
+
     After successfully running, the predicted result of the model will be printed in the cmd window. An example of the result is:
-    ![](./imgs/results.png)
+
+    ![](./images/results.png)
 
     Adjust the number of concurrency in config.yml to get the largest QPS. Generally, the number of concurrent detection and recognition is 2:1
 
-    ```
+    ```yaml
     det:
         concurrency: 8
         ...
@@ -154,8 +165,7 @@ The recognition model is the same.
 
     Tested on 200 real pictures, and limited the detection long side to 960. The average QPS on T4 GPU can reach around 23:
 
-    ```
-
+    ```bash
     2021-05-13 03:42:36,895 ==================== TRACER ======================
     2021-05-13 03:42:36,975 Op(rec):
     2021-05-13 03:42:36,976         in[14.472382882882883 ms]
@@ -197,25 +207,26 @@ Service deployment based on python obviously has the advantage of convenient sec
 
 The C++ service deployment is the same as python in the environment setup and data preparation stages, the difference is when the service is started and the client sends requests.
 
-
 1. Compile Serving
 
    To improve predictive performance, C++ services also provide multiple model concatenation services. Unlike Python Pipeline services, multiple model concatenation requires the pre - and post-model processing code to be written on the server side, so local recompilation is required to generate serving. Specific may refer to the official document: [how to compile Serving](https://github.com/PaddlePaddle/Serving/blob/v0.8.3/doc/Compile_EN.md)
 
 2. Run the following command to start the service.
-    ```
+
+    ```bash
     # Start the service and save the running log in log.txt
     python3 -m paddle_serving_server.serve --model ppocr_det_v3_serving ppocr_rec_v3_serving --op GeneralDetectionOp GeneralInferOp --port 8181 &>log.txt &
     ```
+
     After the service is successfully started, a log similar to the following will be printed in log.txt
-    ![](./imgs/start_server.png)
+    ![](./images/start_server.png)
 
 3. Send service request
 
    Due to the need for pre and post-processing in the C++Server part, in order to speed up the input to the C++Server is only the base64 encoded string of the picture, it needs to be manually modified
    Change the feed_type field and shape field in ppocr_det_v3_client/serving_client_conf.prototxt to the following:
 
-   ```
+   ```bash
     feed_var {
     name: "x"
     alias_name: "x"
@@ -227,46 +238,49 @@ The C++ service deployment is the same as python in the environment setup and da
 
    start the client:
 
-    ```
+    ```bash
     python3 ocr_cpp_client.py ppocr_det_v3_client ppocr_rec_v3_client
     ```
+
     After successfully running, the predicted result of the model will be printed in the cmd window. An example of the result is:
-    ![](./imgs/results.png)
+
+    ![](./images/results.png)
 
 ### WINDOWS Users
 
 Windows does not support Pipeline Serving, if we want to lauch paddle serving on Windows, we should use Web Service, for more infomation please refer to [Paddle Serving for Windows Users](https://github.com/PaddlePaddle/Serving/blob/develop/doc/Windows_Tutorial_EN.md)
 
-
 **WINDOWS user can only use version 0.5.0 CPU Mode**
 
 **Prepare Stage:**
 
-```
+```bash
 pip3 install paddle-serving-server==0.5.0
 pip3 install paddle-serving-app==0.3.1
 ```
 
 1. Start Server
 
-```
-cd win
-python3 ocr_web_server.py gpu(for gpu user)
-or
-python3 ocr_web_server.py cpu(for cpu user)
-```
+    ```bash
+    cd win
+    python3 ocr_web_server.py gpu(for gpu user)
+    or
+    python3 ocr_web_server.py cpu(for cpu user)
+    ```
 
 2. Client Send Requests
 
-```bash
-python3 ocr_web_client.py
-```
+    ```bash
+    python3 ocr_web_client.py
+    ```
 
 ### FAQ
+
 **Q1**: No result return after sending the request.
 
 **A1**: Do not set the proxy when starting the service and sending the request. You can close the proxy before starting the service and before sending the request. The command to close the proxy is:
-```
+
+```bash
 unset https_proxy
 unset http_proxy
 ```

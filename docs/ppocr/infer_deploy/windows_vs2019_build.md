@@ -112,11 +112,11 @@ CUDA_LIB、CUDNN_LIB、TENSORRT_DIR、WITH_GPU、WITH_TENSORRT
 
 上述`Visual Studio 2019`编译产出的可执行文件在`build/Release/`目录下，打开`cmd`，并切换到`D:\projects\cpp\PaddleOCR\deploy\cpp_infer\`：
 
-```
+```bash
 cd /d D:\projects\cpp\PaddleOCR\deploy\cpp_infer
 ```
 
-可执行文件`ppocr.exe`即为样例的预测程序，其主要使用方法如下，更多使用方法可以参考[说明文档](../readme_ch.md)`运行demo`部分。
+可执行文件`ppocr.exe`即为样例的预测程序，其主要使用方法如下，更多使用方法可以参考[说明文档](./cpp_infer.md)`运行demo`部分。
 
 ```shell
 # 切换终端编码为utf8

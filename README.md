@@ -32,4 +32,5 @@ mkdocs serve
 
 - [ ] Deploy部分文档统一补充
 - [ ] 文档顶部评论功能统一添加
-- [ ] whl文档移入博客部分
+- [x] whl文档移入博客部分
+- [ ] [推理文档](https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/doc_ch/inference_ppocr.md)如何处理？

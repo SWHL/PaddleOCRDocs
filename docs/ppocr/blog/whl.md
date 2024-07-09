@@ -6,6 +6,7 @@ comments: true
 # paddleocr package使用说明
 
 ## 1 快速上手
+
 ### 1.1 安装whl包
 
 pip安装
@@ -22,6 +23,7 @@ pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本�
 ```
 
 ## 2 使用
+
 ### 2.1 代码使用
 
 paddleocr whl包会自动下载ppocr轻量级模型作为默认模型，可以根据第3节**自定义模型**进行自定义更换。
@@ -161,7 +163,6 @@ im_show.save('result.jpg')
 
 结果可视化
 
-
 <div align="center">
     <img src="../images/11_det.jpg" width="800">
 </div>
@@ -228,6 +229,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --use_angle_cls true
 ```
 
 此外，paddleocr也支持输入pdf文件，并且可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
+
 ```bash
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
@@ -297,7 +299,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs_words/ch/word_1.jpg --use_angle_cls tru
 
 ## 3 自定义模型
 
-当内置模型无法满足需求时，需要使用到自己训练的模型。 首先，参照[模型导出](./model_train/detection.md#4-模型导出与预测)将检测、分类和识别模型转换为inference模型，然后按照如下方式使用
+当内置模型无法满足需求时，需要使用到自己训练的模型。 首先，参照[模型导出](../model_train/detection.md#4-模型导出与预测)将检测、分类和识别模型转换为inference模型，然后按照如下方式使用
 
 ### 3.1 代码使用
 
@@ -334,9 +336,11 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --det_model_dir {your_det_model_
 ```
 
 ## 4 使用网络图片或者numpy数组作为输入
+
 ### 4.1 网络图片
 
-- 代码使用
+* 代码使用
+
 ```python
 from paddleocr import PaddleOCR, draw_ocr, download_with_progressbar
 
@@ -363,7 +367,7 @@ im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
 
-- 命令行模式
+* 命令行模式
 
 ```bash
 paddleocr --image_dir http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-fypvuqf1838418.jpg --use_angle_cls=true
@@ -400,14 +404,18 @@ im_show = draw_ocr(image, boxes, txts, scores, font_path='/path/to/PaddleOCR/doc
 im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')
 ```
+
 ## 5 PDF文件作为输入
-- 命令行模式
+
+* 命令行模式
 
 可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
+
 ```bash
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
-- 代码使用
+
+* 代码使用
 
 ```python
 from paddleocr import PaddleOCR, draw_ocr

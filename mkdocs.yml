@@ -126,9 +126,11 @@ plugins:
             云上飞桨部署工具: Paddle Cloud
             Benchmark: Benchmark
             博客: Blog
+            paddleocr package使用说明: Paddleocr Package Instructions
             多语言模型: Multi-language model
             动手学OCR: Dive into OCR
             切片操作: Slice
+            PaddleOCR模型推理参数解释: PaddleOCR Model Inference Parameter Explanation
             PP-Structure文档分析: PP-Structure
             概述: Overview
             快速开始: Quick Start
@@ -260,10 +262,14 @@ nav:
       - 云上飞桨部署工具: ppocr/infer_deploy/paddle_cloud.md
       - Benchmark: ppocr/infer_deploy/benchmark.md
     - 博客:
+      - PP-OCRv3技术报告: ppocr/blog/PP-OCRv3_introduction.md
+      - PP-OCRv4技术报告: ppocr/blog/PP-OCRv4_introduction.md
+      - paddleocr package使用说明: ppocr/blog/whl.md
       - 多语言模型: ppocr/blog/multi_languages.md
       - 动手学OCR: ppocr/blog/ocr_book.md
       - Enhanced CTC Loss: ppocr/blog/enhanced_ctc_loss.md
       - 切片操作: ppocr/blog/slice.md
+      - PaddleOCR模型推理参数解释: ppocr/blog/inference_args.md
   - PP-Structure文档分析:
     - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
