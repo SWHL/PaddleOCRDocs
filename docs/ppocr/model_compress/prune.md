@@ -10,11 +10,13 @@ comments: true
 
 在开始本教程之前，建议先了解：
 
-1. [PaddleOCR模型的训练方法](../../../doc/doc_ch/training.md)
+1. [PaddleOCR模型的训练方法](../model_train/training.md)
 2. [模型裁剪教程](https://github.com/PaddlePaddle/PaddleSlim/blob/release%2F2.0.0/docs/zh_cn/tutorials/pruning/dygraph/filter_pruning.md)
 
 ## 快速开始
+
 ### 1.安装PaddleSlim
+
 ```bash
 git clone https://github.com/PaddlePaddle/PaddleSlim.git
 cd PaddleSlim
@@ -23,7 +25,8 @@ python3 setup.py install
 ```
 
 ### 2.获取预训练模型
-模型裁剪需要加载事先训练好的模型，PaddleOCR也提供了一系列[模型](../../../doc/doc_ch/models_list.md)，开发者可根据需要自行选择模型或使用自己的模型。
+
+模型裁剪需要加载事先训练好的模型，PaddleOCR也提供了一系列[模型](../model_list.md)，开发者可根据需要自行选择模型或使用自己的模型。
 
 ### 3.敏感度分析训练
 
@@ -38,6 +41,7 @@ sen.pickle(Dict){
 ```
 
 例子：
+
 ```python
 {
     'conv10_expand_weights': {0.1: 0.006509952684312718, 0.2: 0.01827734339798862, 0.3: 0.014528405644659832, 0.6: 0.06536008804270439, 0.8: 0.11798612250664964, 0.7: 0.12391408417493704, 0.4: 0.030615754498018757, 0.5: 0.047105205602406594}
@@ -48,6 +52,7 @@ sen.pickle(Dict){
 加载敏感度文件后会返回一个字典，字典中的keys为网络模型参数模型的名字，values为一个字典，里面保存了相应网络层的裁剪敏感度信息。例如在例子中，conv10_expand_weights所对应的网络层在裁掉10%的卷积核后模型性能相较原模型会下降0.65%，详细信息可见[PaddleSlim](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/zh_cn/algo/algo.md#2-%E5%8D%B7%E7%A7%AF%E6%A0%B8%E5%89%AA%E8%A3%81%E5%8E%9F%E7%90%86)
 
 进入PaddleOCR根目录，通过以下命令对模型进行敏感度分析训练：
+
 ```bash
 python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml -o Global.pretrained_model="your trained model" Global.save_model_dir=./output/prune_model/
 ```
@@ -55,11 +60,12 @@ python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_
 ### 4.导出模型、预测部署
 
 在得到裁剪训练保存的模型后，我们可以将其导出为inference_model：
+
 ```bash
 pytho3.7 deploy/slim/prune/export_prune_model.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml -o Global.pretrained_model=./output/det_db/best_accuracy  Global.save_inference_dir=./prune/prune_inference_model
 ```
 
 inference model的预测和部署参考：
 
-1. [inference model python端预测](../../../doc/doc_ch/inference.md)
-2. [inference model C++预测](../../cpp_infer/readme.md)
+1. [inference model python端预测](../infer_deploy/python_infer.md)
+2. [inference model C++预测](../infer_deploy/cpp_infer.md)

@@ -5,6 +5,7 @@ comments: true
 # Knowledge Distillation
 
 ## 1. Introduction
+
 ### 1.1 Introduction to Knowledge Distillation
 
 In recent years, deep neural networks have been proved to be an extremely effective method for solving problems in the fields of computer vision and natural language processing.
@@ -29,6 +30,7 @@ In the task of knowledge distillation, it is not only the distillation between t
 Therefore, in the knowledge distillation code framework, it is also necessary to support this type of distillation method.
 
 The algorithm of knowledge distillation is integrated in PaddleOCR. Specifically, it has the following main features:
+
 - It supports mutual learning of any network, and does not require the sub-network structure to be completely consistent or to have a pre-trained model. At the same time, there is no limit to the number of sub-networks, just add it in the configuration file.
 - Support arbitrarily configuring the loss function through the configuration file, not only can use a certain loss, but also a combination of multiple losses.
 - Support all model-related environments such as knowledge distillation training, prediction, evaluation, and export, which is convenient for use and deployment.
@@ -205,7 +207,6 @@ Architecture:
               enc_dim: 512
               max_text_length: *max_text_length
 ```
-```
 
 When the model is finally trained, it contains 3 sub-networks: `Teacher`, `Student`, `Student2`.
 
@@ -231,6 +232,7 @@ Take the recognition model as an example. The output result of each sub-network 
 ```
 
 #### 2.1.2 Loss Function
+
 In the knowledge distillation task, the loss function configuration is as follows.
 
 ```yaml
@@ -287,7 +289,6 @@ Taking the above configuration as an example, the final distillation training lo
 For more specific implementation of `CombinedLoss`, please refer to: [combined_loss.py](../../ppocr/losses/combined_loss.py#L23).
 For more specific implementations of distillation loss functions such as `DistillationCTCLoss`, please refer to [distillation_loss.py](../../ppocr/losses/distillation_loss.py)
 
-
 #### 2.1.3 Post-processing
 
 In the knowledge distillation task, the post-processing configuration is as follows.
@@ -304,7 +305,6 @@ Taking the above configuration as an example, the CTC decoding output of the two
 Among them, `key` is the name of the subnet, and `value` is the list of subnets.
 
 For more specific implementation of `DistillationCTCLabelDecode`, please refer to: [rec_postprocess.py](../../ppocr/postprocess/rec_postprocess.py#L128)
-
 
 #### 2.1.4 Metric Calculation
 
@@ -324,7 +324,6 @@ At the same time, the accuracy metric of all subnets will be printed out in the 
 
 For more specific implementation of `DistillationMetric`, please refer to: [distillation_metric.py](../../ppocr/metrics/distillation_metric.py#L24).
 
-
 #### 2.1.5 Fine-tuning Distillation Model
 
 There are two ways to fine-tune the recognition distillation task.
@@ -333,6 +332,7 @@ There are two ways to fine-tune the recognition distillation task.
 2. Do not use knowledge distillation in fine-tuning: In this case, you need to first extract the student model parameters from the pre-training model. The specific steps are as follows.
 
 - First download the pre-trained model and unzip it.
+
 ```bash
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
 tar -xf ch_PP-OCRv3_rec_train.tar
@@ -366,6 +366,7 @@ The configuration file of the detection model distillation is in the ```PaddleOC
 #### 2.2.1 Model Structure
 
 In the knowledge distillation task, the model structure configuration is as follows:
+
 ```yaml
 Architecture:
   name: DistillationModel          # Structure name, in the distillation task, it is DistillationModel
@@ -407,9 +408,9 @@ Architecture:
         k: 50
 
 ```
+
 If DML is used, that is, the method of two small models learning from each other, the Teacher network structure in the above configuration file needs to be set to the same configuration as the Student model.
 Refer to the configuration file for details. [ch_PP-OCRv3_det_dml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml)
-
 
 The following describes the configuration file parameters [ch_PP-OCRv3_det_cml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml):
 
@@ -501,7 +502,9 @@ The key contains `backbone_out`, `neck_out`, `head_out`, and `value` is the tens
 ```
 
 #### 2.2.2 Loss Function
+
 The distillation loss function configuration(`ch_PP-OCRv3_det_cml.yml`) is shown below.
+
 ```yaml
 Loss:
   name: CombinedLoss
@@ -556,7 +559,9 @@ Since there are multiple inputs, there are also multiple outputs returned by pos
 For a more specific implementation of `DistillationDBPostProcess`, please refer to: [db_postprocess.py](../../ppocr/postprocess/db_postprocess.py#L195)
 
 #### 2.2.4 Metric Calculation
+
 In the knowledge distillation task, the metric calculation configuration is as follows.
+
 ```yaml
 Metric:
   name: DistillationMetric
@@ -582,6 +587,7 @@ In fine-tune, you need to set the pre-trained model to be loaded in the `pretrai
 In terms of accuracy improvement, `cml` > `dml` > `distill`. When the amount of data is insufficient or the accuracy of the teacher model is similar to that of the student, this conclusion may change.
 
 In addition, since the distillation pre-training model provided by PaddleOCR contains multiple model parameters, if you want to extract the parameters of the student model, you can refer to the following code:
+
 ```sh
 # Download the parameters of the distillation training model
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar

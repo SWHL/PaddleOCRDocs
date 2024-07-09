@@ -10,7 +10,8 @@ This example uses PaddleSlim provided[APIs of Pruning](https://github.com/Paddle
 [PaddleSlim](https://github.com/PaddlePaddle/PaddleSlim), an open source library which integrates model pruning, quantization (including quantization training and offline quantization), distillation, neural network architecture search, and many other commonly used and leading model compression technique in the industry.
 
 It is recommended that you could understand following pages before reading this example：
-1. [PaddleOCR training methods](../../../doc/doc_ch/quickstart.md)
+
+1. [PaddleOCR training methods](../model_train/training.en.md)
 2. [The demo of prune](https://github.com/PaddlePaddle/PaddleSlim/blob/release%2F2.0.0/docs/zh_cn/tutorials/pruning/dygraph/filter_pruning.md)
 
 ## Quick start
@@ -24,12 +25,13 @@ git checkout develop
 python3 setup.py install
 ```
 
-
 ### 2. Download Pre-trained Model
+
 Model prune needs to load pre-trained models.
-PaddleOCR also provides a series of [models](../../../doc/doc_en/models_list_en.md). Developers can choose their own models or use their own models according to their needs.
+PaddleOCR also provides a series of [models](../model_list.en.md). Developers can choose their own models or use their own models according to their needs.
 
 ### 3. Pruning sensitivity analysis
+
 After the pre-trained model is loaded, sensitivity analysis is performed on each network layer of the model to understand the redundancy of each network layer, and save a sensitivity file which named: sen.pickle.  After that, user could load the sensitivity file via the [methods provided by PaddleSlim](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/paddleslim/prune/sensitive.py#L221) and determining the pruning ratio of each network layer automatically. For specific details of sensitivity analysis, see：[Sensitivity analysis](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/en/tutorials/image_classification_sensitivity_analysis_tutorial_en.md)
 The data format of sensitivity file：
 
@@ -41,6 +43,7 @@ sen.pickle(Dict){
 ```
 
 example：
+
 ```python
 {
     'conv10_expand_weights': {0.1: 0.006509952684312718, 0.2: 0.01827734339798862, 0.3: 0.014528405644659832, 0.6: 0.06536008804270439, 0.8: 0.11798612250664964, 0.7: 0.12391408417493704, 0.4: 0.030615754498018757, 0.5: 0.047105205602406594}
@@ -59,6 +62,7 @@ python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_
 ```
 
 ### 5. Export inference model and deploy it
+
 We can export the pruned model as inference_model for deployment:
 
 ```bash
@@ -67,5 +71,5 @@ python deploy/slim/prune/export_prune_model.py -c configs/det/ch_ppocr_v2.0/ch_d
 
 Reference for prediction and deployment of inference model:
 
-1. [inference model python prediction](../../../doc/doc_en/inference_en.md)
-2. [inference model C++ prediction](../../cpp_infer/readme_en.md)
+1. [inference model python prediction](../infer_deploy/python_infer.en.md)
+2. [inference model C++ prediction](../infer_deploy/cpp_infer.en.md)
