@@ -4,9 +4,9 @@ comments: true
 
 这里整理了常用中文数据集，持续更新中，欢迎各位小伙伴贡献数据集～
 
-除了开源数据，用户还可使用合成工具自行合成，可参考[数据合成工具](../data_synthesis.md)；
+除了开源数据，用户还可使用合成工具自行合成，可参考[数据合成工具](../data_anno_synth/data_synthesis.md)；
 
-如果需要标注自己的数据，可参考[数据标注工具](../data_annotation.md)。
+如果需要标注自己的数据，可参考[数据标注工具](../data_anno_synth/data_annotation.md)。
 
 #### 1、ICDAR2019-LSVT
 
