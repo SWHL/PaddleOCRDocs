@@ -132,6 +132,7 @@ plugins:
             动手学OCR: Dive into OCR
             切片操作: Slice
             PaddleOCR模型推理参数解释: PaddleOCR Model Inference Parameter Explanation
+            分布式训练: Distributed training
             PP-Structure文档分析: PP-Structure
             概述: Overview
             快速开始: Quick Start
@@ -272,6 +273,7 @@ nav:
       - Enhanced CTC Loss: ppocr/blog/enhanced_ctc_loss.md
       - 切片操作: ppocr/blog/slice.md
       - PaddleOCR模型推理参数解释: ppocr/blog/inference_args.md
+      - 分布式训练: ppocr/blog/distributed_training.md
   - PP-Structure文档分析:
     - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
