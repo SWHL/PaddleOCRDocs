@@ -13,9 +13,7 @@ typora-copy-images-to: images
 
 ## Structure
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/50011306/187578511-9f3c351e-b68c-4359-a6e5-475810993c61.png"  width = "500" />
-</div>
+![img](./images/187578511-9f3c351e-b68c-4359-a6e5-475810993c61.png)
 
 - The first part is the preliminary knowledge of the book, including the knowledge index and resource links needed in the process of positioning and using the book content of the book
 
@@ -23,12 +21,8 @@ typora-copy-images-to: images
 
 - The third part is chapter 9-12 of the book, which introduces applications other than the two-stage OCR engine, including data synthesis, preprocessing algorithm, and end-to-end model, focusing on OCR's layout analysis, table recognition, visual document question and answer capabilities in the document scene, and also through the combination of algorithm and code, so that readers can deeply understand and apply.
 
-
 ## Address
+
 - [E-book: *Dive Into OCR* (PDF)](https://paddleocr.bj.bcebos.com/ebook/Dive_into_OCR.pdf)
 - [Notebook (.ipynb)](https://github.com/PaddleOCR-Community/Dive-into-OCR)
 - [Videos (Chinese only)](https://aistudio.baidu.com/aistudio/education/group/info/25207)
-
-<a href="https://trackgit.com">
-<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/l7h1cua5ayvgmb8r958l" alt="trackgit-views" />
-</a>

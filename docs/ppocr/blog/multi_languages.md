@@ -18,7 +18,6 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 ![img](./images/img_12.jpg)
 
-
 小语种模型覆盖了拉丁语系、阿拉伯语系、中文繁体、韩语、日语等等：
 
 ![img](./images/japan_2-20240709081138234.jpg)
@@ -32,7 +31,9 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 本文档将简要介绍小语种模型的使用方法。
 
 ## 1 安装
+
 ### 1.1 paddle 安装
+
 ```bash
 # cpu
 pip install paddlepaddle
@@ -44,17 +45,20 @@ pip install paddlepaddle-gpu
 ### 1.2 paddleocr package 安装
 
 pip 安装
+
 ```bash
 pip install paddleocr
 ```
 
 本地构建并安装
+
 ```bash
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本号
 ```
 
 ## 2 快速使用
+
 ### 2.1 命令行运行
 
 查看帮助信息
@@ -63,7 +67,7 @@ pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本�
 paddleocr -h
 ```
 
-* 整图预测（检测+识别）
+- 整图预测（检测+识别）
 
 Paddleocr目前支持80个语种，可以通过修改--lang参数进行切换，具体支持的[语种](#语种缩写)可查看表格。
 
@@ -76,6 +80,7 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ![img](./images/img_02.jpg)
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
+
 ```text
 [('PHO CAPITAL', 0.95723116), [[66.0, 50.0], [327.0, 44.0], [327.0, 76.0], [67.0, 82.0]]]
 [('107 State Street', 0.96311164), [[72.0, 90.0], [451.0, 84.0], [452.0, 116.0], [73.0, 121.0]]]
@@ -87,7 +92,7 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 ......
 ```
 
-* 识别预测
+- 识别预测
 
 ```bash
 paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
@@ -101,7 +106,7 @@ paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 (0.99879867, 'LITTLE')
 ```
 
-* 检测预测
+- 检测预测
 
 ```bash
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
@@ -120,7 +125,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 
 ppocr 也支持在python脚本中运行，便于嵌入到您自己的代码中 ：
 
-* 整图预测（检测+识别）
+- 整图预测（检测+识别）
 
 ```python
 from paddleocr import PaddleOCR, draw_ocr
@@ -151,12 +156,11 @@ im_show.save('result.jpg')
 
 ![img](./images/korean.jpg)
 
-
 ppocr 还支持方向分类， 更多使用方式请参考：[whl包使用说明](https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.0/doc/doc_ch/whl.md)
 
 ## 3 自定义训练
 
-ppocr 支持使用自己的数据进行自定义训练或finetune, 其中识别模型可以参考 [法语配置文件](../../configs/rec/multi_language/rec_french_lite_train.yml)
+ppocr 支持使用自己的数据进行自定义训练或finetune, 其中识别模型可以参考[法语配置文件](../../configs/rec/multi_language/rec_french_lite_train.yml)
 修改训练数据路径、字典等参数。
 
 详细数据准备、训练过程可参考：[文本识别](../doc_ch/recognition.md)、[文本检测](../doc_ch/detection.md)。
@@ -213,7 +217,6 @@ python3 tools/train.py -c configs/rec/rec_french_lite_train.yml -o Global.pretra
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_french_lite_train.yml -o Global.pretrained_model=french_mobile_v2.0_rec_train/best_accuracy
 ```
 
-
 更多功能如预测部署、数据标注等功能可以阅读完整的[文档教程](../../README_ch.md)。
 
 ## 4 预测部署
@@ -225,7 +228,6 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 - [服务化部署](../../deploy/hubserving/readme.md)
 - [端侧部署](../../deploy/lite/readme_ch.md)
 - [Benchmark](./benchmark.md)
-
 
 ## 5 支持语种及缩写
 

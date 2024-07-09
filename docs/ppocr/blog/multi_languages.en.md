@@ -4,6 +4,7 @@ typora-copy-images-to: images
 ---
 
 # Multi-language model
+
 **Recent Update**
 
 - 2022.5.8 update the `PP-OCRv3` version of the multi-language detection and recognition model, and the average recognition accuracy has increased by more than 5%.
@@ -31,9 +32,10 @@ The multilingual models cover Latin, Arabic, Traditional Chinese, Korean, Japane
 
 This document will briefly introduce how to use the multilingual model.
 
-
 ## 1 Installation
+
 ### 1.1 Paddle installation
+
 ```bash
 # cpu
 pip install paddlepaddle
@@ -43,26 +45,29 @@ pip install paddlepaddle-gpu
 ```
 
 ### 1.2 PaddleOCR package installation
+
 ```bash
 pip install paddleocr
 ```
 
 Build and install locally
+
 ```bash
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x is the version number of paddleocr
 ```
 
-
 ## 2 Quick use
+
 ### 2.1 Command line operation
+
 View help information
 
 ```bash
 paddleocr -h
 ```
 
-* Whole image prediction (detection + recognition)
+- Whole image prediction (detection + recognition)
 
 PaddleOCR currently supports 80 languages, which can be specified by the --lang parameter.
 The supported languages are listed in the [table](#language_abbreviations).
@@ -75,8 +80,8 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 
 ![img](./images/img_02.jpg)
 
-
 The result is a list. Each item contains a text box, text and recognition confidence
+
 ```text
 [('PHO CAPITAL', 0.95723116), [[66.0, 50.0], [327.0, 44.0], [327.0, 76.0], [67.0, 82.0]]]
 [('107 State Street', 0.96311164), [[72.0, 90.0], [451.0, 84.0], [452.0, 116.0], [73.0, 121.0]]]
@@ -88,7 +93,7 @@ The result is a list. Each item contains a text box, text and recognition confid
 ......
 ```
 
-* Recognition
+- Recognition
 
 ```bash
 paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
@@ -102,7 +107,7 @@ The result is a 2-tuple, which contains the recognition result and recognition c
 (0.99879867, 'LITTLE')
 ```
 
-* Detection
+- Detection
 
 ```bash
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
@@ -117,12 +122,11 @@ The result is a list. Each item represents the coordinates of a text box.
 ......
 ```
 
-
 ### 2.2 Run with Python script
 
 PPOCR is able to run with Python scripts for easy integration with your own code:
 
-* Whole image prediction (detection + recognition)
+- Whole image prediction (detection + recognition)
 
 ```python
 from paddleocr import PaddleOCR, draw_ocr
@@ -155,7 +159,6 @@ Visualization of results:
 
 PPOCR also supports direction classification. For more detailed usage, please refer to: [whl package instructions](whl_en.md).
 
-
 ## 3 Custom training
 
 PPOCR supports using your own data for custom training or fine-tune, where the recognition model can refer to [French configuration file](../../configs/rec/multi_language/rec_french_lite_train.yml)
@@ -163,8 +166,6 @@ Modify the training data path, dictionary and other parameters.
 
 For specific data preparation and training process, please refer to: [Text Detection](../doc_en/detection_en.md), [Text Recognition](../doc_en/recognition_en.md), more functions such as predictive deployment,
 For functions such as data annotation, you can read the complete [Document Tutorial](../../README.md).
-
-
 
 ## 4 Inference and Deployment
 

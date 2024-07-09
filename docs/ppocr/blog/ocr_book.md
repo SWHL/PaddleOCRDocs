@@ -11,10 +11,9 @@ typora-copy-images-to: images
 - 紧密结合理论实践，跨越代码实现鸿沟，并配套教学视频
 - Notebook交互式学习，灵活修改代码，即刻获得结果
 
-
 ## 本书结构
 
-![](https://ai-studio-static-online.cdn.bcebos.com/5e612d9079b84958940614d9613eb928f1a50fe21ba6446cb99186bf2d76fe3d)
+![](./images/5e612d9079b84958940614d9613eb928f1a50fe21ba6446cb99186bf2d76fe3d.png)
 
 - 第一部分是本书的推荐序、序言与预备知识，包含本书的定位与使用书籍内容的过程中需要用到的知识索引、资源链接等
 - 第二部分是本书的4-8章，介绍与OCR核心的检测、识别能力相关的概念、应用与产业实践。在“OCR技术导论”中总括性的解释OCR的应用场景和挑战、技术基本概念以及在产业应用中的痛点问题。然后在
@@ -23,8 +22,8 @@ typora-copy-images-to: images
 - 第三部分是本书的9-12章，介绍两阶段OCR引擎之外的应用，包括数据合成、预处理算法、端到端模型，重点展开了OCR在文档场景下的版面分析、表格识别、视觉文档问答的能力，同样通过算法与代码结
 合的方式使得读者能够深入理解并应用。
 
-
 ## 资料地址
+
 - 中文版电子书下载请扫描首页二维码入群后领取
 - [notebook教程](https://github.com/PaddleOCR-Community/Dive-into-OCR)
 - [教学视频](https://aistudio.baidu.com/aistudio/education/group/info/25207)
