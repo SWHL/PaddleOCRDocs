@@ -17,7 +17,9 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 > 如果您已经安装Python环境，可以直接参考[PaddleOCR快速开始](./quick_start.md)
 
 ## 1. Python环境搭建
+
 ### 1.1 Windows
+
 #### 1.1.1 安装Anaconda
 
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
@@ -25,7 +27,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   - 安装完Anaconda后，可以安装python环境，以及numpy等所需的工具包环境。
 
 - Anaconda下载：
-  - 地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - 地址：<https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
   - 大部分win10电脑均为64位操作系统，选择x86_64版本；若电脑为32位操作系统，则选择x86.exe
 
     ![anaconda download](./images/Anaconda_download.png)
@@ -69,16 +71,17 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
     ![create environment](./images/conda_list_env.png)
 
-
 以上anaconda环境和python环境安装完毕
 
 ### 1.2 Mac
+
 #### 1.2.1 安装Anaconda
+
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
   - Anaconda是1个常用的python包管理程序
   - 安装完Anaconda后，可以安装python环境，以及numpy等所需的工具包环境
 - Anaconda下载：
-  - 地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - 地址：<https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
 
   ![anaconda download](./images/anaconda_start.png)
 
@@ -88,6 +91,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - 建议安装vscode或pycharm等代码编辑器
 
 #### 1.2.2 打开终端并创建conda环境
+
 - 打开终端
   - 同时按下command键和空格键，在聚焦搜索中输入"终端"，双击进入终端
 
@@ -163,7 +167,6 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 
 以上anaconda环境和python环境安装完毕
 
-
 ### 1.3 Linux
 
 Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker且需要训练PaddleOCR模型，推荐使用Docker环境，PaddleOCR的开发流程均在Docker环境下运行。如果你不熟悉Docker，也可以使用Anaconda来运行项目。
@@ -176,7 +179,7 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
 
 - **下载Anaconda**：
 
-  - 下载地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - 下载地址：<https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
 
     ![img](./images/anaconda_download-20240704081644684.png)
 
@@ -274,7 +277,6 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
   # 激活paddle_env环境
   conda activate paddle_env
   ```
-
 
 以上anaconda环境和python环境安装完毕
 

@@ -14,7 +14,6 @@ comments: true
 >
 > 4. 本文档提供的是PPOCR自研模型列表，更多基于公开数据集的算法介绍与预训练模型可以参考：[算法概览文档](../algorithm/overview.md)。
 
-
 PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训练模型`、`nb模型`，模型区别说明如下：
 
 | 模型类型  | 模型格式    | 简介  |
@@ -23,13 +22,12 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 | 训练模型、预训练模型 | \*.pdparams、\*.pdopt、\*.states       | 训练过程中保存的模型的参数、优化器状态和训练中间信息，多用于模型指标评估和恢复训练                   |
 | nb模型               | \*.nb        | 经过飞桨Paddle-Lite工具优化后的模型，适用于移动端/IoT端等端侧部署场景（需使用飞桨Paddle Lite部署）。 |
 
-
 各个模型的关系如下面的示意图所示。
 
 ![](./images/model_prod_flow_ch.png)
 
-
 ## 1. 文本检测模型
+
 ### 1.1 中文检测模型
 
 | 模型名称     | 模型简介       | 配置文件    | 推理模型大小 | 下载地址   |
@@ -44,7 +42,6 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 | ch_ppocr_mobile_v2.0_det      | 原始超轻量模型，支持中英文、多语种文本检测                         | [ch_det_mv3_db_v2.0.yml](../../configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml)         | 3.0M         | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_det_train.tar)|
 | ch_ppocr_server_v2.0_det      | 通用模型，支持中英文、多语种文本检测，比超轻量模型更大，但效果更好 | [ch_det_res18_db_v2.0.yml](../../configs/det/ch_ppocr_v2.0/ch_det_res18_db_v2.0.yml)     | 47.0M        | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_server_v2.0_det_train.tar)|
 
-
 ### 1.2 英文检测模型
 
 | 模型名称    | 模型简介   | 配置文件   | 推理模型大小 | 下载地址|
@@ -53,7 +50,6 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 | en_PP-OCRv3_det      | 【最新】原始超轻量模型，支持英文、数字检测       | [ch_PP-OCRv3_det_cml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml) | 3.8M         | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_distill_train.tar)        |
 
 * 注：英文检测模型与中文检测模型结构完全相同，只有训练数据不同，在此仅提供相同的配置文件。
-
 
 ### 1.3 多语言检测模型
 
@@ -64,9 +60,10 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 
 * 注：多语言检测模型与中文检测模型结构完全相同，只有训练数据不同，在此仅提供相同的配置文件。
 
-
 ## 2. 文本识别模型
+
 ### 2.1 中文识别模型
+
 | 模型名称 | 模型简介 | 配置文件  | 推理模型大小 | 下载地址 |
 | ----- | --------- | ------ | ------------ | ------- |
 | ch_PP-OCRv4_rec               | 【最新】超轻量模型，支持中英文、数字识别       | [ch_PP-OCRv4_rec_distill.yml](../../configs/rec/PP-OCRv4/ch_PP-OCRv4_rec_distill.yml)                  | 10M          | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_train.tar)                    |
@@ -82,6 +79,7 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 **说明：** `训练模型`是基于预训练模型在真实数据与竖排合成文本数据上finetune得到的模型，在真实应用场景中有着更好的表现，`预训练模型`则是直接基于全量真实数据与合成数据训练得到，更适合用于在自己的数据集上finetune。
 
 ### 2.2 英文识别模型
+
 | 模型名称   | 模型简介 | 配置文件| 推理模型大小 | 下载地址|
 | ------- | -------- | ------ | ------------ | ----- |
 | en_PP-OCRv4_rec                | 【最新】原始超轻量模型，支持英文、数字识别   | [en_PP-OCRv4_rec.yml](../../configs/rec/PP-OCRv4/en_PP-OCRv4_rec.yml)                         | 9.7M         | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv4/english/en_PP-OCRv4_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv4/english/en_PP-OCRv4_rec_train.tar)        |
@@ -93,6 +91,7 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 **注意：** 所有英文识别模型的字典文件均为`ppocr/utils/en_dict.txt`
 
 ### 2.3 多语言识别模型（更多语言持续更新中...）
+
 | 模型名称                 | 字典文件    | 模型简介     | 配置文件 | 推理模型大小 | 下载地址  |
 | ----- | ------ | ------------ | ------ | ------------ | ---- |
 | korean_PP-OCRv3_rec      | ppocr/utils/dict/korean_dict.txt      | 韩文识别     | [korean_PP-OCRv3_rec.yml](../../configs/rec/PP-OCRv3/multi_language/korean_PP-OCRv3_rec.yml)           | 11.0M        | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/korean_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/korean_PP-OCRv3_rec_train.tar)           |
@@ -109,13 +108,14 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 查看完整语种列表与使用教程请参考: [多语言模型](./blog/multi_languages.md)
 
 ## 3. 文本方向分类模型
+
 | 模型名称                      | 模型简介 | 配置文件 | 推理模型大小 | 下载地址  |
 | ---------- | ------------- | ------------- | ------------ | -- |
 | ch_ppocr_mobile_slim_v2.0_cls | slim量化版模型，对检测到的文本行文字角度分类 | [cls_mv3.yml](../../configs/cls/cls_mv3.yml) | 2.1M         | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_slim_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_rec_slim_infer.tar) / [nb模型](https://paddleocr.bj.bcebos.com/PP-OCRv2/lite/ch_ppocr_mobile_v2.0_cls_infer_opt.nb) |
 | ch_ppocr_mobile_v2.0_cls      | 原始分类器模型，对检测到的文本行文字角度分类 | [cls_mv3.yml](../../configs/cls/cls_mv3.yml) | 1.38M        | [推理模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_train.tar)             |
 
-
 ## 4. Paddle-Lite 模型
+
 Paddle-Lite 是一个高性能、轻量级、灵活性强且易于扩展的深度学习推理框架，它可以对inference模型进一步优化，得到适用于移动端/IoT端等端侧部署场景的`nb模型`。一般建议基于量化模型进行转换，因为可以将模型以INT8形式进行存储与推理，从而进一步减小模型大小，提升模型速度。
 
 本节主要列出PP-OCRv2以及更早版本的检测与识别nb模型，最新版本的nb模型可以直接从上面的模型列表中获得。

@@ -1,4 +1,3 @@
-
 ---
 comments: true
 ---
@@ -7,8 +6,8 @@ comments: true
 
 **Note:** This tutorial mainly introduces the usage of PP-OCR series models, please refer to [PP-Structure Quick Start](../ppstructure/overview.en.md) for the quick use of document analysis related functions.
 
-
 ## 1. Installation
+
 ### 1.1 Install PaddlePaddle
 
 > If you do not have a Python environment, please refer to [Environment Preparation](./environment.en.md).
@@ -27,7 +26,6 @@ comments: true
 
 For more software version requirements, please refer to the instructions in [Installation Document](https://www.paddlepaddle.org.cn/en/install/quick) for operation.
 
-
 ### 1.2 Install PaddleOCR Whl Package
 
 ```bash
@@ -38,8 +36,8 @@ pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 
   Reference: [Solve shapely installation on windows](https://stackoverflow.com/questions/44398265/install-shapely-oserror-winerror-126-the-specified-module-could-not-be-found)
 
-
 ## 2. Easy-to-Use
+
 ### 2.1 Use by Command Line
 
 PaddleOCR provides a series of test images, click [here](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip) to download, and then switch to the corresponding directory in the terminal
@@ -52,7 +50,7 @@ If you do not use the provided test image, you can replace the following `--imag
 
 #### 2.1.1 Chinese and English Model
 
-* Detection, direction classification and recognition: set the parameter`--use_gpu false` to disable the gpu device
+- Detection, direction classification and recognition: set the parameter`--use_gpu false` to disable the gpu device
 
   ```bash
   paddleocr --image_dir ./imgs_en/img_12.jpg --use_angle_cls true --lang en --use_gpu false
@@ -73,7 +71,7 @@ If you do not use the provided test image, you can replace the following `--imag
   paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
   ```
 
-* Only detection: set `--rec` to `false`
+- Only detection: set `--rec` to `false`
 
   ```bash
   paddleocr --image_dir ./imgs_en/img_12.jpg --rec false
@@ -88,7 +86,7 @@ If you do not use the provided test image, you can replace the following `--imag
   ......
   ```
 
-* Only recognition: set `--det` to `false`
+- Only recognition: set `--det` to `false`
 
   ```bash
   paddleocr --image_dir ./imgs_words_en/word_10.png --det false --lang en
@@ -113,7 +111,6 @@ paddleocr uses the PP-OCRv4 model by default(`--ocr_version PP-OCRv4`). If you w
 If you want to add your own trained model, you can add model links and keys in [paddleocr](https://github.com/PaddlePaddle/PaddleOCR/blob/c65a66c5fd37dee64916a8b2a2c84ea273d98cac/paddleocr.py) and recompile.
 
 More whl package usage can be found in [whl package](./whl.en.md)
-
 
 #### 2.1.2 Multi-language Model
 
@@ -146,11 +143,11 @@ Commonly used multilingual abbreviations include
 
 A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./blog/multi_languages.en.md)
 
-
 ### 2.2 Use by Code
+
 #### 2.2.1 Chinese & English Model and Multilingual Model
 
-* detection, angle classification and recognition:
+- detection, angle classification and recognition:
 
 ```python
 from paddleocr import PaddleOCR,draw_ocr
@@ -242,7 +239,7 @@ for idx in range(len(result)):
     im_show.save('result_page_{}.jpg'.format(idx))
 ```
 
-* Detection and Recognition Using Sliding Windows
+- Detection and Recognition Using Sliding Windows
 
 To perform OCR using sliding windows, the following code snippet can be employed:
 
@@ -282,8 +279,8 @@ This example initializes the PaddleOCR instance with angle classification enable
 
 For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./blog/slice.en.md).
 
-
 ## 3. Summary
+
 In this section, you have mastered the use of PaddleOCR whl package.
 
 PaddleX provides a high-quality ecological model of the paddle. It is a one-stop full-process high-efficiency development platform for training, pressing and pushing. Its mission is to help AI technology to be implemented quickly. The vision is to make everyone an AI Developer! Currently PP-OCRv4 has been launched on PaddleX, you can enter [General OCR](https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286) to experience the whole process of model training, compression and inference deployment.

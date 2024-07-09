@@ -15,9 +15,10 @@ Recommended working environment:
 
 > If you already have a Python environment installed, you can skip to [PaddleOCR Quick Start](./quickstart_en.md).
 
-
 ## 1. Python Environment Setup
+
 ### 1.1 Windows
+
 #### 1.1.1 Install Anaconda
 
 - Note: To use PaddlePaddle you need to install python environment first, here we choose python integrated environment Anaconda toolkit
@@ -27,7 +28,7 @@ Recommended working environment:
 
 - Anaconda download.
 
-  - Address: https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - Address: <https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
   - Most Win10 computers are 64-bit operating systems, choose x86_64 version; if the computer is a 32-bit operating system, choose x86.exe
 
     ![anaconda download](./images/Anaconda_download.png)
@@ -42,6 +43,7 @@ Recommended working environment:
     ![](./images/anaconda_install_env.png)
 
 #### 1.1.2 Opening the terminal and creating the Conda environment
+
 - Open Anaconda Prompt terminal: bottom left Windows Start Menu -> Anaconda3 -> Anaconda Prompt start console
 
   ![anaconda download](./images/anaconda_prompt.png)
@@ -74,7 +76,9 @@ Recommended working environment:
 The above anaconda environment and python environment are installed
 
 ### 1.2 Mac
+
 #### 1.2.1 Installing Anaconda
+
 - Note: To use PaddlePaddle you need to install the python environment first, here we choose the python integrated environment Anaconda toolkit
 
   - Anaconda is a common python package manager
@@ -82,7 +86,7 @@ The above anaconda environment and python environment are installed
 
 - Anaconda download:.
 
-  - Address: https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - Address: <https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
 
   ![anaconda download](./images/anaconda_start.png)
 
@@ -171,6 +175,7 @@ The above anaconda environment and python environment are installed
 The above anaconda environment and python environment are installed
 
 ### 1.3 Linux
+
 Linux users can choose to run either Anaconda or Docker. If you are familiar with Docker and need to train the PaddleOCR model, it is recommended to use the Docker environment, where the development process of PaddleOCR is run. If you are not familiar with Docker, you can also use Anaconda to run the project.
 
 #### 1.3.1 Anaconda environment configuration
@@ -182,12 +187,12 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 
 - **Download Anaconda**.
 
-  - Download at: https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
+  - Download at: <https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D>
 
   ![img](./images/anaconda_download-20240704081644684.png)
 
   - Select the appropriate version for your operating system
-      - Type `uname -m` in the terminal to check the command set used by your system
+    - Type `uname -m` in the terminal to check the command set used by your system
 
   - Download method 1: Download locally, then transfer the installation package to the Linux server
 
@@ -282,6 +287,7 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 The above anaconda environment and python environment are installed
 
 #### 1.3.2 Docker environment preparation
+
 **The first time you use this docker image, it will be downloaded automatically. Please be patient.**
 
 ```bash

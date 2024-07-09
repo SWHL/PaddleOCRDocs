@@ -6,8 +6,8 @@ comments: true
 
 **说明：** 本文主要介绍PaddleOCR wheel包对PP-OCR系列模型的快速使用，如要体验文档分析相关功能，请参考[PP-Structure快速使用教程](../ppstructure/overview.md)。
 
-
 ## 1. 安装
+
 ### 1.1 安装PaddlePaddle
 
 > 如果您没有基础的Python运行环境，请参考[运行环境准备](./environment.md)。
@@ -34,8 +34,8 @@ pip install paddleocr
 
 - 对于Windows环境用户：直接通过pip安装的shapely库可能出现`[winRrror 126] 找不到指定模块的问题`。建议从[这里](https://www.lfd.uci.edu/~gohlke/pythonlibs/#shapely)下载shapely安装包完成安装。
 
-
 ## 2. 便捷使用
+
 ### 2.1 命令行使用
 
 PaddleOCR提供了一系列测试图片，点击[这里](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip)下载并解压，然后在终端中切换到相应目录
@@ -48,7 +48,7 @@ cd /path/to/ppocr_img
 
 #### 2.1.1 中英文模型
 
-* 检测+方向分类器+识别全流程：`--use_angle_cls true`设置使用方向分类器识别180度旋转文字，`--use_gpu false`设置不使用GPU
+- 检测+方向分类器+识别全流程：`--use_angle_cls true`设置使用方向分类器识别180度旋转文字，`--use_gpu false`设置不使用GPU
 
   ```bash
   paddleocr --image_dir ./imgs/11.jpg --use_angle_cls true --use_gpu false
@@ -62,6 +62,7 @@ cd /path/to/ppocr_img
   ```
 
   此外，paddleocr也支持输入pdf文件，并且可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
+
   ```bash
   paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
   ```
@@ -118,7 +119,6 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 
 ![](./images/multi_lang/img_02.jpg)
 
-
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
 ```text
@@ -138,13 +138,13 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 
 全部语种及其对应的缩写列表可查看[多语言模型教程](./blog/multi_languages.md)
 
-
 ### 2.2 Python脚本使用
+
 #### 2.2.1 中英文与多语言使用
 
 通过Python脚本使用PaddleOCR whl包，whl包会自动下载ppocr轻量级模型作为默认模型。
 
-* 检测+方向分类器+识别全流程
+- 检测+方向分类器+识别全流程
 
 ```python
 from paddleocr import PaddleOCR, draw_ocr
@@ -181,7 +181,6 @@ im_show.save('result.jpg')
 结果可视化
 
 ![](./images/11_det_rec.jpg)
-
 
 如果输入是PDF文件，那么可以参考下面代码进行可视化
 
@@ -232,7 +231,7 @@ for idx in range(len(result)):
     im_show.save('result_page_{}.jpg'.format(idx))
 ```
 
-* 使用滑动窗口进行检测和识别
+- 使用滑动窗口进行检测和识别
 
 要使用滑动窗口进行光学字符识别（OCR），可以使用以下代码片段：
 
