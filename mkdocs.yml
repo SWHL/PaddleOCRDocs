@@ -202,6 +202,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
 
 extra:
   social:
@@ -209,6 +211,15 @@ extra:
       link: https://github.com/PaddlePaddle/PaddleOCR
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/paddleocr/
+
+extra_javascript:
+  - javascripts/katex.min.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
 
 nav:
   - Home: index.md
@@ -331,3 +342,4 @@ nav:
   - FAQ: FAQ.md
   - 博客:
     - 动手学OCR: blog/ocr_book.md
+    - Enhanced CTC Loss: blog/enhanced_ctc_loss.md

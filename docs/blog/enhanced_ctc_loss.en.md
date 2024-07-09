@@ -40,7 +40,6 @@ $$
 L_{Focal\_CTC} = \alpha * (1 - y^{'})^{\gamma} * L_{CTC}
 $$
 
-
 In the experiment, the value of &gamma; is 2, &alpha; = 1, see this for specific implementation: [rec_ctc_loss.py](../../ppocr/losses/rec_ctc_loss.py)
 
 ## 2. A-CTC Loss
