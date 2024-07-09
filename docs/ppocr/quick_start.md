@@ -136,7 +136,7 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 | 英文     | en          |     | 德文     | german |     | 韩文     | korean |
 | 繁体中文 | chinese_cht |     | 意大利文 | it     |     | 俄罗斯文 | ru     |
 
-全部语种及其对应的缩写列表可查看[多语言模型教程](./multi_languages.md)
+全部语种及其对应的缩写列表可查看[多语言模型教程](./blog/multi_languages.md)
 
 
 ### 2.2 Python脚本使用
@@ -270,7 +270,7 @@ image.save("result.jpg")
 
 此示例初始化了启用角度分类的PaddleOCR实例，并将语言设置为英语。然后调用`ocr`方法，并使用多个参数来自定义检测和识别过程，包括处理图像切片的`slice`参数。
 
-要更全面地了解切片操作，请参考[切片操作文档](./slice.md)。
+要更全面地了解切片操作，请参考[切片操作文档](./blog/slice.md)。
 
 ## 3. 小结
 

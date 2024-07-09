@@ -106,7 +106,7 @@ PaddleOCR提供的可下载模型包括`推理模型`、`训练模型`、`预训
 | cyrillic_PP-OCRv3_rec    | ppocr/utils/dict/cyrillic_dict.txt    | 斯拉夫字母   | [cyrillic_PP-OCRv3_rec.yml](../../configs/rec/PP-OCRv3/multi_language/cyrillic_PP-OCRv3_rec.yml)       | 9.6M         | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/cyrillic_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/cyrillic_PP-OCRv3_rec_train.tar)       |
 | devanagari_PP-OCRv3_rec  | ppocr/utils/dict/devanagari_dict.txt  | 梵文字母     | [devanagari_PP-OCRv3_rec.yml](../../configs/rec/PP-OCRv3/multi_language/devanagari_PP-OCRv3_rec.yml)   | 9.9M         | [推理模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/devanagari_PP-OCRv3_rec_infer.tar) / [训练模型](https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/devanagari_PP-OCRv3_rec_train.tar)   |
 
-查看完整语种列表与使用教程请参考: [多语言模型](./multi_languages.md)
+查看完整语种列表与使用教程请参考: [多语言模型](./blog/multi_languages.md)
 
 ## 3. 文本方向分类模型
 | 模型名称                      | 模型简介 | 配置文件 | 推理模型大小 | 下载地址  |

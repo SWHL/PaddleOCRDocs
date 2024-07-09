@@ -144,7 +144,7 @@ Commonly used multilingual abbreviations include
 | English             | en           |      | German   | german       |      | Korean   | korean       |
 | Chinese Traditional | chinese_cht  |      | Italian  | it           |      | Russian  | ru           |
 
-A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./multi_languages.en.md)
+A list of all languages and their corresponding abbreviations can be found in [Multi-Language Model Tutorial](./blog/multi_languages.en.md)
 
 
 ### 2.2 Use by Code
@@ -280,7 +280,7 @@ image.save("result.jpg")
 
 This example initializes the PaddleOCR instance with angle classification enabled and sets the language to English. The `ocr` method is then called with several parameters to customize the detection and recognition process, including the `slice` parameter for handling image slices.
 
-For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./slice.en.md).
+For a more comprehensive understanding of the slicing operation, please refer to the [slice operation documentation](./blog/slice.en.md).
 
 
 ## 3. Summary

@@ -7,6 +7,7 @@ comments: true
 Windows and Mac users are recommended to use Anaconda to build a Python environment, and Linux users are recommended to use docker to build a Python environment.
 
 Recommended working environment:
+
 - PaddlePaddle >= 2.1.2
 - Python 3.7
 - CUDA 10.1 / CUDA 10.2
@@ -27,7 +28,6 @@ Recommended working environment:
 - Anaconda download.
 
   - Address: https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
-
   - Most Win10 computers are 64-bit operating systems, choose x86_64 version; if the computer is a 32-bit operating system, choose x86.exe
 
     ![anaconda download](./images/Anaconda_download.png)
@@ -36,12 +36,10 @@ Recommended working environment:
 
   - The default installation location is C drive, it is recommended to change the installation location to D drive.
 
-    <img src="../images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
+    ![](./images/anaconda_install_folder.png)
 
   - Check Conda to add environment variables and ignore the warning that
-
-    <img src="../images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
-
+    ![](./images/anaconda_install_env.png)
 
 #### 1.1.2 Opening the terminal and creating the Conda environment
 - Open Anaconda Prompt terminal: bottom left Windows Start Menu -> Anaconda3 -> Anaconda Prompt start console
@@ -50,7 +48,7 @@ Recommended working environment:
 
 - Create a new Conda environment
 
-  ```shell
+  ```bash
   # Enter the following command at the command line to create an environment named paddle_env
   # Here to speed up the download, use the Tsinghua source
   conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ # This is a one line command
@@ -64,7 +62,7 @@ Recommended working environment:
 
 - To activate the Conda environment you just created, enter the following command at the command line.
 
-  ```shell
+  ```bash
   # Activate the paddle_env environment
   conda activate paddle_env
   # View the current location of python
@@ -108,20 +106,18 @@ The above anaconda environment and python environment are installed
 
   - Open `~/.bash_profile` in the terminal by typing the following command.
 
-    ```shell
+    ```bash
     vim ~/.bash_profile
     ```
 
   - Add Conda as an environment variable in `~/.bash_profile`.
 
-    ```shell
+    ```bash
     # Press i first to enter edit mode
     # In the first line type.
     export PATH="~/opt/anaconda3/bin:$PATH"
     # If you customized the installation location during installation, change ~/opt/anaconda3/bin to the bin folder in the customized installation directory
-    ```
 
-    ```shell
     # The modified ~/.bash_profile file should look like this (where xxx is the username)
     export PATH="~/opt/anaconda3/bin:$PATH"
     # >>> conda initialize >>>
@@ -149,7 +145,7 @@ The above anaconda environment and python environment are installed
 
 - Create a new Conda environment
 
-  ```shell
+  ```bash
   # Enter the following command at the command line to create an environment called paddle_env
   # Here to speed up the download, use Tsinghua source
   conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -163,7 +159,7 @@ The above anaconda environment and python environment are installed
 
 - To activate the Conda environment you just created, enter the following command at the command line.
 
-  ```shell
+  ```bash
   # Activate the paddle_env environment
   conda activate paddle_env
   # View the current location of python
@@ -197,7 +193,7 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 
   - Download method 2: Directly use Linux command line to download
 
-    ```shell
+    ```bash
     # First install wget
     sudo apt-get install wget # Ubuntu
     sudo yum install wget # CentOS
@@ -223,20 +219,20 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 
   - Open `~/.bashrc` in a terminal.
 
-    ```shell
+    ```bash
     # Enter the following command in the terminal.
     vim ~/.bashrc
     ```
 
   - Add conda as an environment variable in `~/.bashrc`.
 
-    ```shell
+    ```bash
     # Press i first to enter edit mode # In the first line enter.
     export PATH="~/anaconda3/bin:$PATH"
     # If you customized the installation location during installation, change ~/anaconda3/bin to the bin folder in the customized installation directory
     ```
 
-     ```shell
+    ```bash
     # The modified ~/.bash_profile file should look like this (where xxx is the username)
     export PATH="~/opt/anaconda3/bin:$PATH"
     # >>> conda initialize >>>
@@ -253,7 +249,7 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
     fi
     unset __conda_setup
     # <<< conda initialize <<<
-     ```
+    ```
 
     - When you are done, press `esc` to exit edit mode, then type `:wq!` and enter to save and exit
 
@@ -264,7 +260,7 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 
 - Create a new Conda environment
 
-  ```shell
+  ```bash
   # Enter the following command at the command line to create an environment called paddle_env
   # Here to speed up the download, use Tsinghua source
   conda create --name paddle_env python=3.8 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -278,13 +274,12 @@ Linux users can choose to run either Anaconda or Docker. If you are familiar wit
 
 - To activate the Conda environment you just created, enter the following command at the command line.
 
-  ```shell
+  ```bash
   # Activate the paddle_env environment
   conda activate paddle_env
   ```
 
 The above anaconda environment and python environment are installed
-
 
 #### 1.3.2 Docker environment preparation
 **The first time you use this docker image, it will be downloaded automatically. Please be patient.**
@@ -303,9 +298,10 @@ sudo docker run --name ppocr -v $PWD:/paddle --network=host -it  registry.baidub
 sudo nvidia-docker run --name ppocr -v $PWD:/paddle --shm-size=64G --network=host -it registry.baidubce.com/paddlepaddle/paddle:2.1.3-gpu-cuda10.2-cudnn7 /bin/bash
 
 ```
+
 You can also visit [DockerHub](https://hub.docker.com/r/paddlepaddle/paddle/tags/) to get the image that fits your machine.
 
-```
+```bash
 # ctrl+P+Q to exit docker, to re-enter docker using the following command:
 sudo docker container exec -it ppocr /bin/bash
 ```

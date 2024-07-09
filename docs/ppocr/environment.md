@@ -8,6 +8,7 @@ comments: true
 Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使用docker搭建Python环境。
 
 推荐环境：
+
 - PaddlePaddle >= 2.1.2
 - Python 3.7
 - CUDA10.1 / CUDA10.2
@@ -22,6 +23,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - 说明：使用paddlepaddle需要先安装python环境，这里我们选择python集成环境Anaconda工具包
   - Anaconda是1个常用的python包管理程序
   - 安装完Anaconda后，可以安装python环境，以及numpy等所需的工具包环境。
+
 - Anaconda下载：
   - 地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&O=D
   - 大部分win10电脑均为64位操作系统，选择x86_64版本；若电脑为32位操作系统，则选择x86.exe
@@ -31,6 +33,7 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   - 默认安装位置为C盘，建议将安装位置更改到D盘：
 
     <img src="../images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
+
   - 勾选conda加入环境变量，忽略警告：
 
     <img src="../images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
@@ -40,7 +43,6 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
 - 打开Anaconda Prompt终端：左下角Windows Start Menu -> Anaconda3 -> Anaconda Prompt启动控制台
 
   ![anaconda download](./images/anaconda_prompt.png)
-
 
 - 创建新的conda环境
 
@@ -226,24 +228,24 @@ Linux用户可选择Anaconda或Docker两种方式运行。如果你熟悉Docker�
     # 若安装时自定义了安装位置，则将~/anaconda3/bin改为自定义的安装目录下的bin文件夹
     ```
 
-     ```bash
-      # 修改后的~/.bash_profile文件应如下（其中xxx为用户名）：
-      export PATH="~/opt/anaconda3/bin:$PATH"
-      # >>> conda initialize >>>
-      # !! Contents within this block are managed by 'conda init' !!
-      __conda_setup="$('/Users/xxx/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-      if [ $? -eq 0 ]; then
-          eval "$__conda_setup"
-      else
-          if [ -f "/Users/xxx/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-              . "/Users/xxx/opt/anaconda3/etc/profile.d/conda.sh"
-          else
-              export PATH="/Users/xxx/opt/anaconda3/bin:$PATH"
-          fi
-      fi
-      unset __conda_setup
-      # <<< conda initialize <<<
-     ```
+    ```bash
+    # 修改后的~/.bash_profile文件应如下（其中xxx为用户名）：
+    export PATH="~/opt/anaconda3/bin:$PATH"
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/Users/xxx/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/Users/xxx/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/Users/xxx/opt/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/Users/xxx/opt/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+    ```
 
     - 修改完成后，先按`esc`键退出编辑模式，再输入`:wq!`并回车，以保存退出
 

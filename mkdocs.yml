@@ -101,6 +101,8 @@ plugins:
             PP-OCR 文本检测识别: PP-OCR
             概述: Overview
             快速开始: Quick Start
+            效果展示: Visualization
+            运行环境: Environment Preparation
             模型库: Model
             模型训练: Model Training
             基本概念: Basic concepts
@@ -121,6 +123,10 @@ plugins:
             Paddle2ONNX模型转化与预测: Paddle2ONNX
             云上飞桨部署工具: Paddle Cloud
             Benchmark: Benchmark
+            博客: Blog
+            多语言模型: Multi-language model
+            动手学OCR: Dive into OCR
+            切片操作: Slice
             PP-Structure文档分析: PP-Structure
             概述: Overview
             快速开始: Quick Start
@@ -160,7 +166,6 @@ plugins:
             表格识别数据集: Table recognition dataset
             关键信息提取数据集: Key Information Extraction Dataset
             FAQ: FAQ
-            博客: Blog
   - git-committers:
       repository: SWHL/PaddleOCRDocs
       branch: main
@@ -228,9 +233,9 @@ nav:
   - PP-OCR 文本检测识别:
     - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
+    - 效果展示: ppocr/visualization.md
     - 运行环境: ppocr/environment.md
     - 模型库: ppocr/model_list.md
-    - 多语言模型: ppocr/multi_languages.md
     - 模型训练:
       - 基本概念: ppocr/model_train/training.md
       - 文本检测: ppocr/model_train/detection.md
@@ -250,6 +255,11 @@ nav:
       - Paddle2ONNX模型转化与预测: ppocr/infer_deploy/paddle2onnx.md
       - 云上飞桨部署工具: ppocr/infer_deploy/paddle_cloud.md
       - Benchmark: ppocr/infer_deploy/benchmark.md
+    - 博客:
+      - 多语言模型: ppocr/blog/multi_languages.md
+      - 动手学OCR: ppocr/blog/ocr_book.md
+      - Enhanced CTC Loss: ppocr/blog/enhanced_ctc_loss.md
+      - 切片操作: ppocr/blog/slice.md
   - PP-Structure文档分析:
     - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
@@ -340,6 +350,3 @@ nav:
     - 表格识别数据集: datasets/table_datasets.md
     - 关键信息提取数据集: datasets/kie_datasets.md
   - FAQ: FAQ.md
-  - 博客:
-    - 动手学OCR: blog/ocr_book.md
-    - Enhanced CTC Loss: blog/enhanced_ctc_loss.md
