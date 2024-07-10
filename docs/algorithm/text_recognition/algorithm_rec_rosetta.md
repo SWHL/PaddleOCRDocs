@@ -4,6 +4,7 @@ comments: true
 ---
 
 # Rosetta
+
 ## 1. 算法简介
 
 论文信息：
@@ -18,8 +19,8 @@ comments: true
 |Rosetta|Resnet34_vd|[configs/rec/rec_r34_vd_none_none_ctc.yml](../../configs/rec/rec_r34_vd_none_none_ctc.yml)|79.11%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_none_ctc_v2.0_train.tar)|
 |Rosetta|MobileNetV3|[configs/rec/rec_mv3_none_none_ctc.yml](../../configs/rec/rec_mv3_none_none_ctc.yml)|75.80%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_none_none_ctc_v2.0_train.tar)|
 
-
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
@@ -36,18 +37,22 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 ### 3.2 评估
+
 ```bash
 # GPU评估, Global.pretrained_model为待评估模型
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 3.3 预测
+
 ```bash
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
+
 首先将Rosetta文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，在MJSynth和SynthText两个文字识别数据集训练得到的模型为例（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_none_ctc_v2.0_train.tar) )，可以使用如下命令进行转换：
 
 ```bash
@@ -69,19 +74,23 @@ Predicts of doc/imgs_words/en/word_1.png:('joint', 0.9999982714653015)
 ```
 
 ### 4.2 C++推理
+
 暂不支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 Rosetta模型还支持以下推理部署方式：
 
-- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../deploy/paddle2onnx/)教程操作。
+- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.md)教程操作。
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @inproceedings{2018Rosetta,
   title={Rosetta: Large Scale System for Text Detection and Recognition in Images},

@@ -11,19 +11,19 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 >
 新增算法可参考教程：[使用PaddleOCR架构添加新算法](./add_new_algorithm.md)
 
-
 ## 1. 两阶段算法
+
 ### 1.1 文本检测算法
 
 已支持的文本检测算法列表（戳链接获取使用教程）：
 
-- [x]  [DB与DB++](./algorithm_det_db.md)
-- [x]  [EAST](./algorithm_det_east.md)
-- [x]  [SAST](./algorithm_det_sast.md)
-- [x]  [PSENet](./algorithm_det_psenet.md)
-- [x]  [FCENet](./algorithm_det_fcenet.md)
-- [x]  [DRRG](./algorithm_det_drrg.md)
-- [x]  [CT](./algorithm_det_ct.md)
+- [x]  [DB与DB++](./text_detection/algorithm_det_db.md)
+- [x]  [EAST](./text_detection/algorithm_det_east.md)
+- [x]  [SAST](./text_detection/algorithm_det_sast.md)
+- [x]  [PSENet](./text_detection/algorithm_det_psenet.md)
+- [x]  [FCENet](./text_detection/algorithm_det_fcenet.md)
+- [x]  [DRRG](./text_detection/algorithm_det_drrg.md)
+- [x]  [CT](./text_detection/algorithm_det_ct.md)
 
 在ICDAR2015文本检测公开数据集上，算法效果如下：
 
@@ -53,35 +53,34 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |DRRG|ResNet50_vd|89.92%|80.91%|85.18%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/det_r50_drrg_ctw_train.tar)|
 
 **说明：** SAST模型训练额外加入了icdar2013、icdar2017、COCO-Text、ArT等公开数据集进行调优。PaddleOCR用到的经过整理格式的英文公开数据集下载：
-* [百度云地址](https://pan.baidu.com/s/12cPnZcVuV1zn5DOd4mqjVw) (提取码: 2bpi)
-* [Google Drive下载地址](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
-
+- [百度云地址](https://pan.baidu.com/s/12cPnZcVuV1zn5DOd4mqjVw) (提取码: 2bpi)
+- [Google Drive下载地址](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
 ### 1.2 文本识别算法
 
 已支持的文本识别算法列表（戳链接获取使用教程）：
 
-- [x]  [CRNN](./algorithm_rec_crnn.md)
-- [x]  [Rosetta](./algorithm_rec_rosetta.md)
-- [x]  [STAR-Net](./algorithm_rec_starnet.md)
-- [x]  [RARE](./algorithm_rec_rare.md)
-- [x]  [SRN](./algorithm_rec_srn.md)
-- [x]  [NRTR](./algorithm_rec_nrtr.md)
-- [x]  [SAR](./algorithm_rec_sar.md)
-- [x]  [SEED](./algorithm_rec_seed.md)
-- [x]  [SVTR](./algorithm_rec_svtr.md)
-- [x]  [ViTSTR](./algorithm_rec_vitstr.md)
-- [x]  [ABINet](./algorithm_rec_abinet.md)
-- [x]  [VisionLAN](./algorithm_rec_visionlan.md)
-- [x]  [SPIN](./algorithm_rec_spin.md)
-- [x]  [RobustScanner](./algorithm_rec_robustscanner.md)
-- [x]  [RFL](./algorithm_rec_rfl.md)
-- [x]  [ParseQ](./algorithm_rec_parseq.md)
-- [x]  [CPPD](./algorithm_rec_cppd.md)
-- [x]  [SATRN](./algorithm_rec_satrn.md)
+- [x]  [CRNN](./text_recognition/algorithm_rec_crnn.md)
+- [x]  [Rosetta](./text_recognition/algorithm_rec_rosetta.md)
+- [x]  [STAR-Net](./text_recognition/algorithm_rec_starnet.md)
+- [x]  [RARE](./text_recognition/algorithm_rec_rare.md)
+- [x]  [SRN](./text_recognition/algorithm_rec_srn.md)
+- [x]  [NRTR](./text_recognition/algorithm_rec_nrtr.md)
+- [x]  [SAR](./text_recognition/algorithm_rec_sar.md)
+- [x]  [SEED](./text_recognition/algorithm_rec_seed.md)
+- [x]  [SVTR](./text_recognition/algorithm_rec_svtr.md)
+- [x]  [ViTSTR](./text_recognition/algorithm_rec_vitstr.md)
+- [x]  [ABINet](./text_recognition/algorithm_rec_abinet.md)
+- [x]  [VisionLAN](./text_recognition/algorithm_rec_visionlan.md)
+- [x]  [SPIN](./text_recognition/algorithm_rec_spin.md)
+- [x]  [RobustScanner](./text_recognition/algorithm_rec_robustscanner.md)
+- [x]  [RFL](./text_recognition/algorithm_rec_rfl.md)
+- [x]  [ParseQ](./text_recognition/algorithm_rec_parseq.md)
+- [x]  [CPPD](./text_recognition/algorithm_rec_cppd.md)
+- [x]  [SATRN](./text_recognition/algorithm_rec_satrn.md)
 
-参考[DTRB](https://arxiv.org/abs/1904.01906)[3]文字识别训练和评估流程，使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法效果如下：
+参考[DTRB](https://arxiv.org/abs/1904.01906) (3)文字识别训练和评估流程，使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法效果如下：
 
 |模型|骨干网络|Avg Accuracy|模型存储命名|下载链接|
 |---|---|---|---|---|
@@ -108,12 +107,12 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |CPPD|SVTR-Base| 93.8% | rec_svtrnet_cppd_base_en | [训练模型](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) |
 |SATRN|ShallowCNN| 88.05% | rec_satrn | [训练模型](https://pan.baidu.com/s/10J-Bsd881bimKaclKszlaQ?pwd=lk8a) |
 
-
 ### 1.3 文本超分辨率算法
+
 已支持的文本超分辨率算法列表（戳链接获取使用教程）：
 
-- [x]  [Text Gestalt](./algorithm_sr_gestalt.md)
-- [x]  [Text Telescope](./algorithm_sr_telescope.md)
+- [x]  [Text Gestalt](./super_resolution/algorithm_sr_gestalt.md)
+- [x]  [Text Telescope](./super_resolution/algorithm_sr_telescope.md)
 
 在TextZoom公开数据集上，算法效果如下：
 
@@ -122,11 +121,11 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |Text Gestalt|tsrn|19.28|0.6560| [configs/sr/sr_tsrn_transformer_strock.yml](../../configs/sr/sr_tsrn_transformer_strock.yml)|[训练模型](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar)|
 |Text Telescope|tbsrn|21.56|0.7411| [configs/sr/sr_telescope.yml](../../configs/sr/sr_telescope.yml)|[训练模型](https://paddleocr.bj.bcebos.com/contribution/sr_telescope_train.tar)|
 
-
 ### 1.4 公式识别算法
+
 已支持的公式识别算法列表（戳链接获取使用教程）：
 
-- [x]  [CAN](./algorithm_rec_can.md)
+- [x]  [CAN](./formula_recognition/algorithm_rec_can.md)
 
 在CROHME手写公式数据集上，算法效果如下：
 
@@ -134,19 +133,17 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 | ----- | ----- | ----- | ----- | ----- |
 |CAN|DenseNet|[rec_d28_can.yml](../../configs/rec/rec_d28_can.yml)|51.72%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)|
 
-
 ## 2. 端到端算法
 
 已支持的端到端OCR算法列表（戳链接获取使用教程）：
 
-- [x]  [PGNet](./algorithm_e2e_pgnet.md)
-
+- [x]  [PGNet](./end_to_end/algorithm_e2e_pgnet.md)
 
 ## 3. 表格识别算法
 
 已支持的表格识别算法列表（戳链接获取使用教程）：
 
-- [x]  [TableMaster](./algorithm_table_master.md)
+- [x]  [TableMaster](./table_recognition/algorithm_table_master.md)
 
 在PubTabNet表格识别公开数据集上，算法效果如下：
 
@@ -154,24 +151,21 @@ PaddleOCR将**持续新增**支持OCR领域前沿算法与模型，**欢迎广�
 |---|---|---|---|---|
 |TableMaster|TableResNetExtra|[configs/table/table_master.yml](../../configs/table/table_master.yml)|77.47%|[训练模型](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_train.tar) / [推理模型](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_infer.tar)|
 
-
-
 ## 4. 关键信息抽取算法
 
 已支持的关键信息抽取算法列表（戳链接获取使用教程）：
 
-- [x]  [VI-LayoutXLM](./algorithm_kie_vi_layoutxlm.md)
-- [x]  [LayoutLM](./algorithm_kie_layoutxlm.md)
-- [x]  [LayoutLMv2](./algorithm_kie_layoutxlm.md)
-- [x]  [LayoutXLM](./algorithm_kie_layoutxlm.md)
-- [x]  [SDMGR](././algorithm_kie_sdmgr.md)
+- [x]  [VI-LayoutXLM](./kie/algorithm_kie_vi_layoutxlm.md)
+- [x]  [LayoutLM](./kie/algorithm_kie_layoutxlm.md)
+- [x]  [LayoutLMv2](./kie/algorithm_kie_layoutxlm.md)
+- [x]  [LayoutXLM](./kie/algorithm_kie_layoutxlm.md)
+- [x]  [SDMGR](./kie/algorithm_kie_sdmgr.md)
 
 在wildreceipt发票公开数据集上，算法复现效果如下：
 
 |模型|骨干网络|配置文件|hmean|下载链接|
 | --- | --- | --- | --- | --- |
 |SDMGR|VGG6|[configs/kie/sdmgr/kie_unet_sdmgr.yml](../../configs/kie/sdmgr/kie_unet_sdmgr.yml)|86.70%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.1/kie/kie_vgg16.tar)|
-
 
 在XFUND_zh公开数据集上，算法效果如下：
 

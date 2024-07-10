@@ -3,6 +3,7 @@ comments: true
 ---
 
 # PasreQ
+
 ## 1. Introduction
 
 Paper:
@@ -22,15 +23,15 @@ the algorithm reproduction effect is as follows:
 |Synth|ParseQ|VIT|[rec_vit_parseq.yml](../../configs/rec/rec_vit_parseq.yml)|91.24%|[train model](https://paddleocr.bj.bcebos.com/dygraph_v2.1/parseq/rec_vit_parseq_synth.tgz)|
 |Real|ParseQ|VIT|[rec_vit_parseq.yml](../../configs/rec/rec_vit_parseq.yml)|94.74%|[train model](https://paddleocr.bj.bcebos.com/dygraph_v2.1/parseq/rec_vit_parseq_real.tgz)|
 
-
 ## 2. Environment
+
 Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
-
 ## 3. Model Training / Evaluation / Prediction
+
 Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-### Training:
+### Training
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
@@ -42,20 +43,24 @@ python3 tools/train.py -c configs/rec/rec_vit_parseq.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_vit_parseq.yml
 ```
 
-### Evaluation:
+### Evaluation
+
 ```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_vit_parseq.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### Prediction:
+### Prediction
+
 ```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_vit_parseq.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, the model saved during the SAR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.1/parseq/rec_vit_parseq_real.tgz) ), you can use the following command to convert:
 
 ```bash
@@ -69,17 +74,21 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 ```
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @InProceedings{bautista2022parseq,
   title={Scene Text Recognition with Permuted Autoregressive Sequence Models},

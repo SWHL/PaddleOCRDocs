@@ -20,12 +20,15 @@ comments: true
 注：除了使用MJSynth和SynthText两个文字识别数据集外，还加入了[SynthAdd](https://pan.baidu.com/share/init?surl=uV0LtoNmcxbO-0YA7Ch4dg)数据（提取码：627x），和部分真实数据，具体数据细节可以参考论文。
 
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
+
 请参考[文本识别教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
 ### 训练
+
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 
 ```bash
@@ -37,18 +40,23 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 ### 评估
+
 ```bash
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r31_sar.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### 预测：
+### 预测
+
 ```bash
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r31_sar.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
+
 ## 4. 推理部署
+
 ### 4.1 Python推理
+
 首先将SAR文本识别训练过程中保存的模型，转换成inference model。（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.1/rec/rec_r31_sar_train.tar) )，可以使用如下命令进行转换：
 
 ```bash
@@ -62,17 +70,21 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 ```
 
 ### 4.2 C++推理
+
 由于C++预处理后处理还未支持SAR，所以暂未支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 暂不支持
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @article{Li2019ShowAA,
   title={Show, Attend and Read: A Simple and Strong Baseline for Irregular Text Recognition},

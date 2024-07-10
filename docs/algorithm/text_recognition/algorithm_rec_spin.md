@@ -18,14 +18,16 @@ SPIN收录于AAAI2020。主要用于OCR识别任务。在任意形状文本识�
 | --- | --- | --- | --- | --- |
 |SPIN|ResNet32|[rec_r32_gaspin_bilstm_att.yml](../../configs/rec/rec_r32_gaspin_bilstm_att.yml)|90.00%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_r32_gaspin_bilstm_att.tar)|
 
-
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
+
 请参考[文本识别教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
 ### 训练
+
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 
 ```bash
@@ -37,19 +39,23 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 ### 评估
+
 ```bash
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 预测
+
 ```bash
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
+
 首先将SPIN文本识别训练过程中保存的模型，转换成inference model。可以使用如下命令进行转换：
 
 ```bash
@@ -63,17 +69,21 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" 
 ```
 
 ### 4.2 C++推理
+
 由于C++预处理后处理还未支持SPIN，所以暂未支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 暂不支持
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @article{2020SPIN,
   title={SPIN: Structure-Preserving Inner Offset Network for Scene Text Recognition},

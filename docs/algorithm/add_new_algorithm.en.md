@@ -15,8 +15,8 @@ PaddleOCR decomposes an algorithm into the following parts, and modularizes each
 
 The following will introduce each part separately, and introduce how to add the modules required for the new algorithm.
 
-
 ## Data loading and processing
+
 Data loading and processing are composed of different modules, which complete the image reading, data augment and label production. This part is under [ppocr/data](../../ppocr/data). The explanation of each file and folder are as follows:
 
 ```bash
@@ -86,23 +86,23 @@ PaddleOCR has built-in commonly used modules related to algorithms such as DB, E
 1. Create a new file under the [ppocr/modeling/backbones](../../ppocr/modeling/backbones) folder, such as my_backbone.py.
 2. Add code in the my_backbone.py file, the sample code is as follows:
 
-```python
-import paddle
-import paddle.nn as nn
-import paddle.nn.functional as F
+    ```python
+    import paddle
+    import paddle.nn as nn
+    import paddle.nn.functional as F
 
 
-class MyBackbone(nn.Layer):
-    def __init__(self, *args, **kwargs):
-        super(MyBackbone, self).__init__()
-        # your init code
-        self.conv = nn.xxxx
+    class MyBackbone(nn.Layer):
+        def __init__(self, *args, **kwargs):
+            super(MyBackbone, self).__init__()
+            # your init code
+            self.conv = nn.xxxx
 
-    def forward(self, inputs):
-        # your network forward
-        y = self.conv(inputs)
-        return y
-```
+        def forward(self, inputs):
+            # your network forward
+            y = self.conv(inputs)
+            return y
+    ```
 
 3. Import the added module in the [ppocr/modeling/backbones/\__init\__.py](../../ppocr/modeling/backbones/__init__.py) file.
 
@@ -110,19 +110,19 @@ After adding the four-part modules of the network, you only need to configure th
 
 ```yaml
 Architecture:
-  model_type: rec
-  algorithm: CRNN
-  Transform:
+model_type: rec
+algorithm: CRNN
+Transform:
     name: MyTransform
     args1: args1
     args2: args2
-  Backbone:
+Backbone:
     name: MyBackbone
     args1: args1
-  Neck:
+Neck:
     name: MyNeck
     args1: args1
-  Head:
+Head:
     name: MyHead
     args1: args1
 ```

@@ -4,13 +4,12 @@ comments: true
 ---
 
 # CRNN
+
 ## 1. 算法简介
 
 论文信息：
 > [An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition](https://arxiv.org/abs/1507.05717)
-
 > Baoguang Shi, Xiang Bai, Cong Yao
-
 > IEEE, 2015
 
 参考[DTRB](https://arxiv.org/abs/1904.01906) 文字识别训练和评估流程，使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法效果如下：
@@ -21,9 +20,11 @@ comments: true
 |CRNN|MobileNetV3|77.95%|[configs/rec/rec_mv3_none_bilstm_ctc.yml](../../configs/rec/rec_mv3_none_bilstm_ctc.yml)|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_none_bilstm_ctc_v2.0_train.tar)|
 
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
+
 请参考[文本识别训练教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
 ### 训练
@@ -38,27 +39,32 @@ python3 tools/train.py -c configs/rec/rec_r34_vd_none_bilstm_ctc.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34_vd_none_bilstm_ctc.yml
 ```
 
-### 评估：
+### 评估
+
 ```bash
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_none_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### 预测：
+### 预测
+
 ```bash
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_none_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
 
 首先将 CRNN 文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，使用MJSynth和SynthText两个英文文本识别合成数据集训练的[模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_bilstm_ctc_v2.0_train.tar) 为例，可以使用如下命令进行转换：
+
 ```bash
 python3 tools/export_model.py -c configs/rec/rec_r34_vd_none_bilstm_ctc.yml -o Global.pretrained_model=./rec_r34_vd_none_bilstm_ctc_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/rec_crnn
 ```
 
 CRNN 文本识别模型推理，可以执行如下命令：
+
 ```bash
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./inference/rec_crnn/" --rec_image_shape="3, 32, 100" --rec_char_dict_path="./ppocr/utils/ic15_dict.txt"
 ```
@@ -66,6 +72,7 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png
 ![img](./images/word_336-20240705082445918.png)
 
 执行命令后，上面图像的识别结果如下：
+
 ```bash
 Predicts of ./doc/imgs_words_en/word_336.png:('super', 0.9999073)
 ```
@@ -80,21 +87,24 @@ Predicts of ./doc/imgs_words_en/word_336.png:('super', 0.9999073)
   dict_character = list(self.character_str)
   ```
 
-
 ### 4.2 C++推理
-准备好推理模型后，参考[cpp infer](../../deploy/cpp_infer/)教程进行操作即可。
+
+准备好推理模型后，参考[cpp infer](../../ppocr/infer_deploy/cpp_infer.md)教程进行操作即可。
 
 ### 4.3 Serving服务化部署
-准备好推理模型后，参考[pdserving](../../deploy/pdserving/)教程进行Serving服务化部署，包括Python Serving和C++ Serving两种模式。
+
+准备好推理模型后，参考[pdserving](../../ppocr/infer_deploy/paddle_server.md)教程进行Serving服务化部署，包括Python Serving和C++ Serving两种模式。
 
 ### 4.4 更多推理部署
+
 CRNN模型还支持以下推理部署方式：
 
-- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../deploy/paddle2onnx/)教程操作。
+- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.md)教程操作。
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @ARTICLE{7801919,
   author={Shi, Baoguang and Bai, Xiang and Yao, Cong},

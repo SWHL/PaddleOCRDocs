@@ -30,13 +30,17 @@ On the TD_TR dataset, the text detection result is as follows:
 |DB++|ResNet50|[configs/det/det_r50_db++_td_tr.yml](../../configs/det/det_r50_db++_td_tr.yml)|92.92%|86.48%|89.58%|[pretrained model](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/ResNet50_dcn_asf_synthtext_pretrained.pdparams)/[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.1/en_det/det_r50_db%2B%2B_td_tr_train.tar)|
 
 ## 2. Environment
-Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](./clone_en.md).
+
+Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](../../ppocr/blog/clone.en.md).
 
 ## 3. Model Training / Evaluation / Prediction
-Please refer to [text detection training tutorial](./detection_en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
+
+Please refer to [text detection training tutorial](../../ppocr/model_train/detection.en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, convert the model saved in the DB text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_db_v2.0_train.tar)), you can use the following command to convert:
 
 ```bash
@@ -56,19 +60,23 @@ The visualized text detection results are saved to the `./inference_results` fol
 **Note**: Since the ICDAR2015 dataset has only 1,000 training images, mainly for English scenes, the above model has very poor detection result on Chinese text images.
 
 ### 4.2 C++ Inference
-With the inference model prepared, refer to the [cpp infer](../../deploy/cpp_infer/) tutorial for C++ inference.
+
+With the inference model prepared, refer to the [cpp infer](../../ppocr/infer_deploy/cpp_infer.en.md) tutorial for C++ inference.
 
 ### 4.3 Serving
-With the inference model prepared, refer to the [pdserving](../../deploy/pdserving/) tutorial for service deployment by Paddle Serving.
+
+With the inference model prepared, refer to the [pdserving](../../ppocr/infer_deploy/paddle_server.en.md) tutorial for service deployment by Paddle Serving.
 
 ### 4.4 More
+
 More deployment schemes supported for DB:
 
-- Paddle2ONNX: with the inference model prepared, please refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
+- Paddle2ONNX: with the inference model prepared, please refer to the [paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.en.md) tutorial.
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @inproceedings{liao2020real,
   title={Real-time scene text detection with differentiable binarization},

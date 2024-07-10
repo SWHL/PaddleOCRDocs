@@ -4,6 +4,7 @@ comments: true
 ---
 
 # SAST
+
 ## 1. Introduction
 
 Paper:
@@ -17,23 +18,26 @@ On the ICDAR2015 dataset, the text detection result is as follows:
 | --- | --- | --- | --- | --- | --- | --- |
 |SAST|ResNet50_vd|[configs/det/det_r50_vd_sast_icdar15.yml](../../configs/det/det_r50_vd_sast_icdar15.yml)|91.39%|83.77%|87.42%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_icdar15_v2.0_train.tar)|
 
-
 On the Total-text dataset, the text detection result is as follows:
 
 |Model|Backbone|Configuration|Precision|Recall|Hmean|Download|
 | --- | --- | --- | --- | --- | --- | --- |
 |SAST|ResNet50_vd|[configs/det/det_r50_vd_sast_totaltext.yml](../../configs/det/det_r50_vd_sast_totaltext.yml)|89.63%|78.44%|83.66%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_totaltext_v2.0_train.tar)|
 
-
 ## 2. Environment
-Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](./clone_en.md).
+
+Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](../../ppocr/blog/clone.en.md).
 
 ## 3. Model Training / Evaluation / Prediction
-Please refer to [text detection training tutorial](./detection_en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
+
+Please refer to [text detection training tutorial](../../ppocr/model_train/detection.en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 #### (1). Quadrangle text detection model (ICDAR2015)
+
 First, convert the model saved in the SAST text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the ICDAR2015 English dataset as an example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_icdar15_v2.0_train.tar)), you can use the following command to convert:
 
 ```bash
@@ -51,6 +55,7 @@ The visualized text detection results are saved to the `./inference_results` fol
 ![img](./images/det_res_img_10_sast.jpg)
 
 #### (2). Curved text detection model (Total-Text)
+
 First, convert the model saved in the SAST text detection training process into an inference model. Taking the model based on the Resnet50_vd backbone network and trained on the Total-Text English dataset as an example ([model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/det_r50_vd_sast_totaltext_v2.0_train.tar)), you can use the following command to convert:
 
 ```bash
@@ -70,17 +75,21 @@ The visualized text detection results are saved to the `./inference_results` fol
 **Note**: SAST post-processing locality aware NMS has two versions: Python and C++. The speed of C++ version is obviously faster than that of Python version. Due to the compilation version problem of NMS of C++ version, C++ version NMS will be called only in Python 3.5 environment, and python version NMS will be called in other cases.
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @inproceedings{wang2019single,
   title={A Single-Shot Arbitrarily-Shaped Text Detector based on Context Attended Multi-Task Learning},

@@ -3,6 +3,7 @@ comments: true
 ---
 
 # RFL
+
 ## 1. Introduction
 
 Paper:
@@ -18,18 +19,18 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 |RFL-Att|ResNetRFL|[rec_resnet_rfl_att.yml](../../configs/rec/rec_resnet_rfl_att.yml)|88.63%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl_att_train.tar)|
 
 ## 2. Environment
-Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
+Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
 
 PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-### Training:
+### Training
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```
+```bash
 #step1:train the CNT branch
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_resnet_rfl_visual.yml
@@ -43,18 +44,16 @@ python3 tools/train.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretraine
 
 # Multi GPU training, specify the gpu number through the --gpus parameter
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_resnet_rfl_att.yml  -o Global.pretrained_model={path/to/weights}/best_accuracy
-
-
 ```
 
-### Evaluation:
+### Evaluation
 
 ```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### Prediction:
+### Prediction
 
 ```bash
 # The configuration file used for prediction must match the training
@@ -62,7 +61,9 @@ python3 tools/infer_rec.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.infer
 ```
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, the model saved during the RFL text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl.tar)) ), you can use the following command to convert:
 
 ```bash
@@ -70,17 +71,18 @@ python3 tools/export_model.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pr
 ```
 
 **Note:**
+
 - If you are training the model on your own dataset and have modified the dictionary file, please pay attention to modify the `character_dict_path` in the configuration file to the modified dictionary file.
 - If you modified the input size during training, please modify the `infer_shape` corresponding to NRTR in the `tools/export_model.py` file.
 
 After the conversion is successful, there are three files in the directory:
-```
+
+```text
 /inference/rec_resnet_rfl_att/
     ├── inference.pdiparams
     ├── inference.pdiparams.info
     └── inference.pdmodel
 ```
-
 
 For RFL text recognition model inference, the following commands can be executed:
 
@@ -92,22 +94,27 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
 The result is as follows:
+
 ```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999927282333374)
 ```
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @article{2021Reciprocal,
   title     = {Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition},

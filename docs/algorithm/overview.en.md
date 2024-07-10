@@ -4,22 +4,24 @@ comments: true
 
 # Algorithms
 
-This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the models and metrics of each algorithm on **English public datasets**. It is mainly used for algorithm introduction and algorithm performance comparison. For more models on other datasets including Chinese, please refer to [PP-OCRv3 models list](./models_list_en.md).
+This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the models and metrics of each algorithm on **English public datasets**. It is mainly used for algorithm introduction and algorithm performance comparison. For more models on other datasets including Chinese, please refer to [PP-OCRv3 models list](./models_list.en.md).
 
 >
-Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm_en.md) guideline.
+Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm.en.md) guideline.
 
 ## 1. Two-stage OCR Algorithms
+
 ### 1.1 Text Detection Algorithms
+
 Supported text detection algorithms (Click the link to get the tutorial):
 
-- [x]  [DB && DB++](./algorithm_det_db_en.md)
-- [x]  [EAST](./algorithm_det_east_en.md)
-- [x]  [SAST](./algorithm_det_sast_en.md)
-- [x]  [PSENet](./algorithm_det_psenet_en.md)
-- [x]  [FCENet](./algorithm_det_fcenet_en.md)
-- [x]  [DRRG](./algorithm_det_drrg_en.md)
-- [x]  [CT](./algorithm_det_ct_en.md)
+- [x]  [DB && DB++](./text_detection/algorithm_det_db.en.md)
+- [x]  [EAST](./text_detection/algorithm_det_east.en.md)
+- [x]  [SAST](./text_detection/algorithm_det_sast.en.md)
+- [x]  [PSENet](./text_detection/algorithm_det_psenet.en.md)
+- [x]  [FCENet](./text_detection/algorithm_det_fcenet.en.md)
+- [x]  [DRRG](./text_detection/algorithm_det_drrg.en.md)
+- [x]  [CT](./text_detection/algorithm_det_ct.en.md)
 
 On the ICDAR2015 dataset, the text detection result is as follows:
 
@@ -49,32 +51,32 @@ On CTW1500 dataset, the text detection result is as follows:
 |DRRG|ResNet50_vd|89.92%|80.91%|85.18%|[trained model](https://paddleocr.bj.bcebos.com/contribution/det_r50_drrg_ctw_train.tar)|
 
 **Note：** Additional data, like icdar2013, icdar2017, COCO-Text, ArT, was added to the model training of SAST. Download English public dataset in organized format used by PaddleOCR from:
-* [Baidu Drive](https://pan.baidu.com/s/12cPnZcVuV1zn5DOd4mqjVw) (download code: 2bpi).
-* [Google Drive](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
+- [Baidu Drive](https://pan.baidu.com/s/12cPnZcVuV1zn5DOd4mqjVw) (download code: 2bpi).
+- [Google Drive](https://drive.google.com/drive/folders/1ll2-XEVyCQLpJjawLDiRlvo_i4BqHCJe?usp=sharing)
 
 ### 1.2 Text Recognition Algorithms
 
 Supported text recognition algorithms (Click the link to get the tutorial):
 
-- [x]  [CRNN](./algorithm_rec_crnn_en.md)
-- [x]  [Rosetta](./algorithm_rec_rosetta_en.md)
-- [x]  [STAR-Net](./algorithm_rec_starnet_en.md)
-- [x]  [RARE](./algorithm_rec_rare_en.md)
-- [x]  [SRN](./algorithm_rec_srn_en.md)
-- [x]  [NRTR](./algorithm_rec_nrtr_en.md)
-- [x]  [SAR](./algorithm_rec_sar_en.md)
-- [x]  [SEED](./algorithm_rec_seed_en.md)
-- [x]  [SVTR](./algorithm_rec_svtr_en.md)
-- [x]  [ViTSTR](./algorithm_rec_vitstr_en.md)
-- [x]  [ABINet](./algorithm_rec_abinet_en.md)
-- [x]  [VisionLAN](./algorithm_rec_visionlan_en.md)
-- [x]  [SPIN](./algorithm_rec_spin_en.md)
-- [x]  [RobustScanner](./algorithm_rec_robustscanner_en.md)
-- [x]  [RFL](./algorithm_rec_rfl_en.md)
-- [x]  [ParseQ](./algorithm_rec_parseq.md)
-- [x]  [CPPD](./algorithm_rec_cppd_en.md)
-- [x]  [SATRN](./algorithm_rec_satrn_en.md)
+- [x]  [CRNN](./text_recognition/algorithm_rec_crnn.en.md)
+- [x]  [Rosetta](./text_recognition/algorithm_rec_rosetta.en.md)
+- [x]  [STAR-Net](./text_recognition/algorithm_rec_starnet.en.md)
+- [x]  [RARE](./text_recognition/algorithm_rec_rare.en.md)
+- [x]  [SRN](./text_recognition/algorithm_rec_srn.en.md)
+- [x]  [NRTR](./text_recognition/algorithm_rec_nrtr.en.md)
+- [x]  [SAR](./text_recognition/algorithm_rec_sar.en.md)
+- [x]  [SEED](./text_recognition/algorithm_rec_seed.en.md)
+- [x]  [SVTR](./text_recognition/algorithm_rec_svtr.en.md)
+- [x]  [ViTSTR](./text_recognition/algorithm_rec_vitstr.en.md)
+- [x]  [ABINet](./text_recognition/algorithm_rec_abinet.en.md)
+- [x]  [VisionLAN](./text_recognition/algorithm_rec_visionlan.en.md)
+- [x]  [SPIN](./text_recognition/algorithm_rec_spin.en.md)
+- [x]  [RobustScanner](./text_recognition/algorithm_rec_robustscanner.en.md)
+- [x]  [RFL](./text_recognition/algorithm_rec_rfl.en.md)
+- [x]  [ParseQ](./text_recognition/algorithm_rec_parseq.md)
+- [x]  [CPPD](./text_recognition/algorithm_rec_cppd.en.md)
+- [x]  [SATRN](./text_recognition/algorithm_rec_satrn.en.md)
 
 Refer to [DTRB](https://arxiv.org/abs/1904.01906), the training and evaluation result of these above text recognition (using MJSynth and SynthText for training, evaluate on IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE) is as follow:
 
@@ -103,14 +105,12 @@ Refer to [DTRB](https://arxiv.org/abs/1904.01906), the training and evaluation r
 |CPPD|SVTR-Base| 93.8% | rec_svtrnet_cppd_base_en | [trained model](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) |
 |SATRN|ShallowCNN| 88.05% | rec_satrn | [trained model](https://pan.baidu.com/s/10J-Bsd881bimKaclKszlaQ?pwd=lk8a) |
 
-
-
 ### 1.3 Text Super-Resolution Algorithms
 
 Supported text super-resolution algorithms (Click the link to get the tutorial):
 
-- [x]  [Text Gestalt](./algorithm_sr_gestalt_en.md)
-- [x]  [Text Telescope](./algorithm_sr_telescope_en.md)
+- [x]  [Text Gestalt](./super_resolution/algorithm_sr_gestalt.en.md)
+- [x]  [Text Telescope](./super_resolution/algorithm_sr_telescope.en.md)
 
 On the TextZoom public dataset, the effect of the algorithm is as follows:
 
@@ -119,12 +119,11 @@ On the TextZoom public dataset, the effect of the algorithm is as follows:
 |Text Gestalt|tsrn|19.28|0.6560| [configs/sr/sr_tsrn_transformer_strock.yml](../../configs/sr/sr_tsrn_transformer_strock.yml)|[trained model](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar)|
 |Text Telescope|tbsrn|21.56|0.7411| [configs/sr/sr_telescope.yml](../../configs/sr/sr_telescope.yml)|[trained model](https://paddleocr.bj.bcebos.com/contribution/sr_telescope_train.tar)|
 
-
 ### 1.4 Formula Recognition Algorithm
 
 Supported formula recognition algorithms (Click the link to get the tutorial):
 
-- [x]  [CAN](./algorithm_rec_can_en.md)
+- [x]  [CAN](./formula_recognition/algorithm_rec_can.en.md)
 
 On the CROHME handwritten formula dataset, the effect of the algorithm is as follows:
 
@@ -132,20 +131,17 @@ On the CROHME handwritten formula dataset, the effect of the algorithm is as fol
 | ----- | ----- | ----- | ----- | ----- |
 |CAN|DenseNet|[rec_d28_can.yml](../../configs/rec/rec_d28_can.yml)|51.72%|[trained model](https://paddleocr.bj.bcebos.com/contribution/rec_d28_can_train.tar)|
 
-
-
 ## 2. End-to-end OCR Algorithms
 
 Supported end-to-end algorithms (Click the link to get the tutorial):
 
-- [x]  [PGNet](./algorithm_e2e_pgnet_en.md)
-
+- [x]  [PGNet](./end_to_end/algorithm_e2e_pgnet.en.md)
 
 ## 3. Table Recognition Algorithms
 
 Supported table recognition algorithms (Click the link to get the tutorial):
 
-- [x]  [TableMaster](./algorithm_table_master_en.md)
+- [x]  [TableMaster](./table_recognition/algorithm_table_master.en.md)
 
 On the PubTabNet dataset, the algorithm result is as follows:
 
@@ -153,17 +149,15 @@ On the PubTabNet dataset, the algorithm result is as follows:
 |---|---|---|---|---|
 |TableMaster|TableResNetExtra|[configs/table/table_master.yml](../../configs/table/table_master.yml)|77.47%|[trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_train.tar) / [inference model](https://paddleocr.bj.bcebos.com/ppstructure/models/tablemaster/table_structure_tablemaster_infer.tar)|
 
-
-
 ## 4. Key Information Extraction Algorithms
 
 Supported KIE algorithms (Click the link to get the tutorial):
 
-- [x]  [VI-LayoutXLM](./algorithm_kie_vi_layoutxlm_en.md)
-- [x]  [LayoutLM](./algorithm_kie_layoutxlm_en.md)
-- [x]  [LayoutLMv2](./algorithm_kie_layoutxlm_en.md)
-- [x]  [LayoutXLM](./algorithm_kie_layoutxlm_en.md)
-- [x]  [SDMGR](./algorithm_kie_sdmgr_en.md)
+- [x]  [VI-LayoutXLM](./kie/algorithm_kie_vi_layoutxlm.en.md)
+- [x]  [LayoutLM](./kie/algorithm_kie_layoutxlm.en.md)
+- [x]  [LayoutLMv2](./kie/algorithm_kie_layoutxlm.en.md)
+- [x]  [LayoutXLM](./kie/algorithm_kie_layoutxlm.en.md)
+- [x]  [SDMGR](./kie/algorithm_kie_sdmgr.en.md)
 
 On wildreceipt dataset, the algorithm result is as follows:
 

@@ -4,13 +4,12 @@ comments: true
 ---
 
 # STAR-Net
+
 ## 1. 算法简介
 
 论文信息：
 > [STAR-Net: a spatial attention residue network for scene text recognition.](http://www.bmva.org/bmvc/2016/papers/paper043/paper043.pdf)
-
 > Wei Liu, Chaofeng Chen, Kwan-Yee K. Wong, Zhizhong Su and Junyu Han.
-
 > BMVC, pages 43.1-43.13, 2016
 
 参考[DTRB](https://arxiv.org/abs/1904.01906) 文字识别训练和评估流程，使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法效果如下：
@@ -20,14 +19,16 @@ comments: true
 |StarNet|Resnet34_vd|84.44%|[configs/rec/rec_r34_vd_tps_bilstm_ctc.yml](../../configs/rec/rec_r34_vd_tps_bilstm_ctc.yml)|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_ctc_v2.0_train.tar)|
 |StarNet|MobileNetV3|81.42%|[configs/rec/rec_mv3_tps_bilstm_ctc.yml](../../configs/rec/rec_mv3_tps_bilstm_ctc.yml)|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_ctc_v2.0_train.tar)|
 
-
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
+
 请参考[文本识别训练教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练不同的识别模型只需要**更换配置文件**即可。
 
 ### 训练
+
 在完成数据准备后，便可以启动训练，训练命令如下：
 
 ```bash
@@ -39,24 +40,29 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34
 ```
 
 ### 评估
+
 ```bash
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### 预测：
+### 预测
+
 ```bash
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
 
 首先将 STAR-Net 文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，使用MJSynth和SynthText两个英文文本识别合成数据集训练的[模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_bilstm_ctc_v2.0_train.tar) 为例，可以使用如下命令进行转换：
+
 ```bash
 python3 tools/export_model.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model=./rec_r34_vd_tps_bilstm_ctc_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/rec_starnet
 ```
+
 STAR-Net 文本识别模型推理，可以执行如下命令：
 
 ```bash
@@ -83,19 +89,23 @@ dict_character = list(self.character_str)
 ```
 
 ### 4.2 C++推理
-准备好推理模型后，参考[cpp infer](../../deploy/cpp_infer/)教程进行操作即可。
+
+准备好推理模型后，参考[cpp infer](../../ppocr/infer_deploy/cpp_infer.md)教程进行操作即可。
 
 ### 4.3 Serving服务化部署
-准备好推理模型后，参考[pdserving](../../deploy/pdserving/)教程进行Serving服务化部署，包括Python Serving和C++ Serving两种模式。
+
+准备好推理模型后，参考[pdserving](../../ppocr/infer_deploy/paddle_server.md)教程进行Serving服务化部署，包括Python Serving和C++ Serving两种模式。
 
 ### 4.4 更多推理部署
+
 STAR-Net模型还支持以下推理部署方式：
 
-- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../deploy/paddle2onnx/)教程操作。
+- Paddle2ONNX推理：准备好推理模型后，参考[paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.md)教程操作。
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @inproceedings{liu2016star,
   title={STAR-Net: a spatial attention residue network for scene text recognition.},

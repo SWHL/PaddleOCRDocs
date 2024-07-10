@@ -3,6 +3,7 @@ comments: true
 ---
 
 # RARE
+
 ## 1. Introduction
 
 Paper information:
@@ -17,8 +18,8 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 |RARE|Resnet34_vd|[configs/rec/rec_r34_vd_tps_bilstm_att.yml](../../configs/rec/rec_r34_vd_tps_bilstm_att.yml)|83.60%|[training model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_att_v2.0_train.tar)|
 |RARE|MobileNetV3|[configs/rec/rec_mv3_tps_bilstm_att.yml](../../configs/rec/rec_mv3_tps_bilstm_att.yml)|82.50%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_att_v2.0_train.tar)|
 
-
 ## 2. Environment
+
 Please refer to [Operating Environment Preparation](../../ppocr/environment.en.md) to configure the PaddleOCR operating environment, and refer to [Project Clone](../../ppocr/blog/clone.en.md)to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
@@ -50,6 +51,7 @@ python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_att.yml -o Globa
 ## 4. Inference
 
 ### 4.1 Python Inference
+
 First, convert the model saved during the RARE text recognition training process into an inference model. Take the model trained on the MJSynth and SynthText text recognition datasets based on the Resnet34_vd backbone network as an example ([Model download address](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_att_v2.0_train.tar) ), which can be converted using the following command:
 
 ```bash
@@ -61,25 +63,28 @@ RARE text recognition model inference, you can execute the following commands:
 ```bash
 python3 tools/infer/predict_rec.py --image_dir="doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_rare/" --rec_image_shape="3, 32, 100" --rec_char_dict_path= "./ppocr/utils/ic15_dict.txt"
 ````
+
 The inference results are as follows:
 
 ![img](./images/word_1-20240704184113913.png)
 
-````
+````text
 Predicts of doc/imgs_words/en/word_1.png:('joint ', 0.9999969601631165)
 ````
 
 ### 4.2 C++ Inference
+
 Not currently supported
 
 ### 4.3 Serving
+
 Not currently supported
 
 ### 4.4 More
 
 The RARE model also supports the following inference deployment methods:
 
-- Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
+- Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.en.md) tutorial.
 
 ## 5. FAQ
 

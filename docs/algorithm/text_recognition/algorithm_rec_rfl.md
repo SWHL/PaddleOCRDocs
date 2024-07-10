@@ -11,7 +11,6 @@ comments: true
 > Hui Jiang, Yunlu Xu, Zhanzhan Cheng, Shiliang Pu, Yi Niu, Wenqi Ren, Fei Wu, and Wenming Tan
 > ICDAR, 2021
 
-
 `RFL`使用MJSynth和SynthText两个文字识别数据集训练，在IIIT, SVT, IC03, IC13, IC15, SVTP, CUTE数据集上进行评估，算法复现效果如下：
 
 |模型|骨干网络|配置文件|Acc|下载链接|
@@ -20,8 +19,8 @@ comments: true
 |RFL-Att|ResNetRFL|[rec_resnet_rfl_att.yml](../../configs/rec/rec_resnet_rfl_att.yml)|88.63%|[训练模型](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl_att_train.tar)|
 
 ## 2. 环境配置
-请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
+请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
 
@@ -31,8 +30,8 @@ PaddleOCR对代码进行了模块化，训练`RFL`识别模型时需要**更换�
 
 #### 启动训练
 
-
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
+
 ```bash
 #step1:训练CNT分支
 #单卡训练（训练周期长，不建议）
@@ -61,6 +60,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec
 ### 3.3 预测
 
 使用如下命令进行单张图片预测：
+
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./output/rec/rec_resnet_rfl_att/best_accuracy
@@ -68,18 +68,23 @@ python3 tools/infer_rec.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.infer
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
+
 首先将训练得到best模型，转换成inference model。这里以训练完成的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/contribution/rec_resnet_rfl.tar) )，可以使用如下命令进行转换：
 
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c configs/rec/rec_resnet_rfl_att.yml -o Global.pretrained_model=./output/rec/rec_resnet_rfl_att/best_accuracy Global.save_inference_dir=./inference/rec_resnet_rfl_att/
 ```
+
 **注意：** 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否是所需要的字典文件。
+
 - 如果您修改了训练时的输入大小，请修改`tools/export_model.py`文件中的对应RFL的`infer_shape`。
 
 转换成功后，在目录下有三个文件：
-```
+
+```text
 /inference/rec_resnet_rfl_att/
     ├── inference.pdiparams         # 识别inference模型的参数文件
     ├── inference.pdiparams.info    # 识别inference模型的参数信息，可忽略
@@ -97,6 +102,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 执行命令后，上面图像的预测结果（识别的文本和得分）会打印到屏幕上，示例如下：
 结果如下：
+
 ```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999927282333374)
 ```
@@ -107,19 +113,22 @@ Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999927282333374)
 - 在推理时需要设置参数`rec_char_dict_path`指定字典，如果您修改了字典，请修改该参数为您的字典文件。
 - 如果您修改了预处理方法，需修改`tools/infer/predict_rec.py`中RFL的预处理为您的预处理方法。
 
-
 ### 4.2 C++推理部署
+
 由于C++预处理后处理还未支持RFL，所以暂未支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 暂不支持
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @article{2021Reciprocal,
   title     = {Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition},

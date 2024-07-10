@@ -3,6 +3,7 @@ comments: true
 ---
 
 # NRTR
+
 ## 1. Introduction
 
 Paper:
@@ -17,13 +18,14 @@ Using MJSynth and SynthText two text recognition datasets for training, and eval
 |NRTR|MTB|[rec_mtb_nrtr.yml](../../configs/rec/rec_mtb_nrtr.yml)|84.21%|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)|
 
 ## 2. Environment
+
 Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
 
 Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-### Training:
+### Training
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
@@ -35,20 +37,24 @@ python3 tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 ```
 
-### Evaluation:
+### Evaluation
+
 ```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-### Prediction:
+### Prediction
+
 ```bash
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_mtb_nrtr.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_mtb_nrtr_train/best_accuracy
 ```
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, the model saved during the NRTR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)) ), you can use the following command to convert:
 
 ```bash
@@ -61,6 +67,7 @@ python3 tools/export_model.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrain
 - If you modified the input size during training, please modify the `infer_shape` corresponding to NRTR in the `tools/export_model.py` file.
 
 After the conversion is successful, there are three files in the directory:
+
 ```text
 /inference/rec_mtb_nrtr/
     ├── inference.pdiparams
@@ -69,6 +76,7 @@ After the conversion is successful, there are three files in the directory:
 ```
 
 For NRTR text recognition model inference, the following commands can be executed:
+
 ```bash
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_mtb_nrtr/' --rec_algorithm='NRTR' --rec_image_shape='1,32,100' --rec_char_dict_path='./ppocr/utils/EN_symbol_dict.txt'
 ```
@@ -76,23 +84,29 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 ![img](./images/word_10.png)
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
+
 ```bash
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9465042352676392)
 ```
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## 5. FAQ
+
 1. In the `NRTR` paper, Beam search is used to decode characters, but the speed is slow. Beam search is not used by default here, and greedy search is used to decode characters.
 
 ## 6. Release Note
+
 1. The release/2.6 version updates the NRTR code structure. The new version of NRTR can load the model parameters of the old version (release/2.5 and before), and you may use the following code to convert the old version model parameters to the new version model parameters:
 
     <details>
@@ -223,11 +237,13 @@ Not supported
     paddle.save(model.state_dict(), 'nrtrnew_from_old_params.pdparams')
 
     ```
+
     </details>
 
 2. The new version has a clean code structure and improved inference speed compared with the old version.
 
 ## Citation
+
 ```bibtex
 @article{Sheng2019NRTR,
   title     = {NRTR: A No-Recurrence Sequence-to-Sequence Model For Scene Text Recognition},

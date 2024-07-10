@@ -3,14 +3,15 @@ comments: true
 ---
 
 # 场景文本识别算法-CPPD
+
 ## 1. 算法简介
 
 论文信息：
 > [Context Perception Parallel Decoder for Scene Text Recognition](https://arxiv.org/abs/2307.12270)
 > Yongkun Du and Zhineng Chen and Caiyan Jia and Xiaoting Yin and Chenxia Li and Yuning Du and Yu-Gang Jiang
 
-
 ### CPPD算法简介
+
 基于深度学习的场景文本识别模型通常是Encoder-Decoder结构，其中decoder可以分为两种：(1)CTC，(2)Attention-based。目前SOTA模型大多使用Attention-based的decoder，而attention-based可以分为AR和PD两种，一般来说，AR解码器识别精度优于PD，而PD解码速度快于AR，CPPD通过精心设计的CO和CC模块，达到了“AR的精度，PD的速度”的效果。
 
 CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
@@ -59,12 +60,15 @@ CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
 | CPPD Base + STN | 78.4  | 79.3 |   98.9   | 57.6  | 78.55 | [中文](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_stn_ch_train.tar) |
 
 ## 2. 环境配置
+
 请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
-
 ## 3. 模型训练、评估、预测
+
 ### 3.1 模型训练
+
 #### 数据集准备
+
 [英文数据集下载](https://github.com/baudm/parseq)
 
 [Union14M-L 下载](https://github.com/Mountchicken/Union14M)
@@ -72,9 +76,11 @@ CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
 [中文数据集下载](https://github.com/fudanvi/benchmarking-chinese-text-recognition#download)
 
 #### 启动训练
+
 请参考[文本识别训练教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练`CPPD`识别模型时需要**更换配置文件**为`CPPD`的[配置文件](../../configs/rec/rec_svtrnet_cppd_base_en.yml)。
 
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
+
 ```bash
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
@@ -84,6 +90,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 ```
 
 ### 3.2 评估
+
 可下载`CPPD`提供的模型文件和配置文件：[下载地址](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ，以`CPPD-B`为例，使用如下命令进行评估：
 
 ```bash
@@ -94,7 +101,9 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_cppd
 ```
 
 ### 3.3 预测
+
 使用如下命令进行单张图片预测：
+
 ```bash
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
@@ -102,12 +111,14 @@ python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_bas
 ```
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
+
 首先将训练得到best模型，转换成inference model。下面以基于`CPPD-B`，在英文数据集训练的模型为例（[模型和配置文件下载地址](https://paddleocr.bj.bcebos.com/CPPD/rec_svtr_cppd_base_en_train.tar)，可以使用如下命令进行转换：
 
 **注意：**
 
-- 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
+* 如果您是在自己的数据集上训练的模型，并且调整了字典文件，请注意修改配置文件中的`character_dict_path`是否为所正确的字典文件。
 
 执行如下命令进行模型导出和推理：
 
@@ -131,6 +142,7 @@ python3 tools/infer/predict_rec.py --image_dir='../iiik' --rec_model_dir='./rec_
 ```
 
 导出成功后，在目录下有三个文件：
+
 ```
 /inference/rec_svtr_cppd_base_en_infer/
     ├── inference.pdiparams         # 识别inference模型的参数文件
@@ -139,15 +151,19 @@ python3 tools/infer/predict_rec.py --image_dir='../iiik' --rec_model_dir='./rec_
 ```
 
 ### 4.2 C++推理部署
+
 由于C++预处理后处理还未支持CPPD，所以暂未支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 暂不支持
 
 ## 引用
+
 ```bibtex
 @article{Du2023CPPD,
   title     = {Context Perception Parallel Decoder for Scene Text Recognition},

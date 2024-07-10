@@ -3,6 +3,7 @@ comments: true
 ---
 
 # CPPD
+
 ## 1. Introduction
 
 Paper:
@@ -46,19 +47,22 @@ The accuracy (%) and model files of CPPD on the public dataset of scene text rec
 | CPPD Base  | 74.4  | 76.1 |   98.6   | 55.3  | 76.10 | [ch](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_ch_train.tar)  |
 | CPPD Base + STN | 78.4  | 79.3 |   98.9   | 57.6  | 78.55 | [ch](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_stn_ch_train.tar) |
 
-
 ## 2. Environment
+
 Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
-#### Dataset Preparation
+### Dataset Preparation
+
 [English dataset download](https://github.com/baudm/parseq)
 [Union14M-Benchmark download](https://github.com/Mountchicken/Union14M)
 [Chinese dataset download](https://github.com/fudanvi/benchmarking-chinese-text-recognition#download)
 
 ## 3. Model Training / Evaluation / Prediction
+
 Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**.
 
-### Training:
+### Training
+
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
 ```bash
@@ -69,7 +73,7 @@ python3 tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 ```
 
-### Evaluation:
+### Evaluation
 
 You can download the model files and configuration files provided by `CPPD`: [download link](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar), take `CPPD-B` as an example, using the following command to evaluate:
 
@@ -80,14 +84,16 @@ wget https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar && tar
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 ```
 
-### Prediction:
+### Prediction
 
 ```bash
 python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 ```
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, the model saved during the CPPD text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ), you can use the following command to convert:
 
 ```bash
@@ -111,6 +117,7 @@ python3 tools/infer/predict_rec.py --image_dir='../iiik' --rec_model_dir='./rec_
 **Note:** If you are training the model on your own dataset and have modified the dictionary file, please pay attention to modify the `character_dict_path` in the configuration file to the modified dictionary file.
 
 After the conversion is successful, there are three files in the directory:
+
 ```text
 /inference/rec_svtr_cppd_base_en_infer/
     ├── inference.pdiparams
@@ -119,15 +126,19 @@ After the conversion is successful, there are three files in the directory:
 ```
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## Citation
+
 ```bibtex
 @article{Du2023CPPD,
   title     = {Context Perception Parallel Decoder for Scene Text Recognition},

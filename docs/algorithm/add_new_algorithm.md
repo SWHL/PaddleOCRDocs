@@ -61,7 +61,6 @@ transforms:
       keep_keys: [ 'image', 'label' ] # dataloader will return list in this order
 ```
 
-
 ## 2. 网络
 
 网络部分完成了网络的组网操作，PaddleOCR将网络划分为四部分，这一部分在[ppocr/modeling](../../ppocr/modeling)下。 进入网络的数据将按照顺序(transforms->backbones->
@@ -121,7 +120,6 @@ Architecture:
     args1: args1
 ```
 
-
 ## 3. 后处理
 
 后处理实现解码网络输出获得文本框或者识别到的文字。这一部分在[ppocr/postprocess](../../ppocr/postprocess)下。
@@ -170,7 +168,6 @@ PostProcess:
   args2: args2
 ```
 
-
 ## 4. 损失函数
 
 损失函数用于计算网络输出和label之间的距离。这一部分在[ppocr/losses](../../ppocr/losses)下。
@@ -207,7 +204,6 @@ Loss:
   args1: args1
   args2: args2
 ```
-
 
 ## 5. 指标评估
 
@@ -262,7 +258,6 @@ Metric:
   name: MyMetric
   main_indicator: acc
 ```
-
 
 ## 6. 优化器
 

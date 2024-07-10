@@ -3,6 +3,7 @@ comments: true
 ---
 
 # STAR-Net
+
 ## 1. Introduction
 
 Paper information:
@@ -15,15 +16,18 @@ Refer to [DTRB](https://arxiv.org/abs/1904.01906) text Recognition Training and 
 |Models|Backbone Networks|Avg Accuracy|Configuration Files|Download Links|
 | --- | --- | --- | --- | --- |
 |StarNet|Resnet34_vd|84.44%|[configs/rec/rec_r34_vd_tps_bilstm_ctc.yml](../../configs/rec/rec_r34_vd_tps_bilstm_ctc.yml)|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_tps_bilstm_ctc_v2.0_train.tar)|
-|StarNet|MobileNetV3|81.42%|[configs/rec/rec_mv3_tps_bilstm_ctc.yml](../../configs/rec/rec_mv3_tps_bilstm_ctc.yml)|[ trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_ctc_v2.0_train.tar)|
+|StarNet|MobileNetV3|81.42%|[configs/rec/rec_mv3_tps_bilstm_ctc.yml](../../configs/rec/rec_mv3_tps_bilstm_ctc.yml)|[trained model](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mv3_tps_bilstm_ctc_v2.0_train.tar)|
 
 ## 2. Environment
+
 Please refer to [Operating Environment Preparation](../../ppocr/environment.en.md) to configure the PaddleOCR operating environment, and refer to [Project Clone](../../ppocr/blog/clone.en.md)to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
+
 Please refer to [Text Recognition Training Tutorial](../../ppocr/model_train/recognition.en.md). PaddleOCR modularizes the code, and training different recognition models only requires **changing the configuration file**. Take the backbone network based on Resnet34_vd as an example:
 
 ### 3.1 Training
+
 After the data preparation is complete, the training can be started. The training command is as follows:
 
 ````bash
@@ -47,7 +51,9 @@ python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Globa
 ````
 
 ## 4. Inference
+
 ### 4.1 Python Inference
+
 First, convert the model saved during the STAR-Net text recognition training process into an inference model. Take the model trained on the MJSynth and SynthText text recognition datasets based on the Resnet34_vd backbone network as an example [Model download address]( https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_bilstm_ctc_v2.0_train.tar) , which can be converted using the following command:
 
 ```bash
@@ -80,19 +86,23 @@ dict_character = list(self.character_str)
 ```
 
 ### 4.2 C++ Inference
-After preparing the inference model, refer to the [cpp infer](../../deploy/cpp_infer/) tutorial to operate.
+
+After preparing the inference model, refer to the [cpp infer](../../ppocr/infer_deploy/cpp_infer.en.md) tutorial to operate.
 
 ### 4.3 Serving
-After preparing the inference model, refer to the [pdserving](../../deploy/pdserving/) tutorial for Serving deployment, including two modes: Python Serving and C++ Serving.
+
+After preparing the inference model, refer to the [pdserving](../../ppocr/infer_deploy/paddle_server.en.md) tutorial for Serving deployment, including two modes: Python Serving and C++ Serving.
 
 ### 4.4 More
+
 The STAR-Net model also supports the following inference deployment methods:
 
-- Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../deploy/paddle2onnx/) tutorial.
+- Paddle2ONNX Inference: After preparing the inference model, refer to the [paddle2onnx](../../ppocr/infer_deploy/paddle2onnx.en.md) tutorial.
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @inproceedings{liu2016star,
   title={STAR-Net: a spatial attention residue network for scene text recognition.},
