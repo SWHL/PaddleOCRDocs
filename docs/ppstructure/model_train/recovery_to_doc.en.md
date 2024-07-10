@@ -12,9 +12,9 @@ editable Word file consistent with the original image layout.
 
 Two layout recovery methods are provided, you can choose by PDF format:
 
-- **Standard PDF parse(the input is standard PDF)**: Python based PDF to word library [pdf2docx] (<https://github.com/dothinking/pdf2docx>) is optimized, the method extracts data from PDF with PyMuPDF, then parse layout with rule, finally, generate docx with python-docx.
+- **Standard PDF parse(the input is standard PDF)**: Python based PDF to word library [pdf2docx](https://github.com/dothinking/pdf2docx) is optimized, the method extracts data from PDF with PyMuPDF, then parse layout with rule, finally, generate docx with python-docx.
 
-- **Image format PDF parse(the input can be standard PDF or image format PDF)**: Layout recovery combines [layout analysis](../layout/README.md)、[table recognition](../table/README.md) to better recover images, tables, titles, etc. supports input files in PDF and document image formats in Chinese and English.
+- **Image format PDF parse(the input can be standard PDF or image format PDF)**: Layout recovery combines [layout analysis](./train_layout.en.md)、[table recognition](./train_table.en.md) to better recover images, tables, titles, etc. supports input files in PDF and document image formats in Chinese and English.
 
 The input formats and application scenarios of the two methods are as follows:
 
@@ -81,7 +81,7 @@ pip3 install pdf2docx-0.0.0-py3-none-any.whl
 
 ## 3. Quick Start using standard PDF parse
 
-`use_pdf2docx_api` use PDF parse for layout recovery, The whl package is also provided  for quick use, follow the above code, for more infomation please refer to [quickstart](../docs/quickstart_en.md) for details.
+`use_pdf2docx_api` use PDF parse for layout recovery, The whl package is also provided  for quick use, follow the above code, for more infomation please refer to [quickstart](../quick_start.en.md) for details.
 
 ```bash
 # install paddleocr
@@ -110,7 +110,7 @@ Through layout analysis, we divided the image/PDF documents into regions, locate
 
 We can restore the test picture through the layout information, OCR detection and recognition structure, table information, and saved pictures.
 
-The whl package is also provided  for quick use, follow the above code, for more infomation please refer to [quickstart](../docs/quickstart_en.md) for details.
+The whl package is also provided for quick use, follow the above code, for more infomation please refer to [quickstart](../quick_start.en.md) for details.
 
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --recovery=true --lang='en'
@@ -139,7 +139,7 @@ cd ..
 ```
 
 If input is Chinese document，download Chinese models:
-[Chinese and English ultra-lightweight PP-OCRv3 model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/README.md#pp-ocr-series-model-listupdate-on-september-8th)、[table recognition model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/docs/models_list.md#22-表格识别模型)、[layout analysis model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/docs/models_list.md#1-版面分析模型)
+[Chinese and English ultra-lightweight PP-OCRv3 model](../../ppocr/model_list.md)
 
 ### 4.2 Layout recovery
 
@@ -175,10 +175,10 @@ Field：
 
 ## 5. More
 
-For training, evaluation and inference tutorial for text detection models, please refer to [text detection doc](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/doc/doc_en/detection_en.md).
+For training, evaluation and inference tutorial for text detection models, please refer to [text detection doc](../../ppocr/model_train/detection.en.md).
 
-For training, evaluation and inference tutorial for text recognition models, please refer to [text recognition doc](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/doc/doc_en/recognition_en.md).
+For training, evaluation and inference tutorial for text recognition models, please refer to [text recognition doc](../../ppocr/model_train/recognition.en.md).
 
-For training, evaluation and inference tutorial for layout analysis models, please refer to [layout analysis doc](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/layout/README.md)
+For training, evaluation and inference tutorial for layout analysis models, please refer to [layout analysis doc](./train_layout.en.md)
 
-For training, evaluation and inference tutorial for table recognition models, please refer to [table recognition doc](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/table/README.md)
+For training, evaluation and inference tutorial for table recognition models, please refer to [table recognition doc](./train_table.en.md)

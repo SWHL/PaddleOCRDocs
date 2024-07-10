@@ -5,7 +5,6 @@ comments: true
 
 # Key Information Extraction (KIE)
 
-
 ## 1. Introduction
 
 Key information extraction (KIE) refers to extracting key information from text or images. As downstream task of OCR, the key information extraction task of document image has many practical application scenarios, such as form recognition, ticket information extraction, ID card information extraction, etc.
@@ -14,14 +13,12 @@ PP-Structure conducts research based on the LayoutXLM multi-modal, and proposes 
 
 The main features of the key information extraction module in PP-Structure are as follows.
 
-
 - Integrate multi-modal methods such as [LayoutXLM](https://arxiv.org/pdf/2104.08836.pdf), VI-LayoutXLM, and PP-OCR inference engine.
 - Supports Semantic Entity Recognition (SER) and Relation Extraction (RE) tasks based on multimodal methods. Based on the SER task, the text recognition and classification in the image can be completed; based on the RE task, the relationship extraction of the text content in the image can be completed, such as judging the problem pair (pair).
 - Supports custom training for SER tasks and RE tasks.
 - Supports end-to-end system prediction and evaluation of OCR+SER.
 - Supports end-to-end system prediction of OCR+SER+RE.
 - Support SER model export and inference using PaddleInference.
-
 
 ## 2. Performance
 
@@ -34,11 +31,9 @@ We evaluate the methods on the Chinese dataset of [XFUND](https://github.com/doc
 |VI-LayoutXLM| VI-LayoutXLM-base | RE | [re_vi_layoutxlm_xfund_zh_udml.yml](../../configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh_udml.yml)|**83.92%**| 15.49|[trained model](https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layoutxlm_xfund_pretrained.tar)|
 |LayoutXLM| LayoutXLM-base | RE | [re_layoutxlm_xfund_zh.yml](../../configs/kie/layoutlm_series/re_layoutxlm_xfund_zh.yml)|74.83%| 19.49|[trained model](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh.tar)|
 
+- Note：Inference environment：V100 GPU + cuda10.2 + cudnn8.1.1 + TensorRT 7.2.3.4，tested using fp16.
 
-* Note：Inference environment：V100 GPU + cuda10.2 + cudnn8.1.1 + TensorRT 7.2.3.4，tested using fp16.
-
-For more KIE models in PaddleOCR, please refer to [KIE model zoo](../../doc/doc_en/algorithm_overview_en.md).
-
+For more KIE models in PaddleOCR, please refer to [KIE model zoo](../../algorithm/overview.en.md).
 
 ## 3. Visualization
 
@@ -48,8 +43,7 @@ There are two main solutions to the key information extraction task based on VI-
 
 (2) Text detection + text recognition + semantic entity recognition (SER) + relationship extraction (RE)
 
-
-The following images are demo results of the SER and RE models. For more detailed introduction to the above solutions, please refer to [KIE Guide](./how_to_do_kie.md).
+The following images are demo results of the SER and RE models. For more detailed introduction to the above solutions, please refer to [KIE Guide](../blog/how_to_do_kie.en.md).
 
 ### 3.1 SER
 
@@ -63,9 +57,7 @@ Demo results for SER task are as follows.
 
 ![img](./images/185539735-37b5c2ef-629d-43fe-9abb-44bb717ef7ee.jpg)
 
-
 **Note:** test pictures are from [xfund dataset](https://github.com/doc-analysis/XFUND), [invoice dataset](https://aistudio.baidu.com/aistudio/datasetdetail/165561) and a composite ID card dataset.
-
 
 Boxes of different colors in the image represent different categories.
 
@@ -77,7 +69,6 @@ For the ID card image, the model can directly identify the key information such 
 
 Demo results for RE task are as follows.
 
-
 ![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb.jpg)
 
 ![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f.jpg)
@@ -86,14 +77,11 @@ Demo results for RE task are as follows.
 
 Red boxes are questions, blue boxes are answers. The green lines means the two connected objects are a pair.
 
-
 ## 4. Usage
 
 ### 4.1 Prepare for the environment
 
-
 Use the following command to install KIE dependencies.
-
 
 ```bash
 git clone https://github.com/PaddlePaddle/PaddleOCR.git
@@ -108,12 +96,9 @@ The visualized results of SER are saved in the `./output` folder by default. Exa
 
 ![img](https://github.com/PaddlePaddle/PaddleOCR/raw/main/ppstructure/docs/kie/result_ser/zh_val_42_ser.jpg)
 
-
-
 ### 4.2 Quick start
 
 Here we use XFUND dataset to quickly experience the SER model and RE model.
-
 
 #### 4.2.1 Prepare for the dataset
 
@@ -139,7 +124,6 @@ wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layo
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layoutxlm_xfund_pretrained.tar && tar -xf re_vi_layoutxlm_xfund_pretrained.tar
 ```
 
-
 If you want to use OCR engine to obtain end-to-end prediction results, you can use the following command to predict.
 
 ```bash
@@ -161,9 +145,9 @@ python3 ./tools/infer_kie_token_ser_re.py \
 The visual result images and the predicted text file will be saved in the `Global.save_res_path` directory.
 
 If you want to use a custom ocr model, you can set it through the following fields
+
 - `Global.kie_det_model_dir`: the detection inference model path
 - `Global.kie_rec_model_dir`: the recognition inference model path
-
 
 If you want to load the text detection and recognition results collected before, you can use the following command to predict.
 
@@ -201,7 +185,6 @@ cd ..
 
 Use the following command for inference.
 
-
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
@@ -219,7 +202,6 @@ The visual results and text file will be saved in directory `output`.
 
 Use the following command for inference.
 
-
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
@@ -236,6 +218,7 @@ python3 kie/predict_kie_token_ser_re.py \
 The visual results and text file will be saved in directory `output`.
 
 If you want to use a custom ocr model, you can set it through the following fields
+
 - `--det_model_dir`: the detection inference model path
 - `--rec_model_dir`: the recognition inference model path
 
@@ -249,12 +232,11 @@ For training, evaluation and inference tutorial for text recognition models, ple
 
 To complete the key information extraction task in your own scenario from data preparation to model selection, please refer to: [Guide to End-to-end KIE](./how_to_do_kie_en.md)。
 
-
 ## 5. Reference
 
-- LayoutXLM: Multimodal Pre-training for Multilingual Visually-rich Document Understanding, https://arxiv.org/pdf/2104.08836.pdf
-- microsoft/unilm/layoutxlm, https://github.com/microsoft/unilm/tree/master/layoutxlm
-- XFUND dataset, https://github.com/doc-analysis/XFUND
+- LayoutXLM: Multimodal Pre-training for Multilingual Visually-rich Document Understanding, <https://arxiv.org/pdf/2104.08836.pdf>
+- microsoft/unilm/layoutxlm, <https://github.com/microsoft/unilm/tree/master/layoutxlm>
+- XFUND dataset, <https://github.com/doc-analysis/XFUND>
 
 ## 6. License
 
