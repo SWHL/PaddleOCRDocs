@@ -4,10 +4,8 @@ comments: true
 
 # Server-side C++ Inference
 
-
 This chapter introduces the C++ deployment steps of the PaddleOCR model. C++ is better than Python in terms of performance. Therefore, in CPU and GPU deployment scenarios, C++ deployment is mostly used.
-This section will introduce how to configure the C++ environment and deploy PaddleOCR in Linux (CPU\GPU) environment. For Windows deployment please refer to [Windows](./docs/windows_vs2019_build.md) compilation guidelines.
-
+This section will introduce how to configure the C++ environment and deploy PaddleOCR in Linux (CPU\GPU) environment. For Windows deployment please refer to [Windows](../../ppocr/infer_deploy/windows_vs2019_build.en.md) compilation guidelines.
 
 ## 1. Prepare the Environment
 
@@ -16,10 +14,9 @@ This section will introduce how to configure the C++ environment and deploy Padd
 - Linux, docker is recommended.
 - Windows.
 
-
 ### 1.2 Compile OpenCV
 
-* First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
+- First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
 
 ```bash
 cd deploy/cpp_infer
@@ -29,8 +26,7 @@ tar -xf opencv-3.4.7.tar.gz
 
 Finally, you will see the folder of `opencv-3.4.7/` in the current directory.
 
-* Compile OpenCV, the OpenCV source path (`root_path`) and installation path (`install_path`) should be set by yourself. Enter the OpenCV source code path and compile it in the following way.
-
+- Compile OpenCV, the OpenCV source path (`root_path`) and installation path (`install_path`) should be set by yourself. Enter the OpenCV source code path and compile it in the following way.
 
 ```bash
 root_path=your_opencv_root_path
@@ -64,8 +60,6 @@ make install
 
 In the above commands, `root_path` is the downloaded OpenCV source code path, and `install_path` is the installation path of OpenCV. After `make install` is completed, the OpenCV header file and library file will be generated in this folder for later OCR source code compilation.
 
-
-
 The final file structure under the OpenCV installation path is as follows.
 
 ```
@@ -79,32 +73,32 @@ opencv3/
 
 ### 1.3 Compile or Download or the Paddle Inference Library
 
-* There are 2 ways to obtain the Paddle inference library, described in detail below.
+- There are 2 ways to obtain the Paddle inference library, described in detail below.
 
 #### 1.3.1 Direct download and installation
 
 [Paddle inference library official website](https://www.paddlepaddle.org.cn/inference/master/guides/install/download_lib.html#linux). You can review and select the appropriate version of the inference library on the official website.
 
+- After downloading, use the following command to extract files.
 
-* After downloading, use the following command to extract files.
-
-```
+```bash
 tar -xf paddle_inference.tgz
 ```
 
 Finally you will see the folder of `paddle_inference/` in the current path.
 
 #### 1.3.2 Compile the inference source code
-* If you want to get the latest Paddle inference library features, you can download the latest code from Paddle GitHub repository and compile the inference library from the source code. It is recommended to download the inference library with paddle version greater than or equal to 2.0.1.
-* You can refer to [Paddle inference library](https://www.paddlepaddle.org.cn/documentation/docs/en/advanced_guide/inference_deployment/inference/build_and_install_lib_en.html) to get the Paddle source code from GitHub, and then compile To generate the latest inference library. The method of using git to access the code is as follows.
 
+- If you want to get the latest Paddle inference library features, you can download the latest code from Paddle GitHub repository and compile the inference library from the source code. It is recommended to download the inference library with paddle version greater than or equal to 2.0.1.
+
+- You can refer to [Paddle inference library](https://www.paddlepaddle.org.cn/documentation/docs/en/advanced_guide/inference_deployment/inference/build_and_install_lib_en.html) to get the Paddle source code from GitHub, and then compile To generate the latest inference library. The method of using git to access the code is as follows.
 
 ```bash
 git clone https://github.com/PaddlePaddle/Paddle.git
 git checkout develop
 ```
 
-* Enter the Paddle directory and run the following commands to compile the paddle inference library.
+- Enter the Paddle directory and run the following commands to compile the paddle inference library.
 
 ```bash
 rm -rf build
@@ -126,10 +120,9 @@ make inference_lib_dist
 
 For more compilation parameter options, please refer to the [document](https://www.paddlepaddle.org.cn/documentation/docs/zh/2.0/guides/05_inference_deployment/inference/build_and_install_lib_cn.html#congyuanmabianyi).
 
+- After the compilation process, you can see the following files in the folder of `build/paddle_inference_install_dir/`.
 
-* After the compilation process, you can see the following files in the folder of `build/paddle_inference_install_dir/`.
-
-```
+```text
 build/paddle_inference_install_dir/
 |-- CMakeCache.txt
 |-- paddle
@@ -139,13 +132,13 @@ build/paddle_inference_install_dir/
 
 `paddle` is the Paddle library required for C++ prediction later, and `version.txt` contains the version information of the current inference library.
 
-
 ## 2. Compile and Run the Demo
+
 ### 2.1 Export the inference model
 
-* You can refer to [Model inference](../../doc/doc_ch/inference.md) and export the inference model. After the model is exported, assuming it is placed in the `inference` directory, the directory structure is as follows.
+- You can refer to [Model inference](./python_infer.en.md) and export the inference model. After the model is exported, assuming it is placed in the `inference` directory, the directory structure is as follows.
 
-```
+```text
 inference/
 |-- det_db
 |   |--inference.pdiparams
@@ -164,10 +157,9 @@ inference/
 |   |--inference.pdmodel
 ```
 
-
 ### 2.2 Compile PaddleOCR C++ inference demo
 
-* The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
+- The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
 
 ```bash
 sh tools/build.sh
@@ -186,13 +178,12 @@ CUDNN_LIB_DIR=your_cudnn_lib_dir
 or the generated Paddle inference library path (`build/paddle_inference_install_dir` folder);
 `CUDA_LIB_DIR` is the CUDA library file path, in docker; it is `/usr/local/cuda/lib64`; `CUDNN_LIB_DIR` is the cuDNN library file path, in docker it is `/usr/lib/x86_64-linux-gnu/`.
 
-
-* After the compilation is completed, an executable file named `ppocr` will be generated in the `build` folder.
-
+- After the compilation is completed, an executable file named `ppocr` will be generated in the `build` folder.
 
 ### 2.3 Run the demo
 
 Execute the built executable file:
+
 ```bash
 ./build/ppocr [--param1] [--param2] [...]
 ```
@@ -201,7 +192,8 @@ Execute the built executable file:
 
 Specifically,
 
-##### 1. det+cls+rec：
+#### 1. det+cls+rec
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -213,7 +205,8 @@ Specifically,
     --cls=true \
 ```
 
-##### 2. det+rec：
+##### 2. det+rec
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -225,6 +218,7 @@ Specifically,
 ```
 
 ##### 3. det
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --image_dir=../../doc/imgs/12.jpg \
@@ -232,7 +226,8 @@ Specifically,
     --rec=false
 ```
 
-##### 4. cls+rec：
+##### 4. cls+rec
+
 ```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
@@ -244,6 +239,7 @@ Specifically,
 ```
 
 ##### 5. rec
+
 ```bash
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -254,6 +250,7 @@ Specifically,
 ```
 
 ##### 6. cls
+
 ```bash
 ./build/ppocr --cls_model_dir=inference/cls \
     --cls_model_dir=inference/cls \
@@ -265,6 +262,7 @@ Specifically,
 ```
 
 ##### 7. layout+table
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -277,6 +275,7 @@ Specifically,
 ```
 
 ##### 8. layout
+
 ```bash
 ./build/ppocr --layout_model_dir=inference/layout \
     --image_dir=../../ppstructure/docs/table/1.png \
@@ -288,6 +287,7 @@ Specifically,
 ```
 
 ##### 9. table
+
 ```bash
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
@@ -310,7 +310,6 @@ More parameters are as follows,
 |enable_mkldnn|bool|true|Whether to use mkdlnn library|
 |output|str|./output|Path where visualization results are saved|
 
-
 - forward
 
 |parameter|data type|default|meaning|
@@ -318,7 +317,6 @@ More parameters are as follows,
 |det|bool|true|Whether to perform text detection in the forward direction|
 |rec|bool|true|Whether to perform text recognition in the forward direction|
 |cls|bool|false|Whether to perform text direction classification in the forward direction|
-
 
 - Detection related parameters
 
@@ -360,7 +358,6 @@ More parameters are as follows,
 |layout_score_threshold|float|0.5|Threshold of score.|
 |layout_nms_threshold|float|0.5|Threshold of nms.|
 
-
 - Table recognition related parameters
 
 |parameter|data type|default|meaning|
@@ -370,9 +367,7 @@ More parameters are as follows,
 |table_max_len|int|488|The size of the long side of the input image of the table recognition model, the final input image size of the network is（table_max_len，table_max_len）|
 |merge_no_span_structure|bool|true|Whether to merge <td> and </td> to <td></td|
 
-
-* Multi-language inference is also supported in PaddleOCR, you can refer to [recognition tutorial](../../doc/doc_en/recognition_en.md) for more supported languages and models in PaddleOCR. Specifically, if you want to infer using multi-language models, you just need to modify values of `rec_char_dict_path` and `rec_model_dir`.
-
+- Multi-language inference is also supported in PaddleOCR, you can refer to [recognition tutorial](../../ppocr/blog/multi_languages.en.md) for more supported languages and models in PaddleOCR. Specifically, if you want to infer using multi-language models, you just need to modify values of `rec_char_dict_path` and `rec_model_dir`.
 
 The detection results will be shown on the screen, which is as follows.
 
@@ -435,4 +430,4 @@ The table visualized image saved in ./output//7_1.png
 
 ## 3. FAQ
 
- 1.  Encountered the error `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`, change the github address in `deploy/cpp_infer/external-cmake/auto-log.cmake` to the https://gitee.com/Double_V/AutoLog address.
+ 1. Encountered the error `unable to access 'https://github.com/LDOUBLEV/AutoLog.git/': gnutls_handshake() failed: The TLS connection was non-properly terminated.`, change the github address in `deploy/cpp_infer/external-cmake/auto-log.cmake` to the <https://gitee.com/Double_V/AutoLog> address.

@@ -1,3 +1,8 @@
+---
+typora-copy-images-to: images
+comments: true
+---
+
 # PP-Structure
 
 ## 1. Introduction
@@ -15,14 +20,15 @@ More technical details: 👉 [PP-StructureV2 Technical Report](https://arxiv.org
 
 PP-StructureV2 supports independent use or flexible collocation of each module. For example, you can use layout analysis alone or table recognition alone. Click the corresponding link below to get the tutorial for each independent module:
 
-- [Layout Analysis](layout/README.md)
-- [Table Recognition](table/README.md)
-- [Key Information Extraction](kie/README.md)
-- [Layout Recovery](recovery/README.md)
+- [Layout Analysis](./model_train/train_layout.en.md)
+- [Table Recognition](./model_train/train_table.en.md)
+- [Key Information Extraction](./model_train/train_kie.en.md)
+- [Layout Recovery](./model_train/recovery_to_doc.en.md)
 
 ## 2. Features
 
 The main features of PP-StructureV2 are as follows:
+
 - Support layout analysis of documents in the form of images/pdfs, which can be divided into areas such as **text, titles, tables, figures, formulas, etc.**;
 - Support common Chinese and English **table detection** tasks;
 - Support structured table recognition, and output the final result to **Excel file**;
@@ -38,21 +44,24 @@ PP-StructureV2 supports the independent use or flexible collocation of each modu
 ### 3.1 Layout analysis and table recognition
 
 The figure shows the pipeline of layout analysis + table recognition. The image is first divided into four areas of image, text, title and table by layout analysis, and then OCR detection and recognition is performed on the three areas of image, text and title, and the table is performed table recognition, where the image will also be stored for use.
-<img src="docs/table/ppstructure.GIF" width="100%"/>
+
+![img](./images/ppstructure.gif)
 
 ### 3.1.1 Layout recognition returns the coordinates of a single word
-The following figure shows the result of layout analysis on single word， please refer to the [doc](./return_word_pos.md)。
-![show_0_mdf_v2](https://github.com/PaddlePaddle/PaddleOCR/assets/43341135/799450d4-d2c5-4b61-b490-e160dc0f515c)
+
+The following figure shows the result of layout analysis on single word， please refer to the [doc](./blog/return_word_pos.en.md).
+
+![show_0_mdf_v2](./images/799450d4-d2c5-4b61-b490-e160dc0f515c.jpeg)
 
 ### 3.2 Layout recovery
 
 The following figure shows the effect of layout recovery based on the results of layout analysis and table recognition in the previous section.
 
-![img](./images/ppstructure.gif)
+![img](./images/recovery.jpg)
 
 ### 3.3 KIE
 
-* SER
+- SER
 
 Different colored boxes in the figure represent different categories.
 
@@ -66,7 +75,7 @@ Different colored boxes in the figure represent different categories.
 
 ![img](./images/186095702-9acef674-12af-4d09-97fc-abf4ab32600e.png)
 
-* RE
+- RE
 
 In the figure, the red box represents `Question`, the blue box represents `Answer`, and `Question` and `Answer` are connected by green lines.
 
@@ -80,14 +89,16 @@ In the figure, the red box represents `Question`, the blue box represents `Answe
 
 ## 4. Quick start
 
-Start from [Quick Start](./docs/quickstart_en.md).
+Start from [Quick Start](./quick_start.en.md).
 
 ## 5. Model List
 
 Some tasks need to use both the structured analysis models and the OCR models. For example, the table recognition task needs to use the table recognition model for structured analysis, and the OCR model to recognize the text in the table. Please select the appropriate models according to your specific needs.
 
 For structural analysis related model downloads, please refer to:
-- [PP-Structure Model Zoo](./docs/models_list_en.md)
+
+- [PP-Structure Model Zoo](./models_list.en.md)
 
 For OCR related model downloads, please refer to:
-- [PP-OCR Model Zoo](../doc/doc_en/models_list_en.md)
+
+- [PP-OCR Model Zoo](../ppocr/model_list.en.md)

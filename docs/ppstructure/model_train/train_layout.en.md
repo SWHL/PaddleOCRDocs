@@ -1,14 +1,13 @@
 # Layout analysis
 
-
 ## 1. Introduction
 
 Layout analysis refers to the regional division of documents in the form of pictures and the positioning of key areas, such as text, title, table, picture, etc. The layout analysis algorithm is based on the lightweight model PP-picodet of [PaddleDetection]( https://github.com/PaddlePaddle/PaddleDetection ), including English layout analysis, Chinese layout analysis and table layout analysis models.  English layout analysis models can detect document layout elements such as text, title, table, figure, list. Chinese layout analysis models can detect document layout elements such as text, figure, figure caption, table, table caption, header, footer, reference, and equation. Table layout analysis models can detect table regions.
 
 ![img](./images/layout.png)
 
-
 ## 2. Quick start
+
 PP-Structure currently provides layout analysis models in Chinese, English and table documents. For the model link, see [models_list](../docs/models_list_en.md). The whl package is also provided for quick use, see [quickstart](../docs/quickstart_en.md) for details.
 
 ## 3. Install
@@ -26,6 +25,7 @@ python3 -m pip install "paddlepaddle-gpu>=2.3" -i https://mirror.baidu.com/pypi/
 # CPU Install
 python3 -m pip install "paddlepaddle>=2.3" -i https://mirror.baidu.com/pypi/simple
 ```
+
 For more requirements, please refer to the instructions in the [Install file](https://www.paddlepaddle.org.cn/install/quick)。
 
 ### 3.2. Install PaddleDetection
@@ -134,7 +134,6 @@ We provide CDLA(Chinese layout analysis), TableBank(Table layout analysis)etc. d
 | [CDLA](https://github.com/buptlihang/CDLA)                   | Chinese document layout analysis data set, for Chinese literature (paper) scenarios, including 10 categories:Text, Title, Figure, Figure caption, Table, Table caption, Header, Footer, Reference, Equation |
 | [DocBank](https://github.com/doc-analysis/DocBank)           | Large-scale dataset (500K document pages) constructed using weakly supervised methods for document layout analysis, containing 12 categories:Author, Caption, Date, Equation, Figure, Footer, List, Paragraph, Reference, Section, Table, Title |
 
-
 ## 5. Start training
 
 Training scripts, evaluation scripts, and prediction scripts are provided, and the PubLayNet pre-training model is used as an example in this section.
@@ -156,10 +155,9 @@ If the test image is Chinese, the pre-trained model of Chinese CDLA dataset can 
 
 Start training with the PaddleDetection [layout analysis profile](https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.5/configs/picodet/legacy_model/application/layout_analysis)
 
-* Modify Profile
+- Modify Profile
 
 If you want to train your own data set, you need to modify the data configuration and the number of categories in the configuration file.
-
 
 Using 'configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml' as an example, the change is as follows:
 
@@ -193,7 +191,7 @@ TestDataset:
     anno_path: /root/publaynet/val.json
 ```
 
-* Start training. During training, PP picodet pre training model will be downloaded by default. There is no need to download in advance.
+- Start training. During training, PP picodet pre training model will be downloaded by default. There is no need to download in advance.
 
 ```bash
 # GPU training supports single-card and multi-card training
@@ -230,7 +228,7 @@ After starting training normally, you will see the following log output:
 
 ### 5.2. FGD Distillation Training
 
-PaddleDetection supports FGD-based [Focal and Global Knowledge Distillation for Detectors]( https://arxiv.org/abs/2111.11837v1)  The training process of the target detection model of distillation, FGD distillation is divided into two parts `Focal` and `Global`.     `Focal` Distillation separates the foreground and background of the image, allowing the student model to focus on the key pixels of the foreground and background features of the teacher model respectively;`  Global`Distillation section reconstructs the relationships between different pixels and transfers them from the teacher to the student to compensate for the global information lost in `Focal`Distillation.
+PaddleDetection supports FGD-based [Focal and Global Knowledge Distillation for Detectors]( https://arxiv.org/abs/2111.11837v1)  The training process of the target detection model of distillation, FGD distillation is divided into two parts `Focal` and `Global`.     `Focal` Distillation separates the foreground and background of the image, allowing the student model to focus on the key pixels of the foreground and background features of the teacher model respectively;`Global`Distillation section reconstructs the relationships between different pixels and transfers them from the teacher to the student to compensate for the global information lost in `Focal`Distillation.
 
 Change the dataset and modify the data configuration and number of categories in the [TODO] configuration, referring to 4.1. Start training:
 
@@ -293,7 +291,6 @@ python3 tools/eval.py \
 
 ### 6.2. Test Layout Analysis Results
 
-
 The profile predicted to be used must be consistent with the training, for example, if you pass `python3 tools/train'. Py-c configs/picodet/legacy_ Model/application/layout_ Analysis/picodet_ Lcnet_ X1_ 0_ Layout. Yml` completed the training process for the model.
 
 With  trained PaddleDetection model, you can use the following commands to make model predictions.
@@ -323,9 +320,7 @@ python3 tools/infer.py \
     --draw_threshold=0.5
 ```
 
-
 ## 7. Model Export and Inference
-
 
 ### 7.1 Model Export
 
@@ -344,8 +339,8 @@ python3 tools/export_model.py \
     --output_dir=output_inference/
 ```
 
-* If no post-export processing is required, specify：`-o export.benchmark=True`（If -o already exists, delete -o here）
-* If you do not need to export NMS, specify：`-o export.nms=False`
+- If no post-export processing is required, specify：`-o export.benchmark=True`（If -o already exists, delete -o here）
+- If you do not need to export NMS, specify：`-o export.nms=False`
 
 After successful conversion, there are three files in the directory:
 
@@ -417,7 +412,6 @@ preprocess_time(ms): 2172.50, inference_time(ms): 11.90, postprocess_time(ms): 1
 The result of visualization layout is shown in the following figure
 
 ![img](./images/layout_res.jpg)
-
 
 ## Citations
 

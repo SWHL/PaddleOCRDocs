@@ -151,6 +151,8 @@ plugins:
             基于Python预测引擎推理: Python Inference
             基于C++预测引擎推理: CPP Inference
             服务化部署: Sever Deployment
+            博客: Blog
+            返回识别位置: Return Recognition Location
             前沿算法与模型: Academic Algorithms
             概述: algorithm/overview.md
             文本检测算法: Text Detection Algorithms
@@ -295,6 +297,8 @@ nav:
       - 基于Python预测引擎推理: ppstructure/infer_deploy/python_infer.md
       - 基于C++预测引擎推理: ppstructure/infer_deploy/cpp_infer.md
       - 服务化部署: ppstructure/infer_deploy/paddle_server.md
+    - 博客:
+      - 返回识别位置: ppstructure/blog/return_word_pos.md
   - 前沿算法与模型:
     - 概述: algorithm/overview.md
     - 文本检测算法:

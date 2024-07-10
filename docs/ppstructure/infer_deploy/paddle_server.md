@@ -1,12 +1,14 @@
 
 PaddleOCR提供2种服务部署方式：
+
 - 基于PaddleHub Serving的部署：代码路径为`./deploy/hubserving`，按照本教程使用；
-- 基于PaddleServing的部署：代码路径为`./deploy/pdserving`，使用方法参考[文档](../../deploy/pdserving/README_CN.md)。
+- 基于PaddleServing的部署：代码路径为`./deploy/pdserving`，使用方法参考[文档](../../ppocr/infer_deploy/paddle_server.md)。
 
 # 基于PaddleHub Serving的服务部署
 
 hubserving服务部署目录下包括文本检测、文本方向分类，文本识别、文本检测+文本方向分类+文本识别3阶段串联，版面分析、表格识别和PP-Structure七种服务包，请根据需求选择相应的服务包进行安装和启动。目录结构如下：
-```
+
+```text
 deploy/hubserving/
   └─  ocr_cls     文本方向分类模块服务包
   └─  ocr_det     文本检测模块服务包
@@ -20,29 +22,36 @@ deploy/hubserving/
 ```
 
 每个服务包下包含3个文件。以2阶段串联服务包为例，目录如下：
-```
+
+```text
 deploy/hubserving/ocr_system/
   └─  __init__.py    空文件，必选
   └─  config.json    配置文件，可选，使用配置启动服务时作为参数传入
   └─  module.py      主模块，必选，包含服务的完整逻辑
   └─  params.py      参数文件，必选，包含模型路径、前后处理参数等参数
 ```
+
 ## 1. 近期更新
 
-* 2022.10.09 新增关键信息抽取服务。
-* 2022.08.23 新增版面分析服务。
-* 2022.05.05 新增PP-OCRv3检测和识别模型。
-* 2022.03.30 新增PP-Structure和表格识别两种服务。
+- 2022.10.09 新增关键信息抽取服务。
+- 2022.08.23 新增版面分析服务。
+- 2022.05.05 新增PP-OCRv3检测和识别模型。
+- 2022.03.30 新增PP-Structure和表格识别两种服务。
 
 ## 2. 快速启动服务
+
 以下步骤以检测+识别2阶段串联服务为例，如果只需要检测服务或识别服务，替换相应文件路径即可。
+
 ### 2.1 安装PaddleHub
+
 paddlehub 需要 python>3.6.2
+
 ```bash
 pip3 install paddlehub==2.1.0 --upgrade -i https://mirror.baidu.com/pypi/simple
 ```
 
 ### 2.2 下载推理模型
+
 安装服务模块前，需要准备推理模型并放到正确路径。默认使用的是PP-OCRv3模型，默认模型路径为：
 
 | 模型                | 路径                                                   |
@@ -57,9 +66,10 @@ pip3 install paddlehub==2.1.0 --upgrade -i https://mirror.baidu.com/pypi/simple
 
 **模型路径可在`params.py`中查看和修改。**
 
-更多模型可以从PaddleOCR提供的模型库[PP-OCR](../../doc/doc_ch/models_list.md)和[PP-Structure](../../ppstructure/docs/models_list.md)下载，也可以替换成自己训练转换好的模型。
+更多模型可以从PaddleOCR提供的模型库[PP-OCR](../../ppocr/model_list.md)和[PP-Structure](../models_list.md)下载，也可以替换成自己训练转换好的模型。
 
 ### 2.3 安装服务模块
+
 PaddleOCR提供5种服务模块，根据需要安装所需模块。
 
 在Linux环境（Windows环境请将`/`替换为`\`）下，安装模块命令如下表：
@@ -77,8 +87,11 @@ PaddleOCR提供5种服务模块，根据需要安装所需模块。
 | 关键信息抽取SER+RE | `hub install deploy/hubserving/kie_ser_re`       |
 
 ### 2.4 启动服务
+
 #### 2.4.1. 命令行命令启动（仅支持CPU）
+
 **启动命令：**
+
 ```bash
 hub serving start --modules Module1==Version1, Module2==Version2, ... \
                   --port 8866 \
@@ -89,13 +102,14 @@ hub serving start --modules Module1==Version1, Module2==Version2, ... \
 **参数：**
 
 | 参数                 | 用途                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ----- | ---- |
 | `--modules`/`-m`     | PaddleHub Serving预安装模型，以多个Module==Version键值对的形式列出<br>**当不指定Version时，默认选择最新版本** |
 | `--port`/`-p`        | 服务端口，默认为8866                                                                                          |
 | `--use_multiprocess` | 是否启用并发方式，默认为单进程方式，推荐多核CPU机器使用此方式<br>**Windows操作系统只支持单进程方式**          |
 | `--workers`          | 在并发方式下指定的并发任务数，默认为`2*cpu_count-1`，其中`cpu_count`为CPU核数                                 |
 
 如启动串联服务：
+
 ```bash
 hub serving start -m ocr_system
 ```
@@ -103,12 +117,15 @@ hub serving start -m ocr_system
 这样就完成了一个服务化API的部署，使用默认端口号8866。
 
 #### 2.4.2 配置文件启动（支持CPU、GPU）
+
 **启动命令：**
+
 ```bash
 hub serving start -c config.json
 ```
 
 其中，`config.json`格式如下：
+
 ```json
 {
     "modules_info": {
@@ -133,32 +150,40 @@ hub serving start -c config.json
 - `predict_args`中的可配参数与`module.py`中的`predict`函数接口一致。
 
 **注意：**
+
 - 使用配置文件启动服务时，其他参数会被忽略。
 - 如果使用GPU预测(即，`use_gpu`置为`true`)，则需要在启动服务之前，设置CUDA_VISIBLE_DEVICES环境变量，如：
+
   ```bash
   export CUDA_VISIBLE_DEVICES=0
   ```
+
 - **`use_gpu`不可与`use_multiprocess`同时为`true`**。
 
 如，使用GPU 3号卡启动串联服务：
+
 ```bash
 export CUDA_VISIBLE_DEVICES=3
 hub serving start -c deploy/hubserving/ocr_system/config.json
 ```
 
 ## 3. 发送预测请求
+
 配置好服务端，可使用以下命令发送预测请求，获取预测结果：
+
 ```bash
 python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 ```
 
 需要给脚本传递2个参数：
+
 - `server_url`：服务地址，格式为`http://[ip_address]:[port]/predict/[module_name]`
 
    例如，如果使用配置文件启动分类，检测、识别，检测+分类+识别3阶段，表格识别和PP-Structure服务
 
    并为每个服务修改了port，那么发送请求的url将分别是：
-   ```
+
+   ```text
    http://127.0.0.1:8865/predict/ocr_det
    http://127.0.0.1:8866/predict/ocr_cls
    http://127.0.0.1:8867/predict/ocr_rec
@@ -169,16 +194,19 @@ python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
    http://127.0.0.1:8871/predict/kie_ser
    http://127.0.0.1:8872/predict/kie_ser_re
    ```
+
 - `image_dir`：测试图像路径，可以是单张图片路径，也可以是图像集合目录路径
 - `visualize`：是否可视化结果，默认为False
 - `output`：可视化结果保存路径，默认为`./hubserving_result`
 
 访问示例：
+
 ```bash
 python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_system --image_dir=./doc/imgs/ --visualize=false
 ```
 
 ## 4. 返回结果格式说明
+
 返回结果为列表（list），列表中的每一项为词典（dict），词典一共可能包含3种字段，信息如下：
 
 | 字段名称    | 数据类型 | 意义  |
@@ -208,12 +236,15 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
 **说明：** 如果需要增加、删除、修改返回字段，可在相应模块的`module.py`文件中进行修改，完整流程参考下一节自定义修改服务模块。
 
 ## 5. 自定义修改服务模块
+
 如果需要修改服务逻辑，一般需要操作以下步骤（以修改`deploy/hubserving/ocr_system`为例）：
 
 1. 停止服务：
+
    ```bash
    hub serving stop --port/-p XXXX
    ```
+
 2. 到`deploy/hubserving/ocr_system`下的`module.py`和`params.py`等文件中根据实际需求修改代码。
 
    例如，如果需要替换部署服务所用模型，则需要到`params.py`中修改模型路径参数`det_model_dir`和`rec_model_dir`，如果需要关闭文本方向分类器，则将参数`use_angle_cls`置为`False`
@@ -227,14 +258,19 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
    - [`from deploy.hubserving.ocr_system.params import read_params`中的`ocr_system`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L35)
    - [`name="ocr_system",`中的`ocr_system`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L39)
 4. （可选）可能需要删除`__pycache__`目录以强制刷新CPython缓存：
+
    ```bash
    find deploy/hubserving/ocr_system -name '__pycache__' -exec rm -r {} \;
    ```
+
 5. 安装修改后的新服务包：
+
    ```bash
    hub install deploy/hubserving/ocr_system
    ```
+
 6. 重新启动服务：
+
    ```bash
    hub serving start -m ocr_system
    ```

@@ -26,13 +26,14 @@ PaddleOCR aims to create multilingual, awesome, leading, and practical OCR tools
 
 ![img](./images/00006737.jpg)
 
-
 ## 🚀 Community
+
 PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122). Issues and PRs will be reviewed on a best-effort basis. For a complete overview of PaddlePaddle community, please visit [community](https://github.com/PaddlePaddle/community).
 
 ⚠️ Note: The [Issues](https://github.com/PaddlePaddle/PaddleOCR/issues) module is only for reporting program 🐞 bugs, for the rest of the questions, please move to the [Discussions](https://github.com/PaddlePaddle/PaddleOCR/discussions). Please note that if the Issue mentioned is not a bug, it will be moved to the Discussions module.
 
 ## 📣 Recent updates
+
 - **🔥2023.8.7 Release PaddleOCR[release/2.7](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7)**
   - Release [PP-OCRv4](./ppocr/overview.en.md), support mobile version and server version
     - PP-OCRv4-mobile：When the speed is comparable, the effect of the Chinese scene is improved by 4.5% compared with PP-OCRv3, the English scene is improved by 10%, and the average recognition accuracy of the 80-language multilingual model is increased by more than 8%.
@@ -49,41 +50,42 @@ PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOC
   - [Table Recognition](./ppstructure/model_train/train_table.en.md) optimization: 3 optimization strategies are designed, and the model accuracy is improved by 6% under comparable time consumption;
   - [Key Information Extraction](./ppstructure/model_train/train_kie.en.md) optimization：a visual-independent model structure is designed, the accuracy of semantic entity recognition is increased by 2.8%, and the accuracy of relation extraction is increased by 9.1%.
 - **🔥2022.8 Release [OCR scene application collection](./applications/overview.md)**
-    - Release **9 vertical models** such as digital tube, LCD screen, license plate, handwriting recognition model, high-precision SVTR model, etc, covering the main OCR vertical applications in general, manufacturing, finance, and transportation industries.
+  - Release **9 vertical models** such as digital tube, LCD screen, license plate, handwriting recognition model, high-precision SVTR model, etc, covering the main OCR vertical applications in general, manufacturing, finance, and transportation industries.
 - **2022.8 Add implementation of [8 cutting-edge algorithms](./algorithm/overview.en.md)**
   - Text Detection: [FCENet](./algorithm/text_detection/algorithm_det_fcenet.en.md), [DB++](./algorithm/text_detection/algorithm_det_db.en.md)
   - Text Recognition: [ViTSTR](./algorithm/text_recognition/algorithm_rec_vitstr.en.md), [ABINet](./algorithm/text_recognition/algorithm_rec_abinet.en.md), [VisionLAN](./algorithm/text_recognition/algorithm_rec_visionlan.en.md), [SPIN](./algorithm/text_recognition/algorithm_rec_spin.en.md), [RobustScanner](./algorithm/text_recognition/algorithm_rec_robustscanner.en.md)
   - Table Recognition: [TableMaster](./algorithm/table_recognition/algorithm_table_master.en.md)
 - **2022.5.9 Release PaddleOCR [release/2.5](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.5)**
-    - Release [PP-OCRv3](./ppocr/overview.en.md#pp-ocrv3): With comparable speed, the effect of Chinese scene is further improved by 5% compared with PP-OCRv2, the effect of English scene is improved by 11%, and the average recognition accuracy of 80 language multilingual models is improved by more than 5%.
-    - Release [PPOCRLabelv2](https://github.com/PFCCLab/PPOCRLabel): Add the annotation function for table recognition task, key information extraction task and irregular text image.
-    - Release interactive e-book [*"Dive into OCR"*](./blog/ocr_book.en.md), covers the cutting-edge theory and code practice of OCR full stack technology.
+  - Release [PP-OCRv3](./ppocr/overview.en.md#pp-ocrv3): With comparable speed, the effect of Chinese scene is further improved by 5% compared with PP-OCRv2, the effect of English scene is improved by 11%, and the average recognition accuracy of 80 language multilingual models is improved by more than 5%.
+  - Release [PPOCRLabelv2](https://github.com/PFCCLab/PPOCRLabel): Add the annotation function for table recognition task, key information extraction task and irregular text image.
+  - Release interactive e-book [*"Dive into OCR"*](./blog/ocr_book.en.md), covers the cutting-edge theory and code practice of OCR full stack technology.
 - [more](./update_en.md)
 
-
 ## 🌟 Features
+
 PaddleOCR support a variety of cutting-edge algorithms related to OCR, and developed industrial featured models/solution [PP-OCR](./ppocr/overview.md)、[PP-Structure](./ppstructure/overview.md) and [PP-ChatOCR](https://aistudio.baidu.com/aistudio/projectdetail/6488689) on this basis, and get through the whole process of data production, model training, compression, inference and deployment.
 
 ![](./images/ppocrv4.png)
 
 > It is recommended to start with the “quick experience” in the document tutorial
 
-
 ## ⚡ Quick Experience
+
 - Web online experience
-    - PP-OCRv4 online experience：https://aistudio.baidu.com/aistudio/projectdetail/6611435
-    - PP-ChatOCR online experience：https://aistudio.baidu.com/aistudio/projectdetail/6488689
+  - PP-OCRv4 online experience：<https://aistudio.baidu.com/aistudio/projectdetail/6611435>
+  - PP-ChatOCR online experience：<https://aistudio.baidu.com/aistudio/projectdetail/6488689>
 - One line of code quick use: [Quick Start（Chinese/English/Multilingual/Document Analysis](./doc/doc_en/quickstart_en.md)
 - Full-process experience of training, inference, and high-performance deployment in the Paddle AI suite (PaddleX)：
-    - PP-OCRv4：https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286
-    - PP-ChatOCR：https://aistudio.baidu.com/aistudio/modelsdetail?modelId=332
+  - PP-OCRv4：<https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286>
+  - PP-ChatOCR：<https://aistudio.baidu.com/aistudio/modelsdetail?modelId=332>
 - Mobile demo experience：[Installation DEMO](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)(Based on EasyEdge and Paddle-Lite, support iOS and Android systems)
 
 ## 📖 Technical exchange and cooperation
+
 - PaddleX provides a one-stop full-process high-efficiency development platform for flying paddle ecological model training, pressure, and push. Its mission is to help AI technology quickly land, and its vision is to make everyone an AI Developer!
-   - PaddleX currently covers areas such as image classification, object detection, image segmentation, 3D, OCR, and time series prediction, and has built-in 36 basic single models, such as RP-DETR, PP-YOLOE, PP-HGNet, PP-LCNet, PP- LiteSeg, etc.; integrated 12 practical industrial solutions, such as PP-OCRv4, PP-ChatOCR, PP-ShiTu, PP-TS, vehicle-mounted road waste detection, identification of prohibited wildlife products, etc.
-   - PaddleX provides two AI development modes: "Toolbox" and "Developer". The toolbox mode can tune key hyperparameters without code, and the developer mode can perform single-model training, push and multi-model serial inference with low code, and supports both cloud and local terminals.
-   - PaddleX also supports joint innovation and development, profit sharing! At present, PaddleX is rapidly iterating, and welcomes the participation of individual developers and enterprise developers to create a prosperous AI technology ecosystem!
+  - PaddleX currently covers areas such as image classification, object detection, image segmentation, 3D, OCR, and time series prediction, and has built-in 36 basic single models, such as RP-DETR, PP-YOLOE, PP-HGNet, PP-LCNet, PP- LiteSeg, etc.; integrated 12 practical industrial solutions, such as PP-OCRv4, PP-ChatOCR, PP-ShiTu, PP-TS, vehicle-mounted road waste detection, identification of prohibited wildlife products, etc.
+  - PaddleX provides two AI development modes: "Toolbox" and "Developer". The toolbox mode can tune key hyperparameters without code, and the developer mode can perform single-model training, push and multi-model serial inference with low code, and supports both cloud and local terminals.
+  - PaddleX also supports joint innovation and development, profit sharing! At present, PaddleX is rapidly iterating, and welcomes the participation of individual developers and enterprise developers to create a prosperous AI technology ecosystem!
 
 ## 🇺🇳 Guideline for New Language Requests
 
@@ -95,7 +97,6 @@ it is necessary to submit the dict text to this path and name it with `{language
 If your language has unique elements, please tell me in advance within any way, such as useful links, wikipedia and so on.
 
 More details, please refer to [Multilingual OCR Development Plan](https://github.com/PaddlePaddle/PaddleOCR/issues/1048).
-
 
 ## Visualization
 
@@ -124,6 +125,7 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
 ![img](./images/korean_1.jpg)
 
 #### PP-StructureV2
+
 - layout analysis + table recognition
 
   ![img](./images/ppstructure-20240708082235651.gif)
@@ -145,4 +147,5 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
   ![img](./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d-20240708082323916.png)
 
 ## 📄 License
+
 This project is released under <a href="https://github.com/PaddlePaddle/PaddleOCR/blob/master/LICENSE">Apache 2.0 license</a>

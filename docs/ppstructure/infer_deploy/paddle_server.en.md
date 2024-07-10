@@ -1,11 +1,13 @@
 PaddleOCR provides 2 service deployment methods:
+
 - Based on **PaddleHub Serving**: Code path is `./deploy/hubserving`. Please follow this tutorial.
-- Based on **PaddleServing**: Code path is `./deploy/pdserving`. Please refer to the [tutorial](../../deploy/pdserving/README.md) for usage.
+- Based on **PaddleServing**: Code path is `./deploy/pdserving`. Please refer to the [tutorial](../../ppocr/infer_deploy/paddle_server.en.md) for usage.
 
 # Service deployment based on PaddleHub Serving
 
 The hubserving service deployment directory includes seven service packages: text detection, text angle class, text recognition, text detection+text angle class+text recognition three-stage series connection, layout analysis, table recognition, and PP-Structure. Please select the corresponding service package to install and start the service according to your needs. The directory is as follows:
-```
+
+```text
 deploy/hubserving/
   └─  ocr_det     text detection module service package
   └─  ocr_cls     text angle class module service package
@@ -19,29 +21,34 @@ deploy/hubserving/
 ```
 
 Each service pack contains 3 files. Take the 2-stage series connection service package as an example, the directory is as follows:
-```
+
+```text
 deploy/hubserving/ocr_system/
   └─  __init__.py    Empty file, required
   └─  config.json    Configuration file, optional, passed in as a parameter when using configuration to start the service
   └─  module.py      Main module file, required, contains the complete logic of the service
   └─  params.py      Parameter file, required, including parameters such as model path, pre and post-processing parameters
 ```
+
 ## 1. Update
 
-* 2022.10.09 add KIE services.
-* 2022.08.23 add layout analysis services.
-* 2022.03.30 add PP-Structure and table recognition services.
-* 2022.05.05 add PP-OCRv3 text detection and recognition services.
+- 2022.10.09 add KIE services.
+- 2022.08.23 add layout analysis services.
+- 2022.03.30 add PP-Structure and table recognition services.
+- 2022.05.05 add PP-OCRv3 text detection and recognition services.
 
 ## 2. Quick start service
+
 The following steps take the 2-stage series service as an example. If only the detection service or recognition service is needed, replace the corresponding file path.
 
 ### 2.1 Install PaddleHub
+
 ```bash
 pip3 install paddlehub==2.1.0 --upgrade
 ```
 
 ### 2.2 Download inference model
+
 Before installing the service module, you need to prepare the inference model and put it in the correct path. By default, the PP-OCRv3 models are used, and the default model path is:
 
 | Model | Path |
@@ -55,12 +62,13 @@ Before installing the service module, you need to prepare the inference model an
 | KIE(SER+RE) | ./inference/re_vi_layoutxlm_xfund_infer/ |
 
 **The model path can be found and modified in `params.py`.**
-More models provided by PaddleOCR can be obtained from the [model library](../../doc/doc_en/models_list_en.md). You can also use models trained by yourself.
+More models provided by PaddleOCR can be obtained from the [model library](../../ppocr/model_list.en.md). You can also use models trained by yourself.
 
 ### 2.3 Install Service Module
+
 PaddleOCR provides 5 kinds of service modules, install the required modules according to your needs.
 
-* On the Linux platform(replace `/` with `\` if using Windows), the examples are as the following table:
+- On the Linux platform(replace `/` with `\` if using Windows), the examples are as the following table:
 
 | Service model | Command |
 | text detection | `hub install deploy/hubserving/ocr_det` |
@@ -73,8 +81,11 @@ PaddleOCR provides 5 kinds of service modules, install the required modules acco
 | KIE(SER+RE) | `hub install deploy/hubserving/kie_ser_re` |
 
 ### 2.4 Start service
+
 #### 2.4.1 Start with command line parameters (CPU only)
+
 **start command:**
+
 ```bash
 hub serving start --modules Module1==Version1, Module2==Version2, ... \
                   --port 8866 \
@@ -91,6 +102,7 @@ hub serving start --modules Module1==Version1, Module2==Version2, ... \
 |`--workers`|The number of concurrent tasks specified in concurrent mode, the default is `2*cpu_count-1`, where `cpu_count` is the number of CPU cores|
 
 For example, start the 2-stage series service:
+
 ```bash
 hub serving start -m ocr_system
 ```
@@ -98,12 +110,15 @@ hub serving start -m ocr_system
 This completes the deployment of a service API, using the default port number 8866.
 
 #### 2.4.2 Start with configuration file（CPU and GPU）
+
 **start command:**
+
 ```bash
 hub serving start --config/-c config.json
 ```
 
 In which the format of `config.json` is as follows:
+
 ```json
 {
     "modules_info": {
@@ -121,6 +136,7 @@ In which the format of `config.json` is as follows:
     "workers": 2
 }
 ```
+
 - The configurable parameters in `init_args` are consistent with the `_initialize` function interface in `module.py`.
 
   **When `use_gpu` is `true`, it means that the GPU is used to start the service**.
@@ -129,24 +145,30 @@ In which the format of `config.json` is as follows:
   **Note:**
   - When using the configuration file to start the service, other parameters will be ignored.
   - If you use GPU prediction (that is, `use_gpu` is set to `true`), you need to set the environment variable CUDA_VISIBLE_DEVICES before starting the service, such as:
+
     ```bash
     export CUDA_VISIBLE_DEVICES=0
     ```
+
   - **`use_gpu` and `use_multiprocess` cannot be `true` at the same time.**
 
 For example, use GPU card No. 3 to start the 2-stage series service:
+
 ```bash
 export CUDA_VISIBLE_DEVICES=3
 hub serving start -c deploy/hubserving/ocr_system/config.json
 ```
 
 ## 3. Send prediction requests
+
 After the service starts, you can use the following command to send a prediction request to obtain the prediction result:
+
 ```bash
 python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 ```
 
 Two parameters need to be passed to the script:
+
 - **server_url**:service address, the format of which is
   `http://[ip_address]:[port]/predict/[module_name]`
 
@@ -154,7 +176,7 @@ Two parameters need to be passed to the script:
 
   also modified the port for each service, then the `server_url` to send the request will be:
 
-  ```
+  ```text
   http://127.0.0.1:8865/predict/ocr_det
   http://127.0.0.1:8866/predict/ocr_cls
   http://127.0.0.1:8867/predict/ocr_rec
@@ -165,16 +187,19 @@ Two parameters need to be passed to the script:
   http://127.0.0.1:8871/predict/kie_ser
   http://127.0.0.1:8872/predict/kie_ser_re
   ```
+
 - **image_dir**:Test image path, which can be a single image path or an image directory path
 - **visualize**:Whether to visualize the results, the default value is False
 - **output**:The folder to save the Visualization result, the default value is `./hubserving_result`
 
 Example:
+
 ```bash
 python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_system --image_dir=./doc/imgs/ --visualize=false`
 ```
 
 ## 4. Returned result format
+
 The returned result is a list. Each item in the list is a dictionary which may contain three fields. The information is as follows:
 
 |field name|data type|description|
@@ -204,12 +229,15 @@ The fields returned by different modules are different. For example, the results
 **Note:** If you need to add, delete or modify the returned fields, you can modify the file `module.py` of the corresponding module. For the complete process, refer to the user-defined modification service module in the next section.
 
 ## 5. User-defined service module modification
+
 If you need to modify the service logic, the following steps are generally required (take the modification of `deploy/hubserving/ocr_system` for example):
 
 1. Stop service:
+
 ```bash
 hub serving stop --port/-p XXXX
 ```
+
 2. Modify the code in the corresponding files under `deploy/hubserving/ocr_system`, such as `module.py` and `params.py`, to your actual needs.
 
    For example, if you need to replace the model used by the deployed service, you need to modify model path parameters `det_model_dir` and `rec_model_dir` in `params.py`. If you want to turn off the text direction classifier, set the parameter `use_angle_cls` to `False`.
@@ -223,14 +251,19 @@ hub serving stop --port/-p XXXX
    - [`ocr_system` within `from deploy.hubserving.ocr_system.params import read_params`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L35)
    - [`ocr_system` within `name="ocr_system",`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L39)
 4. (Optional) It may require you to delete the directory `__pycache__` to force flush build cache of CPython:
+
    ```bash
    find deploy/hubserving/ocr_system -name '__pycache__' -exec rm -r {} \;
    ```
+
 5. Install modified service module:
+
    ```bash
    hub install deploy/hubserving/ocr_system/
    ```
+
 6. Restart service:
+
    ```bash
    hub serving start -m ocr_system
    ```

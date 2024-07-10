@@ -1,8 +1,10 @@
 # PP-Structure 快速开始
 
 ## 1. 准备环境
+
 ### 1.1 安装PaddlePaddle
-> 如果您没有基础的Python运行环境，请参考[运行环境准备](../../doc/doc_ch/environment.md)。
+>
+> 如果您没有基础的Python运行环境，请参考[运行环境准备](../ppocr/environment.md)。
 
 - 您的机器安装的是CUDA9或CUDA10，请运行以下命令安装
 
@@ -28,39 +30,41 @@ pip3 install "paddleocr>=2.6.0.3"
 pip3 install paddleclas>=2.4.3
 ```
 
-
 ## 2. 便捷使用
 
 ### 2.1 命令行使用
 
 #### 2.1.1 图像方向分类+版面分析+表格识别
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --image_orientation=true
 ```
 
 #### 2.1.2 版面分析+表格识别
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure
 ```
 
 #### 2.1.3 版面分析
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --table=false --ocr=false
 ```
 
 #### 2.1.4 表格识别
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout=false
 ```
 
-
 #### 2.1.5 关键信息抽取
-关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[关键信息抽取教程](../kie/README_ch.md)。
 
+关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[关键信息抽取教程](../ppocr/model_train/kie.md)。
 
 #### 2.1.6 版面恢复
 
-版面恢复分为2种方法，详细介绍请参考：[版面恢复教程](../recovery/README_ch.md)：
+版面恢复分为2种方法，详细介绍请参考：[版面恢复教程](./model_train/recovery_to_doc.md)：
 
 - PDF解析
 - OCR技术
@@ -73,7 +77,7 @@ paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --rec
 
 通过OCR技术：
 
-版面恢复分为2种方法，详细介绍请参考：[版面恢复教程](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/recovery/README_ch.md)：
+版面恢复分为2种方法，详细介绍请参考：[版面恢复教程](./model_train/recovery_to_doc.md)：
 
 - PDF解析
 - OCR技术
@@ -94,7 +98,6 @@ paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --recovery=t
 # pdf测试文件
 paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --recovery=true --lang='en'
 ```
-
 
 ### 2.2 Python脚本使用
 
@@ -230,7 +233,6 @@ for index, img in enumerate(imgs):
         print(line)
 ```
 
-
 #### 2.2.4 表格识别
 
 ```python
@@ -253,8 +255,7 @@ for line in result:
 
 #### 2.2.5 关键信息抽取
 
-关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[inference文档](./inference.md)。
-
+关键信息抽取暂不支持通过whl包调用，详细使用教程请参考：[inference文档](./infer_deploy/python_infer.md)。
 
 #### 2.2.6 版面恢复
 
@@ -285,9 +286,11 @@ convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0
 ```
 
 ### 2.3 返回结果说明
+
 PP-Structure的返回结果为一个dict组成的list，示例如下：
 
 #### 2.3.1 版面分析+表格识别
+
 ```bash
 [
   {   'type': 'Text',
@@ -297,6 +300,7 @@ PP-Structure的返回结果为一个dict组成的list，示例如下：
   }
 ]
 ```
+
 dict 里各个字段说明如下：
 
 | 字段 | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -317,12 +321,12 @@ dict 里各个字段说明如下：
 
 #### 2.3.2 关键信息抽取
 
-请参考：[关键信息抽取教程](../kie/README_ch.md)。
+请参考：[关键信息抽取教程](../ppocr/model_train/kie.md)。
 
 ### 2.4 参数说明
 
 | 字段                    | 说明                                                                          | 默认值                                        |
-| ----------------------- | ----------------------------------------------------------------------------- | --------------------------------------------- |
+| ----- | ---- | ------ |
 | output                  | 结果保存地址                                                                  | ./output/table                                |
 | table_max_len           | 表格结构模型预测时，图像的长边resize尺度                                      | 488                                           |
 | table_model_dir         | 表格结构模型 inference 模型地址                                               | None                                          |
@@ -344,8 +348,8 @@ dict 里各个字段说明如下：
 | save_pdf                | 版面恢复导出docx文件的同时，是否导出pdf文件                                   | False                                         |
 | structure_version       | 模型版本，可选 PP-structure和PP-structurev2                                   | PP-structure                                  |
 
-大部分参数和PaddleOCR whl包保持一致，见 [whl包文档](../../doc/doc_ch/whl.md)
+大部分参数和PaddleOCR whl包保持一致，见 [whl包文档](../ppocr/blog/whl.md)
 
 ## 3. 小结
 
-通过本节内容，相信您已经熟练掌握通过PaddleOCR whl包调用PP-Structure相关功能的使用方法，您可以参考[文档教程](../../README_ch.md#文档教程)，获取包括模型训练、推理部署等更详细的使用教程。
+通过本节内容，相信您已经熟练掌握通过PaddleOCR whl包调用PP-Structure相关功能的使用方法，您可以参考[文档教程](../index.md)，获取包括模型训练、推理部署等更详细的使用教程。

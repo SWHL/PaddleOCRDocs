@@ -6,18 +6,14 @@ Paddle provides a variety of deployment schemes to meet the deployment requireme
 
 ![img](./images/deployment-20240704135743247.png)
 
-
-
-## PP-OCR Deployment
-
 PP-OCR has supported muti deployment schemes. Click the link to get the specific tutorial.
 
-- [Python Inference](../doc/doc_en/inference_ppocr_en.md)
-- [C++ Inference](./cpp_infer/readme.md)
-- [Serving (Python/C++)](./pdserving/README.md)
-- [Paddle-Lite (ARM CPU/OpenCL ARM GPU)](./lite/readme.md)
-- [Paddle.js](./paddlejs/README.md)
-- [Jetson Inference](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/deploy/Jetson/readme.md)
-- [Paddle2ONNX](./paddle2onnx/readme.md)
+- [Python Inference](./python_infer.en.md)
+- [C++ Inference](./cpp_infer.en.md)
+- [Serving (Python/C++)](./paddle_server.en.md)
+- [Paddle-Lite (ARM CPU/OpenCL ARM GPU)](../../ppocr/infer_deploy/lite.en.md)
+- [Paddle.js](../../ppocr/infer_deploy/paddle_js.en.md)
+- [Jetson Inference](../../ppocr/infer_deploy/Jetson_infer.en.md)
+- [Paddle2ONNX](../../ppocr/infer_deploy/paddle2onnx.en.md)
 
-If you need the deployment tutorial of academic algorithm models other than PP-OCR, please directly enter the main page of corresponding algorithms, [entrance](../doc/doc_en/algorithm_overview_en.md)。
+If you need the deployment tutorial of academic algorithm models other than PP-OCR, please directly enter the main page of corresponding algorithms, [entrance](../../algorithm/overview.en.md)。

@@ -4,6 +4,7 @@ comments: true
 ---
 
 # Layout Recovery
+
 ## 1. Introduction
 
 The layout recovery module is used to restore the image or pdf to an
@@ -11,7 +12,7 @@ editable Word file consistent with the original image layout.
 
 Two layout recovery methods are provided, you can choose by PDF format:
 
-- **Standard PDF parse(the input is standard PDF)**: Python based PDF to word library [pdf2docx] (https://github.com/dothinking/pdf2docx) is optimized, the method extracts data from PDF with PyMuPDF, then parse layout with rule, finally, generate docx with python-docx.
+- **Standard PDF parse(the input is standard PDF)**: Python based PDF to word library [pdf2docx] (<https://github.com/dothinking/pdf2docx>) is optimized, the method extracts data from PDF with PyMuPDF, then parse layout with rule, finally, generate docx with python-docx.
 
 - **Image format PDF parse(the input can be standard PDF or image format PDF)**: Layout recovery combines [layout analysis](../layout/README.md)、[table recognition](../table/README.md) to better recover images, tables, titles, etc. supports input files in PDF and document image formats in Chinese and English.
 
@@ -32,8 +33,8 @@ The following figures show the effect of restoring the layout of English and Chi
 
 ![img](./images/recovery_ch.jpg)
 
-
 ## 2. Install
+
 ### 2.1 Install PaddlePaddle
 
 ```bash
@@ -47,7 +48,6 @@ python3 -m pip install "paddlepaddle" -i https://mirror.baidu.com/pypi/simple
 ````
 
 For more requirements, please refer to the instructions in [Installation Documentation](https://www.paddlepaddle.org.cn/en/install/quick?docurl=/documentation/docs/en/install/pip/macos-pip_en.html).
-
 
 ### 2.2 Install PaddleOCR
 
@@ -78,7 +78,6 @@ python3 -m pip install -r ppstructure/recovery/requirements.txt
 wget https://paddleocr.bj.bcebos.com/whl/pdf2docx-0.0.0-py3-none-any.whl
 pip3 install pdf2docx-0.0.0-py3-none-any.whl
 ```
-
 
 ## 3. Quick Start using standard PDF parse
 
@@ -138,10 +137,12 @@ wget https://paddleocr.bj.bcebos.com/ppstructure/models/layout/picodet_lcnet_x1_
 tar xf picodet_lcnet_x1_0_fgd_layout_infer.tar
 cd ..
 ```
+
 If input is Chinese document，download Chinese models:
 [Chinese and English ultra-lightweight PP-OCRv3 model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/README.md#pp-ocr-series-model-listupdate-on-september-8th)、[table recognition model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/docs/models_list.md#22-表格识别模型)、[layout analysis model](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/docs/models_list.md#1-版面分析模型)
 
 ### 4.2 Layout recovery
+
 ```bash
 python3 predict_system.py \
     --image_dir=./docs/table/1.png \
@@ -171,7 +172,6 @@ Field：
 - layout_dict_path：layout analysis dict path. If the Chinese model is used, change to "../ppocr/utils/dict/layout_dict/layout_cdla_dict.txt"
 - recovery：whether to enable layout of recovery, default False
 - output：save the recovery result path
-
 
 ## 5. More
 

@@ -1,10 +1,10 @@
 # PP-Structure Quick Start
 
-
 ## 1. Environment Preparation
+
 ### 1.1 Install PaddlePaddle
 
-> If you do not have a Python environment, please refer to [Environment Preparation](./environment_en.md).
+> If you do not have a Python environment, please refer to [Environment Preparation](../ppocr/environment.en.md).
 
 - If you have CUDA 9 or CUDA 10 installed on your machine, please run the following command to install
 
@@ -30,39 +30,41 @@ pip3 install "paddleocr>=2.6.0.3"
 pip3 install paddleclas>=2.4.3
 ```
 
-
 ## 2. Quick Use
 
 ### 2.1 Use by command line
 
 #### 2.1.1 image orientation + layout analysis + table recognition
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --image_orientation=true
 ```
 
 #### 2.1.2 layout analysis + table recognition
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure
 ```
 
 #### 2.1.3 layout analysis
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --table=false --ocr=false
 ```
 
 #### 2.1.4 table recognition
+
 ```bash
 paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout=false
 ```
 
-
 #### 2.1.5 Key Information Extraction
 
-Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [inference document](./inference_en.md).
+Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [inference document](./infer_deploy/python_infer.en.md).
 
 #### 2.1.6 layout recovery(PDF to Word)
 
-Two layout recovery methods are provided, For detailed usage tutorials, please refer to: [Layout Recovery](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppstructure/recovery/README.md).
+Two layout recovery methods are provided, For detailed usage tutorials, please refer to: [Layout Recovery](./model_train/recovery_to_doc.en.md).
 
 - PDF parse
 - OCR
@@ -235,7 +237,7 @@ for line in result:
 
 #### 2.2.5 Key Information Extraction
 
-Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [Key Information Extraction](../kie/README.md).
+Key information extraction does not currently support use by the whl package. For detailed usage tutorials, please refer to: [Inference](../infer_deploy/python_infer.en.md).
 
 #### 2.2.6 layout recovery
 
@@ -270,6 +272,7 @@ convert_info_docx(img, res, save_folder, os.path.basename(img_path).split('.')[0
 The return of PP-Structure is a list of dicts, the example is as follows:
 
 #### 2.3.1 layout analysis + table recognition
+
 ```bash
 [
   {   'type': 'Text',
@@ -279,6 +282,7 @@ The return of PP-Structure is a list of dicts, the example is as follows:
   }
 ]
 ```
+
 Each field in dict is described as follows:
 
 | field | description  |
@@ -288,7 +292,8 @@ Each field in dict is described as follows:
 |res| OCR or table recognition result of the image area. <br> table: a dict with field descriptions as follows: <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; `html`: html str of table.<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; In the code usage mode, set return_ocr_result_in_table=True whrn call can get the detection and recognition results of each text in the table area, corresponding to the following fields: <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; `boxes`: text detection boxes.<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; `rec_res`: text recognition results.<br> OCR: A tuple containing the detection boxes and recognition results of each single text. |
 
 After the recognition is completed, each image will have a directory with the same name under the directory specified by the `output` field. Each table in the image will be stored as an excel, and the picture area will be cropped and saved. The filename of  excel and picture is their coordinates in the image.
-  ```
+
+  ```text
   /output/table/1/
     └─ res.txt
     └─ [454, 360, 824, 658].xlsx        table recognition result
@@ -298,7 +303,7 @@ After the recognition is completed, each image will have a directory with the sa
 
 #### 2.3.2 Key Information Extraction
 
-Please refer to: [Key Information Extraction](../kie/README.md) .
+Please refer to: [Key Information Extraction](../ppocr/model_train/kie.en.md) .
 
 ### 2.4 Parameter Description
 
@@ -325,8 +330,8 @@ Please refer to: [Key Information Extraction](../kie/README.md) .
 | save_pdf    | Whether to convert docx to pdf when recovery| False |
 | structure_version |  Structure version, optional PP-structure and PP-structurev2  | PP-structure |
 
-Most of the parameters are consistent with the PaddleOCR whl package, see [whl package documentation](../../doc/doc_en/whl_en.md)
+Most of the parameters are consistent with the PaddleOCR whl package, see [whl package documentation](../ppocr/blog/whl.en.md)
 
 ## 3. Summary
 
-Through the content in this section, you can master the use of PP-Structure related functions through PaddleOCR whl package. Please refer to [documentation tutorial](../../README.md) for more detailed usage tutorials including model training, inference and deployment, etc.
+Through the content in this section, you can master the use of PP-Structure related functions through PaddleOCR whl package. Please refer to [documentation tutorial](../index.en.md) for more detailed usage tutorials including model training, inference and deployment, etc.
