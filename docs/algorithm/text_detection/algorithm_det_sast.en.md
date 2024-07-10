@@ -26,7 +26,7 @@ On the Total-text dataset, the text detection result is as follows:
 
 
 ## 2. Environment
-Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
+Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](./clone_en.md).
 
 ## 3. Model Training / Evaluation / Prediction
 Please refer to [text detection training tutorial](./detection_en.md). PaddleOCR has modularized the code structure, so that you only need to **replace the configuration file** to train different detection models.

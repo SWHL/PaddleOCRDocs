@@ -18,12 +18,12 @@ comments: true
 |NRTR|MTB|[rec_mtb_nrtr.yml](../../configs/rec/rec_mtb_nrtr.yml)|84.21%|[训练模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)|
 
 ## 2. 环境配置
-请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
+请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 
 ## 3. 模型训练、评估、预测
 ### 3.1 模型训练
-请参考[文本识别训练教程](./recognition.md)。PaddleOCR对代码进行了模块化，训练`NRTR`识别模型时需要**更换配置文件**为`NRTR`的[配置文件](../../configs/rec/rec_mtb_nrtr.yml)。
+请参考[文本识别训练教程](../../ppocr/model_train/recognition.md)。PaddleOCR对代码进行了模块化，训练`NRTR`识别模型时需要**更换配置文件**为`NRTR`的[配置文件](../../configs/rec/rec_mtb_nrtr.yml)。
 
 #### 启动训练
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：

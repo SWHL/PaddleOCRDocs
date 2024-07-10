@@ -3,6 +3,7 @@ comments: true
 ---
 
 # 关键信息抽取算法-LayoutXLM
+
 ## 1. 算法简介
 
 论文信息：
@@ -20,19 +21,22 @@ comments: true
 |LayoutXLM|LayoutXLM-base|SER |[ser_layoutxlm_xfund_zh.yml](../../configs/kie/layoutlm_series/ser_layoutxlm_xfund_zh.yml)|90.38%|[训练模型](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar)/[推理模型](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh_infer.tar)|
 |LayoutXLM|LayoutXLM-base|RE | [re_layoutxlm_xfund_zh.yml](../../configs/kie/layoutlm_series/re_layoutxlm_xfund_zh.yml)|74.83%|[训练模型](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh.tar)/[推理模型](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh_infer.tar)|
 
-
 ## 2. 环境配置
-请先参考[《运行环境准备》](./environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](./clone.md)克隆项目代码。
+
+请先参考[《运行环境准备》](../../ppocr/environment.md)配置PaddleOCR运行环境，参考[《项目克隆》](../../ppocr/blog/clone.md)克隆项目代码。
 
 ## 3. 模型训练、评估、预测
-请参考[关键信息抽取教程](./kie.md)。PaddleOCR对代码进行了模块化，训练不同的关键信息抽取模型只需要**更换配置文件**即可。
+
+请参考[关键信息抽取教程](../../ppocr/model_train/kie.md)。PaddleOCR对代码进行了模块化，训练不同的关键信息抽取模型只需要**更换配置文件**即可。
 
 ## 4. 推理部署
+
 ### 4.1 Python推理
 
 #### SER
 
 首先将训练得到的模型转换成inference model。LayoutXLM模型在XFUND_zh数据集上训练的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar)），可以使用下面的命令进行转换。
+
 ``` bash
 wget https://paddleocr.bj.bcebos.com/pplayout/ser_LayoutXLM_xfun_zh.tar
 tar -xf ser_LayoutXLM_xfun_zh.tar
@@ -40,6 +44,7 @@ python3 tools/export_model.py -c configs/kie/layoutlm_series/ser_layoutxlm_xfund
 ```
 
 LayoutXLM模型基于SER任务进行推理，可以执行如下命令：
+
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
@@ -54,8 +59,8 @@ SER可视化结果默认保存到`./output`文件夹里面，结果示例如下�
 
 ![](./images/zh_val_42_ser.jpg)
 
-
 #### RE
+
 首先将训练得到的模型转换成inference model。LayoutXLM模型在XFUND_zh数据集上训练的模型为例（[模型下载地址](https://paddleocr.bj.bcebos.com/pplayout/re_LayoutXLM_xfun_zh.tar)），可以使用下面的命令进行转换。
 
 ``` bash
@@ -65,6 +70,7 @@ python3 tools/export_model.py -c configs/kie/layoutlm_series/re_layoutxlm_xfund_
 ```
 
 LayoutXLM模型基于RE任务进行推理，可以执行如下命令：
+
 ```bash
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
@@ -81,17 +87,21 @@ RE可视化结果默认保存到`./output`文件夹里面，结果示例如下�
 ![](./images/zh_val_42_re.jpg)
 
 ### 4.2 C++推理部署
+
 暂不支持
 
 ### 4.3 Serving服务化部署
+
 暂不支持
 
 ### 4.4 更多推理部署
+
 暂不支持
 
 ## 5. FAQ
 
 ## 引用
+
 ```bibtex
 @article{DBLP:journals/corr/abs-2104-08836,
   author    = {Yiheng Xu and

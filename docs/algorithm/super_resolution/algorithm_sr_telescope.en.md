@@ -8,9 +8,7 @@ comments: true
 
 Paper:
 > [Scene Text Telescope: Text-Focused Scene Image Super-Resolution](https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Scene_Text_Telescope_Text-Focused_Scene_Image_Super-Resolution_CVPR_2021_paper.pdf)
-
 > Chen, Jingye, Bin Li, and Xiangyang Xue
-
 > CVPR, 2021
 
 Referring to the [FudanOCR](https://github.com/FudanVI/FudanOCR/tree/main/scene-text-telescope) data download instructions, the effect of the super-score algorithm on the TextZoom test set is as follows:
@@ -22,12 +20,14 @@ Referring to the [FudanOCR](https://github.com/FudanVI/FudanOCR/tree/main/scene-
 The [TextZoom dataset](https://paddleocr.bj.bcebos.com/dataset/TextZoom.tar) comes from two superfraction data sets, RealSR and SR-RAW, both of which contain LR-HR pairs. TextZoom has 17367 pairs of training data and 4373 pairs of test data.
 
 ## 2. Environment
-Please refer to ["Environment Preparation"](./environment_en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](./clone_en.md) to clone the project code.
+
+Please refer to ["Environment Preparation"](../../ppocr/environment.en.md) to configure the PaddleOCR environment, and refer to ["Project Clone"](../../ppocr/blog/clone.en.md)to clone the project code.
 
 ## 3. Model Training / Evaluation / Prediction
-Please refer to [Text Recognition Tutorial](./recognition_en.md). PaddleOCR modularizes the code, and training different models only requires **changing the configuration file**.
 
-#### Training:
+Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.en.md). PaddleOCR modularizes the code, and training different models only requires **changing the configuration file**.
+
+### Training
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
@@ -39,13 +39,15 @@ python3 tools/train.py -c configs/sr/sr_telescope.yml
 python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs/sr/sr_telescope.yml
 ```
 
-#### Evaluation:
+### Evaluation
+
 ```bash
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/sr/sr_telescope.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
-Prediction:
+### Prediction
+
 ```bash
 # The configuration file used for prediction must match the training
 
@@ -59,7 +61,9 @@ After executing the command, the super-resolution result of the above image is a
 ![img](./images/sr_word_52-20240704094309205.png)
 
 ## 4. Inference and Deployment
+
 ### 4.1 Python Inference
+
 First, the model saved during the training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/contribution/Telescope_train.tar.gz) ), you can use the following command to convert:
 
 ```bash
@@ -78,17 +82,21 @@ After executing the command, the super-resolution result of the above image is a
 ![img](./images/sr_word_52-20240704094309205.png)
 
 ### 4.2 C++ Inference
+
 Not supported
 
 ### 4.3 Serving
+
 Not supported
 
 ### 4.4 More
+
 Not supported
 
 ## 5. FAQ
 
 ## Citation
+
 ```bibtex
 @INPROCEEDINGS{9578891,
   author={Chen, Jingye and Li, Bin and Xue, Xiangyang},

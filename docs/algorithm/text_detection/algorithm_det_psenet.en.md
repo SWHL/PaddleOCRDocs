@@ -21,7 +21,7 @@ On the ICDAR2015 dataset, the text detection result is as follows:
 
 
 ## 2. Environment
-Please prepare your environment referring to [prepare the environment](./environment_en.md) and [clone the repo](./clone_en.md).
+Please prepare your environment referring to [prepare the environment](../../ppocr/environment.en.md) and [clone the repo](./clone_en.md).
 
 ## 3. Model Training / Evaluation / Prediction
 The above PSE model is trained using the ICDAR2015 text detection public dataset. For the download of the dataset, please refer to [ocr_datasets](./dataset/ocr_datasets_en.md).

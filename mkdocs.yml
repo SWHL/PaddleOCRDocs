@@ -109,6 +109,7 @@ plugins:
             文本检测: Text Detection
             文本识别: Text Recognition
             文本方向分类器: Text Angle Classification
+            关键信息提取: Key Information Extraction
             模型微调: Fine-tune
             模型压缩: Model Compression
             模型量化: Model Quantization
@@ -133,6 +134,8 @@ plugins:
             切片操作: Slice
             PaddleOCR模型推理参数解释: PaddleOCR Model Inference Parameter Explanation
             分布式训练: Distributed training
+            项目克隆: Project Clone
+            配置文件内容与生成: Configuration
             PP-Structure文档分析: PP-Structure
             概述: Overview
             快速开始: Quick Start
@@ -247,6 +250,7 @@ nav:
       - 文本检测: ppocr/model_train/detection.md
       - 文本识别: ppocr/model_train/recognition.md
       - 文本方向分类器: ppocr/model_train/angle_class.md
+      - 关键信息提取: ppocr/model_train/kie.md
       - 模型微调: ppocr/model_train/finetune.md
     - 模型压缩:
       - 模型量化: ppocr/model_compress/quantization.md
@@ -274,6 +278,8 @@ nav:
       - 切片操作: ppocr/blog/slice.md
       - PaddleOCR模型推理参数解释: ppocr/blog/inference_args.md
       - 分布式训练: ppocr/blog/distributed_training.md
+      - 项目克隆: ppocr/blog/clone.md
+      - 配置文件内容与生成: ppocr/blog/config.md
   - PP-Structure文档分析:
     - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
