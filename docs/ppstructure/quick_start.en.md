@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PP-Structure Quick Start
 
 ## 1. Environment Preparation

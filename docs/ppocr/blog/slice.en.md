@@ -1,4 +1,10 @@
-﻿# Slice Operator
+﻿---
+comments: true
+---
+
+
+# Slice Operator
+
 If you have a very large image/document that you would like to run PaddleOCR (detection and recognition) on, you can use the slice operation as follows:
 
 `ocr_inst  =  PaddleOCR(**ocr_settings)`

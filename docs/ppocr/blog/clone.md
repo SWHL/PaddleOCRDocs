@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # 项目克隆
 
 ## 1. 克隆PaddleOCR repo代码

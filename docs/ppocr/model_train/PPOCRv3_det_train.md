@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 # PP-OCRv3 文本检测模型训练
 

@@ -7,7 +7,9 @@ site_description:
 repo_name: PaddlePaddle/PaddleOCR
 repo_url: https://github.com/PaddlePaddle/PaddleOCR
 
-copyright: Copyright &copy; 2024 Maintained by PaddleOCR.
+copyright: Copyright &copy; 2024 Maintained by PaddleOCR PMC.
+
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -20,6 +22,8 @@ theme:
     - content.code.copy
     - content.tabs.link
     - content.footnote.tooltips
+    - content.action.edit
+    - content.action.view
     - navigation.expand  # 默认打开所有的字节
     - navigation.tabs # 顶级索引被作为tab
     - navigation.tabs.sticky # tab始终可见
@@ -53,6 +57,8 @@ theme:
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
     repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
     tag:
       default-tag: fontawesome/solid/tag
       hardware-tag: fontawesome/solid/microchip
@@ -73,12 +79,7 @@ theme:
 
 plugins:
   - tags
-  # - blog:
-  #     archive: false
-  #     post_date_format: short
-  #     blog_toc: true
-  #     categories_toc: true
-  #     pagination: false
+  - offline
   - search:
       separator: '[\s\u200b\-_,:!=\[\: )"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - i18n:
@@ -94,6 +95,7 @@ plugins:
         - locale: en
           name: English
           site_name: PaddleOCR Documentation
+          link: /en/
           nav_translations:
             Home: Home
             快速开始: Quick Start

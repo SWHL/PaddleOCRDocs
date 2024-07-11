@@ -34,11 +34,11 @@ Windows和Mac用户推荐使用Anaconda搭建Python环境，Linux用户建议使
   - 下载完成后，双击安装程序进入图形界面
   - 默认安装位置为C盘，建议将安装位置更改到D盘：
 
-    <img src="../images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
+    <img src="./images/anaconda_install_folder.png" alt="install config" style="zoom:67%;" />
 
   - 勾选conda加入环境变量，忽略警告：
 
-    <img src="../images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
+    <img src="./images/anaconda_install_env.png" alt="add conda to path" style="zoom: 67%;" />
 
 #### 1.1.2 打开终端并创建conda环境
 

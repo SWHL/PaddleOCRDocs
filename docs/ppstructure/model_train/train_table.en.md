@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Table Recognition
 
 ## 1. pipeline

@@ -67,7 +67,7 @@ im_show.save('result.jpg')
 结果可视化
 
 <div align="center">
-    <img src="../images/11_det_rec.jpg" width="800">
+    <img src="./images/11_det_rec.jpg" width="800">
 </div>
 
 * 检测+识别
@@ -107,7 +107,7 @@ im_show.save('result.jpg')
 结果可视化
 
 <div align="center">
-    <img src="../images/11_det_rec.jpg" width="800">
+    <img src="./images/11_det_rec.jpg" width="800">
 </div>
 
 * 方向分类器+识别
@@ -164,7 +164,7 @@ im_show.save('result.jpg')
 结果可视化
 
 <div align="center">
-    <img src="../images/11_det.jpg" width="800">
+    <img src="./images/11_det.jpg" width="800">
 </div>
 
 * 单独执行识别

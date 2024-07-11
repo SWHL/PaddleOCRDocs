@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Layout analysis
 
 ## 1. Introduction

@@ -37,7 +37,7 @@ json.dumps编码前的图像标注信息是包含多个字典的list，字典中
 ICDAR 2015 数据集包含1000张训练图像和500张测试图像。ICDAR 2015 数据集可以从上表中链接下载，首次下载需注册。
 注册完成登陆后，下载下图中红色框标出的部分，其中， `Training Set Images`下载的内容保存在`icdar_c4_train_imgs`文件夹下，`Test Set Images` 下载的内容保存早`ch4_test_images`文件夹下
 
- <img src="../images/ic15_location_download.png" align="middle" width = "700"/>
+ <img src="./images/ic15_location_download.png" align="middle" width = "700"/>
 
 将下载到的数据集解压到工作目录下，假设解压在 PaddleOCR/train_data/下。然后从上表中下载转换好的标注文件。
 

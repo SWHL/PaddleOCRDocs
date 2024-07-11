@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 # PP-OCRv3 text detection model training
 

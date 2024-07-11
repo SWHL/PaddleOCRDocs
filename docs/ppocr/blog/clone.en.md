@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Project Clone
 
 ## 1. Clone PaddleOCR

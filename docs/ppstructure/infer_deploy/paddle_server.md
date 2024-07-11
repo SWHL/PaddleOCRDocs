@@ -1,3 +1,6 @@
+---
+comments: true
+---
 
 PaddleOCR提供2种服务部署方式：
 

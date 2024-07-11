@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PP-Structure 快速开始
 
 ## 1. 准备环境

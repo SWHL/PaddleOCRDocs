@@ -22,10 +22,6 @@ hide:
 
 PaddleOCR aims to create multilingual, awesome, leading, and practical OCR tools that help users train better models and apply them into practice.
 
-![img](./images/test_add_91.jpg)
-
-![img](./images/00006737.jpg)
-
 ## 🚀 Community
 
 PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122). Issues and PRs will be reviewed on a best-effort basis. For a complete overview of PaddlePaddle community, please visit [community](https://github.com/PaddlePaddle/community).
@@ -103,6 +99,10 @@ More details, please refer to [Multilingual OCR Development Plan](https://github
 ## PP-OCRv3
 
 ### PP-OCRv3 Chinese model
+
+![img](./images/test_add_91.jpg)
+
+![img](./images/00006737.jpg)
 
 ![](./images/PP-OCRv3-pic001.jpg)
 

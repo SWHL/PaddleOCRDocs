@@ -5,11 +5,6 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-### 图像路径说明
-
-- docs目录下， en后缀文件，图像路径为`../static`，多加一级，才能正确显示
-- 其他目录，图像均在所在目录下的images目录下
-
 ### 注意事项
 
 - 图像路径。
@@ -19,8 +14,7 @@ mkdocs serve
     # ✔ markdown格式
     ![](./images/1.png)
 
-    # html格式需要多加一级才能正常渲染
-    <img src="../images/1.png" />
+    <img src="./images/1.png" />
     ```
 
   - 英文文档：只能使用markdown格式来插入图像（正常路径即可）。因为i18n插件原因，html格式不能正确渲染。
@@ -31,7 +25,7 @@ mkdocs serve
 ### TODO
 
 - [ ] Deploy部分文档统一补充
-- [ ] 文档顶部评论功能统一添加
+- [x] 文档顶部评论功能统一添加
 - [ ] 文档中涉及到配置文件路径更正
 - [x] whl文档移入博客部分
 - [ ] [推理文档](https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/doc_ch/inference_ppocr.md)如何处理？

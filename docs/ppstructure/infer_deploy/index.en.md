@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # PP-OCR Deployment
 
 ## Paddle Deployment Introduction

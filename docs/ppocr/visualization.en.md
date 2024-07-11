@@ -50,6 +50,6 @@ comments: true
 
 ## (multilingual)_ppocr_mobile_2.0
 
-![](./images/french_0.jpg)
+![](./images/multi_lang/french_0.jpg)
 
-![](./images/korean.jpg)
+![](./images/multi_lang/korean_0.jpg)

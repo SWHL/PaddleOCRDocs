@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 # Visual Studio 2019 Community CMake Compilation Guide
 
 PaddleOCR is tested on Windows based on `Visual Studio 2019 Community`. Microsoft has supported direct management of `CMake` cross-platform compilation projects since `Visual Studio 2017`, but it was not until `2019` that stable and complete support was provided, so if you want to use CMake to manage project compilation and build, we recommend that you use the `Visual Studio 2019` environment to build.
