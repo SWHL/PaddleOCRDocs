@@ -20,10 +20,10 @@ PP-StructureV2系统流程图如下所示，文档图像首先经过图像矫正
 
 PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独使用版面分析，或单独使用表格识别，点击下面相应链接获取各个独立模块的使用教程：
 
-- [版面分析](layout/README_ch.md)
-- [表格识别](table/README_ch.md)
-- [关键信息抽取](kie/README_ch.md)
-- [版面复原](recovery/README_ch.md)
+- [版面分析](model_train/train_layout.md)
+- [表格识别](model_train/train_table.md)
+- [关键信息抽取](model_train/train_kie.md)
+- [版面复原](model_train/recovery_to_doc.md)
 
 ## 2. 特性
 
@@ -49,7 +49,7 @@ PP-StructureV2支持各个模块独立使用或灵活搭配，如，可以单独
 
 ### 3.1.1 版面识别返回单字坐标
 
-下图展示了基于上一节版面分析对文字进行定位的效果， 可参考[文档](./return_word_pos.md)。
+下图展示了基于上一节版面分析对文字进行定位的效果， 可参考[文档](blog/return_word_pos.md)。
 
 ![show_0_mdf_v2](./images/799450d4-d2c5-4b61-b490-e160dc0f515c.jpeg)
 
