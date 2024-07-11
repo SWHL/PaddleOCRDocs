@@ -11,11 +11,9 @@ comments: true
 
 ![img](./images/layout.png)
 
-
 ## 2. 快速开始
 
-PP-Structure目前提供了中文、英文、表格三类文档版面分析模型，模型链接见 [models_list](../docs/models_list.md#1-版面分析模型)。也提供了whl包的形式方便快速使用，详见 [quickstart](../docs/quickstart.md)。
-
+PP-Structure目前提供了中文、英文、表格三类文档版面分析模型，模型链接见 [models_list](../models_list.md)。也提供了whl包的形式方便快速使用，详见 [quickstart](../quick_start.md)。
 
 ## 3. 安装
 
@@ -32,6 +30,7 @@ python3 -m pip install "paddlepaddle-gpu>=2.3" -i https://mirror.baidu.com/pypi/
 # CPU安装
 python3 -m pip install "paddlepaddle>=2.3" -i https://mirror.baidu.com/pypi/simple
 ```
+
 更多需求，请参照[安装文档](https://www.paddlepaddle.org.cn/install/quick)中的说明进行操作。
 
 ### 3.2. 安装PaddleDetection
@@ -140,14 +139,13 @@ json文件包含所有图像的标注，数据以字典嵌套的方式存放，�
 | [TableBank](https://github.com/doc-analysis/TableBank)          | 用于表格检测和识别大型数据集，包含Word和Latex2种文档格式                                                                                                                       |
 | [DocBank](https://github.com/doc-analysis/DocBank)              | 使用弱监督方法构建的大规模数据集(500K文档页面)，用于文档布局分析，包含12类：Author、Caption、Date、Equation、Figure、Footer、List、Paragraph、Reference、Section、Table、Title |
 
-
 ## 5. 开始训练
 
 提供了训练脚本、评估脚本和预测脚本，本节将以PubLayNet预训练模型为例进行讲解。
 
 如果不希望训练，直接体验后面的模型评估、预测、动转静、推理的流程，可以下载提供的预训练模型(PubLayNet数据集)，并跳过5.1和5.2。
 
-```
+```bash
 mkdir pretrained_model
 cd pretrained_model
 # 下载PubLayNet预训练模型（直接体验模型评估、预测、动转静）
@@ -156,16 +154,15 @@ wget https://paddleocr.bj.bcebos.com/ppstructure/models/layout/picodet_lcnet_x1_
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/layout/picodet_lcnet_x1_0_fgd_layout_infer.tar
 ```
 
-如果测试图片为中文，可以下载中文CDLA数据集的预训练模型，识别10类文档区域：Table、Figure、Figure caption、Table、Table caption、Header、Footer、Reference、Equation，在[版面分析模型](../docs/models_list.md)中下载`picodet_lcnet_x1_0_fgd_layout_cdla`模型的训练模型和推理模型。如果只检测图片中的表格区域，可以下载表格数据集的预训练模型，在[版面分析模型](../docs/models_list.md)中下载`picodet_lcnet_x1_0_fgd_layout_table`模型的训练模型和推理模型。
+如果测试图片为中文，可以下载中文CDLA数据集的预训练模型，识别10类文档区域：Table、Figure、Figure caption、Table、Table caption、Header、Footer、Reference、Equation，在[版面分析模型](../models_list.md)中下载`picodet_lcnet_x1_0_fgd_layout_cdla`模型的训练模型和推理模型。如果只检测图片中的表格区域，可以下载表格数据集的预训练模型，在[版面分析模型](../models_list.md)中下载`picodet_lcnet_x1_0_fgd_layout_table`模型的训练模型和推理模型。
 
 ### 5.1. 启动训练
 
 使用PaddleDetection[版面分析配置文件](https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.5/configs/picodet/legacy_model/application/layout_analysis)启动训练
 
-* 修改配置文件
+- 修改配置文件
 
 如果你希望训练自己的数据集，需要修改配置文件中的数据配置、类别数。
-
 
 以`configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml` 为例，修改的内容如下所示。
 
@@ -199,7 +196,7 @@ TestDataset:
     anno_path: /root/publaynet/val.json
 ```
 
-* 开始训练，在训练时，会默认下载PP-PicoDet预训练模型，这里无需预先下载。
+- 开始训练，在训练时，会默认下载PP-PicoDet预训练模型，这里无需预先下载。
 
 ```bash
 # GPU训练 支持单卡，多卡训练
@@ -222,7 +219,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py \
 
 正常启动训练后，会看到以下log输出：
 
-```
+```bash
 [08/15 04:02:30] ppdet.utils.checkpoint INFO: Finish loading model weights: /root/.cache/paddle/weights/LCNet_x1_0_pretrained.pdparams
 [08/15 04:02:46] ppdet.engine INFO: Epoch: [0] [   0/1929] learning_rate: 0.040000 loss_vfl: 1.216707 loss_bbox: 1.142163 loss_dfl: 0.544196 loss: 2.903065 eta: 17 days, 13:50:26 batch_cost: 15.7452 data_cost: 2.9112 ips: 1.5243 images/s
 [08/15 04:03:19] ppdet.engine INFO: Epoch: [0] [  20/1929] learning_rate: 0.064000 loss_vfl: 1.180627 loss_bbox: 0.939552 loss_dfl: 0.442436 loss: 2.628206 eta: 2 days, 12:18:53 batch_cost: 1.5770 data_cost: 0.0008 ips: 15.2184 images/s
@@ -299,7 +296,6 @@ python3 tools/eval.py \
 
 ### 6.2 测试版面分析结果
 
-
 预测使用的配置文件必须与训练一致，如您通过 `python3 tools/train.py -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml` 完成了模型的训练过程。
 
 使用 PaddleDetection 训练好的模型，您可以使用如下命令进行模型预测。
@@ -329,9 +325,7 @@ python3 tools/infer.py \
     --draw_threshold=0.5
 ```
 
-
 ## 7. 模型导出与预测
-
 
 ### 7.1 模型导出
 
@@ -346,8 +340,8 @@ python3 tools/export_model.py \
     --output_dir=output_inference/
 ```
 
-* 如无需导出后处理，请指定：`-o export.benchmark=True`（如果-o已出现过，此处删掉-o）
-* 如无需导出NMS，请指定：`-o export.nms=False`
+- 如无需导出后处理，请指定：`-o export.benchmark=True`（如果-o已出现过，此处删掉-o）
+- 如无需导出NMS，请指定：`-o export.nms=False`
 
 转换成功后，在目录下有三个文件：
 
@@ -367,8 +361,6 @@ python3 tools/export_model.py \
     -o weights=./output/picodet_lcnet_x2_5_layout/best_model \
     --output_dir=output_inference/
 ```
-
-
 
 ### 7.2 模型推理
 

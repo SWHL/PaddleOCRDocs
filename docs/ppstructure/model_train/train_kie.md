@@ -33,7 +33,7 @@ PP-Structure中关键信息抽取模块的主要特性如下：
 
 - 注：预测耗时测试条件：V100 GPU + cuda10.2 + cudnn8.1.1 + TensorRT 7.2.3.4，使用FP16进行测试。
 
-更多关于PaddleOCR中关键信息抽取模型的介绍，请参考[关键信息抽取模型库](../../doc/doc_ch/algorithm_overview.md)。
+更多关于PaddleOCR中关键信息抽取模型的介绍，请参考[关键信息抽取模型库](../../algorithm/overview.md)。
 
 ## 3. 效果演示
 

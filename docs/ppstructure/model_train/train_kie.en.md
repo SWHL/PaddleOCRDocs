@@ -224,13 +224,13 @@ If you want to use a custom ocr model, you can set it through the following fiel
 
 ### 4.3 More
 
-For training, evaluation and inference tutorial for KIE models, please refer to [KIE doc](../../doc/doc_en/kie_en.md).
+For training, evaluation and inference tutorial for KIE models, please refer to [KIE doc](../model_train/train_kie.en.md).
 
-For training, evaluation and inference tutorial for text detection models, please refer to [text detection doc](../../doc/doc_en/detection_en.md).
+For training, evaluation and inference tutorial for text detection models, please refer to [text detection doc](../../ppocr/model_train/detection.en.md).
 
-For training, evaluation and inference tutorial for text recognition models, please refer to [text recognition doc](../../doc/doc_en/recognition_en.md).
+For training, evaluation and inference tutorial for text recognition models, please refer to [text recognition doc](../../ppocr/model_train/recognition.en.md).
 
-To complete the key information extraction task in your own scenario from data preparation to model selection, please refer to: [Guide to End-to-end KIE](./how_to_do_kie_en.md)。
+To complete the key information extraction task in your own scenario from data preparation to model selection, please refer to: [Guide to End-to-end KIE](../blog/how_to_do_kie.en.md)。
 
 ## 5. Reference
 
