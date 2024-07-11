@@ -97,7 +97,7 @@ wget wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/korean_mobil
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/korean/1.jpg" --rec_model_dir="./your inference model" --rec_char_dict_path="ppocr/utils/dict/korean_dict.txt" --vis_font_path="doc/fonts/korean.ttf"
 ```
 
-![img](./images/1-20240705130006988.jpg)
+![img](./images/1.jpg)
 
 After executing the command, the prediction result of the above figure is:
 
@@ -143,7 +143,7 @@ python3 tools/infer/predict_system.py --image_dir="./xxx.pdf" --det_model_dir=".
 
 After executing the command, the recognition result image is as follows:
 
-![](../imgs_results/system_res_00018069_v3.jpg)
+![](./images/system_res_00018069_v3.jpg)
 
 For more configuration and explanation of inference parameters, please refer to：[Model Inference Parameters Explained Tutorial](../blog/inference_args.en.md)。
 

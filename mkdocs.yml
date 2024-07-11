@@ -139,6 +139,7 @@ plugins:
             分布式训练: Distributed training
             项目克隆: Project Clone
             配置文件内容与生成: Configuration
+            如何生产自定义超轻量模型？: How To Make Your own lightweight OCR model?
             PP-Structure文档分析: PP-Structure
             概述: Overview
             快速开始: Quick Start
@@ -287,6 +288,7 @@ nav:
       - 分布式训练: ppocr/blog/distributed_training.md
       - 项目克隆: ppocr/blog/clone.md
       - 配置文件内容与生成: ppocr/blog/config.md
+      - 如何生产自定义超轻量模型？: ppocr/blog/customize.md
   - PP-Structure文档分析:
     - 概述: ppstructure/overview.md
     - 快速开始: ppstructure/quick_start.md
