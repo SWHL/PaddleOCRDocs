@@ -103,6 +103,7 @@ plugins:
             PP-OCR 文本检测识别: PP-OCR
             概述: Overview
             快速开始: Quick Start
+            快速安装: Quick Installation
             效果展示: Visualization
             运行环境: Environment Preparation
             模型库: Model
@@ -247,6 +248,7 @@ nav:
   - PP-OCR 文本检测识别:
     - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
+    - 快速安装: ppocr/installation.md
     - 效果展示: ppocr/visualization.md
     - 运行环境: ppocr/environment.md
     - 模型库: ppocr/model_list.md
