@@ -18,7 +18,7 @@ PaddleOCR 支持两种数据格式:
 
 训练数据的默认存储路径是 `PaddleOCR/train_data`,如果您的磁盘上已有数据集，只需创建软链接至数据集目录：
 
-```bash
+```bash linenums="1"
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows
@@ -35,7 +35,7 @@ mklink /d <path/to/paddle_ocr>/train_data/dataset <path/to/dataset>
 
 **注意：** txt文件中默认请将图片路径和图片标签用 \t 分割，如用其他方式分割将造成训练报错。
 
-```text
+```text linenums="1"
 " 图像文件名                 图像标注信息 "
 
 train_data/rec/train/word_001.jpg   简单可依赖
@@ -45,7 +45,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 最终训练集应有如下文件结构：
 
-```text
+```text linenums="1"
 |-train_data
   |-rec
     |- rec_gt_train.txt
@@ -58,7 +58,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 除上述单张图像为一行格式之外，PaddleOCR也支持对离线增广后的数据进行训练，为了防止相同样本在同一个batch中被多次采样，我们可以将相同标签对应的图片路径写在一行中，以列表的形式给出，在训练中，PaddleOCR会随机选择列表中的一张图片进行训练。对应地，标注文件的格式如下：
 
-```text
+```text linenums="1"
 ["11.jpg", "12.jpg"]   简单可依赖
 ["21.jpg", "22.jpg", "23.jpg"]   用科技让复杂的世界更简单
 3.jpg   ocr
@@ -70,7 +70,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 同训练集类似，验证集也需要提供一个包含所有图片的文件夹（test）和一个rec_gt_test.txt，验证集的结构如下所示：
 
-```text
+```text linenums="1"
 |-train_data
   |-rec
     |- rec_gt_test.txt
@@ -89,7 +89,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 如果你使用的是icdar2015的公开数据集，PaddleOCR 提供了一份用于训练 ICDAR2015 数据集的标签文件，通过以下方式下载：
 
-```bash
+```bash linenums="1"
 # 训练集标签
 wget -P ./train_data/ic15_data  https://paddleocr.bj.bcebos.com/dataset/rec_gt_train.txt
 # 测试集标签
@@ -98,7 +98,7 @@ wget -P ./train_data/ic15_data  https://paddleocr.bj.bcebos.com/dataset/rec_gt_t
 
 PaddleOCR 也提供了数据格式转换脚本，可以将ICDAR官网 label 转换为PaddleOCR支持的数据格式。 数据转换工具在 `ppocr/utils/gen_label.py`, 这里以训练集为例：
 
-```bash
+```bash linenums="1"
 # 将官网下载的标签文件转换为 rec_gt_label.txt
 python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_label="rec_gt_label.txt"
 ```
@@ -119,7 +119,7 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 
 因此字典需要包含所有希望被正确识别的字符，{word_dict_name}.txt需要写成如下格式，并以 `utf-8` 编码格式保存：
 
-```text
+```text linenums="1"
 l
 d
 a
@@ -177,7 +177,7 @@ PaddleOCR提供了训练脚本、评估脚本和预测脚本，本节将以 PP-O
 
 首先下载pretrain model，您可以下载训练好的模型在 icdar2015 数据上进行finetune
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/
 # 下载英文PP-OCRv3的预训练模型
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_rec_train.tar
@@ -190,7 +190,7 @@ tar -xf en_PP-OCRv3_rec_train.tar && rm -rf en_PP-OCRv3_rec_train.tar
 
 *如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false*
 
-```bash
+```bash linenums="1"
 # GPU训练 支持单卡，多卡训练
 # 训练icdar15英文数据 训练日志会自动保存为 "{save_model_dir}" 下的train.log
 
@@ -203,7 +203,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 正常启动训练后，会看到以下log输出：
 
-```bash
+```bash linenums="1"
 [2022/02/22 07:58:05] root INFO: epoch: [1/800], iter: 10, lr: 0.000000, loss: 0.754281, acc: 0.000000, norm_edit_dis: 0.000008, reader_cost: 0.55541 s, batch_cost: 0.91654 s, samples: 1408, ips: 153.62133
 [2022/02/22 07:58:13] root INFO: epoch: [1/800], iter: 20, lr: 0.000001, loss: 0.924677, acc: 0.000000, norm_edit_dis: 0.000008, reader_cost: 0.00236 s, batch_cost: 0.28528 s, samples: 1280, ips: 448.68599
 [2022/02/22 07:58:23] root INFO: epoch: [1/800], iter: 30, lr: 0.000002, loss: 0.967231, acc: 0.000000, norm_edit_dis: 0.000008, reader_cost: 0.14527 s, batch_cost: 0.42714 s, samples: 1280, ips: 299.66507
@@ -235,7 +235,7 @@ PaddleOCR支持训练和评估交替进行, 可以在 `configs/rec/PP-OCRv3/en_P
 
 以 `ch_PP-OCRv3_rec_distillation.yml` 为例：
 
-```yaml
+```yaml linenums="1"
 Global:
   ...
   # 添加自定义字典，如修改字典请将路径指向新字典
@@ -301,7 +301,7 @@ Eval:
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定Global.checkpoints指定要加载的模型路径：
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -311,7 +311,7 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.che
 
 PaddleOCR将网络划分为四部分，分别在[ppocr/modeling](../../ppocr/modeling)下。 进入网络的数据将按照顺序(transforms->backbones->necks->heads)依次通过这四个部分。
 
-```bash
+```bash linenums="1"
 ├── architectures # 网络的组网代码
 ├── transforms    # 网络的图像变换模块
 ├── backbones     # 网络的特征提取模块
@@ -326,7 +326,7 @@ PaddleOCR将网络划分为四部分，分别在[ppocr/modeling](../../ppocr/mod
 1. 在 [ppocr/modeling/backbones](../../ppocr/modeling/backbones) 文件夹下新建文件，如my_backbone.py。
 2. 在 my_backbone.py 文件内添加相关代码，示例代码如下:
 
-```python
+```python linenums="1"
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
@@ -346,7 +346,7 @@ class MyBackbone(nn.Layer):
 
 3. 在 [ppocr/modeling/backbones/\_*init\_*.py](../../ppocr/modeling/backbones/__init__.py)文件内导入添加的`MyBackbone`模块，然后修改配置文件中Backbone进行配置即可使用，格式如下:
 
-```yaml
+```yaml linenums="1"
 Backbone:
 name: MyBackbone
 args1: args1
@@ -358,7 +358,7 @@ args1: args1
 
 如果您想进一步加快训练速度，可以使用[自动混合精度训练](https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/01_paddle2.0_introduction/basic_concept/amp_cn.html)， 以单机单卡为例，命令如下：
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml \
      -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
@@ -368,7 +368,7 @@ python3 tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml \
 
 多机多卡训练时，通过 `--ips` 参数设置使用的机器IP地址，通过 `--gpus` 参数设置使用的GPU ID：
 
-```bash
+```bash linenums="1"
 python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1,2,3' tools/train.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml \
      -o Global.pretrained_model=./pretrain_models/en_PP-OCRv3_rec_train/best_accuracy
 ```
@@ -404,7 +404,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 
 以 `rec_french_lite_train` 为例：
 
-```yaml
+```yaml linenums="1"
 Global:
   ...
   # 添加自定义字典，如修改字典请将路径指向新字典
@@ -459,7 +459,7 @@ DCU设备上运行需要设置环境变量 `export HIP_VISIBLE_DEVICES=0,1,2,3`�
 
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Global.checkpoints`指向保存的参数文件。评估数据集可以通过 `configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml`  修改Eval中的 `label_file_path` 设置。
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.checkpoints 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.checkpoints={path/to/weights}/best_accuracy
 ```
@@ -472,7 +472,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/PP-
 
 根据配置文件中设置的 `save_model_dir` 和 `save_epoch_step` 字段，会有以下几种参数被保存下来：
 
-```text
+```text linenums="1"
 output/rec/
 ├── best_accuracy.pdopt
 ├── best_accuracy.pdparams
@@ -489,7 +489,7 @@ output/rec/
 
 其中 best_accuracy.*是评估集上的最优模型；iter_epoch_x.* 是以 `save_epoch_step` 为间隔保存下来的模型；latest.* 是最后一个epoch的模型。
 
-```bash
+```bash linenums="1"
 # 预测英文结果
 python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global.pretrained_model={path/to/weights}/best_accuracy  Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -500,7 +500,7 @@ python3 tools/infer_rec.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Global
 
 得到输入图像的预测结果：
 
-```bash
+```bash linenums="1"
 infer_img: doc/imgs_words/en/word_1.png
         result: ('joint', 0.9998967)
 ```
@@ -508,7 +508,7 @@ infer_img: doc/imgs_words/en/word_1.png
 预测使用的配置文件必须与训练一致，如您通过 `python3 tools/train.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0.yml` 完成了中文模型的训练，
 您可以使用如下命令进行中文模型预测。
 
-```bash
+```bash linenums="1"
 # 预测中文结果
 python3 tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/ch/word_1.jpg
 ```
@@ -519,7 +519,7 @@ python3 tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v
 
 得到输入图像的预测结果：
 
-```bash
+```bash linenums="1"
 infer_img: doc/imgs_words/ch/word_1.jpg
         result: ('韩国小馆', 0.997218)
 ```
@@ -533,7 +533,7 @@ inference 模型（`paddle.jit.save`保存的模型）
 
 识别模型转inference模型与检测的方式相同，如下：
 
-```bash
+```bash linenums="1"
 # -c 后面设置训练算法的yml配置文件
 # -o 配置可选参数
 # Global.pretrained_model 参数设置待转换的训练模型地址，不用添加文件后缀 .pdmodel，.pdopt或.pdparams。
@@ -546,7 +546,7 @@ python3 tools/export_model.py -c configs/rec/PP-OCRv3/en_PP-OCRv3_rec.yml -o Glo
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 inference/en_PP-OCRv3_rec/
     ├── inference.pdiparams         # 识别inference模型的参数文件
     ├── inference.pdiparams.info    # 识别inference模型的参数信息，可忽略
@@ -557,7 +557,7 @@ inference/en_PP-OCRv3_rec/
 
   如果训练时修改了文本的字典，在使用inference模型预测时，需要通过`--rec_char_dict_path`指定使用的字典路径，更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](./inference_args.md)。
 
-  ```bash
+  ```bash linenums="1"
   python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./your inference model" --rec_image_shape="3, 48, 320" --rec_char_dict_path="your text dict path"
   ```
 

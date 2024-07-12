@@ -34,7 +34,7 @@ PaddleOCR 旨在打造一套丰富、领先、且实用的OCR工具库，不仅�
 
 ### 1.1 paddle 安装
 
-```bash
+```bash linenums="1"
 # cpu
 pip install paddlepaddle
 
@@ -46,13 +46,13 @@ pip install paddlepaddle-gpu
 
 pip 安装
 
-```bash
+```bash linenums="1"
 pip install paddleocr
 ```
 
 本地构建并安装
 
-```bash
+```bash linenums="1"
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本号
 ```
@@ -63,7 +63,7 @@ pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本�
 
 查看帮助信息
 
-```bash
+```bash linenums="1"
 paddleocr -h
 ```
 
@@ -81,7 +81,7 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```text
+```text linenums="1"
 [('PHO CAPITAL', 0.95723116), [[66.0, 50.0], [327.0, 44.0], [327.0, 76.0], [67.0, 82.0]]]
 [('107 State Street', 0.96311164), [[72.0, 90.0], [451.0, 84.0], [452.0, 116.0], [73.0, 121.0]]]
 [('Montpelier Vermont', 0.97389287), [[69.0, 132.0], [501.0, 126.0], [501.0, 158.0], [70.0, 164.0]]]
@@ -94,7 +94,7 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 
 - 识别预测
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 ```
 
@@ -102,19 +102,19 @@ paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 
 结果是一个tuple，返回识别结果和识别置信度
 
-```text
+```text linenums="1"
 (0.99879867, 'LITTLE')
 ```
 
 - 检测预测
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ```
 
 结果是一个list，每个item只包含文本框
 
-```bash
+```bash linenums="1"
 [[26.0, 457.0], [137.0, 457.0], [137.0, 477.0], [26.0, 477.0]]
 [[25.0, 425.0], [372.0, 425.0], [372.0, 448.0], [25.0, 448.0]]
 [[128.0, 397.0], [273.0, 397.0], [273.0, 414.0], [128.0, 414.0]]
@@ -127,7 +127,7 @@ ppocr 也支持在python脚本中运行，便于嵌入到您自己的代码中 �
 
 - 整图预测（检测+识别）
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # 同样也是通过修改 lang 参数切换语种
@@ -171,7 +171,7 @@ ppocr 支持使用自己的数据进行自定义训练或finetune, 其中识别�
 
 以 `rec_french_lite_train.yml` 为例：
 
-```yaml
+```yaml linenums="1"
 Global:
   ...
   # 添加自定义字典，如修改字典请将路径指向新字典
@@ -205,7 +205,7 @@ Eval:
 
 - 启动训练：
 
-```bash
+```bash linenums="1"
 # 下载预训练模型
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/multilingual/french_mobile_v2.0_rec_train.tar
 tar -xf french_mobile_v2.0_rec_train.tar

@@ -11,7 +11,7 @@ PaddleOCR provides 2 service deployment methods:
 
 The hubserving service deployment directory includes seven service packages: text detection, text angle class, text recognition, text detection+text angle class+text recognition three-stage series connection, layout analysis, table recognition, and PP-Structure. Please select the corresponding service package to install and start the service according to your needs. The directory is as follows:
 
-```text
+```text linenums="1"
 deploy/hubserving/
   └─  ocr_det     text detection module service package
   └─  ocr_cls     text angle class module service package
@@ -26,7 +26,7 @@ deploy/hubserving/
 
 Each service pack contains 3 files. Take the 2-stage series connection service package as an example, the directory is as follows:
 
-```text
+```text linenums="1"
 deploy/hubserving/ocr_system/
   └─  __init__.py    Empty file, required
   └─  config.json    Configuration file, optional, passed in as a parameter when using configuration to start the service
@@ -47,7 +47,7 @@ The following steps take the 2-stage series service as an example. If only the d
 
 ### 2.1 Install PaddleHub
 
-```bash
+```bash linenums="1"
 pip3 install paddlehub==2.1.0 --upgrade
 ```
 
@@ -90,7 +90,7 @@ PaddleOCR provides 5 kinds of service modules, install the required modules acco
 
 **start command:**
 
-```bash
+```bash linenums="1"
 hub serving start --modules Module1==Version1, Module2==Version2, ... \
                   --port 8866 \
                   --use_multiprocess \
@@ -107,7 +107,7 @@ hub serving start --modules Module1==Version1, Module2==Version2, ... \
 
 For example, start the 2-stage series service:
 
-```bash
+```bash linenums="1"
 hub serving start -m ocr_system
 ```
 
@@ -117,7 +117,7 @@ This completes the deployment of a service API, using the default port number 88
 
 **start command:**
 
-```bash
+```bash linenums="1"
 hub serving start --config/-c config.json
 ```
 
@@ -150,7 +150,7 @@ In which the format of `config.json` is as follows:
   - When using the configuration file to start the service, other parameters will be ignored.
   - If you use GPU prediction (that is, `use_gpu` is set to `true`), you need to set the environment variable CUDA_VISIBLE_DEVICES before starting the service, such as:
 
-    ```bash
+    ```bash linenums="1"
     export CUDA_VISIBLE_DEVICES=0
     ```
 
@@ -158,7 +158,7 @@ In which the format of `config.json` is as follows:
 
 For example, use GPU card No. 3 to start the 2-stage series service:
 
-```bash
+```bash linenums="1"
 export CUDA_VISIBLE_DEVICES=3
 hub serving start -c deploy/hubserving/ocr_system/config.json
 ```
@@ -167,7 +167,7 @@ hub serving start -c deploy/hubserving/ocr_system/config.json
 
 After the service starts, you can use the following command to send a prediction request to obtain the prediction result:
 
-```bash
+```bash linenums="1"
 python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 ```
 
@@ -180,7 +180,7 @@ Two parameters need to be passed to the script:
 
   also modified the port for each service, then the `server_url` to send the request will be:
 
-  ```text
+  ```text linenums="1"
   http://127.0.0.1:8865/predict/ocr_det
   http://127.0.0.1:8866/predict/ocr_cls
   http://127.0.0.1:8867/predict/ocr_rec
@@ -198,7 +198,7 @@ Two parameters need to be passed to the script:
 
 Example:
 
-```bash
+```bash linenums="1"
 python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_system --image_dir=./doc/imgs/ --visualize=false`
 ```
 
@@ -238,7 +238,7 @@ If you need to modify the service logic, the following steps are generally requi
 
 1. Stop service:
 
-```bash
+```bash linenums="1"
 hub serving stop --port/-p XXXX
 ```
 
@@ -256,18 +256,18 @@ hub serving stop --port/-p XXXX
    - [`ocr_system` within `name="ocr_system",`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L39)
 4. (Optional) It may require you to delete the directory `__pycache__` to force flush build cache of CPython:
 
-   ```bash
+   ```bash linenums="1"
    find deploy/hubserving/ocr_system -name '__pycache__' -exec rm -r {} \;
    ```
 
 5. Install modified service module:
 
-   ```bash
+   ```bash linenums="1"
    hub install deploy/hubserving/ocr_system/
    ```
 
 6. Restart service:
 
-   ```bash
+   ```bash linenums="1"
    hub serving start -m ocr_system
    ```

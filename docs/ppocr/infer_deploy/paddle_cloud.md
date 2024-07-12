@@ -49,14 +49,14 @@ PaddleCloud基于 [Tekton](https://github.com/tektoncd/pipeline) 为OCR模型套
 
 **使用CPU版本的Docker镜像**
 
-```bash
+```bash linenums="1"
 # 这是加上参数 --shm-size=32g 是为了防止容器里内存不足
 docker run --name ppocr -v $PWD:/mnt -p 8888:8888 -it --shm-size=32g paddlecloud/paddleocr:2.5-cpu-efbb0a /bin/bash
 ```
 
 **使用GPU版本的Docker镜像**
 
-```bash
+```bash linenums="1"
 docker run --name ppocr --runtime=nvidia -v $PWD:/mnt -p 8888:8888 -it --shm-size=32g paddlecloud/paddleocr:2.5-gpu-cuda10.2-cudnn7-efbb0a /bin/bash
 ```
 
@@ -68,7 +68,7 @@ docker run --name ppocr --runtime=nvidia -v $PWD:/mnt -p 8888:8888 -it --shm-siz
 该数据集包含从 Open Images 数据集中选择的 11639 张图像，提供高质量的单词 (~1.2M)、行和段落级别的注释。
 我们已经将数据集上传到百度云对象存储（BOS），您可以通过运行如下指令，完成数据集的下载和解压操作：
 
-```bash
+```bash linenums="1"
 # 下载数据集
 $ wget -P /mnt https://paddleflow-public.hkg.bcebos.com/ppocr/hiertext1.tar
 
@@ -92,7 +92,7 @@ PP-OCRv3模型配置文件位于`/home/PaddleOCR/configs/det/ch_PP-OCRv3/ch_PP-O
 
 - 修改训练数据配置：
 
-```yaml
+```yaml linenums="1"
 Train:
   dataset:
     name: SimpleDataSet
@@ -103,7 +103,7 @@ Train:
 
 修改为：
 
-```yaml
+```yaml linenums="1"
 Train:
   dataset:
     name: SimpleDataSet
@@ -114,7 +114,7 @@ Train:
 
 - 修改验证数据配置：
 
-```yaml
+```yaml linenums="1"
 Eval:
   dataset:
     name: SimpleDataSet
@@ -125,7 +125,7 @@ Eval:
 
 修改为：
 
-```yaml
+```yaml linenums="1"
 Eval:
   dataset:
     name: SimpleDataSet
@@ -138,7 +138,7 @@ Eval:
 
 下载PP-OCRv3的蒸馏预训练模型并进行训练的方式如下
 
-```bash
+```bash linenums="1"
 # 下载预训练模型到/home/PaddleOCR/pre_train文件夹下
 $ mkdir /home/PaddleOCR/pre_train
 
@@ -149,14 +149,14 @@ $ tar xf /home/PaddleOCR/pre_train/ch_PP-OCRv3_det_distill_train.tar -C /home/Pa
 
 启动训练，训练模型默认保存在`output`目录下，加载PP-OCRv3检测预训练模型。
 
-```bash
+```bash linenums="1"
 # 这里以 GPU 训练为例，使用 CPU 进行训练的话，需要指定参数 Global.use_gpu=false
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml -o Global.save_model_dir=./output/ Global.pretrained_model=./pre_train/ch_PP-OCRv3_det_distill_train/best_accuracy
 ```
 
 如果要使用多GPU分布式训练，请使用如下命令：
 
-```bash
+```bash linenums="1"
 # 启动训练，训练模型默认保存在output目录下，--gpus '0,1,2,3'表示使用0，1，2，3号GPU训练
 python3 -m paddle.distributed.launch --log_dir=./debug/ --gpus '0,1,2,3' tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml -o Global.save_model_dir=./output/ Global.pretrained_model=./pre_train/ch_PP-OCRv3_det_distill_train/best_accuracy
 ```
@@ -176,7 +176,7 @@ latest.pdopt     # 默认保存的最新模型的优化器相关参数
 
 其中，best_accuracy是保存的最优模型，可以直接使用该模型评估
 
-```bash
+```bash linenums="1"
 # 进行模型评估
 cd /home/PaddleOCR/
 
@@ -202,7 +202,7 @@ PaddleCloud基于Kubernetes的Operator机制为您提供了多个功能强大的
 
 使用Helm一键安装所有组件和所有依赖
 
-```bash
+```bash linenums="1"
 # 添加PaddleCloud Chart仓库
 $ helm repo add paddlecloud https://paddleflow-public.hkg.bcebos.com/charts
 $ helm repo update
@@ -239,7 +239,7 @@ pdc-redis-master-0                                   1/1     Running   0        
 
 使用数据缓存组件来准备数据集，编写SampleSet Yaml文件如下：
 
-```yaml
+```yaml linenums="1"
 # hiertext.yaml
 apiVersion: batch.paddlepaddle.org/v1alpha1
 kind: SampleSet
@@ -258,7 +258,7 @@ spec:
 
 然后在命令行中，使用kubectl执行如下命令。
 
-```bash
+```bash linenums="1"
 # 创建hiertext数据集
 $ kubectl apply -f hiertext.yaml
 sampleset.batch.paddlepaddle.org/hiertext created
@@ -273,7 +273,7 @@ hiertext   3.3 GiB       3.2 GiB      12 GiB        1/1       Ready   11m
 
 使用训练组件在Kubernetes集群上训练PP-OCRv3模型，编写PaddleJob Yaml文件如下：
 
-```yaml
+```yaml linenums="1"
 # ppocrv3.yaml
 apiVersion: batch.paddlepaddle.org/v1
 kind: PaddleJob
@@ -322,7 +322,7 @@ spec:
 
 本案例采用GPU进行训练，如果您只有CPU机器，则可以将镜像替换成CPU版本 `paddlecloud/paddleocr:2.5-cpu-efbb0a`，并在args中加上参数`Global.use_gpu=false`。
 
-```bash
+```bash linenums="1"
 # 创建PaddleJob训练模型
 $ kubectl apply -f ppocrv3.yaml
 paddlejob.batch.paddlepaddle.org/ppocrv3 created

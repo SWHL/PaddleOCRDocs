@@ -18,7 +18,7 @@ This section will introduce how to configure the C++ environment and deploy Padd
 
 - First of all, you need to download the source code compiled package in the Linux environment from the OpenCV official website. Taking OpenCV 3.4.7 as an example, the download command is as follows.
 
-```bash
+```bash linenums="1"
 cd deploy/cpp_infer
 wget https://paddleocr.bj.bcebos.com/libs/opencv/opencv-3.4.7.tar.gz
 tar -xf opencv-3.4.7.tar.gz
@@ -28,7 +28,7 @@ Finally, you will see the folder of `opencv-3.4.7/` in the current directory.
 
 - Compile OpenCV, the OpenCV source path (`root_path`) and installation path (`install_path`) should be set by yourself. Enter the OpenCV source code path and compile it in the following way.
 
-```bash
+```bash linenums="1"
 root_path=your_opencv_root_path
 install_path=${root_path}/opencv3
 
@@ -81,7 +81,7 @@ opencv3/
 
 - After downloading, use the following command to extract files.
 
-```bash
+```bash linenums="1"
 tar -xf paddle_inference.tgz
 ```
 
@@ -93,14 +93,14 @@ Finally you will see the folder of `paddle_inference/` in the current path.
 
 - You can refer to [Paddle inference library](https://www.paddlepaddle.org.cn/documentation/docs/en/advanced_guide/inference_deployment/inference/build_and_install_lib_en.html) to get the Paddle source code from GitHub, and then compile To generate the latest inference library. The method of using git to access the code is as follows.
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/Paddle.git
 git checkout develop
 ```
 
 - Enter the Paddle directory and run the following commands to compile the paddle inference library.
 
-```bash
+```bash linenums="1"
 rm -rf build
 mkdir build
 cd build
@@ -122,7 +122,7 @@ For more compilation parameter options, please refer to the [document](https://w
 
 - After the compilation process, you can see the following files in the folder of `build/paddle_inference_install_dir/`.
 
-```text
+```text linenums="1"
 build/paddle_inference_install_dir/
 |-- CMakeCache.txt
 |-- paddle
@@ -138,7 +138,7 @@ build/paddle_inference_install_dir/
 
 - You can refer to [Model inference](./python_infer.en.md) and export the inference model. After the model is exported, assuming it is placed in the `inference` directory, the directory structure is as follows.
 
-```text
+```text linenums="1"
 inference/
 |-- det_db
 |   |--inference.pdiparams
@@ -161,13 +161,13 @@ inference/
 
 - The compilation commands are as follows. The addresses of Paddle C++ inference library, opencv and other Dependencies need to be replaced with the actual addresses on your own machines.
 
-```bash
+```bash linenums="1"
 sh tools/build.sh
 ```
 
 Specifically, you should modify the paths in `tools/build.sh`. The related content is as follows.
 
-```bash
+```bash linenums="1"
 OPENCV_DIR=your_opencv_dir
 LIB_DIR=your_paddle_inference_dir
 CUDA_LIB_DIR=your_cuda_lib_dir
@@ -184,7 +184,7 @@ or the generated Paddle inference library path (`build/paddle_inference_install_
 
 Execute the built executable file:
 
-```bash
+```bash linenums="1"
 ./build/ppocr [--param1] [--param2] [...]
 ```
 
@@ -194,7 +194,7 @@ Specifically,
 
 #### 1. det+cls+rec
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
@@ -207,7 +207,7 @@ Specifically,
 
 ##### 2. det+rec
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs/12.jpg \
@@ -219,7 +219,7 @@ Specifically,
 
 ##### 3. det
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --image_dir=../../doc/imgs/12.jpg \
     --det=true \
@@ -228,7 +228,7 @@ Specifically,
 
 ##### 4. cls+rec
 
-```bash
+```bash linenums="1"
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -240,7 +240,7 @@ Specifically,
 
 ##### 5. rec
 
-```bash
+```bash linenums="1"
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
     --use_angle_cls=false \
@@ -251,7 +251,7 @@ Specifically,
 
 ##### 6. cls
 
-```bash
+```bash linenums="1"
 ./build/ppocr --cls_model_dir=inference/cls \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -263,7 +263,7 @@ Specifically,
 
 ##### 7. layout+table
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \
@@ -276,7 +276,7 @@ Specifically,
 
 ##### 8. layout
 
-```bash
+```bash linenums="1"
 ./build/ppocr --layout_model_dir=inference/layout \
     --image_dir=../../ppstructure/docs/table/1.png \
     --type=structure \
@@ -288,7 +288,7 @@ Specifically,
 
 ##### 9. table
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \
@@ -371,7 +371,7 @@ More parameters are as follows,
 
 The detection results will be shown on the screen, which is as follows.
 
-```bash
+```bash linenums="1"
 predict img: ../../doc/imgs/12.jpg
 ../../doc/imgs/12.jpg
 0       det boxes: [[74,553],[427,542],[428,571],[75,582]] rec text: 打浦路252935号 rec score: 0.947724
@@ -383,7 +383,7 @@ The detection visualized image saved in ./output//12.jpg
 
 - layout+table
 
-```bash
+```bash linenums="1"
 predict img: ../../ppstructure/docs/table/1.png
 0       type: text, region: [12,729,410,848], score: 0.781044, res: count of ocr result is : 7
 ********** print ocr result **********

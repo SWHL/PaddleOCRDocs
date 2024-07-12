@@ -83,7 +83,7 @@ $$
 
 以配置文件`configs/rec/ch_PP-OCRv2/ch_PP-OCRv2_rec.yml`为例， center提取命令如下所示:
 
-```bash
+```bash linenums="1"
 python tools/export_center.py -c configs/rec/ch_PP-OCRv2/ch_PP-OCRv2_rec.yml -o Global.pretrained_model="./output/rec_mobile_pp-OCRv2/best_accuracy"
 ```
 

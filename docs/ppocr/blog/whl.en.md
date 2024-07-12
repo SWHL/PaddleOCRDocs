@@ -11,13 +11,13 @@ comments: true
 
 install by pypi
 
-```bash
+```bash linenums="1"
 pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 ```
 
 build own whl package and install
 
-```bash
+```bash linenums="1"
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x is the version of paddleocr
 ```
@@ -30,7 +30,7 @@ The paddleocr whl package will automatically download the ppocr lightweight mode
 
 * detection angle classification and recognition
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR,draw_ocr
 # Paddleocr supports Chinese, English, French, German, Korean and Japanese.
 # You can set the parameter `lang` as `ch`, `en`, `french`, `german`, `korean`, `japan`
@@ -57,7 +57,7 @@ im_show.save('result.jpg')
 
 Output will be a list, each item contains bounding box, text and recognition confidence
 
-```bash
+```bash linenums="1"
 [[[442.0, 173.0], [1169.0, 173.0], [1169.0, 225.0], [442.0, 225.0]], ['ACKNOWLEDGEMENTS', 0.99283075]]
 [[[393.0, 340.0], [1207.0, 342.0], [1207.0, 389.0], [393.0, 387.0]], ['We would like to thank all the designers and', 0.9357758]]
 [[[399.0, 398.0], [1204.0, 398.0], [1204.0, 433.0], [399.0, 433.0]], ['contributors whohave been involved in the', 0.9592447]]
@@ -70,7 +70,7 @@ Visualization of results
 
 * detection and recognition
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR,draw_ocr
 ocr = PaddleOCR(lang='en') # need to run only once to download and load model into memory
 img_path = 'PaddleOCR/doc/imgs_en/img_12.jpg'
@@ -94,7 +94,7 @@ im_show.save('result.jpg')
 
 Output will be a list, each item contains bounding box, text and recognition confidence
 
-```bash
+```bash linenums="1"
 [[[442.0, 173.0], [1169.0, 173.0], [1169.0, 225.0], [442.0, 225.0]], ['ACKNOWLEDGEMENTS', 0.99283075]]
 [[[393.0, 340.0], [1207.0, 342.0], [1207.0, 389.0], [393.0, 387.0]], ['We would like to thank all the designers and', 0.9357758]]
 [[[399.0, 398.0], [1204.0, 398.0], [1204.0, 433.0], [399.0, 433.0]], ['contributors whohave been involved in the', 0.9592447]]
@@ -107,7 +107,7 @@ Visualization of results
 
 * classification and recognition
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 ocr = PaddleOCR(use_angle_cls=True, lang='en') # need to run only once to load model into memory
 img_path = 'PaddleOCR/doc/imgs_words_en/word_10.png'
@@ -120,13 +120,13 @@ for idx in range(len(result)):
 
 Output will be a list, each item contains recognition text and confidence
 
-```bash
+```bash linenums="1"
 ['PAIN', 0.990372]
 ```
 
 * only detection
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR,draw_ocr
 ocr = PaddleOCR() # need to run only once to download and load model into memory
 img_path = 'PaddleOCR/doc/imgs_en/img_12.jpg'
@@ -147,7 +147,7 @@ im_show.save('result.jpg')
 
 Output will be a list, each item only contains bounding box
 
-```bash
+```bash linenums="1"
 [[756.0, 812.0], [805.0, 812.0], [805.0, 830.0], [756.0, 830.0]]
 [[820.0, 803.0], [1085.0, 801.0], [1085.0, 836.0], [820.0, 838.0]]
 [[393.0, 801.0], [715.0, 805.0], [715.0, 839.0], [393.0, 836.0]]
@@ -160,7 +160,7 @@ Visualization of results
 
 * only recognition
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 ocr = PaddleOCR(lang='en') # need to run only once to load model into memory
 img_path = 'PaddleOCR/doc/imgs_words_en/word_10.png'
@@ -173,13 +173,13 @@ for idx in range(len(result)):
 
 Output will be a list, each item contains recognition text and confidence
 
-```bash
+```bash linenums="1"
 ['PAIN', 0.990372]
 ```
 
 * only classification
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 ocr = PaddleOCR(use_angle_cls=True) # need to run only once to load model into memory
 img_path = 'PaddleOCR/doc/imgs_words_en/word_10.png'
@@ -192,7 +192,7 @@ for idx in range(len(result)):
 
 Output will be a list, each item contains classification result and confidence
 
-```bash
+```bash linenums="1"
 ['0', 0.99999964]
 ```
 
@@ -200,19 +200,19 @@ Output will be a list, each item contains classification result and confidence
 
 show help information
 
-```bash
+```bash linenums="1"
 paddleocr -h
 ```
 
 * detection classification and recognition
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_en/img_12.jpg --use_angle_cls true --lang en
 ```
 
 Output will be a list, each item contains bounding box, text and recognition confidence
 
-```bash
+```bash linenums="1"
 [[[441.0, 174.0], [1166.0, 176.0], [1165.0, 222.0], [441.0, 221.0]], ('ACKNOWLEDGEMENTS', 0.9971134662628174)]
 [[[403.0, 346.0], [1204.0, 348.0], [1204.0, 384.0], [402.0, 383.0]], ('We would like to thank all the designers and', 0.9761400818824768)]
 [[[403.0, 396.0], [1204.0, 398.0], [1204.0, 434.0], [402.0, 433.0]], ('contributors who have been involved in the', 0.9791957139968872)]
@@ -221,19 +221,19 @@ Output will be a list, each item contains bounding box, text and recognition con
 
 pdf file is also supported, you can infer the first few pages by using the `page_num` parameter, the default is 0, which means infer all pages
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
 
 * detection and recognition
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_en/img_12.jpg --lang en
 ```
 
 Output will be a list, each item contains bounding box, text and recognition confidence
 
-```bash
+```bash linenums="1"
 [[[441.0, 174.0], [1166.0, 176.0], [1165.0, 222.0], [441.0, 221.0]], ('ACKNOWLEDGEMENTS', 0.9971134662628174)]
 [[[403.0, 346.0], [1204.0, 348.0], [1204.0, 384.0], [402.0, 383.0]], ('We would like to thank all the designers and', 0.9761400818824768)]
 [[[403.0, 396.0], [1204.0, 398.0], [1204.0, 434.0], [402.0, 433.0]], ('contributors who have been involved in the', 0.9791957139968872)]
@@ -242,25 +242,25 @@ Output will be a list, each item contains bounding box, text and recognition con
 
 * classification and recognition
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words_en/word_10.png --use_angle_cls true --det false --lang en
 ```
 
 Output will be a list, each item contains text and recognition confidence
 
-```bash
+```bash linenums="1"
 ['PAIN', 0.9934559464454651]
 ```
 
 * only detection
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_en/img_12.jpg --rec false
 ```
 
 Output will be a list, each item only contains bounding box
 
-```bash
+```bash linenums="1"
 [[397.0, 802.0], [1092.0, 802.0], [1092.0, 841.0], [397.0, 841.0]]
 [[397.0, 750.0], [1211.0, 750.0], [1211.0, 789.0], [397.0, 789.0]]
 [[397.0, 702.0], [1209.0, 698.0], [1209.0, 734.0], [397.0, 738.0]]
@@ -269,25 +269,25 @@ Output will be a list, each item only contains bounding box
 
 * only recognition
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words_en/word_10.png --det false --lang en
 ```
 
 Output will be a list, each item contains text and recognition confidence
 
-```bash
+```bash linenums="1"
 ['PAIN', 0.9934559464454651]
 ```
 
 * only classification
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words_en/word_10.png --use_angle_cls true --det false --rec false
 ```
 
 Output will be a list, each item contains classification result and confidence
 
-```bash
+```bash linenums="1"
 ['0', 0.99999964]
 ```
 
@@ -298,7 +298,7 @@ First, refer to [export](../model_train/detection.en.md#4-inference) doc to conv
 
 ### 3.1 Use by code
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR,draw_ocr
 # The path of detection and recognition model must contain model and params files
 ocr = PaddleOCR(det_model_dir='{your_det_model_dir}', rec_model_dir='{your_rec_model_dir}', rec_char_dict_path='{your_rec_char_dict_path}', cls_model_dir='{your_cls_model_dir}', use_angle_cls=True)
@@ -323,7 +323,7 @@ im_show.save('result.jpg')
 
 ### 3.2 Use by command line
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --det_model_dir {your_det_model_dir} --rec_model_dir {your_rec_model_dir} --rec_char_dict_path {your_rec_char_dict_path} --cls_model_dir {your_cls_model_dir} --use_angle_cls true
 ```
 
@@ -333,7 +333,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --det_model_dir {your_det_model_
 
 * Use by code
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 ocr = PaddleOCR(use_angle_cls=True, lang="ch") # need to run only once to download and load model into memory
 img_path = 'http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-fypvuqf1838418.jpg'
@@ -357,7 +357,7 @@ im_show.save('result.jpg')
 
 * Use by command line
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-fypvuqf1838418.jpg --use_angle_cls=true
 ```
 
@@ -365,7 +365,7 @@ paddleocr --image_dir http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-f
 
 Support numpy array as input only when used by code
 
-```python
+```python linenums="1"
 import cv2
 from paddleocr import PaddleOCR, draw_ocr, download_with_progressbar
 ocr = PaddleOCR(use_angle_cls=True, lang="ch") # need to run only once to download and load model into memory
@@ -397,13 +397,13 @@ im_show.save('result.jpg')
 
 you can infer the first few pages by using the `page_num` parameter, the default is 0, which means infer all pages
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
 
 * Use by code
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr supports Chinese, English, French, German, Korean and Japanese.

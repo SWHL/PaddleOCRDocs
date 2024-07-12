@@ -35,7 +35,7 @@ comments: true
 
 首先将训练得到best模型，转换成inference model。以基于TableResNetExtra骨干网络，在PubTabNet数据集训练的模型为例([模型下载地址](https://paddleocr.bj.bcebos.com/contribution/table_master.tar))，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c configs/table/table_master.yml -o Global.pretrained_model=output/table_master/best_accuracy Global.save_inference_dir=./inference/table_master
 ```
@@ -44,7 +44,7 @@ python3 tools/export_model.py -c configs/table/table_master.yml -o Global.pretra
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 ./inference/table_master/
     ├── inference.pdiparams         # 识别inference模型的参数文件
     ├── inference.pdiparams.info    # 识别inference模型的参数信息，可忽略
@@ -53,7 +53,7 @@ python3 tools/export_model.py -c configs/table/table_master.yml -o Global.pretra
 
 执行如下命令进行模型推理：
 
-```bash
+```bash linenums="1"
 cd ppstructure/
 python3.7 table/predict_structure.py --table_model_dir=../output/table_master/table_structure_tablemaster_infer/ --table_algorithm=TableMaster --table_char_dict_path=../ppocr/utils/dict/table_master_structure_dict.txt --table_max_len=480 --image_dir=docs/table/table.jpg
 # 预测文件夹下所有图像时，可修改image_dir为文件夹，如 --image_dir='docs/table'。
@@ -62,7 +62,7 @@ python3.7 table/predict_structure.py --table_model_dir=../output/table_master/ta
 执行命令后，上面图像的预测结果（结构信息和表格中每个单元格的坐标）会打印到屏幕上，同时会保存单元格坐标的可视化结果。示例如下：
 结果如下：
 
-```bash
+```bash linenums="1"
 [2022/06/16 13:06:54] ppocr INFO: result: ['<html>', '<body>', '<table>', '<thead>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '</thead>', '<tbody>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '</tbody>', '</table>', '</body>', '</html>'], [[72.17591094970703, 10.759100914001465, 60.29658508300781, 16.6805362701416], [161.85562133789062, 10.884308815002441, 14.9495210647583, 16.727018356323242], [277.79876708984375, 29.54340362548828, 31.490320205688477, 18.143272399902344],
 ...
 [336.11724853515625, 280.3601989746094, 39.456939697265625, 18.121286392211914]]

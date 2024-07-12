@@ -11,7 +11,7 @@ PaddleOCR提供2种服务部署方式：
 
 hubserving服务部署目录下包括文本检测、文本方向分类，文本识别、文本检测+文本方向分类+文本识别3阶段串联，版面分析、表格识别和PP-Structure七种服务包，请根据需求选择相应的服务包进行安装和启动。目录结构如下：
 
-```text
+```text linenums="1"
 deploy/hubserving/
   └─  ocr_cls     文本方向分类模块服务包
   └─  ocr_det     文本检测模块服务包
@@ -26,7 +26,7 @@ deploy/hubserving/
 
 每个服务包下包含3个文件。以2阶段串联服务包为例，目录如下：
 
-```text
+```text linenums="1"
 deploy/hubserving/ocr_system/
   └─  __init__.py    空文件，必选
   └─  config.json    配置文件，可选，使用配置启动服务时作为参数传入
@@ -49,7 +49,7 @@ deploy/hubserving/ocr_system/
 
 paddlehub 需要 python>3.6.2
 
-```bash
+```bash linenums="1"
 pip3 install paddlehub==2.1.0 --upgrade -i https://mirror.baidu.com/pypi/simple
 ```
 
@@ -95,7 +95,7 @@ PaddleOCR提供5种服务模块，根据需要安装所需模块。
 
 **启动命令：**
 
-```bash
+```bash linenums="1"
 hub serving start --modules Module1==Version1, Module2==Version2, ... \
                   --port 8866 \
                   --use_multiprocess \
@@ -113,7 +113,7 @@ hub serving start --modules Module1==Version1, Module2==Version2, ... \
 
 如启动串联服务：
 
-```bash
+```bash linenums="1"
 hub serving start -m ocr_system
 ```
 
@@ -123,7 +123,7 @@ hub serving start -m ocr_system
 
 **启动命令：**
 
-```bash
+```bash linenums="1"
 hub serving start -c config.json
 ```
 
@@ -157,7 +157,7 @@ hub serving start -c config.json
 - 使用配置文件启动服务时，其他参数会被忽略。
 - 如果使用GPU预测(即，`use_gpu`置为`true`)，则需要在启动服务之前，设置CUDA_VISIBLE_DEVICES环境变量，如：
 
-  ```bash
+  ```bash linenums="1"
   export CUDA_VISIBLE_DEVICES=0
   ```
 
@@ -165,7 +165,7 @@ hub serving start -c config.json
 
 如，使用GPU 3号卡启动串联服务：
 
-```bash
+```bash linenums="1"
 export CUDA_VISIBLE_DEVICES=3
 hub serving start -c deploy/hubserving/ocr_system/config.json
 ```
@@ -174,7 +174,7 @@ hub serving start -c deploy/hubserving/ocr_system/config.json
 
 配置好服务端，可使用以下命令发送预测请求，获取预测结果：
 
-```bash
+```bash linenums="1"
 python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 ```
 
@@ -186,7 +186,7 @@ python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 
    并为每个服务修改了port，那么发送请求的url将分别是：
 
-   ```text
+   ```text linenums="1"
    http://127.0.0.1:8865/predict/ocr_det
    http://127.0.0.1:8866/predict/ocr_cls
    http://127.0.0.1:8867/predict/ocr_rec
@@ -204,7 +204,7 @@ python tools/test_hubserving.py --server_url=server_url --image_dir=image_path
 
 访问示例：
 
-```bash
+```bash linenums="1"
 python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_system --image_dir=./doc/imgs/ --visualize=false
 ```
 
@@ -244,7 +244,7 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
 
 1. 停止服务：
 
-   ```bash
+   ```bash linenums="1"
    hub serving stop --port/-p XXXX
    ```
 
@@ -262,18 +262,18 @@ python tools/test_hubserving.py --server_url=http://127.0.0.1:8868/predict/ocr_s
    - [`name="ocr_system",`中的`ocr_system`](https://github.com/PaddlePaddle/PaddleOCR/blob/a923f35de57b5e378f8dd16e54d0a3e4f51267fd/deploy/hubserving/ocr_system/module.py#L39)
 4. （可选）可能需要删除`__pycache__`目录以强制刷新CPython缓存：
 
-   ```bash
+   ```bash linenums="1"
    find deploy/hubserving/ocr_system -name '__pycache__' -exec rm -r {} \;
    ```
 
 5. 安装修改后的新服务包：
 
-   ```bash
+   ```bash linenums="1"
    hub install deploy/hubserving/ocr_system
    ```
 
 6. 重新启动服务：
 
-   ```bash
+   ```bash linenums="1"
    hub serving start -m ocr_system
    ```

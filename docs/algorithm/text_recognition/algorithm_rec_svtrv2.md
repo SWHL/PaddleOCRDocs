@@ -20,7 +20,7 @@ comments: true
 
 训练命令：
 
-```bash
+```bash linenums="1"
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml
 
@@ -35,7 +35,7 @@ python -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c 
 
 ### 3.2 评估
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Global.pretrained_model=output/rec_repsvtr_gtc/best_accuracy
 ```
@@ -44,7 +44,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/SVT
 
 使用如下命令进行单张图片预测：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Global.pretrained_model=output/rec_repsvtr_gtc/best_accuracy Global.infer_img='./doc/imgs_words_en/word_10.png'
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
@@ -56,7 +56,7 @@ python3 tools/infer_rec.py -c tools/eval.py -c configs/rec/SVTRv2/rec_repsvtr_gt
 
 首先将训练得到best模型，转换成inference model，以RepSVTR为例，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Global.pretrained_model=output/rec_repsvtr_gtc/best_accuracy Global.save_inference_dir=./inference/rec_repsvtr_infer
 ```
@@ -65,7 +65,7 @@ python3 tools/export_model.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Globa
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 ./inference/rec_repsvtr_infer/
     ├── inference.pdiparams         # 识别inference模型的参数文件
     ├── inference.pdiparams.info    # 识别inference模型的参数信息，可忽略
@@ -74,7 +74,7 @@ python3 tools/export_model.py -c configs/rec/SVTRv2/rec_repsvtr_gtc.yml -o Globa
 
 执行如下命令进行模型推理：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_repsvtr_infer/'
 # 预测文件夹下所有图像时，可修改image_dir为文件夹，如 --image_dir='./doc/imgs_words_en/'。
 ```
@@ -84,7 +84,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 执行命令后，上面图像的预测结果（识别的文本和得分）会打印到屏幕上，示例如下：
 结果如下：
 
-```bash
+```bash linenums="1"
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 ```
 

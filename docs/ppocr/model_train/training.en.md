@@ -23,7 +23,7 @@ During the model training process, some hyper-parameters can be manually specifi
 The learning rate is one of the most important hyper-parameters for training neural networks. It represents the step length of the gradient moving towards the optimal solution of the loss function in each iteration.
 A variety of learning rate update strategies are provided by PaddleOCR, which can be specified in configuration files. For example,
 
-```yaml
+```yaml linenums="1"
 Optimizer:
   ...
   lr:
@@ -45,7 +45,7 @@ L1 regularization adds a regularization term to the objective function to reduce
 while in L2 regularization, the purpose of adding a regularization term is to reduce the sum of squared parameters.
 The configuration method is as follows:
 
-```yaml
+```yaml linenums="1"
 Optimizer:
   ...
   regularizer:

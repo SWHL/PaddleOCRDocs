@@ -55,7 +55,7 @@ The following takes the Chinese table recognition model as an example to introdu
 
 Use the following commands to quickly complete the identification of a table.
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 
 # download model
@@ -106,13 +106,13 @@ Each line in gt consists of the file name and the html string of the table. The 
 
 You can also use the following command to generate an evaluation gt file from the annotation file:
 
-```bash
+```bash linenums="1"
 python3 ppstructure/table/convert_label2html.py --ori_gt_path /path/to/your_label_file --save_path /path/to/save_file
 ```
 
 Use the following command to evaluate. After the evaluation is completed, the teds indicator will be output.
 
-```bash
+```bash linenums="1"
 python3 table/eval_table.py \
     --det_model_dir=path/to/det_model_dir \
     --rec_model_dir=path/to/rec_model_dir \
@@ -127,7 +127,7 @@ python3 table/eval_table.py \
 
 Evaluate on the PubLatNet dataset using the English model
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 # Download the model
 mkdir inference && cd inference
@@ -154,7 +154,7 @@ python3 table/eval_table.py \
 
 output is
 
-```bash
+```bash linenums="1"
 teds: 95.89
 ```
 

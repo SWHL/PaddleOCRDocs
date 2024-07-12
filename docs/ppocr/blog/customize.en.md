@@ -10,7 +10,7 @@ The process of making a customized ultra-lightweight OCR models can be divided i
 
 PaddleOCR provides two text detection algorithms: EAST and DB. Both support MobileNetV3 and ResNet50_vd backbone networks, select the corresponding configuration file as needed and start training. For example, to train with MobileNetV3 as the backbone network for DB detection model :
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/det/det_mv3_db.yml 2>&1 | tee det_db.log
 ```
 
@@ -20,7 +20,7 @@ For more details about data preparation and training tutorials, refer to the doc
 
 PaddleOCR provides four text recognition algorithms: CRNN, Rosetta, STAR-Net, and RARE. They all support two backbone networks: MobileNetV3 and ResNet34_vd, select the corresponding configuration files as needed to start training. For example, to train a CRNN recognition model that uses MobileNetV3 as the backbone network:
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/rec/rec_chinese_lite_train.yml 2>&1 | tee rec_ch_lite.log
 ```
 
@@ -32,7 +32,7 @@ PaddleOCR provides a concatenation tool for detection and recognition models, wh
 
 When performing prediction, you need to specify the path of a single image or a image folder through the parameter `image_dir`, the parameter `det_model_dir` specifies the path of detection model, and the parameter `rec_model_dir` specifies the path of recognition model. The visualized results are saved to the `./inference_results` folder by default.
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_system.py --image_dir="./doc/imgs/11.jpg" --det_model_dir="./inference/det/"  --rec_model_dir="./inference/rec/"
 ```
 

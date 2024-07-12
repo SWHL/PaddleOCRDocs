@@ -35,7 +35,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_vit_parseq.yml
 
@@ -45,14 +45,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### Evaluation
 
-```bash
+```bash linenums="1"
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_vit_parseq.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_vit_parseq.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -63,13 +63,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_vit_parseq.yml -o Global.pretraine
 
 First, the model saved during the SAR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.1/parseq/rec_vit_parseq_real.tgz) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_vit_parseq.yml -o Global.pretrained_model=./rec_vit_parseq_real/best_accuracy Global.save_inference_dir=./inference/rec_parseq
 ```
 
 For SAR text recognition model inference, the following commands can be executed:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_parseq/" --rec_image_shape="3, 32, 128" --rec_algorithm="ParseQ" --rec_char_dict_path="ppocr/utils/dict/parseq_dict.txt" --max_text_length=25 --use_space_char=False
 ```
 

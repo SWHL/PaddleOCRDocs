@@ -29,7 +29,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_r50_fpn_srn.yml
 
@@ -39,14 +39,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### Evaluation
 
-```bash
+```bash linenums="1"
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -57,13 +57,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrain
 
 First, the model saved during the SRN text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r50_vd_srn_train.tar) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_r50_fpn_srn.yml -o Global.pretrained_model=./rec_r50_vd_srn_train/best_accuracy  Global.save_inference_dir=./inference/rec_srn
 ```
 
 For SRN text recognition model inference, the following commands can be executed:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_srn/" --rec_image_shape="1,64,256" --rec_char_type="ch" --rec_algorithm="SRN" --rec_char_dict_path="ppocr/utils/ic15_dict.txt" --use_space_char=False
 ```
 

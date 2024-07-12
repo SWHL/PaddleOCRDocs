@@ -139,7 +139,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 
 * 以意大利语为例，如果您的数据是按如下格式准备的：
 
-    ```text
+    ```text linenums="1"
     |-train_data
         |- it_train.txt # 训练集标签
         |- it_val.txt # 验证集标签
@@ -152,7 +152,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 
     可以使用默认参数，生成配置文件：
 
-    ```bash
+    ```bash linenums="1"
     # 该代码需要在指定目录运行
     cd PaddleOCR/configs/rec/multi_language/
     # 通过-l或者--language参数设置需要生成的语种的配置文件，该命令会将默认参数写入配置文件
@@ -161,7 +161,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 
 * 如果您的数据放置在其他位置，或希望使用自己的字典，可以通过指定相关参数来生成配置文件:
 
-    ```bash
+    ```bash linenums="1"
     # -l或者--language字段是必须的
     # --train修改训练集，--val修改验证集，--data_dir修改数据集目录，--dict修改字典路径， -o修改对应默认参数
     cd PaddleOCR/configs/rec/multi_language/
@@ -181,7 +181,7 @@ PaddleOCR目前已支持80种（除中文外）语种识别，`configs/rec/multi
 
    您也可以手动修改模版中的以下几个字段得到配置文件:
 
-   ```yaml
+   ```yaml linenums="1"
     Global:
       use_gpu: True
       epoch_num: 500

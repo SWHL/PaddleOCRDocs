@@ -12,7 +12,7 @@ PaddleOCR将一个算法分解为以下几个部分，并对各部分进行模�
 
 数据加载和处理由不同的模块(module)组成，其完成了图片的读取、数据增强和label的制作。这一部分在[ppocr/data](../../ppocr/data)下。 各个文件及文件夹作用说明如下:
 
-```bash
+```bash linenums="1"
 ppocr/data/
 ├── imaug             # 图片的读取、数据增强和label制作相关的文件
 │   ├── label_ops.py  # 对label进行变换的modules
@@ -28,7 +28,7 @@ PaddleOCR内置了大量图像操作相关模块，对于没有没有内置的�
 1. 在 [ppocr/data/imaug](../../ppocr/data/imaug) 文件夹下新建文件，如my_module.py。
 2. 在 my_module.py 文件内添加相关代码，示例代码如下:
 
-    ```python
+    ```python linenums="1"
     class MyModule:
         def __init__(self, *args, **kwargs):
             # your init code
@@ -48,7 +48,7 @@ PaddleOCR内置了大量图像操作相关模块，对于没有没有内置的�
 
 数据处理的所有处理步骤由不同的模块顺序执行而成，在config文件中按照列表的形式组合并执行。如:
 
-```yaml
+```yaml linenums="1"
 # angle class data process
 transforms:
   - DecodeImage: # load image
@@ -66,7 +66,7 @@ transforms:
 网络部分完成了网络的组网操作，PaddleOCR将网络划分为四部分，这一部分在[ppocr/modeling](../../ppocr/modeling)下。 进入网络的数据将按照顺序(transforms->backbones->
 necks->heads)依次通过这四个部分。
 
-```bash
+```bash linenums="1"
 ├── architectures # 网络的组网代码
 ├── transforms    # 网络的图像变换模块
 ├── backbones     # 网络的特征提取模块
@@ -79,7 +79,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的常用模块，
 1. 在 [ppocr/modeling/backbones](../../ppocr/modeling/backbones) 文件夹下新建文件，如my_backbone.py。
 2. 在 my_backbone.py 文件内添加相关代码，示例代码如下:
 
-    ```python
+    ```python linenums="1"
     import paddle
     import paddle.nn as nn
     import paddle.nn.functional as F
@@ -101,7 +101,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的常用模块，
 
 在完成网络的四部分模块添加之后，只需要配置文件中进行配置即可使用，如:
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: rec
   algorithm: CRNN
@@ -128,7 +128,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的后处理模块
 1. 在 [ppocr/postprocess](../../ppocr/postprocess) 文件夹下新建文件，如 my_postprocess.py。
 2. 在 my_postprocess.py 文件内添加相关代码，示例代码如下:
 
-    ```python
+    ```python linenums="1"
     import paddle
 
 
@@ -161,7 +161,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的后处理模块
 
 在后处理模块添加之后，只需要配置文件中进行配置即可使用，如:
 
-```yaml
+```yaml linenums="1"
 PostProcess:
   name: MyPostProcess
   args1: args1
@@ -176,7 +176,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的损失函数模
 1. 在 [ppocr/losses](../../ppocr/losses) 文件夹下新建文件，如 my_loss.py。
 2. 在 my_loss.py 文件内添加相关代码，示例代码如下:
 
-    ```python
+    ```python linenums="1"
     import paddle
     from paddle import nn
 
@@ -198,7 +198,7 @@ PaddleOCR内置了DB,EAST,SAST,CRNN和Attention等算法相关的损失函数模
 
 在损失函数添加之后，只需要配置文件中进行配置即可使用，如:
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: MyLoss
   args1: args1
@@ -212,7 +212,7 @@ Loss:
 1. 在 [ppocr/metrics](../../ppocr/metrics) 文件夹下新建文件，如my_metric.py。
 2. 在 my_metric.py 文件内添加相关代码，示例代码如下:
 
-    ```python
+    ```python linenums="1"
 
     class MyMetric(object):
         def __init__(self, main_indicator='acc', **kwargs):
@@ -253,7 +253,7 @@ Loss:
 
 在指标评估模块添加之后，只需要配置文件中进行配置即可使用，如:
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: MyMetric
   main_indicator: acc
@@ -267,7 +267,7 @@ Metric:
 
 1. 在 [ppocr/optimizer/optimizer.py](../../ppocr/optimizer/optimizer.py) 文件内创建自己的优化器，示例代码如下:
 
-    ```python
+    ```python linenums="1"
     from paddle import optimizer as optim
 
 
@@ -286,7 +286,7 @@ Metric:
 
 在优化器模块添加之后，只需要配置文件中进行配置即可使用，如:
 
-```yaml
+```yaml linenums="1"
 Optimizer:
   name: MyOptim
   args1: args1

@@ -29,13 +29,13 @@ comments: true
 
 SEED模型需要额外加载FastText训练好的[语言模型](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.en.300.bin.gz) ,并且安装 fasttext 依赖：
 
-```bash
+```bash linenums="1"
 python3 -m pip install fasttext==0.9.1
 ```
 
 然后，在完成数据准备后，便可以启动训练，训练命令如下：
 
-```bash
+```bash linenums="1"
 # 单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_resnet_stn_bilstm_att.yml
 
@@ -46,14 +46,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_res
 
 ### 评估
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 预测
 
-```bash
+```bash linenums="1"
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```

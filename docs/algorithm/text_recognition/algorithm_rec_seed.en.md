@@ -31,13 +31,13 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 The SEED model needs to additionally load the [language model](https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.en.300.bin.gz) trained by FastText, and install the fasttext dependencies:
 
-```bash
+```bash linenums="1"
 python3 -m pip install fasttext==0.9.1
 ```
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_resnet_stn_bilstm_att.yml
 
@@ -47,14 +47,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_res
 
 ### Evaluation
 
-```bash
+```bash linenums="1"
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_resnet_stn_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```

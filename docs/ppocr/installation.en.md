@@ -20,7 +20,7 @@ It is recommended to use the docker provided by us to run PaddleOCR. Please refe
 
 For the first time you use this docker image, it will be downloaded automatically. Please be patient.
 
-```bash
+```bash linenums="1"
 # Switch to the working directory
 cd /home/Projects
 # You need to create a docker container for the first run, and do not need to run the current command when you run it again
@@ -33,20 +33,20 @@ sudo docker run --name ppocr -v $PWD:/paddle --network=host -it  paddlepaddle/pa
 With CUDA10, please run the following command to create a container.
 It is recommended to set a shared memory greater than or equal to 32G through the --shm-size parameter:
 
-```bash
+```bash linenums="1"
 sudo nvidia-docker run --name ppocr -v $PWD:/paddle --shm-size=64G --network=host -it paddlepaddle/paddle:latest-dev-cuda10.1-cudnn7-gcc82 /bin/bash
 ```
 
 You can also visit [DockerHub](https://hub.docker.com/r/paddlepaddle/paddle/tags/) to get the image that fits your machine.
 
-```bash
+```bash linenums="1"
 # ctrl+P+Q to exit docker, to re-enter docker using the following command:
 sudo docker container exec -it ppocr /bin/bash
 ```
 
 ### 2. Install PaddlePaddle 2.0
 
-```bash
+```bash linenums="1"
 pip3 install --upgrade pip
 
 # If you have cuda9 or cuda10 installed on your machine, please run the following command to install
@@ -60,7 +60,7 @@ For more software version requirements, please refer to the instructions in [Ins
 
 ### 3. Clone PaddleOCR repo
 
-```bash
+```bash linenums="1"
 # Recommend
 git clone https://github.com/PaddlePaddle/PaddleOCR
 
@@ -73,7 +73,7 @@ git clone https://gitee.com/paddlepaddle/PaddleOCR
 
 ### 4. Install third-party libraries
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```

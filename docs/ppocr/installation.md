@@ -20,7 +20,7 @@ PaddleOCR 工作环境
 
 第一次使用这个镜像，会自动下载该镜像，请耐心等待
 
-```bash
+```bash linenums="1"
 # 切换到工作目录下
 cd /home/Projects
 # 首次运行需创建一个docker容器，再次运行时不需要运行当前命令
@@ -40,7 +40,7 @@ sudo docker container exec -it ppocr /bin/bash
 
 ### 2. 安装PaddlePaddle 2.0
 
-```bash
+```bash linenums="1"
 pip3 install --upgrade pip
 
 # 如果您的机器安装的是CUDA9或CUDA10，请运行以下命令安装
@@ -54,7 +54,7 @@ python3 -m pip install paddlepaddle==2.0.0 -i https://mirror.baidu.com/pypi/simp
 
 ### 3. 克隆PaddleOCR repo代码
 
-```bash
+```bash linenums="1"
 #【推荐】
 git clone https://github.com/PaddlePaddle/PaddleOCR
 
@@ -67,7 +67,7 @@ git clone https://gitee.com/paddlepaddle/PaddleOCR
 
 ### 4. 安装第三方库
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```

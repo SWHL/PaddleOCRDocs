@@ -65,7 +65,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 
@@ -77,7 +77,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 You can download the model files and configuration files provided by `CPPD`: [download link](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar), take `CPPD-B` as an example, using the following command to evaluate:
 
-```bash
+```bash linenums="1"
 # Download the tar archive containing the model files and configuration files of CPPD-B and extract it
 wget https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar && tar xf rec_svtr_cppd_base_en_train.tar
 # GPU evaluation
@@ -86,7 +86,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_cppd
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 ```
 
@@ -96,7 +96,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_bas
 
 First, the model saved during the CPPD text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 # export model
 # en
 python3 tools/export_model.py -c configs/rec/rec_svtrnet_cppd_base_en.yml -o Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model.pdparams Global.save_inference_dir=./rec_svtr_cppd_base_en_infer
@@ -118,7 +118,7 @@ python3 tools/infer/predict_rec.py --image_dir='../iiik' --rec_model_dir='./rec_
 
 After the conversion is successful, there are three files in the directory:
 
-```text
+```text linenums="1"
 /inference/rec_svtr_cppd_base_en_infer/
     ├── inference.pdiparams
     ├── inference.pdiparams.info

@@ -81,7 +81,7 @@ CPPD在场景文本识别公开数据集上的精度(%)和模型文件如下：
 
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 
-```bash
+```bash linenums="1"
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_svtrnet_cppd_base_en.yml
 
@@ -93,7 +93,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 可下载`CPPD`提供的模型文件和配置文件：[下载地址](https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar) ，以`CPPD-B`为例，使用如下命令进行评估：
 
-```bash
+```bash linenums="1"
 # 下载包含CPPD-B的模型文件和配置文件的tar压缩包并解压
 wget https://paddleocr.bj.bcebos.com/CCPD/rec_svtr_cppd_base_en_train.tar && tar xf rec_svtr_cppd_base_en_train.tar
 # 注意将pretrained_model的路径设置为本地路径。
@@ -104,7 +104,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_cppd
 
 使用如下命令进行单张图片预测：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_base_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_cppd_base_en_train/best_model
 # 预测文件夹下所有图像时，可修改infer_img为文件夹，如 Global.infer_img='./doc/imgs_words_en/'。
@@ -122,7 +122,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_cppd_base_en_train/rec_svtrnet_cppd_bas
 
 执行如下命令进行模型导出和推理：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 # export model
 # en

@@ -11,7 +11,7 @@ comments: true
 
 ### 先下载推理模型
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 
 ## download model
@@ -31,7 +31,7 @@ cd ..
 
 ### 然后在/ppstructure/目录下使用下面的指令推理
 
-```bash
+```bash linenums="1"
 python predict_system.py \
     --image_dir=./docs/table/1.png \
     --det_model_dir=inference/en_PP-OCRv3_det_infer \
@@ -55,7 +55,7 @@ python predict_system.py \
 
 ### 先下载推理模型
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 
 ## download model
@@ -79,7 +79,7 @@ cd ..
 
 ### 然后在/ppstructure/目录下使用下面的指令推理
 
-```bash
+```bash linenums="1"
 python predict_system.py \
     --image_dir=./docs/table/2.png \
     --det_model_dir=inference/ch_PP-OCRv3_det_infer \

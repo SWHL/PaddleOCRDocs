@@ -34,7 +34,7 @@ PaddleOCR 算法模型挑战赛 - 赛题二：通用表格识别任务排行榜�
 
 训练命令如下：
 
-```bash
+```bash linenums="1"
 # stage1
 python3 -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c configs/table/SLANet_lcnetv2.yml
 # stage2 加载stage1的best model作为预训练模型，学习率调整为0.0001;
@@ -47,7 +47,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3,4,5,6,7'  tools/train.py -c
 
 将训练得到best模型，转换成inference model，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 # 注意将pretrained_model的路径设置为本地路径。
 python3 tools/export_model.py -c configs/table/SLANet_lcnetv2.yml -o Global.pretrained_model=path/best_accuracy Global.save_inference_dir=./inference/slanet_lcnetv2_infer
 ```
@@ -56,7 +56,7 @@ python3 tools/export_model.py -c configs/table/SLANet_lcnetv2.yml -o Global.pret
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 ./inference/slanet_lcnetv2_infer/
     ├── inference.pdiparams         # 识别inference模型的参数文件
     ├── inference.pdiparams.info    # 识别inference模型的参数信息，可忽略
@@ -65,7 +65,7 @@ python3 tools/export_model.py -c configs/table/SLANet_lcnetv2.yml -o Global.pret
 
 执行如下命令进行模型推理：
 
-```bash
+```bash linenums="1"
 cd ppstructure/
 python3.7 table/predict_structure.py --table_model_dir=../inference/slanet_lcnetv2_infer/ --table_char_dict_path=../ppocr/utils/dict/table_structure_dict_ch.txt --image_dir=docs/table/table.jpg --output=../output/table_slanet_lcnetv2 --use_gpu=False --benchmark=True --enable_mkldnn=True
 # 预测文件夹下所有图像时，可修改image_dir为文件夹，如 --image_dir='docs/table'。
@@ -74,7 +74,7 @@ python3.7 table/predict_structure.py --table_model_dir=../inference/slanet_lcnet
 执行命令后，上面图像的预测结果（结构信息和表格中每个单元格的坐标）会打印到屏幕上，同时会保存单元格坐标的可视化结果。示例如下：
 结果如下：
 
-```bash
+```bash linenums="1"
 [2022/06/16 13:06:54] ppocr INFO: result: ['<html>', '<body>', '<table>', '<thead>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '</thead>', '<tbody>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '<tr>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '<td></td>', '</tr>', '</tbody>', '</table>', '</body>', '</html>'], [[72.17591094970703, 10.759100914001465, 60.29658508300781, 16.6805362701416], [161.85562133789062, 10.884308815002441, 14.9495210647583, 16.727018356323242], [277.79876708984375, 29.54340362548828, 31.490320205688477, 18.143272399902344],
 ...
 [336.11724853515625, 280.3601989746094, 39.456939697265625, 18.121286392211914]]

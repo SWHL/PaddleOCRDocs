@@ -19,7 +19,7 @@ comments: true
 
 - 首先需要从opencv官网上下载在Linux环境下源码编译的包，以opencv3.4.7为例，下载命令如下：
 
-```bash
+```bash linenums="1"
 cd deploy/cpp_infer
 wget https://paddleocr.bj.bcebos.com/libs/opencv/opencv-3.4.7.tar.gz
 tar -xf opencv-3.4.7.tar.gz
@@ -29,7 +29,7 @@ tar -xf opencv-3.4.7.tar.gz
 
 - 编译opencv，设置opencv源码路径(`root_path`)以及安装路径(`install_path`)。进入opencv源码路径下，按照下面的方式进行编译。
 
-```bash
+```bash linenums="1"
 root_path="your_opencv_root_path"
 install_path=${root_path}/opencv3
 build_dir=${root_path}/build
@@ -62,7 +62,7 @@ make install
 
 也可以直接修改`tools/build_opencv.sh`的内容，然后直接运行下面的命令进行编译。
 
-```bash
+```bash linenums="1"
 sh tools/build_opencv.sh
 ```
 
@@ -89,7 +89,7 @@ opencv3/
 
 下载之后解压:
 
-```bash
+```bash linenums="1"
 tar -xf paddle_inference.tgz
 ```
 
@@ -101,14 +101,14 @@ tar -xf paddle_inference.tgz
 
 使用git获取代码:
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/Paddle.git
 git checkout develop
 ```
 
 进入Paddle目录，进行编译:
 
-```bash
+```bash linenums="1"
 rm -rf build
 mkdir build
 cd build
@@ -146,7 +146,7 @@ build/paddle_inference_install_dir/
 
 直接下载PaddleOCR提供的推理模型，或者参考[模型预测章节](./python_infer.md)，将训练好的模型导出为推理模型。模型导出之后，假设放在`inference`目录下，则目录结构如下：
 
-```text
+```text linenums="1"
 inference/
 |-- det_db
 |   |--inference.pdiparams
@@ -169,13 +169,13 @@ inference/
 
 编译命令如下，其中Paddle C++预测库、opencv等其他依赖库的地址需要换成自己机器上的实际地址。
 
-```bash
+```bash linenums="1"
 sh tools/build.sh
 ```
 
 具体的，需要修改`tools/build.sh`中环境路径，相关内容如下：
 
-```bash
+```bash linenums="1"
 OPENCV_DIR=your_opencv_dir
 LIB_DIR=your_paddle_inference_dir
 CUDA_LIB_DIR=your_cuda_lib_dir
@@ -194,7 +194,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 运行方式：
 
-```bash
+```bash linenums="1"
 ./build/ppocr [--param1] [--param2] [...]
 ```
 
@@ -202,7 +202,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 1. 检测+分类+识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
@@ -215,7 +215,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 2. 检测+识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs/12.jpg \
@@ -227,7 +227,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 3. 检测
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --image_dir=../../doc/imgs/12.jpg \
     --det=true \
@@ -236,7 +236,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 4. 分类+识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -248,7 +248,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 5. 识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --rec_model_dir=inference/rec_rcnn \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
     --use_angle_cls=false \
@@ -259,7 +259,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 6. 分类
 
-```bash
+```bash linenums="1"
 ./build/ppocr --cls_model_dir=inference/cls \
     --cls_model_dir=inference/cls \
     --image_dir=../../doc/imgs_words/ch/word_1.jpg \
@@ -271,7 +271,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 7. 版面分析+表格识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \
@@ -284,7 +284,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 8. 版面分析
 
-```bash
+```bash linenums="1"
 ./build/ppocr --layout_model_dir=inference/layout \
     --image_dir=../../ppstructure/docs/table/1.png \
     --type=structure \
@@ -296,7 +296,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 ##### 9. 表格识别
 
-```bash
+```bash linenums="1"
 ./build/ppocr --det_model_dir=inference/det_db \
     --rec_model_dir=inference/rec_rcnn \
     --table_model_dir=inference/table \
@@ -381,7 +381,7 @@ CUDNN_LIB_DIR=/your_cudnn_lib_dir
 
 - ocr
 
-```bash
+```bash linenums="1"
 predict img: ../../doc/imgs/12.jpg
 ../../doc/imgs/12.jpg
 0       det boxes: [[74,553],[427,542],[428,571],[75,582]] rec text: 打浦路252935号 rec score: 0.947724
@@ -393,7 +393,7 @@ The detection visualized image saved in ./output//12.jpg
 
 - layout+table
 
-```bash
+```bash linenums="1"
 predict img: ../../ppstructure/docs/table/1.png
 0       type: text, region: [12,729,410,848], score: 0.781044, res: count of ocr result is : 7
 ********** print ocr result **********

@@ -30,7 +30,7 @@ comments: true
 
 在完成数据准备后，便可以启动训练，训练命令如下：
 
-```bash
+```bash linenums="1"
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/sr/sr_tsrn_transformer_strock.yml
 
@@ -40,14 +40,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### 评估
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/sr/sr_tsrn_transformer_strock.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 预测
 
-```bash
+```bash linenums="1"
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_sr.py -c configs/sr/sr_tsrn_transformer_strock.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words_en/word_52.png
 ```
@@ -64,13 +64,13 @@ python3 tools/infer_sr.py -c configs/sr/sr_tsrn_transformer_strock.yml -o Global
 
 首先将文本超分训练过程中保存的模型，转换成inference model。以 Text-Gestalt 训练的[模型](https://paddleocr.bj.bcebos.com/sr_tsrn_transformer_strock_train.tar) 为例，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/sr/sr_tsrn_transformer_strock.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.save_inference_dir=./inference/sr_out
 ```
 
 Text-Gestalt 文本超分模型推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_sr.py --sr_model_dir=./inference/sr_out --image_dir=doc/imgs_words_en/word_52.png --sr_image_shape=3,32,128
 ```
 

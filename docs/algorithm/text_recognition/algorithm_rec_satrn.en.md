@@ -28,7 +28,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_satrn.yml
 # Multi GPU training, specify the gpu number through the --gpus parameter
@@ -37,14 +37,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### Evaluation
 
-```bash
+```bash linenums="1"
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_satrn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_satrn.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -55,13 +55,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_satrn.yml -o Global.pretrained_mod
 
 First, the model saved during the SATRN text recognition training process is converted into an inference model. ( [Model download link](https://pan.baidu.com/s/10J-Bsd881bimKaclKszlaQ?pwd=lk8a) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_satrn.yml -o Global.pretrained_model=./rec_satrn_train/best_accuracy  Global.save_inference_dir=./inference/rec_satrn
 ```
 
 For SATRN text recognition model inference, the following commands can be executed:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_satrn/" --rec_image_shape="3, 48, 48, 160" --rec_algorithm="SATRN" --rec_char_dict_path="ppocr/utils/dict90.txt" --max_text_length=30 --use_space_char=False
 ```
 

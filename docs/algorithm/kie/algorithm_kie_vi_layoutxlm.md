@@ -40,7 +40,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund
 
 VI-LayoutXLM模型基于SER任务进行推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
   --kie_algorithm=LayoutXLM \
@@ -67,7 +67,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_
 
 VI-LayoutXLM模型基于RE任务进行推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
   --kie_algorithm=LayoutXLM \

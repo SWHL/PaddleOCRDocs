@@ -29,14 +29,14 @@ PP-OCRv3检测训练包括两个步骤：
 
 下载ImageNet预训练模型：
 
-```bash
+```bash linenums="1"
 # 下载ResNet50_vd的预训练模型
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/ResNet50_vd_ssld_pretrained.pdparams
 ```
 
 **启动训练**
 
-```bash
+```bash linenums="1"
 # 单卡训练
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml \
     -o Architecture.Models.Student.pretrained=./pretrain_models/ResNet50_vd_ssld_pretrained \
@@ -51,7 +51,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/
 
 训练过程中保存的模型在output目录下，包含以下文件：
 
-```bash
+```bash linenums="1"
 best_accuracy.states
 best_accuracy.pdparams  # 默认保存最优精度的模型参数
 best_accuracy.pdopt     # 默认保存最优精度的优化器相关参数
@@ -64,7 +64,7 @@ latest.pdopt     # 默认保存的最新模型的优化器相关参数
 
 模型评估命令如下：
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml -o Global.checkpoints=./output/best_accuracy
 ```
 
@@ -73,7 +73,7 @@ python3 tools/eval.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml -o Glob
 **提取教师模型参数**
 best_accuracy包含两个模型的参数，分别对应配置文件中的Student，Student2。提取Student的参数方法如下：
 
-```bash
+```bash linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -96,14 +96,14 @@ paddle.save(s_params, "./pretrain_models/dml_teacher.pdparams")
 
 下载学生模型的ImageNet预训练模型：
 
-```bash
+```bash linenums="1"
 # 下载MobileNetV3的预训练模型
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/MobileNetV3_large_x0_5_pretrained.pdparams
 ```
 
 **启动训练**
 
-```bash
+```bash linenums="1"
 # 单卡训练
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml \
     -o Architecture.Models.Student.pretrained=./pretrain_models/MobileNetV3_large_x0_5_pretrained \
@@ -121,13 +121,13 @@ python3  -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs
 训练过程中保存的模型在output目录下，
 模型评估命令如下：
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml -o Global.checkpoints=./output/best_accuracy
 ```
 
 best_accuracy包含三个模型的参数，分别对应配置文件中的Student，Student2，Teacher。提取Student参数的方法如下：
 
-```bash
+```bash linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -157,7 +157,7 @@ finetune训练适用于三种场景：
 
 下载PP-OCRv3训练模型：
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 tar xf ch_PP-OCRv3_det_distill_train.tar
 ```
@@ -166,7 +166,7 @@ ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams包含CML配置文件中Stud
 
 启动训练：
 
-```bash
+```bash linenums="1"
 # 单卡训练
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml \
     -o Global.pretrained_model=./ch_PP-OCRv3_det_distill_train/best_accuracy \
@@ -188,7 +188,7 @@ tar xf ch_PP-OCRv3_det_distill_train.tar
 
 提取Student参数的方法如下：
 
-```bash
+```bash linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -206,7 +206,7 @@ paddle.save(s_params, "./student.pdparams")
 
 **启动训练**
 
-```bash
+```bash linenums="1"
 # 单卡训练
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml \
     -o Global.pretrained_model=./student \
@@ -221,7 +221,7 @@ python3  -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs
 
 以ch_PP-OCRv3_det_distill_train中的Teacher模型为例，首先提取Teacher结构的参数，方法如下：
 
-```bash
+```bash linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams")
@@ -237,7 +237,7 @@ paddle.save(s_params, "./teacher.pdparams")
 
 **启动训练**
 
-```bash
+```bash linenums="1"
 # 单卡训练
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml \
     -o Architecture.Models.Student.pretrained=./teacher \

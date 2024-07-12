@@ -39,7 +39,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_svtrnet.yml
 
@@ -51,7 +51,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 You can download the model files and configuration files provided by `SVTR`: [download link](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar), take `SVTR-T` as an example, using the following command to evaluate:
 
-```bash
+```bash linenums="1"
 # Download the tar archive containing the model files and configuration files of SVTR-T and extract it
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar && tar xf rec_svtr_tiny_none_ctc_en_train.tar
 # GPU evaluation
@@ -60,7 +60,7 @@ python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c ./rec_svtr_tiny
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6local_6global_stn_en.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy
 ```
 
@@ -70,7 +70,7 @@ python3 tools/infer_rec.py -c ./rec_svtr_tiny_none_ctc_en_train/rec_svtr_tiny_6l
 
 First, the model saved during the SVTR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/rec_svtr_tiny_none_ctc_en_train.tar) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_svtrnet.yml -o Global.pretrained_model=./rec_svtr_tiny_none_ctc_en_train/best_accuracy  Global.save_inference_dir=./inference/rec_svtr_tiny_stn_en
 ```
 
@@ -78,7 +78,7 @@ python3 tools/export_model.py -c configs/rec/rec_svtrnet.yml -o Global.pretraine
 
 After the conversion is successful, there are three files in the directory:
 
-```text
+```text linenums="1"
 /inference/rec_svtr_tiny_stn_en/
     ├── inference.pdiparams
     ├── inference.pdiparams.info
@@ -87,7 +87,7 @@ After the conversion is successful, there are three files in the directory:
 
 For SVTR text recognition model inference, the following commands can be executed:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_svtr_tiny_stn_en/' --rec_algorithm='SVTR' --rec_image_shape='3,64,256' --rec_char_dict_path='./ppocr/utils/ic15_dict.txt'
 ```
 
@@ -95,7 +95,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
 
-```bash
+```bash linenums="1"
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9999998807907104)
 ```
 

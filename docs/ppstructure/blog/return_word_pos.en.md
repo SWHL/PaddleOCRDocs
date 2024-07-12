@@ -11,7 +11,7 @@ According to the horizontal document, the recognition model not only returns the
 
 ### Download the inference model first
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 
 ## download model
@@ -31,7 +31,7 @@ cd ..
 
 ### Then use the following command inference in the /ppstructure/ directory
 
-```bash
+```bash linenums="1"
 python predict_system.py \
 --image_dir=./docs/table/1.png \
 --det_model_dir=inference/en_PP-OCRv3_det_infer \
@@ -55,7 +55,7 @@ python predict_system.py \
 
 ### Download the inference model first
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ppstructure
 
 ## download model
@@ -79,7 +79,7 @@ cd ..
 
 ### Then use the following command inference in the /ppstructure/ directory
 
-```bash
+```bash linenums="1"
 python predict_system.py \
 --image_dir=./docs/table/2.png \
 --det_model_dir=inference/ch_PP-OCRv3_det_infer \

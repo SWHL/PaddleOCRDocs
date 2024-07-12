@@ -14,13 +14,13 @@ comments: true
 
 - 您的机器安装的是CUDA 11，请运行以下命令安装
 
-  ```bash
+  ```bash linenums="1"
   pip install paddlepaddle-gpu
   ```
 
 - 您的机器是CPU，请运行以下命令安装
 
-  ```bash
+  ```bash linenums="1"
   pip install paddlepaddle
   ```
 
@@ -28,7 +28,7 @@ comments: true
 
 ### 1.2 安装PaddleOCR whl包
 
-```bash
+```bash linenums="1"
 pip install paddleocr
 ```
 
@@ -40,7 +40,7 @@ pip install paddleocr
 
 PaddleOCR提供了一系列测试图片，点击[这里](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip)下载并解压，然后在终端中切换到相应目录
 
-```bash
+```bash linenums="1"
 cd /path/to/ppocr_img
 ```
 
@@ -50,32 +50,32 @@ cd /path/to/ppocr_img
 
 - 检测+方向分类器+识别全流程：`--use_angle_cls true`设置使用方向分类器识别180度旋转文字，`--use_gpu false`设置不使用GPU
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs/11.jpg --use_angle_cls true --use_gpu false
   ```
 
   结果是一个list，每个item包含了文本框，文字和识别置信度
 
-  ```bash
+  ```bash linenums="1"
   [[[28.0, 37.0], [302.0, 39.0], [302.0, 72.0], [27.0, 70.0]], ('纯臻营养护发素', 0.9658738374710083)]
   ......
   ```
 
   此外，paddleocr也支持输入pdf文件，并且可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
   ```
 
 - 单独使用检测：设置`--rec`为`false`
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs/11.jpg --rec false
   ```
 
   结果是一个list，每个item只包含文本框
 
-  ```bash
+  ```bash linenums="1"
   [[27.0, 459.0], [136.0, 459.0], [136.0, 479.0], [27.0, 479.0]]
   [[28.0, 429.0], [372.0, 429.0], [372.0, 445.0], [28.0, 445.0]]
   ......
@@ -83,13 +83,13 @@ cd /path/to/ppocr_img
 
 - 单独使用识别：设置`--det`为`false`
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs_words/ch/word_1.jpg --det false
   ```
 
   结果是一个list，每个item只包含识别结果和识别置信度
 
-  ```bash
+  ```bash linenums="1"
   ['韩国小馆', 0.994467]
   ```
 
@@ -121,7 +121,7 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```text
+```text linenums="1"
 [[[67.0, 51.0], [327.0, 46.0], [327.0, 74.0], [68.0, 80.0]], ('PHOCAPITAL', 0.9944712519645691)]
 [[[72.0, 92.0], [453.0, 84.0], [454.0, 114.0], [73.0, 122.0]], ('107 State Street', 0.9744491577148438)]
 [[[69.0, 135.0], [501.0, 125.0], [501.0, 156.0], [70.0, 165.0]], ('Montpelier Vermont', 0.9357033967971802)]
@@ -146,7 +146,7 @@ paddleocr --image_dir ./imgs_en/254.jpg --lang=en
 
 - 检测+方向分类器+识别全流程
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr目前支持的多语言语种可以通过修改lang参数进行切换
@@ -173,7 +173,7 @@ im_show.save('result.jpg')
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```bash
+```bash linenums="1"
 [[[28.0, 37.0], [302.0, 39.0], [302.0, 72.0], [27.0, 70.0]], ('纯臻营养护发素', 0.9658738374710083)]
 ......
 ```
@@ -184,7 +184,7 @@ im_show.save('result.jpg')
 
 如果输入是PDF文件，那么可以参考下面代码进行可视化
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr目前支持的多语言语种可以通过修改lang参数进行切换
@@ -235,7 +235,7 @@ for idx in range(len(result)):
 
 要使用滑动窗口进行光学字符识别（OCR），可以使用以下代码片段：
 
-```Python
+```python linenums="1"
 from paddleocr import PaddleOCR
 from PIL import Image, ImageDraw, ImageFont
 

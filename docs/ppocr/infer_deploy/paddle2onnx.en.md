@@ -14,7 +14,7 @@ Need to prepare PaddleOCR, Paddle2ONNX model conversion environment, and ONNXRun
 
 Clone the PaddleOCR repository, use the release/2.6 branch, and install it.
 
-```bash
+```bash linenums="1"
 git clone  -b release/2.6 https://github.com/PaddlePaddle/PaddleOCR.git
 cd PaddleOCR && python3.7 setup.py install
 ```
@@ -26,13 +26,13 @@ For more details, please refer to [Paddle2ONNX](https://github.com/PaddlePaddle/
 
 - install Paddle2ONNX
 
-  ```bash
+  ```bash linenums="1"
   python3.7 -m pip install paddle2onnx
   ```
 
 - install ONNXRuntime
 
-  ```bash
+  ```bash linenums="1"
   # It is recommended to install version 1.9.0, and the version number can be changed according to the environment
   python3.7 -m pip install onnxruntime==1.9.0
   ```
@@ -45,7 +45,7 @@ There are two ways to obtain the Paddle model: Download the prediction model pro
 
 Take the PP-OCRv3 detection, recognition, and classification model as an example:
 
-```bash
+```bash linenums="1"
 wget -nc -P ./inference https://paddleocr.bj.bcebos.com/PP-OCRv3/english/en_PP-OCRv3_det_infer.tar
 cd ./inference && tar xf en_PP-OCRv3_det_infer.tar && cd ..
 
@@ -60,7 +60,7 @@ cd ./inference && tar xf ch_ppocr_mobile_v2.0_cls_infer.tar && cd ..
 
 Convert Paddle inference model to ONNX model format using Paddle2ONNX:
 
-```bash
+```bash linenums="1"
 paddle2onnx --model_dir ./inference/en_PP-OCRv3_det_infer \
 --model_filename inference.pdmodel \
 --params_filename inference.pdiparams \
@@ -96,7 +96,7 @@ In addition, the following models do not currently support conversion to ONNX mo
 
 Take the English OCR model as an example, use **ONNXRuntime** to predict and execute the following commands:
 
-```bash
+```bash linenums="1"
 python3.7 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 --det_model_dir=./inference/det_onnx/model.onnx  \
 --rec_model_dir=./inference/rec_onnx/model.onnx  \
@@ -107,7 +107,7 @@ python3.7 tools/infer/predict_system.py --use_gpu=False --use_onnx=True \
 
 Taking the English OCR model as an example, use **Paddle Inference** to predict and execute the following commands:
 
-```bash
+```bash linenums="1"
 python3.7 tools/infer/predict_system.py --use_gpu=False \
 --cls_model_dir=./inference/ch_ppocr_mobile_v2.0_cls_infer \
 --rec_model_dir=./inference/en_PP-OCRv3_rec_infer \
@@ -128,7 +128,7 @@ Paddle Inference result：
 
 Using ONNXRuntime to predict, terminal output:
 
-```bash
+```bash linenums="1"
 [2022/10/10 12:06:28] ppocr DEBUG: dt_boxes num : 11, elapse : 0.3568880558013916
 [2022/10/10 12:06:31] ppocr DEBUG: rec_res num  : 11, elapse : 2.6445000171661377
 [2022/10/10 12:06:31] ppocr DEBUG: 0  Predict time of doc/imgs_en/img_12.jpg: 3.021s
@@ -149,7 +149,7 @@ Using ONNXRuntime to predict, terminal output:
 
 Using Paddle Inference to predict, terminal output:
 
-```bash
+```bash linenums="1"
 [2022/10/10 12:06:28] ppocr DEBUG: dt_boxes num : 11, elapse : 0.3568880558013916
 [2022/10/10 12:06:31] ppocr DEBUG: rec_res num  : 11, elapse : 2.6445000171661377
 [2022/10/10 12:06:31] ppocr DEBUG: 0  Predict time of doc/imgs_en/img_12.jpg: 3.021s

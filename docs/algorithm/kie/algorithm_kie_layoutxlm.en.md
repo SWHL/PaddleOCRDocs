@@ -45,7 +45,7 @@ python3 tools/export_model.py -c configs/kie/layoutlm_series/ser_layoutxlm_xfund
 
 Use the following command to infer using LayoutXLM SER model:
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
   --kie_algorithm=LayoutXLM \
@@ -71,7 +71,7 @@ python3 tools/export_model.py -c configs/kie/layoutlm_series/re_layoutxlm_xfund_
 
 Use the following command to infer using LayoutXLM RE model:
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
   --kie_algorithm=LayoutXLM \

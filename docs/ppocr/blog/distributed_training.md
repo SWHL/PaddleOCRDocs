@@ -14,7 +14,7 @@ comments: true
 
 * 以识别为例，本地准备好数据之后，使用`paddle.distributed.launch`的接口启动训练任务即可。下面为运行代码示例。
 
-```shell
+```bash linenums="1"
 python3 -m paddle.distributed.launch \
     --log_dir=./log/ \
     --gpus "0,1,2,3,4,5,6,7" \
@@ -26,7 +26,7 @@ python3 -m paddle.distributed.launch \
 
 * 相比单机训练，多机训练时，只需要添加`--ips`的参数，该参数表示需要参与分布式训练的机器的ip列表，不同机器的ip用逗号隔开。下面为运行代码示例。
 
-```shell
+```bash linenums="1"
 ip_list="192.168.0.1,192.168.0.2"
 python3 -m paddle.distributed.launch \
     --log_dir=./log/ \

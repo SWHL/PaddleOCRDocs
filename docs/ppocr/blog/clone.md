@@ -6,13 +6,13 @@ comments: true
 
 ## 1. 克隆PaddleOCR repo代码
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleOCR
 ```
 
 如果因为网络问题无法pull成功，也可选择使用码云上的托管：
 
-```bash
+```bash linenums="1"
 git clone https://gitee.com/paddlepaddle/PaddleOCR
 ```
 
@@ -20,7 +20,7 @@ git clone https://gitee.com/paddlepaddle/PaddleOCR
 
 ## 2. 安装第三方库
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```

@@ -19,7 +19,7 @@ The following will introduce each part separately, and introduce how to add the 
 
 Data loading and processing are composed of different modules, which complete the image reading, data augment and label production. This part is under [ppocr/data](../../ppocr/data). The explanation of each file and folder are as follows:
 
-```bash
+```bash linenums="1"
 ppocr/data/
 ├── imaug             # Scripts for image reading, data augment and label production
 │   ├── label_ops.py  # Modules that transform the label
@@ -35,7 +35,7 @@ PaddleOCR has a large number of built-in image operation related modules. For mo
 1. Create a new file under the [ppocr/data/imaug](../../ppocr/data/imaug) folder, such as my_module.py.
 2. Add code in the my_module.py file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
     class MyModule:
         def __init__(self, *args, **kwargs):
             # your init code
@@ -55,7 +55,7 @@ PaddleOCR has a large number of built-in image operation related modules. For mo
 
 All different modules of data processing are executed by sequence, combined and executed in the form of a list in the config file. Such as:
 
-```yaml
+```yaml linenums="1"
 # angle class data process
 transforms:
   - DecodeImage: # load image
@@ -73,7 +73,7 @@ transforms:
 The network part completes the construction of the network, and PaddleOCR divides the network into four parts, which are under [ppocr/modeling](../../ppocr/modeling). The data entering the network will pass through these four parts in sequence(transforms->backbones->
 necks->heads).
 
-```bash
+```bash linenums="1"
 ├── architectures # Code for building network
 ├── transforms    # Image Transformation Module
 ├── backbones     # Feature extraction module
@@ -86,7 +86,7 @@ PaddleOCR has built-in commonly used modules related to algorithms such as DB, E
 1. Create a new file under the [ppocr/modeling/backbones](../../ppocr/modeling/backbones) folder, such as my_backbone.py.
 2. Add code in the my_backbone.py file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
     import paddle
     import paddle.nn as nn
     import paddle.nn.functional as F
@@ -108,7 +108,7 @@ PaddleOCR has built-in commonly used modules related to algorithms such as DB, E
 
 After adding the four-part modules of the network, you only need to configure them in the configuration file to use, such as:
 
-```yaml
+```yaml linenums="1"
 Architecture:
 model_type: rec
 algorithm: CRNN
@@ -135,7 +135,7 @@ PaddleOCR has built-in post-processing modules related to algorithms such as DB,
 1. Create a new file under the [ppocr/postprocess](../../ppocr/postprocess) folder, such as my_postprocess.py.
 2. Add code in the my_postprocess.py file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
     import paddle
 
 
@@ -168,7 +168,7 @@ PaddleOCR has built-in post-processing modules related to algorithms such as DB,
 
 After the post-processing module is added, you only need to configure it in the configuration file to use, such as:
 
-```yaml
+```yaml linenums="1"
 PostProcess:
 name: MyPostProcess
 args1: args1
@@ -183,7 +183,7 @@ PaddleOCR has built-in loss function modules related to algorithms such as DB, E
 1. Create a new file in the [ppocr/losses](../../ppocr/losses) folder, such as my_loss.py.
 2. Add code in the my_loss.py file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
     import paddle
     from paddle import nn
 
@@ -205,7 +205,7 @@ PaddleOCR has built-in loss function modules related to algorithms such as DB, E
 
 After the loss function module is added, you only need to configure it in the configuration file to use it, such as:
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: MyLoss
   args1: args1
@@ -219,7 +219,7 @@ Metric is used to calculate the performance of the network on the current batch.
 1. Create a new file under the [ppocr/metrics](../../ppocr/metrics) folder, such as my_metric.py.
 2. Add code in the my_metric.py file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
 
     class MyMetric(object):
         def __init__(self, main_indicator='acc', **kwargs):
@@ -260,7 +260,7 @@ Metric is used to calculate the performance of the network on the current batch.
 
 After the metric module is added, you only need to configure it in the configuration file to use it, such as:
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: MyMetric
   main_indicator: acc
@@ -274,7 +274,7 @@ Modules without built-in can be added through the following steps, take `optimiz
 
 1. Create your own optimizer in the [ppocr/optimizer/optimizer.py](../../ppocr/optimizer/optimizer.py) file, the sample code is as follows:
 
-    ```python
+    ```python linenums="1"
     from paddle import optimizer as optim
 
 
@@ -293,7 +293,7 @@ Modules without built-in can be added through the following steps, take `optimiz
 
 After the optimizer module is added, you only need to configure it in the configuration file to use, such as:
 
-```yaml
+```yaml linenums="1"
 Optimizer:
   name: MyOptim
   args1: args1

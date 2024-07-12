@@ -8,13 +8,13 @@ comments: true
 
 进入`ppstructure`目录
 
-```bash
+```bash linenums="1"
 cd ppstructure
 ```
 
 下载模型
 
-```bash
+```bash linenums="1"
 mkdir inference && cd inference
 # 下载PP-StructureV2版面分析模型并解压
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/layout/picodet_lcnet_x1_0_layout_infer.tar && tar xf picodet_lcnet_x1_0_layout_infer.tar
@@ -29,7 +29,7 @@ cd ..
 
 ### 1.1 版面分析+表格识别
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
                           --rec_model_dir=inference/ch_PP-OCRv3_rec_infer \
                           --table_model_dir=inference/ch_ppstructure_mobile_v2.0_SLANet_infer \
@@ -45,7 +45,7 @@ python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
 
 ### 1.2 版面分析
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --layout_model_dir=inference/picodet_lcnet_x1_0_layout_infer \
                           --image_dir=./docs/table/1.png \
                           --output=../output \
@@ -57,7 +57,7 @@ python3 predict_system.py --layout_model_dir=inference/picodet_lcnet_x1_0_layout
 
 ### 1.3 表格识别
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
                           --rec_model_dir=inference/ch_PP-OCRv3_rec_infer \
                           --table_model_dir=inference/ch_ppstructure_mobile_v2.0_SLANet_infer \
@@ -75,7 +75,7 @@ python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
 
 ### 2.1 SER
 
-```bash
+```bash linenums="1"
 cd ppstructure
 
 mkdir inference && cd inference
@@ -96,7 +96,7 @@ python3 predict_system.py \
 
 ### 2.2 RE+SER
 
-```bash
+```bash linenums="1"
 cd ppstructure
 
 mkdir inference && cd inference

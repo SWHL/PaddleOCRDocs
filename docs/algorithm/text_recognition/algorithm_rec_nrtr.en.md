@@ -29,7 +29,7 @@ Please refer to [Text Recognition Tutorial](../../ppocr/model_train/recognition.
 
 Specifically, after the data preparation is completed, the training can be started. The training command is as follows:
 
-```bash
+```bash linenums="1"
 # Single GPU training (long training period, not recommended)
 python3 tools/train.py -c configs/rec/rec_mtb_nrtr.yml
 
@@ -39,14 +39,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### Evaluation
 
-```bash
+```bash linenums="1"
 # GPU evaluation
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### Prediction
 
-```bash
+```bash linenums="1"
 # The configuration file used for prediction must match the training
 python3 tools/infer_rec.py -c configs/rec/rec_mtb_nrtr.yml -o Global.infer_img='./doc/imgs_words_en/word_10.png' Global.pretrained_model=./rec_mtb_nrtr_train/best_accuracy
 ```
@@ -57,7 +57,7 @@ python3 tools/infer_rec.py -c configs/rec/rec_mtb_nrtr.yml -o Global.infer_img='
 
 First, the model saved during the NRTR text recognition training process is converted into an inference model. ( [Model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_mtb_nrtr_train.tar)) ), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrained_model=./rec_mtb_nrtr_train/best_accuracy  Global.save_inference_dir=./inference/rec_mtb_nrtr
 ```
 
@@ -68,7 +68,7 @@ python3 tools/export_model.py -c configs/rec/rec_mtb_nrtr.yml -o Global.pretrain
 
 After the conversion is successful, there are three files in the directory:
 
-```text
+```text linenums="1"
 /inference/rec_mtb_nrtr/
     ├── inference.pdiparams
     ├── inference.pdiparams.info
@@ -77,7 +77,7 @@ After the conversion is successful, there are three files in the directory:
 
 For NRTR text recognition model inference, the following commands can be executed:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png' --rec_model_dir='./inference/rec_mtb_nrtr/' --rec_algorithm='NRTR' --rec_image_shape='1,32,100' --rec_char_dict_path='./ppocr/utils/EN_symbol_dict.txt'
 ```
 
@@ -85,7 +85,7 @@ python3 tools/infer/predict_rec.py --image_dir='./doc/imgs_words_en/word_10.png'
 
 After executing the command, the prediction result (recognized text and score) of the image above is printed to the screen, an example is as follows:
 
-```bash
+```bash linenums="1"
 Predicts of ./doc/imgs_words_en/word_10.png:('pain', 0.9465042352676392)
 ```
 
@@ -112,7 +112,7 @@ Not supported
     <details>
     <summary>Click to expand</summary>
 
-    ```python
+    ```python linenums="1"
     params = paddle.load('path/' + '.pdparams') # the old version parameters
     state_dict = model.state_dict() # the new version model parameters
     new_state_dict = {}

@@ -17,7 +17,7 @@ typora-copy-images-to: images
 
 训练数据的默认存储路径是 `PaddleOCR/train_data`,如果您的磁盘上已有数据集，只需创建软链接至数据集目录：
 
-```bash
+```bash linenums="1"
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows
@@ -32,7 +32,7 @@ mklink /d <path/to/paddle_ocr>/train_data/dataset <path/to/dataset>
 
 建议将训练图片放入同一个文件夹，并用一个文本文件记录图片路径和标签，文本文件里的内容如下:
 
-```python
+```python linenums="1"
 " 图像文件名                 图像标注信息 "
 zh_train_0.jpg   [{"transcription": "汇丰晋信", "label": "other", "points": [[104, 114], [530, 114], [530, 175], [104, 175]], "id": 1, "linking": []}, {"transcription": "受理时间:", "label": "question", "points": [[126, 267], [266, 267], [266, 305], [126, 305]], "id": 7, "linking": [[7, 13]]}, {"transcription": "2020.6.15", "label": "answer", "points": [[321, 239], [537, 239], [537, 285], [321, 285]], "id": 13, "linking": [[7, 13]]}]
 zh_train_1.jpg   [{"transcription": "中国人体器官捐献", "label": "other", "points": [[544, 459], [954, 459], [954, 517], [544, 517]], "id": 1, "linking": []}, {"transcription": ">编号:MC545715483585", "label": "other", "points": [[1462, 470], [2054, 470], [2054, 543], [1462, 543]], "id": 10, "linking": []}, {"transcription": "CHINAORGANDONATION", "label": "other", "points": [[543, 516], [958, 516], [958, 551], [543, 551]], "id": 14, "linking": []}, {"transcription": "中国人体器官捐献志愿登记表", "label": "header", "points": [[635, 793], [1892, 793], [1892, 904], [635, 904]], "id": 18, "linking": []}]
@@ -59,7 +59,7 @@ zh_train_1.jpg   [{"transcription": "中国人体器官捐献", "label": "other"
 
 以XFUND_zh数据为例，共包含4个类别，字典文件内容如下所示。
 
-```text
+```text linenums="1"
 OTHER
 QUESTION
 ANSWER
@@ -70,7 +70,7 @@ HEADER
 
 最终数据集应有如下文件结构：
 
-```text
+```text linenums="1"
 |-train_data
   |-data_name
     |- train.json
@@ -108,7 +108,7 @@ PaddleOCR提供了训练脚本、评估脚本和预测脚本，本节将以 VI-L
 
 如果你没有使用自定义数据集，可以使用PaddleOCR中已经处理好的XFUND_zh数据集进行快速体验。
 
-```bash
+```bash linenums="1"
 mkdir train_data
 cd train_data
 wget https://paddleocr.bj.bcebos.com/ppstructure/dataset/XFUND.tar && tar -xf XFUND.tar
@@ -119,7 +119,7 @@ cd ..
 
 使用下面的方法，下载基于XFUND数据的SER与RE任务预训练模型。
 
-```bash
+```bash linenums="1"
 mkdir pretrained_model
 cd pretrained_model
 # 下载并解压SER预训练模型
@@ -134,7 +134,7 @@ wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layou
 - 如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false
 - PaddleOCR在训练时，会默认下载VI-LayoutXLM预训练模型，这里无需预先下载。
 
-```bash
+```bash linenums="1"
 # GPU训练 支持单卡，多卡训练
 # 训练日志会自动保存到 配置文件中"{Global.save_model_dir}" 下的train.log文件中
 
@@ -150,7 +150,7 @@ python3 tools/train.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml
 
 以SER任务为例，正常启动训练后，会看到以下log输出：
 
-```bash
+```bash linenums="1"
 [2022/08/08 16:28:28] ppocr INFO: epoch: [1/200], global_step: 10, lr: 0.000006, loss: 1.871535, avg_reader_cost: 0.28200 s, avg_batch_cost: 0.82318 s, avg_samples: 8.0, ips: 9.71838 samples/s, eta: 0:51:59
 [2022/08/08 16:28:33] ppocr INFO: epoch: [1/200], global_step: 19, lr: 0.000018, loss: 1.461939, avg_reader_cost: 0.00042 s, avg_batch_cost: 0.32037 s, avg_samples: 6.9, ips: 21.53773 samples/s, eta: 0:37:55
 [2022/08/08 16:28:39] ppocr INFO: cur metric, precision: 0.11526348939743859, recall: 0.19776657060518732, hmean: 0.14564265817747712, fps: 34.008392345050055
@@ -182,7 +182,7 @@ PaddleOCR支持训练和评估交替进行, 可以在 `configs/kie/vi_layoutxlm/
 
 以 `configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml` 为例，修改的内容如下所示。
 
-```yaml
+```yaml linenums="1"
 
 Architecture:
   # ...
@@ -232,7 +232,7 @@ Eval:
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定`Architecture.Backbone.checkpoints`指定要加载的模型路径：
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy
 ```
 
@@ -249,7 +249,7 @@ coming soon!
 
 多机多卡训练时，通过 `--ips` 参数设置使用的机器IP地址，通过 `--gpus` 参数设置使用的GPU ID：
 
-```bash
+```bash linenums="1"
 python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1,2,3' tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml
 ```
 
@@ -280,14 +280,14 @@ DCU设备上运行需要设置环境变量 `export HIP_VISIBLE_DEVICES=0,1,2,3`�
 
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Architecture.Backbone.checkpoints`指向保存的参数文件。评估数据集可以通过 `configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml`  修改Eval中的 `label_file_path` 设置。
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.checkpoints 为待测权重
 python3 tools/eval.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy
 ```
 
 会输出以下信息，打印出precision、recall、hmean等信息。
 
-```bash
+```bash linenums="1"
 [2022/08/09 07:59:28] ppocr INFO: metric eval ***************
 [2022/08/09 07:59:28] ppocr INFO: precision:0.697476609016161
 [2022/08/09 07:59:28] ppocr INFO: recall:0.8861671469740634
@@ -303,7 +303,7 @@ python3 tools/eval.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml 
 
 根据配置文件中设置的 `save_model_dir` 和 `save_epoch_step` 字段，会有以下几种参数被保存下来：
 
-```text
+```text linenums="1"
 output/ser_vi_layoutxlm_xfund_zh/
 ├── best_accuracy
        ├── metric.states
@@ -325,7 +325,7 @@ output/ser_vi_layoutxlm_xfund_zh/
 
 您可以使用如下命令进行中文模型预测。
 
-```bash
+```bash linenums="1"
 python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy Global.infer_img=./ppstructure/docs/kie/input/zh_val_42.jpg
 ```
 
@@ -335,7 +335,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 预测过程中，默认会加载PP-OCRv3的检测识别模型，用于OCR的信息抽取，如果希望加载预先获取的OCR结果，可以使用下面的方式进行预测，指定`Global.infer_img`为标注文件，其中包含图片路径以及OCR信息，同时指定`Global.infer_mode`为False，表示此时不使用OCR预测引擎。
 
-```bash
+```bash linenums="1"
 python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy Global.infer_img=./train_data/XFUND/zh_val/val.json Global.infer_mode=False
 ```
 
@@ -347,7 +347,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 在RE任务模型预测时，需要先给出模型SER结果，因此需要同时加载SER的配置文件与模型权重，示例如下。
 
-```bash
+```bash linenums="1"
 python3 ./tools/infer_kie_token_ser_re.py \
   -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml \
   -o Architecture.Backbone.checkpoints=./pretrain_models/re_vi_layoutxlm_udml_xfund_zh/best_accuracy/ \
@@ -363,7 +363,7 @@ python3 ./tools/infer_kie_token_ser_re.py \
 
 如果希望使用标注或者预先获取的OCR信息进行关键信息抽取，同上，可以指定`Global.infer_mode`为False，指定`Global.infer_img`为标注文件。
 
-```bash
+```bash linenums="1"
 python3 ./tools/infer_kie_token_ser_re.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./pretrain_models/re_vi_layoutxlm_udml_xfund_zh/re_layoutxlm_xfund_zh_v4_udml/best_accuracy/ Global.infer_img=./train_data/XFUND/zh_val/val.json Global.infer_mode=False -c_ser configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o_ser Architecture.Backbone.checkpoints=pretrain_models/ser_vi_layoutxlm_udml_xfund_zh/best_accuracy/
 ```
 
@@ -386,7 +386,7 @@ inference 模型（`paddle.jit.save`保存的模型）
 
 信息抽取模型中的SER任务转inference模型步骤如下：
 
-```bash
+```bash linenums="1"
 # -c 后面设置训练算法的yml配置文件
 # -o 配置可选参数
 # Architecture.Backbone.checkpoints 参数设置待转换的训练模型地址
@@ -397,7 +397,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 inference/ser_vi_layoutxlm/
     ├── inference.pdiparams         # inference模型的参数文件
     ├── inference.pdiparams.info    # inference模型的参数信息，可忽略
@@ -406,7 +406,7 @@ inference/ser_vi_layoutxlm/
 
 信息抽取模型中的RE任务转inference模型步骤如下：
 
-```bash
+```bash linenums="1"
 # -c 后面设置训练算法的yml配置文件
 # -o 配置可选参数
 # Architecture.Backbone.checkpoints 参数设置待转换的训练模型地址
@@ -417,7 +417,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_
 
 转换成功后，在目录下有三个文件：
 
-```text
+```text linenums="1"
 inference/re_vi_layoutxlm/
     ├── inference.pdiparams         # inference模型的参数文件
     ├── inference.pdiparams.info    # inference模型的参数信息，可忽略
@@ -428,7 +428,7 @@ inference/re_vi_layoutxlm/
 
 VI-LayoutXLM模型基于SER任务进行推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
   --kie_algorithm=LayoutXLM \
@@ -445,7 +445,7 @@ python3 kie/predict_kie_token_ser.py \
 
 VI-LayoutXLM模型基于RE任务进行推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
   --kie_algorithm=LayoutXLM \

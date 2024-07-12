@@ -14,7 +14,7 @@ The high performance of distributed training is one of the core advantages of Pa
 
 Take recognition as an example. After the data is prepared locally, start the training task with the interface of `paddle.distributed.launch`. The start command as follows:
 
-```shell
+```bash linenums="1"
 python3 -m paddle.distributed.launch \
     --log_dir=./log/ \
     --gpus "0,1,2,3,4,5,6,7" \
@@ -26,7 +26,7 @@ python3 -m paddle.distributed.launch \
 
 Compared with single machine, training with multi machine only needs to add the parameter `--ips` to start command, which represents the IP list of machines used for distributed training, and the IP of different machines are separated by commas. The start command as follows:
 
-```shell
+```bash linenums="1"
 ip_list="192.168.0.1,192.168.0.2"
 python3 -m paddle.distributed.launch \
     --log_dir=./log/ \

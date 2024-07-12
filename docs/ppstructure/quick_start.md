@@ -12,13 +12,13 @@ comments: true
 
 - 您的机器安装的是CUDA9或CUDA10，请运行以下命令安装
 
-  ```bash
+  ```bash linenums="1"
   python3 -m pip install paddlepaddle-gpu -i https://mirror.baidu.com/pypi/simple
   ```
 
 - 您的机器是CPU，请运行以下命令安装
 
-  ```bash
+  ```bash linenums="1"
   python3 -m pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
   ```
 
@@ -26,7 +26,7 @@ comments: true
 
 ### 1.2 安装PaddleOCR whl包
 
-```bash
+```bash linenums="1"
 # 安装 paddleocr，推荐使用2.6版本
 pip3 install "paddleocr>=2.6.0.3"
 
@@ -40,25 +40,25 @@ pip3 install paddleclas>=2.4.3
 
 #### 2.1.1 图像方向分类+版面分析+表格识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --image_orientation=true
 ```
 
 #### 2.1.2 版面分析+表格识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure
 ```
 
 #### 2.1.3 版面分析
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --table=false --ocr=false
 ```
 
 #### 2.1.4 表格识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout=false
 ```
 
@@ -75,7 +75,7 @@ paddleocr --image_dir=ppstructure/docs/table/table.jpg --type=structure --layout
 
 通过PDF解析(只支持pdf格式的输入)：
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --recovery=true --use_pdf2docx_api=true
 ```
 
@@ -88,13 +88,13 @@ paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --rec
 
 通过PDF解析(只支持pdf格式的输入)：
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --recovery=true --use_pdf2docx_api=true
 ```
 
 通过OCR技术：
 
-```bash
+```bash linenums="1"
 # 中文测试图
 paddleocr --image_dir=ppstructure/docs/table/1.png --type=structure --recovery=true
 # 英文测试图
@@ -107,7 +107,7 @@ paddleocr --image_dir=ppstructure/recovery/UnrealText.pdf --type=structure --rec
 
 #### 2.2.1 图像方向分类+版面分析+表格识别
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,draw_structure_result,save_structure_res
@@ -135,7 +135,7 @@ im_show.save('result.jpg')
 
 #### 2.2.2 版面分析+表格识别
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,draw_structure_result,save_structure_res
@@ -163,7 +163,7 @@ im_show.save('result.jpg')
 
 #### 2.2.3 版面分析
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,save_structure_res
@@ -181,7 +181,7 @@ for line in result:
     print(line)
 ```
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,save_structure_res
@@ -200,7 +200,7 @@ for res in result:
         print(line)
 ```
 
-```python
+```python linenums="1"
 import os
 import cv2
 import numpy as np
@@ -239,7 +239,7 @@ for index, img in enumerate(imgs):
 
 #### 2.2.4 表格识别
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,save_structure_res
@@ -263,7 +263,7 @@ for line in result:
 
 #### 2.2.6 版面恢复
 
-```python
+```python linenums="1"
 import os
 import cv2
 from paddleocr import PPStructure,save_structure_res
@@ -295,7 +295,7 @@ PP-Structure的返回结果为一个dict组成的list，示例如下：
 
 #### 2.3.1 版面分析+表格识别
 
-```bash
+```bash linenums="1"
 [
   {   'type': 'Text',
       'bbox': [34, 432, 345, 462],

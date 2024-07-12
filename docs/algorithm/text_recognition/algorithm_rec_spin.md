@@ -30,7 +30,7 @@ SPIN收录于AAAI2020。主要用于OCR识别任务。在任意形状文本识�
 
 具体地，在完成数据准备后，便可以启动训练，训练命令如下：
 
-```bash
+```bash linenums="1"
 #单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml
 
@@ -40,14 +40,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### 评估
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 预测
 
-```bash
+```bash linenums="1"
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -58,13 +58,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Globa
 
 首先将SPIN文本识别训练过程中保存的模型，转换成inference model。可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_r32_gaspin_bilstm_att.yml -o Global.pretrained_model={path/to/weights}/best_accuracy  Global.save_inference_dir=./inference/rec_r32_gaspin_bilstm_att
 ```
 
 SPIN文本识别模型推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_r32_gaspin_bilstm_att/" --rec_image_shape="3, 32, 100" --rec_algorithm="SPIN" --rec_char_dict_path="/ppocr/utils/dict/spin_dict.txt" --use_space_char=Falsee
 ```
 

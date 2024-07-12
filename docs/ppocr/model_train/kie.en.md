@@ -17,7 +17,7 @@ PaddleOCR supports the following data format when training KIE models.
 
 The default storage path of training data is `PaddleOCR/train_data`. If you already have datasets on your disk, you only need to create a soft link to the dataset directory.
 
-```bash
+```bash linenums="1"
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows
@@ -32,7 +32,7 @@ The training process generally includes the training set and the evaluation set.
 
 It is recommended to put the training images into the same folder, record the path and annotation of images in a text file. The contents of the text file are as follows:
 
-```text
+```text linenums="1"
 " image path                 annotation information "
 zh_train_0.jpg   [{"transcription": "汇丰晋信", "label": "other", "points": [[104, 114], [530, 114], [530, 175], [104, 175]], "id": 1, "linking": []}, {"transcription": "受理时间:", "label": "question", "points": [[126, 267], [266, 267], [266, 305], [126, 305]], "id": 7, "linking": [[7, 13]]}, {"transcription": "2020.6.15", "label": "answer", "points": [[321, 239], [537, 239], [537, 285], [321, 285]], "id": 13, "linking": [[7, 13]]}]
 zh_train_1.jpg   [{"transcription": "中国人体器官捐献", "label": "other", "points": [[544, 459], [954, 459], [954, 517], [544, 517]], "id": 1, "linking": []}, {"transcription": ">编号:MC545715483585", "label": "other", "points": [[1462, 470], [2054, 470], [2054, 543], [1462, 543]], "id": 10, "linking": []}, {"transcription": "CHINAORGANDONATION", "label": "other", "points": [[543, 516], [958, 516], [958, 551], [543, 551]], "id": 14, "linking": []}, {"transcription": "中国人体器官捐献志愿登记表", "label": "header", "points": [[635, 793], [1892, 793], [1892, 904], [635, 904]], "id": 18, "linking": []}]
@@ -59,7 +59,7 @@ The textlines in the training set and the evaluation set contain label informati
 
 For example, FUND_zh data contains four categories. The contents of the dictionary file are as follows.
 
-```text
+```text linenums="1"
 OTHER
 QUESTION
 ANSWER
@@ -70,7 +70,7 @@ In the annotation file, the annotation information of the `label` field of the t
 
 The final dataset shall have the following file structure.
 
-```text
+```text linenums="1"
 |-train_data
   |-data_name
     |- train.json
@@ -110,7 +110,7 @@ This section will take the VI layoutxlm multimodal pre training model as an exam
 
 If you do not use a custom dataset, you can use XFUND_zh that has been processed in PaddleOCR dataset for quick experience.
 
-```bash
+```bash linenums="1"
 mkdir train_data
 cd train_data
 wget https://paddleocr.bj.bcebos.com/ppstructure/dataset/XFUND.tar && tar -xf XFUND.tar
@@ -121,7 +121,7 @@ If you don't want to train, and want to directly experience the process of model
 
 Use the following command to download the trained model.
 
-```bash
+```bash linenums="1"
 mkdir pretrained_model
 cd pretrained_model
 # download and uncompress SER model
@@ -136,7 +136,7 @@ Start training:
 - If your paddlepaddle version is `CPU`, you need to set `Global.use_gpu=False` in your config file.
 - During training, PaddleOCR will download the VI-LayoutXLM pretraining model by default. There is no need to download it in advance.
 
-```bash
+```bash linenums="1"
 # GPU training, support single card and multi-cards
 # The training log will be save in "{Global.save_model_dir}/train.log"
 
@@ -152,7 +152,7 @@ python3 tools/train.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml
 
 Take the SER model training as an example. After the training is started, you will see the following log output.
 
-```bash
+```bash linenums="1"
 [2022/08/08 16:28:28] ppocr INFO: epoch: [1/200], global_step: 10, lr: 0.000006, loss: 1.871535, avg_reader_cost: 0.28200 s, avg_batch_cost: 0.82318 s, avg_samples: 8.0, ips: 9.71838 samples/s, eta: 0:51:59
 [2022/08/08 16:28:33] ppocr INFO: epoch: [1/200], global_step: 19, lr: 0.000018, loss: 1.461939, avg_reader_cost: 0.00042 s, avg_batch_cost: 0.32037 s, avg_samples: 6.9, ips: 21.53773 samples/s, eta: 0:37:55
 [2022/08/08 16:28:39] ppocr INFO: cur metric, precision: 0.11526348939743859, recall: 0.19776657060518732, hmean: 0.14564265817747712, fps: 34.008392345050055
@@ -184,7 +184,7 @@ If you want to train model on your own dataset, you need to modify the data path
 
 Take `configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml` as an example, contents we need to fix is as follows.
 
-```yaml
+```yaml linenums="1"
 Architecture:
   # ...
   Backbone:
@@ -233,7 +233,7 @@ Eval:
 
 If the training process is interrupted and you want to load the saved model to resume training, you can specify the path of the model to be loaded by specifying `Architecture.Backbone.checkpoints`.
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy
 ```
 
@@ -251,7 +251,7 @@ coming soon!
 
 During multi-machine multi-gpu training, use the `--ips` parameter to set the used machine IP address, and the `--gpus` parameter to set the used GPU ID:
 
-```bash
+```bash linenums="1"
 python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1,2,3' tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml
 ```
 
@@ -282,14 +282,14 @@ Running on a DCU device requires setting the environment variable `export HIP_VI
 
 The trained model will be saved in `Global.save_model_dir`. When evaluation, you need to set `Architecture.Backbone.checkpoints` as your model directroy. The evaluation dataset can be set by modifying the `Eval.dataset.label_file_list` field in the `configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml` file.
 
-```bash
+```bash linenums="1"
 # GPU evaluation, Global.checkpoints is the weight to be tested
 python3 tools/eval.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy
 ```
 
 The following information will be printed such as precision, recall, hmean and so on.
 
-```bash
+```bash linenums="1"
 [2022/08/09 07:59:28] ppocr INFO: metric eval ***************
 [2022/08/09 07:59:28] ppocr INFO: precision:0.697476609016161
 [2022/08/09 07:59:28] ppocr INFO: recall:0.8861671469740634
@@ -305,7 +305,7 @@ The default prediction image is stored in `Global.infer_img`, and the trained mo
 
 According to the `Global.save_model_dir` and `save_epoch_step` fields set in the configuration file, the following parameters will be saved.
 
-```text
+```text linenums="1"
 output/ser_vi_layoutxlm_xfund_zh/
 ├── best_accuracy
        ├── metric.states
@@ -325,7 +325,7 @@ Among them, best_accuracy.*is the best model on the evaluation set; latest.* is 
 
 The configuration file for prediction must be consistent with the training file. If you finish the training process using `python3 tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml`. You can use the following command for prediction.
 
-```bash
+```bash linenums="1"
 python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy Global.infer_img=./ppstructure/docs/kie/input/zh_val_42.jpg
 ```
 
@@ -335,7 +335,7 @@ The output image is as follows, which is also saved in `Global.save_res_path`.
 
 During the prediction process, the detection and recognition model of PP-OCRv3 will be loaded by default for information extraction of OCR. If you want to load the OCR results obtained in advance, you can use the following method to predict, and specify `Global.infer_img` as the annotation file, which contains the image path and OCR information, and specifies `Global.infer_mode` as False, indicating that the OCR inference engine is not used at this time.
 
-```bash
+```bash linenums="1"
 python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml -o Architecture.Backbone.checkpoints=./output/ser_vi_layoutxlm_xfund_zh/best_accuracy Global.infer_img=./train_data/XFUND/zh_val/val.json Global.infer_mode=False
 ```
 
@@ -347,7 +347,7 @@ It can be seen that part of the detection information is more accurate, but the 
 
 In RE model prediction, the SER model result needs to be given first, so the configuration file and model weight of SER need to be loaded at the same time, as shown in the following example.
 
-```bash
+```bash linenums="1"
 python3 ./tools/infer_kie_token_ser_re.py \
   -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml \
   -o Architecture.Backbone.checkpoints=./pretrain_models/re_vi_layoutxlm_udml_xfund_zh/best_accuracy/ \
@@ -363,7 +363,7 @@ The result is as follows.
 
 If you want to load the OCR results obtained in advance, you can use the following method to predict, and specify `Global.infer_img` as the annotation file, which contains the image path and OCR information, and specifies `Global.infer_mode` as False, indicating that the OCR inference engine is not used at this time.
 
-```bash
+```bash linenums="1"
 python3 ./tools/infer_kie_token_ser_re.py \
   -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_zh.yml \
   -o Architecture.Backbone.checkpoints=./pretrain_models/re_vi_layoutxlm_udml_xfund_zh/best_accuracy/ \
@@ -393,7 +393,7 @@ Compared with the checkpoints model, the inference model will additionally save 
 
 The SER model can be converted to the inference model using the following command.
 
-```bash
+```bash linenums="1"
 # -c Set the training algorithm yml configuration file.
 # -o Set optional parameters.
 # Architecture.Backbone.checkpoints Set the training model address.
@@ -403,7 +403,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund
 
 After the conversion is successful, there are three files in the model save directory:
 
-```text
+```text linenums="1"
 inference/ser_vi_layoutxlm/
     ├── inference.pdiparams         # The parameter file of recognition inference model
     ├── inference.pdiparams.info    # The parameter information of recognition inference model, which can be ignored
@@ -412,7 +412,7 @@ inference/ser_vi_layoutxlm/
 
 The RE model can be converted to the inference model using the following command.
 
-```bash
+```bash linenums="1"
 # -c Set the training algorithm yml configuration file.
 # -o Set optional parameters.
 # Architecture.Backbone.checkpoints Set the training model address.
@@ -422,7 +422,7 @@ python3 tools/export_model.py -c configs/kie/vi_layoutxlm/re_vi_layoutxlm_xfund_
 
 After the conversion is successful, there are three files in the model save directory:
 
-```text
+```text linenums="1"
 inference/re_vi_layoutxlm/
     ├── inference.pdiparams         # The parameter file of recognition inference model
     ├── inference.pdiparams.info    # The parameter information of recognition inference model, which can be ignored
@@ -435,7 +435,7 @@ The VI layoutxlm model performs reasoning based on the ser task, and can execute
 
 Using the following command to infer the VI-LayoutXLM SER model.
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
   --kie_algorithm=LayoutXLM \
@@ -452,7 +452,7 @@ The visualized result will be saved in `./output`, which is shown as follows.
 
 Using the following command to infer the VI-LayoutXLM RE model.
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
   --kie_algorithm=LayoutXLM \

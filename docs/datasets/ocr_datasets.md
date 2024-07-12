@@ -13,7 +13,7 @@ comments: true
 
 PaddleOCR 中的文本检测算法支持的标注文件格式如下，中间用"\t"分隔：
 
-```text
+```text linenums="1"
 " 图像文件名                    json.dumps编码的图像标注信息"
 ch4_test_images/img_61.jpg    [{"transcription": "MASA", "points": [[310, 104], [416, 141], [418, 216], [312, 179]]}, {...}]
 ```
@@ -43,7 +43,7 @@ ICDAR 2015 数据集包含1000张训练图像和500张测试图像。ICDAR 2015 
 
 PaddleOCR 也提供了数据格式转换脚本，可以将官网 label 转换支持的数据格式。 数据转换工具在 `ppocr/utils/gen_label.py`, 这里以训练集为例：
 
-```bash
+```bash linenums="1"
 # 将官网下载的标签文件转换为 train_icdar2015_label.txt
 python gen_label.py --mode="det" --root_path="/path/to/icdar_c4_train_imgs/"  \
                     --input_path="/path/to/ch4_training_localization_transcription_gt" \
@@ -52,7 +52,7 @@ python gen_label.py --mode="det" --root_path="/path/to/icdar_c4_train_imgs/"  \
 
 解压数据集和下载标注文件后，PaddleOCR/train_data/ 有两个文件夹和两个文件，按照如下方式组织icdar2015数据集：
 
-```text
+```text linenums="1"
 /PaddleOCR/train_data/icdar2015/text_localization/
   └─ icdar_c4_train_imgs/         icdar 2015 数据集的训练数据
   └─ ch4_test_images/             icdar 2015 数据集的测试数据
@@ -77,7 +77,7 @@ PaddleOCR 中的文字识别算法支持两种数据格式:
 
 **注意：** txt文件中默认请将图片路径和图片标签用 \t 分割，如用其他方式分割将造成训练报错。
 
-```text
+```text linenums="1"
 " 图像文件名                 图像标注信息 "
 
 train_data/rec/train/word_001.jpg   简单可依赖
@@ -87,7 +87,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 最终训练集应有如下文件结构：
 
-```text
+```text linenums="1"
 |-train_data
   |-rec
     |- rec_gt_train.txt
@@ -100,7 +100,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 除上述单张图像为一行格式之外，PaddleOCR也支持对离线增广后的数据进行训练，为了防止相同样本在同一个batch中被多次采样，我们可以将相同标签对应的图片路径写在一行中，以列表的形式给出，在训练中，PaddleOCR会随机选择列表中的一张图片进行训练。对应地，标注文件的格式如下：
 
-```text
+```text linenums="1"
 ["11.jpg", "12.jpg"]   简单可依赖
 ["21.jpg", "22.jpg", "23.jpg"]   用科技让复杂的世界更简单
 3.jpg   ocr
@@ -112,7 +112,7 @@ train_data/rec/train/word_002.jpg   用科技让复杂的世界更简单
 
 同训练集类似，验证集也需要提供一个包含所有图片的文件夹（test）和一个rec_gt_test.txt，验证集的结构如下所示：
 
-```text
+```text linenums="1"
 |-train_data
   |-rec
     |- rec_gt_test.txt
@@ -139,7 +139,7 @@ ICDAR 2015 数据集可以在上表中链接下载，用于快速验证。也可
 
 PaddleOCR 也提供了数据格式转换脚本，可以将ICDAR官网 label 转换为PaddleOCR支持的数据格式。 数据转换工具在 `ppocr/utils/gen_label.py`, 这里以训练集为例：
 
-```bash
+```bash linenums="1"
 # 将官网下载的标签文件转换为 rec_gt_label.txt
 python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_label="rec_gt_label.txt"
 ```
@@ -152,7 +152,7 @@ python gen_label.py --mode="rec" --input_path="{path/of/origin/label}" --output_
 
 PaddleOCR训练数据的默认存储路径是 `PaddleOCR/train_data`,如果您的磁盘上已有数据集，只需创建软链接至数据集目录：
 
-```bash
+```bash linenums="1"
 # linux and mac os
 ln -sf <path/to/dataset> <path/to/paddle_ocr>/train_data/dataset
 # windows

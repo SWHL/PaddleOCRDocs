@@ -42,7 +42,7 @@ paddle_inference
 
 #### 1.2.3 Download PaddleOCR code
 
-```bash
+```bash linenums="1"
 git clone -b dygraph https://github.com/PaddlePaddle/PaddleOCR
 ```
 
@@ -129,7 +129,7 @@ cd /d D:\projects\cpp\PaddleOCR\deploy\cpp_infer
 
 The executable file ppocr.exe is the sample prediction program. Its main usage is as follows. For more usage, please refer to the [Instructions](./cpp_infer.en.md) section of running demo.
 
-```shell
+```bash linenums="1"
 # Switch terminal encoding to utf8
 CHCP 65001
 # Execute prediction

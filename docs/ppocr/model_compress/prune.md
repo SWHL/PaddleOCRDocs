@@ -17,7 +17,7 @@ comments: true
 
 ### 1.安装PaddleSlim
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleSlim.git
 cd PaddleSlim
 git checkout develop
@@ -33,7 +33,7 @@ python3 setup.py install
 加载预训练模型后，通过对现有模型的每个网络层进行敏感度分析，得到敏感度文件：sen.pickle，可以通过PaddleSlim提供的[接口](https://github.com/PaddlePaddle/PaddleSlim/blob/9b01b195f0c4bc34a1ab434751cb260e13d64d9e/paddleslim/dygraph/prune/filter_pruner.py#L75)加载文件，获得各网络层在不同裁剪比例下的精度损失。从而了解各网络层冗余度，决定每个网络层的裁剪比例。
 敏感度文件内容格式：
 
-```python
+```python linenums="1"
 sen.pickle(Dict){
             'layer_weight_name_0': sens_of_each_ratio(Dict){'pruning_ratio_0': acc_loss, 'pruning_ratio_1': acc_loss}
             'layer_weight_name_1': sens_of_each_ratio(Dict){'pruning_ratio_0': acc_loss, 'pruning_ratio_1': acc_loss}
@@ -42,7 +42,7 @@ sen.pickle(Dict){
 
 例子：
 
-```python
+```python linenums="1"
 {
     'conv10_expand_weights': {0.1: 0.006509952684312718, 0.2: 0.01827734339798862, 0.3: 0.014528405644659832, 0.6: 0.06536008804270439, 0.8: 0.11798612250664964, 0.7: 0.12391408417493704, 0.4: 0.030615754498018757, 0.5: 0.047105205602406594}
     'conv10_linear_weights': {0.1: 0.05113190831455035, 0.2: 0.07705573833558801, 0.3: 0.12096721757739311, 0.6: 0.5135061352930738, 0.8: 0.7908166677143281, 0.7: 0.7272187676899062, 0.4: 0.1819252083008504, 0.5: 0.3728054727792405}
@@ -53,7 +53,7 @@ sen.pickle(Dict){
 
 进入PaddleOCR根目录，通过以下命令对模型进行敏感度分析训练：
 
-```bash
+```bash linenums="1"
 python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml -o Global.pretrained_model="your trained model" Global.save_model_dir=./output/prune_model/
 ```
 
@@ -61,7 +61,7 @@ python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_
 
 在得到裁剪训练保存的模型后，我们可以将其导出为inference_model：
 
-```bash
+```bash linenums="1"
 pytho3.7 deploy/slim/prune/export_prune_model.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml -o Global.pretrained_model=./output/det_db/best_accuracy  Global.save_inference_dir=./prune/prune_inference_model
 ```
 

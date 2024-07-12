@@ -30,14 +30,14 @@ The configuration file for teacher model training is [ch_PP-OCRv3_det_dml.yml](h
 
 Download ImageNet pre-trained model:
 
-```bash
+```bash linenums="1"
 # Download ResNet50_vd pre-trained model
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/ResNet50_vd_ssld_pretrained.pdparams
 ```
 
 **Start training**
 
-```bash
+```bash linenums="1"
 # Single card training
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml \
 -o Architecture.Models.Student.pretrained=./pretrain_models/ResNet50_vd_ssld_pretrained \
@@ -52,7 +52,7 @@ Global.save_model_dir=./output/
 
 The model saved during training is in the output directory, which contains the following files:
 
-```bash
+```bash linenums="1"
 best_accuracy.states
 best_accuracy.pdparams # The model parameters with the best accuracy are saved by default
 best_accuracy.pdopt # The optimizer-related parameters with the best accuracy are saved by default
@@ -65,7 +65,7 @@ Among them, best_accuracy is the model parameter with the highest accuracy saved
 
 The model evaluation command is as follows:
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml -o Global.checkpoints=./output/best_accuracy
 ```
 
@@ -74,7 +74,7 @@ The trained teacher model has a larger structure and higher accuracy, which is u
 **Extract teacher model parameters**
 best_accuracy contains the parameters of two models, corresponding to Student and Student2 in the configuration file. The method to extract the parameters of Student is as follows:
 
-```bash
+```bash linenums="1"
 import paddle
 # Load pre-trained model
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -97,14 +97,14 @@ The teacher model trained in the previous section is used as supervision, and th
 
 Download the ImageNet pre-trained model of the student model:
 
-```bash
+```bash linenums="1"
 # Download the pre-trained model of MobileNetV3
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/pretrained/MobileNetV3_large_x0_5_pretrained.pdparams
 ```
 
 **Start training**
 
-```bash
+```bash linenums="1"
 # Single card training
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml \
 -o Architecture.Models.Student.pretrained=./pretrain_models/MobileNetV3_large_x0_5_pretrained \
@@ -122,13 +122,13 @@ Global.save_model_dir=./output/
 The model saved during the training process is in the output directory.
 The model evaluation command is as follows:
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml -o Global.checkpoints=./output/best_accuracy
 ```
 
 best_accuracy contains the parameters of three models, corresponding to Student, Student2, and Teacher in the configuration file. The method to extract Student parameters is as follows:
 
-```bash
+```bash linenums="1"
 import paddle
 # Load pre-trained model
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -160,7 +160,7 @@ Fine-tune training is applicable to three scenarios:
 
 Download PP-OCRv3 training model:
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 tar xf ch_PP-OCRv3_det_distill_train.tar
 ```
@@ -169,7 +169,7 @@ ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams contains the parameters of 
 
 Start training:
 
-```bash
+```bash linenums="1"
 # Single card training
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml \
 -o Global.pretrained_model=./ch_PP-OCRv3_det_distill_train/best_accuracy \
@@ -191,7 +191,7 @@ tar xf ch_PP-OCRv3_det_distill_train.tar
 
 The method to extract Student parameters is as follows:
 
-```bash
+```bash linenums="1"
 import paddle
 # Load pre-trained model
 all_params = paddle.load("output/best_accuracy.pdparams")
@@ -209,7 +209,7 @@ Train using the configuration file [ch_PP-OCRv3_det_student.yml](https://github.
 
 **Start training**
 
-```bash
+```bash linenums="1"
 # Single card training
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml \
 -o Global.pretrained_model=./student \
@@ -224,7 +224,7 @@ Global.save_model_dir=./output/
 
 Take the Teacher model in ch_PP-OCRv3_det_distill_train as an example. First, extract the parameters of the Teacher structure. The method is as follows:
 
-```bash
+```bash linenums="1"
 import paddle
 # Load pre-trained model
 all_params = paddle.load("ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams")
@@ -240,7 +240,7 @@ paddle.save(s_params, "./teacher.pdparams")
 
 **Start training**
 
-```bash
+```bash linenums="1"
 # Single card training
 python3 tools/train.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_dml.yml \
 -o Architecture.Models.Student.pretrained=./teacher \

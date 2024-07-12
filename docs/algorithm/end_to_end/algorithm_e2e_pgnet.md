@@ -52,7 +52,7 @@ PGNet算法细节详见[论文](https://www.aaai.org/AAAI21Papers/AAAI-2885.Wang
 
 本节以训练好的端到端模型为例，快速使用模型预测，首先下载训练好的端到端inference模型[下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar)
 
-```bash
+```bash linenums="1"
 mkdir inference && cd inference
 # 下载英文端到端模型并解压
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar && tar xf e2e_server_pgnetA_infer.tar
@@ -62,7 +62,7 @@ wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.
 
 解压完毕后应有如下文件结构：
 
-```text
+```text linenums="1"
 ├── e2e_server_pgnetA_infer
 │   ├── inference.pdiparams
 │   ├── inference.pdiparams.info
@@ -71,7 +71,7 @@ wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.
 
 ### 单张图像或者图像集合预测
 
-```bash
+```bash linenums="1"
 # 预测image_dir指定的单张图像
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img623.jpg" --e2e_model_dir="./inference/e2e_server_pgnetA_infer/" --e2e_pgnet_valid_set="totaltext"
 
@@ -96,7 +96,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 
 下载解压[totaltext](https://paddleocr.bj.bcebos.com/dataset/total_text.tar) 数据集到PaddleOCR/train_data/目录，数据集组织结构：
 
-```text
+```text linenums="1"
 /PaddleOCR/train_data/total_text/train/
   |- rgb/            # total_text数据集的训练数据
       |- img11.jpg
@@ -106,7 +106,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 
 train.txt标注文件格式如下，文件名和标注信息中间用"\t"分隔：
 
-```text
+```text linenums="1"
 " 图像文件名                    json.dumps编码的图像标注信息"
 rgb/img11.jpg    [{"transcription": "ASRAMA", "points": [[214.0, 325.0], [235.0, 308.0], [259.0, 296.0], [286.0, 291.0], [313.0, 295.0], [338.0, 305.0], [362.0, 320.0], [349.0, 347.0], [330.0, 337.0], [310.0, 329.0], [290.0, 324.0], [269.0, 328.0], [249.0, 336.0], [231.0, 346.0]]}, {...}]
 ```
@@ -119,7 +119,7 @@ json.dumps编码前的图像标注信息是包含多个字典的list，字典中
 
 PGNet训练分为两个步骤：step1: 在合成数据上训练，得到预训练模型，此时模型精度依然较低；step2: 加载预训练模型，在totaltext数据集上训练；为快速训练，我们直接提供了step1的预训练模型。
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/
 # 下载step1 预训练模型
 wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/train_step1.tar
@@ -133,7 +133,7 @@ wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/tr
 
 *如果您安装的是cpu版本，请将配置文件中的 `use_gpu` 字段修改为false*
 
-```bash
+```bash linenums="1"
 # 单机单卡训练 e2e 模型
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.pretrained_model=./pretrain_models/train_step1/best_accuracy Global.load_static_weights=False
 # 单机多卡训练，通过 --gpus 参数设置使用的GPU ID
@@ -145,7 +145,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/
 
 您也可以通过-o参数在不需要修改yml文件的情况下，改变训练的参数，比如，调整训练的学习率为0.0001
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Optimizer.base_lr=0.0001
 ```
 
@@ -153,7 +153,7 @@ python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Optimizer.base_lr=0.0
 
 如果训练程序中断，如果希望加载训练中断的模型从而恢复训练，可以通过指定Global.checkpoints指定要加载的模型路径：
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -166,7 +166,7 @@ PaddleOCR计算三个OCR端到端相关的指标，分别是：Precision、Recal
 评估时设置后处理参数`max_side_len=768`，使用不同数据集、不同模型训练，可调整参数进行优化
 训练中模型参数默认保存在`Global.save_model_dir`目录下。在评估指标时，需要设置`Global.checkpoints`指向保存的参数文件。
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/e2e/e2e_r50_vd_pg.yml  -o Global.checkpoints="{path/to/weights}/best_accuracy"
 ```
 
@@ -174,13 +174,13 @@ python3 tools/eval.py -c configs/e2e/e2e_r50_vd_pg.yml  -o Global.checkpoints="{
 
 测试单张图像的端到端识别效果
 
-```bash
+```bash linenums="1"
 python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img="./doc/imgs_en/img_10.jpg" Global.pretrained_model="./output/e2e_pgnet/best_accuracy" Global.load_static_weights=false
 ```
 
 测试文件夹下所有图像的端到端识别效果
 
-```bash
+```bash linenums="1"
 python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img="./doc/imgs_en/" Global.pretrained_model="./output/e2e_pgnet/best_accuracy" Global.load_static_weights=false
 ```
 
@@ -190,14 +190,14 @@ python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img=
 
 首先将PGNet端到端训练过程中保存的模型，转换成inference model。以基于Resnet50_vd骨干网络，以英文数据集训练的模型为例[模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/en_server_pgnetA.tar) ，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/en_server_pgnetA.tar && tar xf en_server_pgnetA.tar
 python3 tools/export_model.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.pretrained_model=./en_server_pgnetA/best_accuracy Global.load_static_weights=False Global.save_inference_dir=./inference/e2e
 ```
 
 **PGNet端到端模型推理，需要设置参数`--e2e_algorithm="PGNet"` and `--e2e_pgnet_valid_set="partvgg"`**，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img_10.jpg" --e2e_model_dir="./inference/e2e/"  --e2e_pgnet_valid_set="partvgg" --e2e_pgnet_valid_set="totaltext"
 ```
 
@@ -211,7 +211,7 @@ python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/im
 
 **PGNet端到端模型推理，需要设置参数`--e2e_algorithm="PGNet"`，同时，还需要增加参数`--e2e_pgnet_valid_set="totaltext"`，**可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img623.jpg" --e2e_model_dir="./inference/e2e/" --e2e_pgnet_valid_set="totaltext"
 ```
 

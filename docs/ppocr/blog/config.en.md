@@ -152,7 +152,7 @@ Script [generate_multi_language_configs.py](../../configs/rec/multi_language/gen
 
 - Take Italian as an example, if your data is prepared in the following format:
 
-    ```text
+    ```text linenums="1"
     |-train_data
         |- it_train.txt # train_set label
         |- it_val.txt # val_set label
@@ -165,7 +165,7 @@ Script [generate_multi_language_configs.py](../../configs/rec/multi_language/gen
 
     You can use the default parameters to generate a configuration file:
 
-    ```bash
+    ```bash linenums="1"
     # The code needs to be run in the specified directory
     cd PaddleOCR/configs/rec/multi_language/
     # Set the configuration file of the language to be generated through the -l or --language parameter.
@@ -175,7 +175,7 @@ Script [generate_multi_language_configs.py](../../configs/rec/multi_language/gen
 
 - If your data is placed in another location, or you want to use your own dictionary, you can generate the configuration file by specifying the relevant parameters:
 
-    ```bash
+    ```bash linenums="1"
     # -l or --language field is required
     # --train to modify the training set
     # --val to modify the validation set
@@ -199,7 +199,7 @@ Italian is made up of Latin letters, so after executing the command, you will ge
 
    You can also manually modify the following fields in the template:
 
-   ```yaml
+   ```yaml linenums="1"
     Global:
       use_gpu: True
       epoch_num: 500

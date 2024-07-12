@@ -42,7 +42,7 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
 
 2. 编译Paddle-Lite得到预测库，Paddle-Lite的编译方式如下：
 
-   ```bash
+   ```bash linenums="1"
    git clone https://github.com/PaddlePaddle/Paddle-Lite.git
    cd Paddle-Lite
    # 切换到Paddle-Lite release/v2.10 稳定分支
@@ -58,7 +58,7 @@ Paddle Lite是飞桨轻量化推理引擎，为手机、IOT端提供高效推理
 `Paddle-Lite/build.lite.android.armv8.gcc/inference_lite_lib.android.armv8/`文件夹下。
 预测库的文件目录如下：
 
-```text
+```text linenums="1"
 inference_lite_lib.android.armv8/
 |-- cxx                                        C++ 预测库和头文件
 |   |-- include                                C++ 头文件
@@ -107,13 +107,13 @@ Paddle-Lite 提供了多种策略来自动优化原始的模型，其中包括�
 
 步骤1：参考[文档](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html)安装paddlelite，用于转换paddle inference model为paddlelite运行所需的nb模型
 
-```bash
+```bash linenums="1"
 pip install paddlelite==2.10  # paddlelite版本要与预测库版本一致
 ```
 
 安装完后，如下指令可以查看帮助信息
 
-```bash
+```bash linenums="1"
 paddle_lite_opt
 ```
 
@@ -135,7 +135,7 @@ paddle_lite_opt 参数介绍：
 
 下面以PaddleOCR的超轻量中文模型为例，介绍使用编译好的opt文件完成inference模型到Paddle-Lite优化模型的转换。
 
-```bash
+```bash linenums="1"
 # 【推荐】 下载 PP-OCRv3版本的中英文 inference模型
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_slim_infer.tar && tar xf  ch_PP-OCRv3_det_slim_infer.tar
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_slim_infer.tar && tar xf  ch_PP-OCRv2_rec_slim_quant_infer.tar
@@ -164,13 +164,13 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
    3.1. MAC电脑安装ADB:
 
-   ```bash
+   ```bash linenums="1"
    brew cask install android-platform-tools
    ```
 
    3.2. Linux安装ADB
 
-   ```bash
+   ```bash linenums="1"
    sudo apt update
    sudo apt install -y wget adb
    ```
@@ -180,20 +180,20 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
    打开终端，手机连接电脑，在终端中输入
 
-   ```bash
+   ```bash linenums="1"
    adb devices
    ```
 
    如果有device输出，则表示安装成功。
 
-   ```bash
+   ```bash linenums="1"
    List of devices attached
    744be294    device
    ```
 
 4. 准备优化后的模型、预测库文件、测试图像和使用的字典文件。
 
-   ```bash
+   ```bash linenums="1"
    git clone https://github.com/PaddlePaddle/PaddleOCR.git
    cd PaddleOCR/deploy/lite/
    # 运行prepare.sh，准备预测库文件、测试图像和使用的字典文件，并放置在预测库中的demo/cxx/ocr文件夹下
@@ -211,7 +211,7 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
  执行完成后，ocr文件夹下将有如下文件格式：
 
-   ```text
+   ```text linenums="1"
    demo/cxx/ocr/
    |-- debug/
    |   |--ch_PP-OCRv3_det_slim_opt.nb           优化后的检测模型文件
@@ -236,7 +236,7 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
 1. ppocr_keys_v1.txt是中文字典文件，如果使用的 nb 模型是英文数字或其他语言的模型，需要更换为对应语言的字典。PaddleOCR 在ppocr/utils/下存放了多种字典，包括：
 
-   ```text
+   ```text linenums="1"
    dict/french_dict.txt     # 法语字典
    dict/german_dict.txt     # 德语字典
    ic15_dict.txt       # 英文字典
@@ -248,7 +248,7 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
 2. `config.txt` 包含了检测器、分类器、识别器的超参数，如下：
 
-    ```python
+    ```python linenums="1"
     max_side_len  960         # 输入图像长宽大于960时，等比例缩放图像，使得图像最长边 为960
     det_db_thresh  0.3        # 用于过滤DB预测的二值化图像，设置为0.-0.3对结果影响不 明显
     det_db_box_thresh  0.5    # 检测器后处理过滤box的阈值，如果检测存在漏框情况，可酌 情减小
@@ -261,7 +261,7 @@ paddle_lite_opt --model_file=./ch_ppocr_mobile_v2.0_cls_slim_infer/inference.pdm
 
 上述步骤完成后就可以使用adb将文件push到手机上运行，步骤如下：
 
-```bash
+```bash linenums="1"
 # 执行编译，得到可执行文件ocr_db_crnn, 第一次执行此命令会下载opencv等依赖库，下载完成后，需要再执行一次
 make -j
 

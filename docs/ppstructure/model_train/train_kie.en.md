@@ -83,7 +83,7 @@ Red boxes are questions, blue boxes are answers. The green lines means the two c
 
 Use the following command to install KIE dependencies.
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleOCR.git
 cd PaddleOCR
 pip install -r requirements.txt
@@ -102,7 +102,7 @@ Here we use XFUND dataset to quickly experience the SER model and RE model.
 
 #### 4.2.1 Prepare for the dataset
 
-```bash
+```bash linenums="1"
 mkdir train_data
 cd train_data
 # download and uncompress the dataset
@@ -114,7 +114,7 @@ cd ..
 
 Use the following command to download the models.
 
-```bash
+```bash linenums="1"
 mkdir pretrained_model
 cd pretrained_model
 # download and uncompress the SER trained model
@@ -126,7 +126,7 @@ wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/re_vi_layou
 
 If you want to use OCR engine to obtain end-to-end prediction results, you can use the following command to predict.
 
-```bash
+```bash linenums="1"
 # just predict using SER trained model
 python3 tools/infer_kie_token_ser.py \
   -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml \
@@ -151,7 +151,7 @@ If you want to use a custom ocr model, you can set it through the following fiel
 
 If you want to load the text detection and recognition results collected before, you can use the following command to predict.
 
-```bash
+```bash linenums="1"
 # just predict using SER trained model
 python3 tools/infer_kie_token_ser.py \
   -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml \
@@ -173,7 +173,7 @@ python3 ./tools/infer_kie_token_ser_re.py \
 
 Firstly, download the inference SER inference model.
 
-```bash
+```bash linenums="1"
 mkdir inference
 cd inference
 wget https://paddleocr.bj.bcebos.com/ppstructure/models/vi_layoutxlm/ser_vi_layoutxlm_xfund_infer.tar && tar -xf ser_vi_layoutxlm_xfund_infer.tar
@@ -185,7 +185,7 @@ cd ..
 
 Use the following command for inference.
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser.py \
   --kie_algorithm=LayoutXLM \
@@ -202,7 +202,7 @@ The visual results and text file will be saved in directory `output`.
 
 Use the following command for inference.
 
-```bash
+```bash linenums="1"
 cd ppstructure
 python3 kie/predict_kie_token_ser_re.py \
   --kie_algorithm=LayoutXLM \

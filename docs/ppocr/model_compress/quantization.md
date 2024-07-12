@@ -26,7 +26,7 @@ comments: true
 
 ### 1. 安装PaddleSlim
 
-```bash
+```bash linenums="1"
 pip3 install paddleslim==2.3.2
 ```
 
@@ -40,7 +40,7 @@ PaddleOCR提供了一系列训练好的[模型](../model_list.md)，如果待量
 
 量化训练的代码位于slim/quantization/quant.py 中，比如训练检测模型，以PPOCRv3检测模型为例，训练指令如下：
 
-```bash
+```bash linenums="1"
 # 下载检测预训练模型：
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 tar xf ch_PP-OCRv3_det_distill_train.tar
@@ -54,7 +54,7 @@ python deploy/slim/quantization/quant.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_
 
 在得到量化训练保存的模型后，我们可以将其导出为inference_model，用于预测部署：
 
-```bash
+```bash linenums="1"
 python deploy/slim/quantization/export_model.py -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml -o Global.checkpoints=output/quant_model/best_accuracy Global.save_inference_dir=./output/quant_inference_model
 ```
 

@@ -31,7 +31,7 @@ comments: true
 
 在完成数据准备后，便可以启动训练，训练命令如下：
 
-```bash
+```bash linenums="1"
 # 单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml
 
@@ -41,14 +41,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c rec_r34
 
 ### 评估
 
-```bash
+```bash linenums="1"
 # GPU 评估， Global.pretrained_model 为待测权重
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 预测
 
-```bash
+```bash linenums="1"
 # 预测使用的配置文件必须与训练一致
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
@@ -59,13 +59,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Globa
 
 首先将 STAR-Net 文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，使用MJSynth和SynthText两个英文文本识别合成数据集训练的[模型](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_bilstm_ctc_v2.0_train.tar) 为例，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_r34_vd_tps_bilstm_ctc.yml -o Global.pretrained_model=./rec_r34_vd_tps_bilstm_ctc_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/rec_starnet
 ```
 
 STAR-Net 文本识别模型推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png" --rec_model_dir="./inference/rec_starnet/" --rec_image_shape="3, 32, 100" --rec_char_dict_path="./ppocr/utils/ic15_dict.txt"
 ```
 
@@ -73,7 +73,7 @@ python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_336.png
 
 执行命令后，上面图像的识别结果如下：
 
-```bash
+```bash linenums="1"
 Predicts of ./doc/imgs_words_en/word_336.png:('super', 0.9999073)
 ```
 
@@ -83,7 +83,7 @@ Predicts of ./doc/imgs_words_en/word_336.png:('super', 0.9999073)
 
 - 字符列表，DTRB论文中实验只是针对26个小写英文本母和10个数字进行实验，总共36个字符。所有大小字符都转成了小写字符，不在上面列表的字符都忽略，认为是空格。因此这里没有输入字符字典，而是通过如下命令生成字典.因此在推理时需要设置参数rec_char_dict_path，指定为英文字典"./ppocr/utils/ic15_dict.txt"。
 
-```python
+```python linenums="1"
 self.character_str = "0123456789abcdefghijklmnopqrstuvwxyz"
 dict_character = list(self.character_str)
 ```

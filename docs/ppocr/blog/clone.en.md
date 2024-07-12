@@ -6,7 +6,7 @@ comments: true
 
 ## 1. Clone PaddleOCR
 
-```bash
+```bash linenums="1"
 # Recommend
 git clone https://github.com/PaddlePaddle/PaddleOCR
 
@@ -19,7 +19,7 @@ git clone https://gitee.com/paddlepaddle/PaddleOCR
 
 ## 2. Install third-party libraries
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```

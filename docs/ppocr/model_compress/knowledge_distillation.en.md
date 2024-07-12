@@ -54,7 +54,7 @@ The configuration file is in [ch_PP-OCRv2_rec_distillation.yml](../../configs/re
 
 In the knowledge distillation task, the model structure configuration is as follows.
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: &model_type "rec"    # Model category, recognition, detection, etc.
   name: DistillationModel          # Structure name, in the distillation task, it is DistillationModel
@@ -119,7 +119,7 @@ Architecture:
 If you want to add more sub-networks for training, you can also add the corresponding fields in the configuration file according to the way of adding `Student` and `Teacher`.
 For example, if you want 3 models to supervise each other and train together, then `Architecture` can be written in the following format.
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: &model_type "rec"
   name: DistillationModel
@@ -235,7 +235,7 @@ Take the recognition model as an example. The output result of each sub-network 
 
 In the knowledge distillation task, the loss function configuration is as follows.
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: CombinedLoss                           # Loss function name
   loss_config_list:                            # List of loss function configuration files, mandatory functions for CombinedLoss
@@ -293,7 +293,7 @@ For more specific implementations of distillation loss functions such as `Distil
 
 In the knowledge distillation task, the post-processing configuration is as follows.
 
-```yaml
+```yaml linenums="1"
 PostProcess:
   name: DistillationCTCLabelDecode       # CTC decoding post-processing of distillation tasks, inherited from the standard CTCLabelDecode class
   model_name: ["Student", "Teacher"]     # For the prediction results of the distillation model, extract the outputs of these two sub-networks and decode them
@@ -310,7 +310,7 @@ For more specific implementation of `DistillationCTCLabelDecode`, please refer t
 
 In the knowledge distillation task, the metric calculation configuration is as follows.
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: DistillationMetric         # CTC decoding post-processing of distillation tasks, inherited from the standard CTCLabelDecode class
   base_metric_name: RecMetric      # The base class of indicator calculation. For the output of the model, the indicator will be calculated based on this class
@@ -333,14 +333,14 @@ There are two ways to fine-tune the recognition distillation task.
 
 - First download the pre-trained model and unzip it.
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
 tar -xf ch_PP-OCRv3_rec_train.tar
 ```
 
 - Then use python to extract the student model parameters
 
-```python
+```python linenums="1"
 import paddle
 # Load the pre-trained model
 all_params = paddle.load("ch_PP-OCRv3_rec_train/best_accuracy.pdparams")
@@ -367,7 +367,7 @@ The configuration file of the detection model distillation is in the ```PaddleOC
 
 In the knowledge distillation task, the model structure configuration is as follows:
 
-```yaml
+```yaml linenums="1"
 Architecture:
   name: DistillationModel          # Structure name, in the distillation task, it is DistillationModel
   algorithm: Distillation          # Algorithm name
@@ -414,7 +414,7 @@ Refer to the configuration file for details. [ch_PP-OCRv3_det_dml.yml](../../con
 
 The following describes the configuration file parameters [ch_PP-OCRv3_det_cml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml):
 
-```yaml
+```yaml linenums="1"
 Architecture:
   name: DistillationModel
   algorithm: Distillation
@@ -505,7 +505,7 @@ The key contains `backbone_out`, `neck_out`, `head_out`, and `value` is the tens
 
 The distillation loss function configuration(`ch_PP-OCRv3_det_cml.yml`) is shown below.
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: CombinedLoss
   loss_config_list:
@@ -544,7 +544,7 @@ For more specific implementations of distillation loss functions such as `Distil
 
 In the task of detecting knowledge distillation, the post-processing configuration of detecting distillation is as follows.
 
-```yaml
+```yaml linenums="1"
 PostProcess:
   name: DistillationDBPostProcess                  # The post-processing of the DB detection distillation task, inherited from the standard DBPostProcess class
   model_name: ["Student", "Student2", "Teacher"]   # Extract the output of multiple sub-networks and decode them. The network that does not require post-processing is not set in model_name
@@ -562,7 +562,7 @@ For a more specific implementation of `DistillationDBPostProcess`, please refer 
 
 In the knowledge distillation task, the metric calculation configuration is as follows.
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: DistillationMetric
   base_metric_name: DetMetric
@@ -593,7 +593,7 @@ In addition, since the distillation pre-training model provided by PaddleOCR con
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_distill_train.tar
 ```
 
-```python
+```python linenums="1"
 import paddle
 # Load the pre-trained model
 all_params = paddle.load("ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams")

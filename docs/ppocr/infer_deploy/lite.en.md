@@ -43,7 +43,7 @@ There are two ways to obtain the Paddle-Lite library:
 
 2. Compile Paddle-Lite to get the prediction library. The compilation method of Paddle-Lite is as follows:
 
-   ```bash
+   ```bash linenums="1"
    git clone https://github.com/PaddlePaddle/Paddle-Lite.git
    cd Paddle-Lite
    # Switch to Paddle-Lite release/v2.10 stable branch
@@ -60,7 +60,7 @@ After directly downloading the Paddle-Lite library and decompressing it, you can
 
 The structure of the prediction library is as follows:
 
-```text
+```text linenums="1"
 inference_lite_lib.android.armv8/
 |-- cxx                                        C++ prebuild library
 |   |-- include                                C++
@@ -108,13 +108,13 @@ If the model to be deployed is not in the above table, you need to follow the st
 
 Step 1: Refer to [document](https://www.paddlepaddle.org.cn/lite/v2.10/user_guides/opt/opt_python.html) to install paddlelite, which is used to convert paddle inference model to paddlelite required for running nb model
 
-```bash
+```bash linenums="1"
 pip install paddlelite==2.10 # The paddlelite version should be the same as the prediction library version
 ```
 
 After installation, the following commands can view the help information
 
-```bash
+```bash linenums="1"
 paddle_lite_opt
 ```
 
@@ -136,7 +136,7 @@ Step 2: Use paddle_lite_opt to convert the inference model to the mobile model f
 
 The following takes the ultra-lightweight Chinese model of PaddleOCR as an example to introduce the use of the compiled opt file to complete the conversion of the inference model to the Paddle-Lite optimized model
 
-```bash
+```bash linenums="1"
 # 【[Recommendation] Download the Chinese and English inference model of PP-OCRv3
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_slim_infer.tar && tar xf  ch_PP-OCRv3_det_slim_infer.tar
 wget  https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_slim_infer.tar && tar xf  ch_PP-OCRv2_rec_slim_quant_infer.tar
@@ -162,13 +162,13 @@ Some preparatory work is required first.
 
     3.1. Install ADB for MAC:
 
-    ```bash
+    ```bash linenums="1"
     brew cask install android-platform-tools
     ```
 
     3.2. Install ADB for Linux
 
-    ```bash
+    ```bash linenums="1"
     sudo apt update
     sudo apt install -y wget adb
     ```
@@ -179,20 +179,20 @@ Some preparatory work is required first.
 
     Verify whether adb is installed successfully
 
-    ```bash
+    ```bash linenums="1"
     adb devices
     ```
 
     If there is device output, it means the installation is successful。
 
-    ```bash
+    ```bash linenums="1"
     List of devices attached
     744be294    device
     ```
 
 4. Prepare optimized models, prediction library files, test images and dictionary files used.
 
-   ```bash
+   ```bash linenums="1"
    git clone https://github.com/PaddlePaddle/PaddleOCR.git
    cd PaddleOCR/deploy/lite/
    # run prepare.sh
@@ -212,7 +212,7 @@ Prepare the test image, taking PaddleOCR/doc/imgs/11.jpg as an example, copy the
 
 The structure of the OCR demo is as follows after the above command is executed:
 
-```text
+```text linenums="1"
 demo/cxx/ocr/
 |-- debug/
 |   |--ch_PP-OCRv3_det_slim_opt.nb           Detection model
@@ -237,7 +237,7 @@ demo/cxx/ocr/
 
 1. `ppocr_keys_v1.txt` is a Chinese dictionary file. If the nb model is used for English recognition or other language recognition, dictionary file should be replaced with a dictionary of the corresponding language. PaddleOCR provides a variety of dictionaries under ppocr/utils/, including:
 
-   ```python
+   ```python linenums="1"
    dict/french_dict.txt     # french
    dict/german_dict.txt     # german
    ic15_dict.txt       # english
@@ -248,7 +248,7 @@ demo/cxx/ocr/
 
 2. `config.txt` of the detector and classifier, as shown below:
 
-    ```python
+    ```python linenums="1"
     max_side_len  960         #  Limit the maximum image height and width to  960
     det_db_thresh  0.3        # Used to filter the binarized image of DB  prediction, setting 0.-0.3 has no obvious effect on the result
     det_db_box_thresh  0.5    # DDB post-processing filter box threshold, if  there is a missing box detected, it can be reduced as appropriate
@@ -261,7 +261,7 @@ demo/cxx/ocr/
 
    After the above steps are completed, you can use adb to push the file to the phone to run, the steps are as follows:
 
-   ```bash
+   ```bash linenums="1"
    # Execute the compilation and get the executable file ocr_db_crnn
    # The first execution of this command will download dependent libraries such as opencv. After the download is complete, you need to execute it again
    make -j

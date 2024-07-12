@@ -18,7 +18,7 @@ PaddlePaddle下载[链接](https://www.paddlepaddle.org.cn/inference/user_guides
 
 安装命令：
 
-```shell
+```bash linenums="1"
 # 安装paddle，以paddlepaddle_gpu-2.3.0rc0-cp36-cp36m-linux_aarch64.whl 为例
 pip3 install -U paddlepaddle_gpu-2.3.0rc0-cp36-cp36m-linux_aarch64.whl
 ```
@@ -27,13 +27,13 @@ pip3 install -U paddlepaddle_gpu-2.3.0rc0-cp36-cp36m-linux_aarch64.whl
 
 首先 clone PaddleOCR 代码：
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleOCR
 ```
 
 然后，安装依赖：
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```
@@ -46,7 +46,7 @@ pip3 install -r requirements.txt
 
 下载并解压PP-OCRv3模型
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar
 tar xf ch_PP-OCRv3_det_infer.tar
@@ -55,7 +55,7 @@ tar xf ch_PP-OCRv3_rec_infer.tar
 
 执行文本检测预测：
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 python3 tools/infer/predict_det.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/  --image_dir=./doc/imgs/french_0.jpg  --use_gpu=True
 ```
@@ -66,19 +66,19 @@ python3 tools/infer/predict_det.py --det_model_dir=./inference/ch_PP-OCRv2_det_i
 
 执行文本识别预测：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_det.py --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/  --image_dir=./doc/imgs_words/en/word_2.png  --use_gpu=True --rec_image_shape="3,48,320"
 ```
 
 执行命令后在终端会打印出预测的信息，输出如下：
 
-```bash
+```bash linenums="1"
 [2022/04/28 15:41:45] root INFO: Predicts of ./doc/imgs_words/en/word_2.png:('yourself', 0.98084533)
 ```
 
 执行文本检测+文本识别串联预测：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_system.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/ --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/ --image_dir=./doc/imgs/ --use_gpu=True --rec_image_shape="3,48,320"
 ```
 
@@ -88,7 +88,7 @@ python3 tools/infer/predict_system.py --det_model_dir=./inference/ch_PP-OCRv2_de
 
 开启TRT预测只需要在以上命令基础上设置`--use_tensorrt=True`即可：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_system.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/ --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/ --image_dir=./doc/imgs/00057937.jpg --use_gpu=True --use_tensorrt=True --rec_image_shape="3,48,320"
 ```
 

@@ -40,7 +40,7 @@ Note: When using the above pre-trained model, you need to use the `student.pdpar
 
 When fine-tuning the model, the most important hyperparameter is the pre-training model path `pretrained_model`, `learning_rate`与`batch_size`，some hyperparameters are as follows:
 
-```yaml
+```yaml linenums="1"
 Global:
   pretrained_model: ./ch_PP-OCRv3_det_distill_train/student.pdparams # pre-training model path
 Optimizer:
@@ -105,7 +105,7 @@ For more PP-OCR series models, please refer to [PP-OCR Series Model Library](../
 
 The PP-OCRv3 model uses the GTC strategy. The SAR branch has a large number of parameters. When the training data is a simple scene, the model is easy to overfit, resulting in poor fine-tuning effect. It is recommended to remove the GTC strategy. The configuration file of the model structure is modified as follows:
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: rec
   algorithm: SVTR
@@ -168,7 +168,7 @@ Eval:
 
 Similar to text detection task fine-tuning, when fine-tuning the recognition model, the most important hyperparameters are the pre-trained model path `pretrained_model`, `learning_rate` and `batch_size`, some default configuration files are shown below.
 
-```yaml
+```yaml linenums="1"
 Global:
   pretrained_model:  # pre-training model path
 Optimizer:
@@ -209,7 +209,7 @@ For example: your own vertical scene recognition data volume is 1W, the data lab
 
 Then, the `label_file_list` and `ratio_list` parameters can be set as shown below. In each epoch, `vertical.txt` will be fully sampled (sampling ratio is 1.0), including 1W pieces of data; `general.txt` will be sampled according to a sampling ratio of 0.1, including `10W*0.1=1W` pieces of data, the final ratio of the two is `1:1`.
 
-```yaml
+```yaml linenums="1"
 Train:
   dataset:
     name: SimpleDataSet

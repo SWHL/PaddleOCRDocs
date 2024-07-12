@@ -18,7 +18,7 @@ Please select the appropriate installation package for your Jetpack version, cud
 
 Install PaddlePaddle：
 
-```bash
+```bash linenums="1"
 pip3 install -U paddlepaddle_gpu-2.3.0rc0-cp36-cp36m-linux_aarch64.whl
 ```
 
@@ -26,13 +26,13 @@ pip3 install -U paddlepaddle_gpu-2.3.0rc0-cp36-cp36m-linux_aarch64.whl
 
 Clone the PaddleOCR code:
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleOCR
 ```
 
 and install dependencies：
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 pip3 install -r requirements.txt
 ```
@@ -45,7 +45,7 @@ Obtain the PPOCR model from the [document](../model_list.en.md) model library. T
 
 Download and unzip the PP-OCRv3 models.
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_det_infer.tar
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_infer.tar
 tar xf ch_PP-OCRv3_det_infer.tar
@@ -54,7 +54,7 @@ tar xf ch_PP-OCRv3_rec_infer.tar
 
 The text detection inference:
 
-```bash
+```bash linenums="1"
 cd PaddleOCR
 python3 tools/infer/predict_det.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/  --image_dir=./doc/imgs/french_0.jpg  --use_gpu=True
 ```
@@ -65,19 +65,19 @@ After executing the command, the predicted information will be printed out in th
 
 The text recognition inference:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_det.py --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/  --image_dir=./doc/imgs_words/en/word_2.png  --use_gpu=True --rec_image_shape="3,48,320"
 ```
 
 After executing the command, the predicted information will be printed on the terminal, and the output is as follows:
 
-```bash
+```bash linenums="1"
 [2022/04/28 15:41:45] root INFO: Predicts of ./doc/imgs_words/en/word_2.png:('yourself', 0.98084533)
 ```
 
 The text  detection and text recognition inference:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_system.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/ --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/ --image_dir=./doc/imgs/00057937.jpg --use_gpu=True --rec_image_shape="3,48,320"
 ```
 
@@ -87,7 +87,7 @@ After executing the command, the predicted information will be printed out in th
 
 To enable TRT prediction, you only need to set `--use_tensorrt=True` on the basis of the above command:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_system.py --det_model_dir=./inference/ch_PP-OCRv2_det_infer/ --rec_model_dir=./inference/ch_PP-OCRv2_rec_infer/ --image_dir=./doc/imgs/  --rec_image_shape="3,48,320" --use_gpu=True --use_tensorrt=True
 ```
 

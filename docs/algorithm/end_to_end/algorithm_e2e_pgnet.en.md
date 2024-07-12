@@ -52,7 +52,7 @@ Please refer to [Operation Environment Preparation](../../ppocr/environment.en.m
 
 This section takes the trained end-to-end model as an example to quickly use the model prediction. First, download the trained end-to-end inference model [download address](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar)
 
-```bash
+```bash linenums="1"
 mkdir inference && cd inference
 # Download the English end-to-end model and unzip it
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.tar && tar xf e2e_server_pgnetA_infer.tar
@@ -62,7 +62,7 @@ wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/e2e_server_pgnetA_infer.
 
 After decompression, there should be the following file structure:
 
-```text
+```text linenums="1"
 ├── e2e_server_pgnetA_infer
 │   ├── inference.pdiparams
 │   ├── inference.pdiparams.info
@@ -71,7 +71,7 @@ After decompression, there should be the following file structure:
 
 ### Single image or image set prediction
 
-```bash
+```bash linenums="1"
 # Prediction single image specified by image_dir
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img623.jpg" --e2e_model_dir="./inference/e2e_server_pgnetA_infer/" --e2e_pgnet_valid_set="totaltext"
 
@@ -96,7 +96,7 @@ This section takes the totaltext dataset as an example to introduce the training
 
 Download and unzip [totaltext](https://paddleocr.bj.bcebos.com/dataset/total_text.tar) dataset to PaddleOCR/train_data/, dataset organization structure is as follow:
 
-```text
+```text linenums="1"
 /PaddleOCR/train_data/total_text/train/
   |- rgb/            # total_text training data of dataset
       |- img11.png
@@ -106,7 +106,7 @@ Download and unzip [totaltext](https://paddleocr.bj.bcebos.com/dataset/total_tex
 
 total_text.txt: the format of dimension file is as follows，the file name and annotation information are separated by "\t":
 
-```text
+```text linenums="1"
 " Image file name             Image annotation information encoded by json.dumps"
 rgb/img11.jpg    [{"transcription": "ASRAMA", "points": [[214.0, 325.0], [235.0, 308.0], [259.0, 296.0], [286.0, 291.0], [313.0, 295.0], [338.0, 305.0], [362.0, 320.0], [349.0, 347.0], [330.0, 337.0], [310.0, 329.0], [290.0, 324.0], [269.0, 328.0], [249.0, 336.0], [231.0, 346.0]]}, {...}]
 ```
@@ -123,7 +123,7 @@ If you want to train PaddleOCR on other datasets, please build the annotation fi
 
 PGNet training is divided into two steps: Step 1: training on the synthetic data to get the pretrain_model, and the accuracy of the model is still low; step 2: loading the pretrain_model and training on the totaltext data set; for fast training, we directly provide the pre training model of step 1[download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/train_step1.tar).
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/
 
 # download step1 pretrain_models
@@ -138,7 +138,7 @@ wget -P ./pretrain_models/ https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/tr
 
 *If CPU version installed, please set the parameter `use_gpu` to `false` in the configuration.*
 
-```bash
+```bash linenums="1"
 # single GPU training
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.pretrained_model=./pretrain_models/train_step1/best_accuracy Global.load_static_weights=False
 # multi-GPU training
@@ -151,7 +151,7 @@ For a detailed explanation of the configuration file, please refer to [config](.
 
 You can also use `-o` to change the training parameters without modifying the yml file. For example, adjust the training learning rate to 0.0001
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Optimizer.base_lr=0.0001
 ```
 
@@ -159,7 +159,7 @@ python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Optimizer.base_lr=0.0
 
 If you would like to load trained model and continue the training again, you can specify the parameter `Global.checkpoints` as the model path to be loaded.
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.checkpoints=./your/trained/model
 ```
 
@@ -171,7 +171,7 @@ Run the following code to calculate the evaluation indicators. The result will b
 When evaluating, set post-processing parameters `max_side_len=768`. If you use different datasets, different models for training.
 The model parameters during training are saved in the `Global.save_model_dir` directory by default. When evaluating indicators, you need to set `Global.checkpoints` to point to the saved parameter file.
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/e2e/e2e_r50_vd_pg.yml  -o Global.checkpoints="{path/to/weights}/best_accuracy"
 ```
 
@@ -179,13 +179,13 @@ python3 tools/eval.py -c configs/e2e/e2e_r50_vd_pg.yml  -o Global.checkpoints="{
 
 Test the end-to-end result on a single image:
 
-```bash
+```bash linenums="1"
 python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img="./doc/imgs_en/img_10.jpg" Global.pretrained_model="./output/e2e_pgnet/best_accuracy" Global.load_static_weights=false
 ```
 
 Test the end-to-end result on all images in the folder:
 
-```bash
+```bash linenums="1"
 python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img="./doc/imgs_en/" Global.pretrained_model="./output/e2e_pgnet/best_accuracy" Global.load_static_weights=false
 ```
 
@@ -195,14 +195,14 @@ python3 tools/infer_e2e.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.infer_img=
 
 First, convert the model saved in the PGNet end-to-end training process into an inference model. In the first stage of training based on composite dataset, the model of English data set training is taken as an example[model download link](https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/en_server_pgnetA.tar), you can use the following command to convert:
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/dygraph_v2.0/pgnet/en_server_pgnetA.tar && tar xf en_server_pgnetA.tar
 python3 tools/export_model.py -c configs/e2e/e2e_r50_vd_pg.yml -o Global.pretrained_model=./en_server_pgnetA/best_accuracy Global.load_static_weights=False Global.save_inference_dir=./inference/e2e
 ```
 
 **For PGNet quadrangle end-to-end model inference, you need to set the parameter `--e2e_algorithm="PGNet"` and `--e2e_pgnet_valid_set="partvgg"`**, run the following command:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img_10.jpg" --e2e_model_dir="./inference/e2e/" --e2e_pgnet_valid_set="partvgg"
 ```
 
@@ -215,7 +215,7 @@ The visualized text detection results are saved to the `./inference_results` fol
 For the curved text example, we use the same model as the quadrilateral
 **For PGNet end-to-end curved text detection model inference, you need to set the parameter `--e2e_algorithm="PGNet"` and `--e2e_pgnet_valid_set="totaltext"`**, run the following command:
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_e2e.py --e2e_algorithm="PGNet" --image_dir="./doc/imgs_en/img623.jpg" --e2e_model_dir="./inference/e2e/" --e2e_pgnet_valid_set="totaltext"
 ```
 

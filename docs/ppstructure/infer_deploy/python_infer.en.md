@@ -8,7 +8,7 @@ comments: true
 
 Go to the `ppstructure` directory
 
-```bash
+```bash linenums="1"
 cd ppstructure
 
 # download model
@@ -26,7 +26,7 @@ cd ..
 
 ### 1.1 layout analysis + table recognition
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
                           --rec_model_dir=inference/ch_PP-OCRv3_rec_infer \
                           --table_model_dir=inference/ch_ppstructure_mobile_v2.0_SLANet_infer \
@@ -42,7 +42,7 @@ After the operation is completed, each image will have a directory with the same
 
 ### 1.2 layout analysis
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --layout_model_dir=inference/picodet_lcnet_x1_0_layout_infer \
                           --image_dir=./docs/table/1.png \
                           --output=../output \
@@ -54,7 +54,7 @@ After the operation is completed, each image will have a directory with the same
 
 ### 1.3 table recognition
 
-```bash
+```bash linenums="1"
 python3 predict_system.py --det_model_dir=inference/ch_PP-OCRv3_det_infer \
                           --rec_model_dir=inference/ch_PP-OCRv3_rec_infer \
                           --table_model_dir=inference/ch_ppstructure_mobile_v2.0_SLANet_infer \
@@ -72,7 +72,7 @@ After the operation is completed, each image will have a directory with the same
 
 ### 2.1 SER
 
-```bash
+```bash linenums="1"
 cd ppstructure
 
 mkdir inference && cd inference
@@ -93,7 +93,7 @@ After the operation is completed, each image will store the visualized image in 
 
 ### 2.2 RE+SER
 
-```bash
+```bash linenums="1"
 cd ppstructure
 
 mkdir inference && cd inference

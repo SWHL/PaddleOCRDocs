@@ -18,7 +18,7 @@ It is recommended that you could understand following pages before reading this 
 
 ### 1. Install PaddleSlim
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleSlim.git
 cd PaddleSlim
 git checkout develop
@@ -35,7 +35,7 @@ PaddleOCR also provides a series of [models](../model_list.en.md). Developers ca
 After the pre-trained model is loaded, sensitivity analysis is performed on each network layer of the model to understand the redundancy of each network layer, and save a sensitivity file which named: sen.pickle.  After that, user could load the sensitivity file via the [methods provided by PaddleSlim](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/paddleslim/prune/sensitive.py#L221) and determining the pruning ratio of each network layer automatically. For specific details of sensitivity analysis, see：[Sensitivity analysis](https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/en/tutorials/image_classification_sensitivity_analysis_tutorial_en.md)
 The data format of sensitivity file：
 
-```python
+```python linenums="1"
 sen.pickle(Dict){
               'layer_weight_name_0': sens_of_each_ratio(Dict){'pruning_ratio_0': acc_loss, 'pruning_ratio_1': acc_loss}
               'layer_weight_name_1': sens_of_each_ratio(Dict){'pruning_ratio_0': acc_loss, 'pruning_ratio_1': acc_loss}
@@ -44,7 +44,7 @@ sen.pickle(Dict){
 
 example：
 
-```python
+```python linenums="1"
 {
     'conv10_expand_weights': {0.1: 0.006509952684312718, 0.2: 0.01827734339798862, 0.3: 0.014528405644659832, 0.6: 0.06536008804270439, 0.8: 0.11798612250664964, 0.7: 0.12391408417493704, 0.4: 0.030615754498018757, 0.5: 0.047105205602406594}
     'conv10_linear_weights': {0.1: 0.05113190831455035, 0.2: 0.07705573833558801, 0.3: 0.12096721757739311, 0.6: 0.5135061352930738, 0.8: 0.7908166677143281, 0.7: 0.7272187676899062, 0.4: 0.1819252083008504, 0.5: 0.3728054727792405}
@@ -57,7 +57,7 @@ The function would return a dict after loading the sensitivity file. The keys of
 
 Enter the PaddleOCR root directory，perform sensitivity analysis on the model with the following command：
 
-```bash
+```bash linenums="1"
 python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml -o Global.pretrained_model="your trained model"  Global.save_model_dir=./output/prune_model/
 ```
 
@@ -65,7 +65,7 @@ python3.7 deploy/slim/prune/sensitivity_anal.py -c configs/det/ch_ppocr_v2.0/ch_
 
 We can export the pruned model as inference_model for deployment:
 
-```bash
+```bash linenums="1"
 python deploy/slim/prune/export_prune_model.py -c configs/det/ch_ppocr_v2.0/ch_det_mv3_db_v2.0.yml  -o Global.pretrained_model=./output/det_db/best_accuracy  Global.save_inference_dir=./prune/prune_inference_model
 ```
 

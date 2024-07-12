@@ -46,7 +46,7 @@ PaddleOCR中集成了知识蒸馏的算法，具体地，有以下几个主要�
 
 知识蒸馏任务中，模型结构配置如下所示。
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: &model_type "rec"    # 模型类别，rec、det等，每个子网络的模型类别
   name: DistillationModel          # 结构名称，蒸馏任务中，为DistillationModel，用于构建对应的结构
@@ -110,7 +110,7 @@ Architecture:
 
 当然，这里如果希望添加更多的子网络进行训练，也可以按照`Student`与`Teacher`的添加方式，在配置文件中添加相应的字段。比如说如果希望有3个模型互相监督，共同训练，那么`Architecture`可以写为如下格式。
 
-```yaml
+```yaml linenums="1"
 Architecture:
   model_type: &model_type "rec"
   name: DistillationModel
@@ -226,7 +226,7 @@ Architecture:
 
 知识蒸馏任务中，损失函数配置如下所示。
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: CombinedLoss
   loss_config_list:
@@ -283,7 +283,7 @@ Loss:
 
 知识蒸馏任务中，后处理配置如下所示。
 
-```yaml
+```yaml linenums="1"
 PostProcess:
   name: DistillationCTCLabelDecode       # 蒸馏任务的CTC解码后处理，继承自标准的CTCLabelDecode类
   model_name: ["Student", "Teacher"]     # 对于蒸馏模型的预测结果，提取这两个子网络的输出，进行解码
@@ -299,7 +299,7 @@ PostProcess:
 
 知识蒸馏任务中，指标计算配置如下所示。
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: DistillationMetric         # 蒸馏任务的CTC解码后处理，继承自标准的CTCLabelDecode类
   base_metric_name: RecMetric      # 指标计算的基类，对于模型的输出，会基于该类，计算指标
@@ -322,7 +322,7 @@ Metric:
 
 - 首先下载预训练模型并解压。
 
-```bash
+```bash linenums="1"
 # 下面预训练模型并解压
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
 tar -xf ch_PP-OCRv3_rec_train.tar
@@ -330,7 +330,7 @@ tar -xf ch_PP-OCRv3_rec_train.tar
 
 - 然后使用python，对其中的学生模型参数进行提取
 
-```python
+```python linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("ch_PP-OCRv3_rec_train/best_accuracy.pdparams")
@@ -357,7 +357,7 @@ paddle.save(s_params, "ch_PP-OCRv3_rec_train/student.pdparams")
 
 知识蒸馏任务中，模型结构配置如下所示：
 
-```yaml
+```yaml linenums="1"
 Architecture:
   name: DistillationModel          # 结构名称，蒸馏任务中，为DistillationModel，用于构建对应的结构
   algorithm: Distillation          # 算法名称
@@ -402,7 +402,7 @@ Architecture:
 
 下面介绍[ch_PP-OCRv3_det_cml.yml](../../configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml)的配置文件参数：
 
-```yaml
+```yaml linenums="1"
 Architecture:
   name: DistillationModel
   algorithm: Distillation
@@ -491,7 +491,7 @@ Architecture:
 
 检测ch_PP-OCRv3_det_cml.yml蒸馏损失函数配置如下所示。
 
-```yaml
+```yaml linenums="1"
 Loss:
   name: CombinedLoss
   loss_config_list:
@@ -530,7 +530,7 @@ Loss:
 
 知识蒸馏任务中，检测蒸馏后处理配置如下所示。
 
-```yaml
+```yaml linenums="1"
 PostProcess:
   name: DistillationDBPostProcess                  # DB检测蒸馏任务的CTC解码后处理，继承自标准的DBPostProcess类
   model_name: ["Student", "Student2", "Teacher"]   # 对于蒸馏模型的预测结果，提取多个子网络的输出，进行解码，不需要后处理的网络可以不在model_name中设置
@@ -548,7 +548,7 @@ PostProcess:
 
 知识蒸馏任务中，检测蒸馏指标计算配置如下所示。
 
-```yaml
+```yaml linenums="1"
 Metric:
   name: DistillationMetric
   base_metric_name: DetMetric
@@ -571,12 +571,12 @@ PP-OCRv3检测蒸馏有两种方式：
 
 另外，由于PaddleOCR提供的蒸馏预训练模型包含了多个模型的参数，如果您希望提取Student模型的参数，可以参考如下代码：
 
-```bash
+```bash linenums="1"
 # 下载蒸馏训练模型的参数
 wget https://paddleocr.bj.bcebos.com/PP-OCRv2/chinese/ch_PP-OCRv3_det_distill_train.tar
 ```
 
-```python
+```python linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("ch_PP-OCRv3_det_distill_train/best_accuracy.pdparams")

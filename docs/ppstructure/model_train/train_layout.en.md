@@ -20,7 +20,7 @@ PP-Structure currently provides layout analysis models in Chinese, English and t
 
 - **（1) Install PaddlePaddle**
 
-```bash
+```bash linenums="1"
 python3 -m pip install --upgrade pip
 
 # GPU Install
@@ -36,13 +36,13 @@ For more requirements, please refer to the instructions in the [Install file](ht
 
 - **（1）Download PaddleDetection Source code**
 
-```bash
+```bash linenums="1"
 git clone https://github.com/PaddlePaddle/PaddleDetection.git
 ```
 
 - **（2）Install third-party libraries**
 
-```bash
+```bash linenums="1"
 cd PaddleDetection
 python3 -m pip install -r requirements.txt
 ```
@@ -144,7 +144,7 @@ Training scripts, evaluation scripts, and prediction scripts are provided, and t
 
 If you do not want training and directly experience the following process of model evaluation, prediction, motion to static, and inference, you can download the provided pre-trained model (PubLayNet dataset) and skip this part.
 
-```bash
+```bash linenums="1"
 mkdir pretrained_model
 cd pretrained_model
 # Download PubLayNet pre-training model（Direct experience model evaluates, predicts, and turns static）
@@ -165,7 +165,7 @@ If you want to train your own data set, you need to modify the data configuratio
 
 Using 'configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml' as an example, the change is as follows:
 
-```yaml
+```yaml linenums="1"
 metric: COCO
 # Number of categories
 num_classes: 5
@@ -197,7 +197,7 @@ TestDataset:
 
 - Start training. During training, PP picodet pre training model will be downloaded by default. There is no need to download in advance.
 
-```bash
+```bash linenums="1"
 # GPU training supports single-card and multi-card training
 # The training log is automatically saved to the log directory
 
@@ -236,7 +236,7 @@ PaddleDetection supports FGD-based [Focal and Global Knowledge Distillation for 
 
 Change the dataset and modify the data configuration and number of categories in the [TODO] configuration, referring to 4.1. Start training:
 
-```bash
+```bash linenums="1"
 # Single Card Training
 export CUDA_VISIBLE_DEVICES=0
 python3 tools/train.py \
@@ -254,7 +254,7 @@ python3 tools/train.py \
 
  Model parameters in training are saved by default in `output/picodet_ Lcnet_ X1_ 0_ Under the layout` directory. When evaluating indicators, you need to set `weights` to point to the saved parameter file.Assessment datasets can be accessed via `configs/picodet/legacy_ Model/application/layout_ Analysis/picodet_ Lcnet_ X1_ 0_ Layout. Yml` . Modify `EvalDataset`  : `img_dir`,`anno_ Path`and`dataset_dir` setting.
 
-```bash
+```bash linenums="1"
 # GPU evaluation, weights as weights to be measured
 python3 tools/eval.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
@@ -263,7 +263,7 @@ python3 tools/eval.py \
 
 The following information will be printed out, such as mAP, AP0.5, etc.
 
-```python
+```python linenums="1"
  Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.935
  Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.979
  Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.956
@@ -282,7 +282,7 @@ The following information will be printed out, such as mAP, AP0.5, etc.
 
 If you use the provided pre-training model for evaluation or the FGD distillation training model, replace the `weights` model path and execute the following command for evaluation:
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \
@@ -299,7 +299,7 @@ The profile predicted to be used must be consistent with the training, for examp
 
 With  trained PaddleDetection model, you can use the following commands to make model predictions.
 
-```bash
+```bash linenums="1"
 python3 tools/infer.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     -o weights='output/picodet_lcnet_x1_0_layout/best_model.pdparams' \
@@ -314,7 +314,7 @@ python3 tools/infer.py \
 
 If you use the provided pre-training model for prediction or the FGD distillation training model, change the `weights` model path and execute the following command to make the prediction:
 
-```bash
+```bash linenums="1"
 python3 tools/infer.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \
@@ -336,7 +336,7 @@ Compared with the checkpoints model, the inference model will additionally save 
 
 Layout analysis model to inference model steps are as follows：
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     -o weights=output/picodet_lcnet_x1_0_layout/best_model \
@@ -357,7 +357,7 @@ output_inference/picodet_lcnet_x1_0_layout/
 
 If you change the `weights` model path using the provided pre-training model to the Inference model, or using the FGD distillation training model, the model to inference model steps are as follows:
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py \
     -c configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x1_0_layout.yml \
     --slim_config configs/picodet/legacy_model/application/layout_analysis/picodet_lcnet_x2_5_layout.yml \
@@ -369,7 +369,7 @@ python3 tools/export_model.py \
 
 Replace model_with the provided inference training model for inference or the FGD distillation training `model_dir`Inference model path, execute the following commands for inference:
 
-```bash
+```bash linenums="1"
 python3 deploy/python/infer.py \
     --model_dir=output_inference/picodet_lcnet_x1_0_layout/ \
     --image_file=docs/images/layout.jpg \

@@ -36,7 +36,7 @@ This document will briefly introduce how to use the multilingual model.
 
 ### 1.1 Paddle installation
 
-```bash
+```bash linenums="1"
 # cpu
 pip install paddlepaddle
 
@@ -46,13 +46,13 @@ pip install paddlepaddle-gpu
 
 ### 1.2 PaddleOCR package installation
 
-```bash
+```bash linenums="1"
 pip install paddleocr
 ```
 
 Build and install locally
 
-```bash
+```bash linenums="1"
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x is the version number of paddleocr
 ```
@@ -63,7 +63,7 @@ pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x is the version number
 
 View help information
 
-```bash
+```bash linenums="1"
 paddleocr -h
 ```
 
@@ -82,7 +82,7 @@ paddleocr --image_dir doc/imgs_en/254.jpg --lang=en
 
 The result is a list. Each item contains a text box, text and recognition confidence
 
-```text
+```text linenums="1"
 [('PHO CAPITAL', 0.95723116), [[66.0, 50.0], [327.0, 44.0], [327.0, 76.0], [67.0, 82.0]]]
 [('107 State Street', 0.96311164), [[72.0, 90.0], [451.0, 84.0], [452.0, 116.0], [73.0, 121.0]]]
 [('Montpelier Vermont', 0.97389287), [[69.0, 132.0], [501.0, 126.0], [501.0, 158.0], [70.0, 164.0]]]
@@ -95,7 +95,7 @@ The result is a list. Each item contains a text box, text and recognition confid
 
 - Recognition
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 ```
 
@@ -103,19 +103,19 @@ paddleocr --image_dir doc/imgs_words_en/word_308.png --det false --lang=en
 
 The result is a 2-tuple, which contains the recognition result and recognition confidence
 
-```text
+```text linenums="1"
 (0.99879867, 'LITTLE')
 ```
 
 - Detection
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ```
 
 The result is a list. Each item represents the coordinates of a text box.
 
-```bash
+```bash linenums="1"
 [[26.0, 457.0], [137.0, 457.0], [137.0, 477.0], [26.0, 477.0]]
 [[25.0, 425.0], [372.0, 425.0], [372.0, 448.0], [25.0, 448.0]]
 [[128.0, 397.0], [273.0, 397.0], [273.0, 414.0], [128.0, 414.0]]
@@ -128,7 +128,7 @@ PPOCR is able to run with Python scripts for easy integration with your own code
 
 - Whole image prediction (detection + recognition)
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Also switch the language by modifying the lang parameter

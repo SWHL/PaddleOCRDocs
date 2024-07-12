@@ -29,7 +29,7 @@ comments: true
 
 ### 3.1 训练
 
-```bash
+```bash linenums="1"
 # 单卡训练（训练周期长，不建议）
 python3 tools/train.py -c configs/rec/rec_r34_vd_none_none_ctc.yml
 # 多卡训练，通过--gpus参数指定卡号
@@ -38,14 +38,14 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3'  tools/train.py -c configs
 
 ### 3.2 评估
 
-```bash
+```bash linenums="1"
 # GPU评估, Global.pretrained_model为待评估模型
 python3 -m paddle.distributed.launch --gpus '0' tools/eval.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy
 ```
 
 ### 3.3 预测
 
-```bash
+```bash linenums="1"
 python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model={path/to/weights}/best_accuracy Global.infer_img=doc/imgs_words/en/word_1.png
 ```
 
@@ -55,13 +55,13 @@ python3 tools/infer_rec.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global
 
 首先将Rosetta文本识别训练过程中保存的模型，转换成inference model。以基于Resnet34_vd骨干网络，在MJSynth和SynthText两个文字识别数据集训练得到的模型为例（ [模型下载地址](https://paddleocr.bj.bcebos.com/dygraph_v2.0/en/rec_r34_vd_none_none_ctc_v2.0_train.tar) )，可以使用如下命令进行转换：
 
-```bash
+```bash linenums="1"
 python3 tools/export_model.py -c configs/rec/rec_r34_vd_none_none_ctc.yml -o Global.pretrained_model=./rec_r34_vd_none_none_ctc_v2.0_train/best_accuracy  Global.save_inference_dir=./inference/rec_rosetta
 ```
 
 Rosetta文本识别模型推理，可以执行如下命令：
 
-```bash
+```bash linenums="1"
 python3 tools/infer/predict_rec.py --image_dir="doc/imgs_words/en/word_1.png" --rec_model_dir="./inference/rec_rosetta/" --rec_image_shape="3, 32, 100" --rec_char_dict_path="./ppocr/utils/ic15_dict.txt"
 ```
 
@@ -69,7 +69,7 @@ python3 tools/infer/predict_rec.py --image_dir="doc/imgs_words/en/word_1.png" --
 
 ![img](./images/word_1-20240704184113913.png)
 
-```bash
+```bash linenums="1"
 Predicts of doc/imgs_words/en/word_1.png:('joint', 0.9999982714653015)
 ```
 

@@ -30,13 +30,13 @@ SDMGR is a key information extraction algorithm that classifies each detected te
 
 The training and test data are collected in the wildreceipt dataset, use following command to downloaded the dataset.
 
-```bash
+```bash linenums="1"
 wget https://paddleocr.bj.bcebos.com/ppstructure/dataset/wildreceipt.tar && tar xf wildreceipt.tar
 ```
 
 Create dataset soft link to `PaddleOCR/train_data` directory.
 
-```bash
+```bash linenums="1"
 cd PaddleOCR/ && mkdir train_data && cd train_data
 ln -s ../../wildreceipt ./
 ```
@@ -47,7 +47,7 @@ The config file is `configs/kie/sdmgr/kie_unet_sdmgr.yml`， the default dataset
 
 Use the following command to train the model.
 
-```bash
+```bash linenums="1"
 python3 tools/train.py -c configs/kie/sdmgr/kie_unet_sdmgr.yml -o Global.save_model_dir=./output/kie/
 ```
 
@@ -55,13 +55,13 @@ python3 tools/train.py -c configs/kie/sdmgr/kie_unet_sdmgr.yml -o Global.save_mo
 
 Use the following command to evaluate the model:
 
-```bash
+```bash linenums="1"
 python3 tools/eval.py -c configs/kie/sdmgr/kie_unet_sdmgr.yml -o Global.checkpoints=./output/kie/best_accuracy
 ```
 
 An example of output information is shown below.
 
-```bash
+```bash linenums="1"
 [2022/08/10 05:22:23] ppocr INFO: metric eval ***************
 [2022/08/10 05:22:23] ppocr INFO: hmean:0.8670120239257812
 [2022/08/10 05:22:23] ppocr INFO: fps:10.18816520530961
@@ -71,7 +71,7 @@ An example of output information is shown below.
 
 Use the following command to load the model and predict. During the prediction, the text file storing the image path and OCR information needs to be loaded in advance. Use `Global.infer_img` to assign.
 
-```bash
+```bash linenums="1"
 python3 tools/infer_kie.py -c configs/kie/kie_unet_sdmgr.yml -o Global.checkpoints=kie_vgg16/best_accuracy  Global.infer_img=./train_data/wildreceipt/1.txt
 ```
 

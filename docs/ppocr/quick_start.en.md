@@ -14,13 +14,13 @@ comments: true
 
 - If you have CUDA 11 installed on your machine, please run the following command to install
 
-  ```bash
+  ```bash linenums="1"
   pip install paddlepaddle-gpu
   ```
 
 - If you have no available GPU on your machine, please run the following command to install the CPU version
 
-  ```bash
+  ```bash linenums="1"
   python -m pip install paddlepaddle
   ```
 
@@ -28,7 +28,7 @@ For more software version requirements, please refer to the instructions in [Ins
 
 ### 1.2 Install PaddleOCR Whl Package
 
-```bash
+```bash linenums="1"
 pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 ```
 
@@ -42,7 +42,7 @@ pip install "paddleocr>=2.0.1" # Recommend to use version 2.0.1+
 
 PaddleOCR provides a series of test images, click [here](https://paddleocr.bj.bcebos.com/dygraph_v2.1/ppocr_img.zip) to download, and then switch to the corresponding directory in the terminal
 
-```bash
+```bash linenums="1"
 cd /path/to/ppocr_img
 ```
 
@@ -52,13 +52,13 @@ If you do not use the provided test image, you can replace the following `--imag
 
 - Detection, direction classification and recognition: set the parameter`--use_gpu false` to disable the gpu device
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs_en/img_12.jpg --use_angle_cls true --lang en --use_gpu false
   ```
 
   Output will be a list, each item contains bounding box, text and recognition confidence
 
-  ```bash
+  ```bash linenums="1"
   [[[441.0, 174.0], [1166.0, 176.0], [1165.0, 222.0], [441.0, 221.0]], ('ACKNOWLEDGEMENTS', 0.9971134662628174)]
   [[[403.0, 346.0], [1204.0, 348.0], [1204.0, 384.0], [402.0, 383.0]], ('We would like to thank all the designers and', 0.9761400818824768)]
   [[[403.0, 396.0], [1204.0, 398.0], [1204.0, 434.0], [402.0, 433.0]], ('contributors who have been involved in the', 0.9791957139968872)]
@@ -67,19 +67,19 @@ If you do not use the provided test image, you can replace the following `--imag
 
   pdf file is also supported, you can infer the first few pages by using the `page_num` parameter, the default is 0, which means infer all pages
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
   ```
 
 - Only detection: set `--rec` to `false`
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs_en/img_12.jpg --rec false
   ```
 
   Output will be a list, each item only contains bounding box
 
-  ```bash
+  ```bash linenums="1"
   [[397.0, 802.0], [1092.0, 802.0], [1092.0, 841.0], [397.0, 841.0]]
   [[397.0, 750.0], [1211.0, 750.0], [1211.0, 789.0], [397.0, 789.0]]
   [[397.0, 702.0], [1209.0, 698.0], [1209.0, 734.0], [397.0, 738.0]]
@@ -88,13 +88,13 @@ If you do not use the provided test image, you can replace the following `--imag
 
 - Only recognition: set `--det` to `false`
 
-  ```bash
+  ```bash linenums="1"
   paddleocr --image_dir ./imgs_words_en/word_10.png --det false --lang en
   ```
 
   Output will be a list, each item contains text and recognition confidence
 
-  ```bash
+  ```bash linenums="1"
   ['PAIN', 0.9934559464454651]
   ```
 
@@ -126,7 +126,7 @@ paddleocr --image_dir ./doc/imgs_en/254.jpg --lang=en
 
 The result is a list, each item contains a text box, text and recognition confidence
 
-```text
+```text linenums="1"
 [[[67.0, 51.0], [327.0, 46.0], [327.0, 74.0], [68.0, 80.0]], ('PHOCAPITAL', 0.9944712519645691)]
 [[[72.0, 92.0], [453.0, 84.0], [454.0, 114.0], [73.0, 122.0]], ('107 State Street', 0.9744491577148438)]
 [[[69.0, 135.0], [501.0, 125.0], [501.0, 156.0], [70.0, 165.0]], ('Montpelier Vermont', 0.9357033967971802)]
@@ -149,7 +149,7 @@ A list of all languages and their corresponding abbreviations can be found in [M
 
 - detection, angle classification and recognition:
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR,draw_ocr
 # Paddleocr supports Chinese, English, French, German, Korean and Japanese.
 # You can set the parameter `lang` as `ch`, `en`, `fr`, `german`, `korean`, `japan`
@@ -177,7 +177,7 @@ im_show.save('result.jpg')
 
 Output will be a list, each item contains bounding box, text and recognition confidence
 
-```bash
+```bash linenums="1"
 [[[441.0, 174.0], [1166.0, 176.0], [1165.0, 222.0], [441.0, 221.0]], ('ACKNOWLEDGEMENTS', 0.9971134662628174)]
   [[[403.0, 346.0], [1204.0, 348.0], [1204.0, 384.0], [402.0, 383.0]], ('We would like to thank all the designers and', 0.9761400818824768)]
   [[[403.0, 396.0], [1204.0, 398.0], [1204.0, 434.0], [402.0, 433.0]], ('contributors who have been involved in the', 0.9791957139968872)]
@@ -190,7 +190,7 @@ Visualization of results
 
 If the input is a PDF file, you can refer to the following code for visualization
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr supports Chinese, English, French, German, Korean and Japanese.
@@ -243,7 +243,7 @@ for idx in range(len(result)):
 
 To perform OCR using sliding windows, the following code snippet can be employed:
 
-```Python
+```python linenums="1"
 from paddleocr import PaddleOCR
 from PIL import Image, ImageDraw, ImageFont
 

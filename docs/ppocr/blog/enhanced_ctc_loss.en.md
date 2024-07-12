@@ -81,7 +81,7 @@ It is worth mentioning that in C-CTC Loss, choosing to initialize the Center ran
 
 Taking the configuration file `configs/rec/ch_PP-OCRv2/ch_PP-OCRv2_rec.yml` as an example, the center extraction command is as follows:
 
-```bash
+```bash linenums="1"
 python tools/export_center.py -c configs/rec/ch_PP-OCRv2/ch_PP-OCRv2_rec.yml -o Global.pretrained_model="./output/rec_mobile_pp-OCRv2/best_accuracy"
 ```
 

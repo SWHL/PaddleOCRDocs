@@ -23,13 +23,13 @@ comments: true
 
 下载PaddleOCR源码，安装依赖环境。
 
-```python
+```python linenums="1"
 # 如仍需安装or安装更新，可以执行以下步骤
 git clone https://github.com/PaddlePaddle/PaddleOCR.git
 #  git clone https://gitee.com/PaddlePaddle/PaddleOCR
 ```
 
-```python
+```python linenums="1"
 # 安装依赖包
 pip install -r /home/aistudio/PaddleOCR/requirements.txt
 ```
@@ -63,7 +63,7 @@ output_dir：生成图片存储路径
 
 ![](./images/3277b750159f4b68b2b58506bfec9005d49aeb5fb1d9411e83f96f9ff7eb66a5.png)
 
-```python
+```python linenums="1"
 tar xf ./data/data148165/dataset.tar -C ./
 ```
 
@@ -130,7 +130,7 @@ PaddleOCR已经提供了PP-OCR系列模型，部分模型展示如下表所示�
 
 这里我们使用PP-OCRv3英文超轻量检测模型，下载并解压预训练模型：
 
-```python
+```python linenums="1"
 # 如果更换其他模型，更新下载链接和解压指令就可以
 cd /home/aistudio/PaddleOCR
 mkdir pretrain_models
@@ -145,7 +145,7 @@ tar xf en_PP-OCRv3_det_distill_train.tar && rm -rf en_PP-OCRv3_det_distill_train
 
 首先修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml`中的以下字段：
 
-```text
+```text linenums="1"
 Eval.dataset.data_dir：指向验证集图片存放目录,'/home/aistudio/dataset'
 Eval.dataset.label_file_list：指向验证集标注文件,'/home/aistudio/dataset/det_gt_val.txt'
 Eval.dataset.transforms.DetResizeForTest:  尺寸
@@ -155,7 +155,7 @@ Eval.dataset.transforms.DetResizeForTest:  尺寸
 
 然后在验证集上进行评估，具体代码如下：
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR
 python tools/eval.py \
     -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml  \
@@ -172,7 +172,7 @@ python tools/eval.py \
 
 同上，我们需要修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml`中的以下字段：
 
-```text
+```text linenums="1"
 Eval.dataset.data_dir：指向验证集图片存放目录,'/home/aistudio/dataset'
 Eval.dataset.label_file_list：指向验证集标注文件,/home/aistudio/dataset/det_gt_padding_val.txt
 Eval.dataset.transforms.DetResizeForTest:  尺寸
@@ -186,7 +186,7 @@ Eval.dataset.transforms.DetResizeForTest:  尺寸
 
 将下载或训练完成的模型放置在对应目录下即可完成模型推理
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR
 python tools/eval.py \
     -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_cml.yml  \
@@ -197,7 +197,7 @@ python tools/eval.py \
 
 基于预训练模型，在生成的1500图片上进行fine-tune训练和评估，其中train数据1200张，val数据300张，修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml`中的以下字段：
 
-```yaml
+```yaml linenums="1"
 Global.epoch_num: 这里设置为1，方便快速跑通，实际中根据数据量调整该值
 Global.save_model_dir：模型保存路径
 Global.pretrained_model：指向预训练模型路径，'./pretrain_models/en_PP-OCRv3_det_distill_train/student.pdparams'
@@ -214,7 +214,7 @@ Eval.dataset.transforms.DetResizeForTest：评估尺寸，添加如下参数
 
 执行下面命令启动训练：
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR/
 python tools/train.py \
         -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml
@@ -224,7 +224,7 @@ python tools/train.py \
 
 使用训练好的模型进行评估，更新模型路径`Global.checkpoints`:
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR/
 python3 tools/eval.py \
     -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml  \
@@ -260,7 +260,7 @@ python3 tools/eval.py \
 
 我们使用PP-OCRv3中英文超轻量文本识别模型，下载并解压预训练模型：
 
-```python
+```python linenums="1"
 # 如果更换其他模型，更新下载链接和解压指令就可以
 cd /home/aistudio/PaddleOCR/pretrain_models/
 wget https://paddleocr.bj.bcebos.com/PP-OCRv3/chinese/ch_PP-OCRv3_rec_train.tar
@@ -271,7 +271,7 @@ cd ..
 **模型评估**
 首先修改配置文件`configs/det/ch_PP-OCRv3/ch_PP-OCRv2_rec_distillation.yml`中的以下字段：
 
-```text
+```text linenums="1"
 Metric.ignore_space: True：忽略空格
 Eval.dataset.data_dir：指向验证集图片存放目录,'/home/aistudio/dataset'
 Eval.dataset.label_file_list：指向验证集标注文件,'/home/aistudio/dataset/rec_gt_val.txt'
@@ -279,7 +279,7 @@ Eval.dataset.label_file_list：指向验证集标注文件,'/home/aistudio/datas
 
 我们使用下载的预训练模型进行评估：
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR
 python3 tools/eval.py \
     -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec_distillation.yml \
@@ -309,7 +309,7 @@ python3 tools/eval.py \
 
 接着我们看需要修改的参数，以上方案均需要修改配置文件`configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml`的参数，**修改一次即可**：
 
-```yaml
+```yaml linenums="1"
 Global.pretrained_model：指向预训练模型路径,'pretrain_models/ch_PP-OCRv3_rec_train/best_accuracy'
 Optimizer.lr.values：学习率，本实验设置为0.0005
 Train.loader.batch_size_per_card: batch size,默认128，因为数据量小于128，因此我们设置为8，数据量大可以按默认的训练
@@ -319,7 +319,7 @@ Metric.ignore_space: 忽略空格，本实验设置为True
 
 **更换不同的方案**每次需要修改的参数：
 
-```yaml
+```yaml linenums="1"
 Global.epoch_num: 这里设置为1，方便快速跑通，实际中根据数据量调整该值
 Global.save_model_dir：指向模型保存路径
 Train.dataset.data_dir：指向训练集图片存放目录
@@ -330,7 +330,7 @@ Eval.dataset.label_file_list：指向验证集标注文件
 
 同时**方案3**修改以下参数
 
-```text
+```text linenums="1"
 Eval.dataset.label_file_list：添加公开通用识别数据标注文件
 Eval.dataset.ratio_list：数据和公开通用识别数据每次采样比例，按实际修改即可
 ```
@@ -341,7 +341,7 @@ Eval.dataset.ratio_list：数据和公开通用识别数据每次采样比例，
 
 我们提取Student模型的参数，在PCB数据集上进行fine-tune，可以参考如下代码：
 
-```python
+```python linenums="1"
 import paddle
 # 加载预训练模型
 all_params = paddle.load("./pretrain_models/ch_PP-OCRv3_rec_train/best_accuracy.pdparams")
@@ -357,14 +357,14 @@ paddle.save(s_params, "./pretrain_models/ch_PP-OCRv3_rec_train/student.pdparams"
 
 修改参数后，**每个方案**都执行如下命令启动训练：
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR/
 python3 tools/train.py -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml
 ```
 
 使用训练好的模型进行评估，更新模型路径`Global.checkpoints`：
 
-```python
+```python linenums="1"
 cd /home/aistudio/PaddleOCR/
 python3 tools/eval.py \
     -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml \
@@ -386,7 +386,7 @@ python3 tools/eval.py \
 
 inference 模型（paddle.jit.save保存的模型） 一般是模型训练，把模型结构和模型参数保存在文件中的固化模型，多用于预测部署场景。 训练过程中保存的模型是checkpoints模型，保存的只有模型的参数，多用于恢复训练等。 与checkpoints模型相比，inference 模型会额外保存模型的结构信息，在预测部署、加速推理上性能优越，灵活方便，适合于实际系统集成。
 
-```python
+```python linenums="1"
 # 导出检测模型
 python3 tools/export_model.py \
      -c configs/det/ch_PP-OCRv3/ch_PP-OCRv3_det_student.yml \
@@ -396,13 +396,13 @@ python3 tools/export_model.py \
 
 因为上述模型只训练了1个epoch，因此我们使用训练最优的模型进行预测，存储在`/home/aistudio/best_models/`目录下，解压即可
 
-```python
+```python linenums="1"
 cd /home/aistudio/best_models/
 wget https://paddleocr.bj.bcebos.com/fanliku/PCB/det_ppocr_v3_en_infer_PCB.tar
 tar xf /home/aistudio/best_models/det_ppocr_v3_en_infer_PCB.tar -C /home/aistudio/PaddleOCR/pretrain_models/
 ```
 
-```python
+```python linenums="1"
 # 检测模型inference模型预测
 cd /home/aistudio/PaddleOCR/
 python3 tools/infer/predict_det.py \
@@ -421,7 +421,7 @@ python3 tools/infer/predict_det.py \
 
 同理，导出识别模型并进行推理。
 
-```python
+```python linenums="1"
 # 导出识别模型
 python3 tools/export_model.py \
     -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml \
@@ -432,13 +432,13 @@ python3 tools/export_model.py \
 
 同检测模型，识别模型也只训练了1个epoch，因此我们使用训练最优的模型进行预测，存储在`/home/aistudio/best_models/`目录下，解压即可
 
-```python
+```python linenums="1"
 cd /home/aistudio/best_models/
 wget https://paddleocr.bj.bcebos.com/fanliku/PCB/rec_ppocr_v3_ch_infer_PCB.tar
 tar xf /home/aistudio/best_models/rec_ppocr_v3_ch_infer_PCB.tar -C /home/aistudio/PaddleOCR/pretrain_models/
 ```
 
-```python
+```python linenums="1"
 # 识别模型inference模型预测
 cd /home/aistudio/PaddleOCR/
 python3 tools/infer/predict_rec.py \
@@ -449,7 +449,7 @@ python3 tools/infer/predict_rec.py \
     --use_gpu=True
 ```
 
-```python
+```python linenums="1"
 # 检测+识别模型inference模型预测
 cd /home/aistudio/PaddleOCR/
 python3 tools/infer/predict_system.py  \
@@ -477,7 +477,7 @@ python3 tools/infer/predict_system.py  \
 
 1）首先运行`tools/infer/predict_system.py`，将`image_dir`改为需要评估的数据文件家，得到保存的结果:
 
-```python
+```python linenums="1"
 # 检测+识别模型inference模型预测
 python3 tools/infer/predict_system.py  \
     --image_dir="../dataset/imgs/" \
@@ -497,7 +497,7 @@ python3 tools/infer/predict_system.py  \
 
 2）然后将步骤一保存的数据转换为端对端评测需要的数据格式： 修改 `tools/end2end/convert_ppocr_label.py`中的代码，convert_label函数中设置输入标签路径，Mode，保存标签路径等，对预测数据的GTlabel和预测结果的label格式进行转换。
 
-```python
+```python linenums="1"
 ppocr_label_gt =  "/home/aistudio/dataset/det_gt_val.txt"
 convert_label(ppocr_label_gt, "gt", "./save_gt_label/")
 
@@ -507,20 +507,20 @@ convert_label(ppocr_label_gt, "pred", "./save_PPOCRV2_infer/")
 
 运行`convert_ppocr_label.py`:
 
-```bash
+```bash linenums="1"
 python3 tools/end2end/convert_ppocr_label.py
 ```
 
 得到如下结果：
 
-```text
+```text linenums="1"
 ├── ./save_gt_label/
 ├── ./save_PPOCRV2_infer/
 ```
 
 3） 最后，执行端对端评测，运行`tools/end2end/eval_end2end.py`计算端对端指标，运行方式如下：
 
-```python
+```python linenums="1"
 pip install editdistance
 python3 tools/end2end/eval_end2end.py ./save_gt_label/ ./save_PPOCRV2_infer/
 ```

@@ -11,13 +11,13 @@ comments: true
 
 pip安装
 
-```bash
+```bash linenums="1"
 pip install paddleocr
 ```
 
 本地构建并安装
 
-```bash
+```bash linenums="1"
 python3 -m build
 pip3 install dist/paddleocr-x.x.x-py3-none-any.whl # x.x.x是paddleocr的版本号
 ```
@@ -30,7 +30,7 @@ paddleocr whl包会自动下载ppocr轻量级模型作为默认模型，可以�
 
 * 检测+方向分类器+识别全流程
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr目前支持中英文、英文、法语、德语、韩语、日语，可以通过修改lang参数进行切换
@@ -57,7 +57,7 @@ im_show.save('result.jpg')
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```bash
+```bash linenums="1"
 [[[24.0, 36.0], [304.0, 34.0], [304.0, 72.0], [24.0, 74.0]], ['纯臻营养护发素', 0.964739]]
 [[[24.0, 80.0], [172.0, 80.0], [172.0, 104.0], [24.0, 104.0]], ['产品信息/参数', 0.98069626]]
 [[[24.0, 109.0], [333.0, 109.0], [333.0, 136.0], [24.0, 136.0]], ['（45元/每公斤，100公斤起订）', 0.9676722]]
@@ -72,7 +72,7 @@ im_show.save('result.jpg')
 
 * 检测+识别
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 ocr = PaddleOCR()  # need to run only once to download and load model into memory
@@ -97,7 +97,7 @@ im_show.save('result.jpg')
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```bash
+```bash linenums="1"
 [[[24.0, 36.0], [304.0, 34.0], [304.0, 72.0], [24.0, 74.0]], ['纯臻营养护发素', 0.964739]]
 [[[24.0, 80.0], [172.0, 80.0], [172.0, 104.0], [24.0, 104.0]], ['产品信息/参数', 0.98069626]]
 [[[24.0, 109.0], [333.0, 109.0], [333.0, 136.0], [24.0, 136.0]], ['（45元/每公斤，100公斤起订）', 0.9676722]]
@@ -112,7 +112,7 @@ im_show.save('result.jpg')
 
 * 方向分类器+识别
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 
 ocr = PaddleOCR(use_angle_cls=True)  # need to run only once to download and load model into memory
@@ -126,13 +126,13 @@ for idx in range(len(result)):
 
 结果是一个list，每个item只包含识别结果和识别置信度
 
-```bash
+```bash linenums="1"
 ['韩国小馆', 0.9907421]
 ```
 
 * 单独执行检测
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 ocr = PaddleOCR()  # need to run only once to download and load model into memory
@@ -154,7 +154,7 @@ im_show.save('result.jpg')
 
 结果是一个list，每个item只包含文本框
 
-```bash
+```bash linenums="1"
 [[26.0, 457.0], [137.0, 457.0], [137.0, 477.0], [26.0, 477.0]]
 [[25.0, 425.0], [372.0, 425.0], [372.0, 448.0], [25.0, 448.0]]
 [[128.0, 397.0], [273.0, 397.0], [273.0, 414.0], [128.0, 414.0]]
@@ -169,7 +169,7 @@ im_show.save('result.jpg')
 
 * 单独执行识别
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 
 ocr = PaddleOCR()  # need to run only once to download and load model into memory
@@ -183,13 +183,13 @@ for idx in range(len(result)):
 
 结果是一个list，每个item只包含识别结果和识别置信度
 
-```bash
+```bash linenums="1"
 ['韩国小馆', 0.9907421]
 ```
 
 * 单独执行方向分类器
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR
 
 ocr = PaddleOCR(use_angle_cls=True)  # need to run only once to download and load model into memory
@@ -203,7 +203,7 @@ for idx in range(len(result)):
 
 结果是一个list，每个item只包含分类结果和分类置信度
 
-```bash
+```bash linenums="1"
 ['0', 0.9999924]
 ```
 
@@ -211,63 +211,63 @@ for idx in range(len(result)):
 
 查看帮助信息
 
-```bash
+```bash linenums="1"
 paddleocr -h
 ```
 
 * 检测+方向分类器+识别全流程
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --use_angle_cls true
 ```
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```bash
+```bash linenums="1"
 [[[28.0, 37.0], [302.0, 39.0], [302.0, 72.0], [27.0, 70.0]], ('纯臻营养护发素', 0.9658738374710083)]
 ......
 ```
 
 此外，paddleocr也支持输入pdf文件，并且可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
 
 * 检测+识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg
 ```
 
 结果是一个list，每个item包含了文本框，文字和识别置信度
 
-```bash
+```bash linenums="1"
 [[[28.0, 37.0], [302.0, 39.0], [302.0, 72.0], [27.0, 70.0]], ('纯臻营养护发素', 0.9658738374710083)]
 ......
 ```
 
 * 方向分类器+识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words/ch/word_1.jpg --use_angle_cls true --det false
 ```
 
 结果是一个list，每个item只包含识别结果和识别置信度
 
-```bash
+```bash linenums="1"
 ['韩国小馆', 0.994467]
 ```
 
 * 单独执行检测
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 ```
 
 结果是一个list，每个item只包含文本框
 
-```bash
+```bash linenums="1"
 [[27.0, 459.0], [136.0, 459.0], [136.0, 479.0], [27.0, 479.0]]
 [[28.0, 429.0], [372.0, 429.0], [372.0, 445.0], [28.0, 445.0]]
 ......
@@ -275,25 +275,25 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --rec false
 
 * 单独执行识别
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words/ch/word_1.jpg --det false
 ```
 
 结果是一个list，每个item只包含识别结果和识别置信度
 
-```bash
+```bash linenums="1"
 ['韩国小馆', 0.994467]
 ```
 
 * 单独执行方向分类器
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs_words/ch/word_1.jpg --use_angle_cls true --det false --rec false
 ```
 
 结果是一个list，每个item只包含分类结果和分类置信度
 
-```bash
+```bash linenums="1"
 ['0', 0.9999924]
 ```
 
@@ -303,7 +303,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs_words/ch/word_1.jpg --use_angle_cls tru
 
 ### 3.1 代码使用
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # 模型路径下必须含有model和params文件
@@ -331,7 +331,7 @@ im_show.save('result.jpg')
 
 ### 3.2 通过命令行使用
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --det_model_dir {your_det_model_dir} --rec_model_dir {your_rec_model_dir} --rec_char_dict_path {your_rec_char_dict_path} --cls_model_dir {your_cls_model_dir} --use_angle_cls true
 ```
 
@@ -341,7 +341,7 @@ paddleocr --image_dir PaddleOCR/doc/imgs/11.jpg --det_model_dir {your_det_model_
 
 * 代码使用
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr, download_with_progressbar
 
 # Paddleocr目前支持中英文、英文、法语、德语、韩语、日语，可以通过修改lang参数进行切换
@@ -369,7 +369,7 @@ im_show.save('result.jpg')
 
 * 命令行模式
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-fypvuqf1838418.jpg --use_angle_cls=true
 ```
 
@@ -377,7 +377,7 @@ paddleocr --image_dir http://n.sinaimg.cn/ent/transform/w630h933/20171222/o111-f
 
 仅通过代码使用时支持numpy数组作为输入
 
-```python
+```python linenums="1"
 import cv2
 from paddleocr import PaddleOCR, draw_ocr
 
@@ -411,13 +411,13 @@ im_show.save('result.jpg')
 
 可以通过指定参数`page_num`来控制推理前面几页，默认为0，表示推理所有页。
 
-```bash
+```bash linenums="1"
 paddleocr --image_dir ./xxx.pdf --use_angle_cls true --use_gpu false --page_num 2
 ```
 
 * 代码使用
 
-```python
+```python linenums="1"
 from paddleocr import PaddleOCR, draw_ocr
 
 # Paddleocr目前支持的多语言语种可以通过修改lang参数进行切换
