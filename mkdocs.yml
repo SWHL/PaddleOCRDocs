@@ -183,6 +183,13 @@ plugins:
             表格识别数据集: Table recognition dataset
             关键信息提取数据集: Key Information Extraction Dataset
             FAQ: FAQ
+            社区: Community
+            社区贡献: Community Contribution
+            附录: Appendix
+        - locale: "null"
+          name: Help translating
+          build: false
+          fixed_link: "https://github.com/PaddlePaddle/PaddleOCR"
   - git-committers:
       repository: SWHL/PaddleOCRDocs
       branch: main
@@ -387,3 +394,6 @@ nav:
     - 表格识别数据集: datasets/table_datasets.md
     - 关键信息提取数据集: datasets/kie_datasets.md
   - FAQ: FAQ.md
+  - 社区:
+    - 社区贡献: community/community_contribution.md
+    - 附录: community/code_and_doc.md

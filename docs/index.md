@@ -78,7 +78,7 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 支持多种 OCR 相关前沿算法，在此基础上打造产业级特色模型[PP-OCR](./ppocr/overview.md)、[PP-Structure](./ppstructure/overview.md)和[PP-ChatOCRv2](https://aistudio.baidu.com/community/app/70303)，并打通数据生产、模型训练、压缩、预测部署全流程。
 
-![](./images/ppocrv4.png)
+<img src="./images/ppocrv4.png" style="zoom:67%;" />
 
 ## 效果展示
 
@@ -88,49 +88,49 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 ![img](./images/test_add_91.jpg)
 
-![img](./images/00006737.jpg)
+<img src="./images/00006737.jpg" alt="img" style="zoom: 50%;" />
 
-![](./images/PP-OCRv3-pic001.jpg)
+<img src="./images/PP-OCRv3-pic001.jpg" style="zoom: 50%;" />
 
-![](./images/PP-OCRv3-pic002.jpg)
+<img src="./images/PP-OCRv3-pic002.jpg" style="zoom:67%;" />
 
-![](./images/PP-OCRv3-pic003.jpg)
+<img src="./images/PP-OCRv3-pic003.jpg" style="zoom:80%;" />
 
 #### PP-OCRv3英文数字模型
 
-![](./images/en_1.png)
+<img src="./images/en_1.png" style="zoom: 50%;" />
 
-![](./images/en_2.png)
+<img src="./images/en_2.png" style="zoom: 50%;" />
 
-![](./images/en_3-0398013.png)
+<img src="./images/en_3-0398013.png" style="zoom:50%;" />
 
 #### PP-OCRv3多语言模型
 
-![img](./images/japan_2.jpg)
+<img src="./images/japan_2.jpg" alt="img" style="zoom:50%;" />
 
-![img](./images/korean_1.jpg)
+<img src="./images/korean_1.jpg" alt="img" style="zoom:50%;" />
 
 #### PP-Structure 文档分析
 
 - 版面分析+表格识别
 
-  ![img](./images/ppstructure-20240708082235651.gif)
+  <img src="./images/ppstructure-20240708082235651.gif" alt="img" style="zoom:50%;" />
 
 - SER（语义实体识别）
 
-  ![img](./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808-20240708082238739.jpg)
+  <img src="./images/185310636-6ce02f7c-790d-479f-b163-ea97a5a04808-20240708082238739.jpg" alt="img" style="zoom:50%;" />
 
-  ![img](./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a-20240708082247529.png)
+  <img src="./images/185539517-ccf2372a-f026-4a7c-ad28-c741c770f60a-20240708082247529.png" alt="img" style="zoom:50%;" />
 
-  ![img](./images/197464552-69de557f-edff-4c7f-acbf-069df1ba097f-20240708082253634.png)
+  <img src="./images/197464552-69de557f-edff-4c7f-acbf-069df1ba097f-20240708082253634.png" alt="img" style="zoom: 80%;" />
 
 - RE（关系提取）
 
-  ![img](./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb-20240708082310650.jpg)
+  <img src="./images/185393805-c67ff571-cf7e-4217-a4b0-8b396c4f22bb-20240708082310650.jpg" alt="img" style="zoom:67%;" />
 
-  ![img](./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f-20240708082316558.jpg)
+  <img src="./images/185540080-0431e006-9235-4b6d-b63d-0b3c6e1de48f-20240708082316558.jpg" alt="img" style="zoom:67%;" />
 
-  ![img](./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d-20240708082323916.png)
+  <img src="./images/186094813-3a8e16cc-42e5-4982-b9f4-0134dfb5688d-20240708082323916.png" alt="img" style="zoom:67%;" />
 
 ## 许可证书
 

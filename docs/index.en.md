@@ -68,7 +68,7 @@ PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOC
     - Release [PP-OCRv3](./ppocr/overview.en.md#pp-ocrv3): With comparable speed, the effect of Chinese scene is further improved by 5% compared with PP-OCRv2, the effect of English scene is improved by 11%, and the average recognition accuracy of 80 language multilingual models is improved by more than 5%.
     - Release [PPOCRLabelv2](https://github.com/PFCCLab/PPOCRLabel): Add the annotation function for table recognition task, key information extraction task and irregular text image.
     - Release interactive e-book [*"Dive into OCR"*](./blog/ocr_book.en.md), covers the cutting-edge theory and code practice of OCR full stack technology.
-- [more](./update_en.md)
+- [more](./update.en.md)
 
 ## 🌟 Features
 
@@ -77,20 +77,6 @@ PaddleOCR support a variety of cutting-edge algorithms related to OCR, and devel
 ![img](./images/186171245-40abc4d7-904f-4949-ade1-250f86ed3a90.jpg)
 
 > It is recommended to start with the “quick experience” in the document tutorial
-
-## ⚡ Quick Experience
-
-- Web online experience
-
-    - PP-OCRv4 online experience：<https://aistudio.baidu.com/aistudio/projectdetail/6611435>
-    - PP-ChatOCR online experience：<https://aistudio.baidu.com/aistudio/projectdetail/6488689>
-
-- One line of code quick use: [Quick Start（Chinese/English/Multilingual/Document Analysis](./doc/doc_en/quickstart_en.md)
-- Full-process experience of training, inference, and high-performance deployment in the Paddle AI suite (PaddleX)：
-
-    - PP-OCRv4：<https://aistudio.baidu.com/aistudio/modelsdetail?modelId=286>
-    - PP-ChatOCR：<https://aistudio.baidu.com/aistudio/modelsdetail?modelId=332>
-- Mobile demo experience：[Installation DEMO](https://ai.baidu.com/easyedge/app/openSource?from=paddlelite)(Based on EasyEdge and Paddle-Lite, support iOS and Android systems)
 
 ## 📖 Technical exchange and cooperation
 

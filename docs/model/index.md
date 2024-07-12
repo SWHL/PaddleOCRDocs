@@ -2,7 +2,7 @@
 comments: true
 hide:
     - toc
-    - navigation
+#     - navigation
 ---
 
 ## PP-OCR 系列模型列表（更新中）
