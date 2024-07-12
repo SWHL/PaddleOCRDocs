@@ -50,7 +50,7 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
     - [通用图像信息抽取](https://aistudio.baidu.com/community/app/91662) (PP-ChatOCRv2-common)。
     - [文档场景信息抽取](https://aistudio.baidu.com/community/app/70303) (PP-ChatOCRv2-doc)。
 
-  同时采用了 **[全新的场景任务开发范式](https://aistudio.baidu.com/pipeline/mine)** ,将模型统一汇聚，实现训练部署的零代码开发，并支持在线服务化部署和导出离线服务化部署包。
+    同时采用了 **[全新的场景任务开发范式](https://aistudio.baidu.com/pipeline/mine)** ,将模型统一汇聚，实现训练部署的零代码开发，并支持在线服务化部署和导出离线服务化部署包。
 
 - **🔥2023.8.7 发布 PaddleOCR [release/2.7](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.7)**
 
@@ -61,8 +61,9 @@ PaddleOCR 由 [PMC](https://github.com/PaddlePaddle/PaddleOCR/issues/12122) 监�
 
 - 🔨**2022.11 新增实现[4 种前沿算法](./algorithm/overview.md)**：文本检测 [DRRG](./algorithm/text_detection/algorithm_det_drrg.md),  文本识别 [RFL](./algorithm/text_recognition/algorithm_rec_rfl.md), 文本超分[Text Telescope](./algorithm/super_resolution/algorithm_sr_telescope.md)，公式识别[CAN](./algorithm/formula_recognition/algorithm_rec_can.md)
 - **2022.10 优化[JS 版 PP-OCRv3 模型](./ppocr/infer_deploy/paddle_js.md)**：模型大小仅 4.3M，预测速度提升 8 倍，配套 web demo 开箱即用
+
 - **💥 直播回放：PaddleOCR 研发团队详解 PP-StructureV2 优化策略**。微信扫描[下方二维码](#开源社区)，关注公众号并填写问卷后进入官方交流群，获取直播回放链接与 20G 重磅 OCR 学习大礼包（内含 PDF 转 Word 应用程序、10 种垂类模型、《动手学 OCR》电子书等）
--
+
 - **🔥2022.8.24 发布 PaddleOCR [release/2.6](https://github.com/PaddlePaddle/PaddleOCR/tree/release/2.6)**：
 
     - 发布[PP-StructureV2](./ppstructure/overview.md)，系统功能性能全面升级，适配中文场景，新增支持[版面复原](./ppstructure/model_train/recovery_to_doc.md)，支持**一行命令完成 PDF 转 Word**；
