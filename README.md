@@ -29,5 +29,6 @@ mkdocs serve
 - [ ] 文档中涉及到配置文件路径更正
 - [x] whl文档移入博客部分
 - [x] [推理文档](https://github.com/PaddlePaddle/PaddleOCR/blob/main/doc/doc_ch/inference_ppocr.md)如何处理？
-- [ ] 代码块添加行号
+- [x] 代码块添加行号
 - [ ] 删除重复图像
+- [ ] 压缩较大图像
