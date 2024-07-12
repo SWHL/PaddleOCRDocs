@@ -100,6 +100,7 @@ plugins:
             Home: Home
             快速开始: Quick Start
             模型: Model
+            概述: Overview
             PP-OCR 文本检测识别: PP-OCR
             概述: Overview
             快速开始: Quick Start
@@ -245,7 +246,11 @@ extra_css:
 nav:
   - Home: index.md
   - 快速开始: quick_start.md
-  - 模型: model/index.md
+  - 模型:
+    - 概览: model/index.md
+    - 多硬件安装飞桨:
+      - 多硬件安装飞桨: model/hardware/install_other_devices.md
+      - 支持硬件列表: model/hardware/supported_models.md
   - PP-OCR 文本检测识别:
     - 概述: ppocr/overview.md
     - 快速开始: ppocr/quick_start.md
