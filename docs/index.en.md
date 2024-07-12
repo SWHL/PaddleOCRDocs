@@ -1,5 +1,6 @@
 ---
 comments: true
+typora-copy-images-to: images
 hide:
   - navigation
   - toc
@@ -73,7 +74,7 @@ PaddleOCR is being oversight by a [PMC](https://github.com/PaddlePaddle/PaddleOC
 
 PaddleOCR support a variety of cutting-edge algorithms related to OCR, and developed industrial featured models/solution [PP-OCR](./ppocr/overview.md)、[PP-Structure](./ppstructure/overview.md) and [PP-ChatOCR](https://aistudio.baidu.com/aistudio/projectdetail/6488689) on this basis, and get through the whole process of data production, model training, compression, inference and deployment.
 
-![](./images/ppocrv4.png)
+![img](./images/186171245-40abc4d7-904f-4949-ade1-250f86ed3a90.jpg)
 
 > It is recommended to start with the “quick experience” in the document tutorial
 
