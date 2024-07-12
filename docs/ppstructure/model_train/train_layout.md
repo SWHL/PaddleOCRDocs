@@ -9,7 +9,7 @@ comments: true
 
 版面分析指的是对图片形式的文档进行区域划分，定位其中的关键区域，如文字、标题、表格、图片等。版面分析算法基于[PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection)的轻量模型PP-PicoDet进行开发，包含英文、中文、表格版面分析3类模型。其中，英文模型支持Text、Title、Tale、Figure、List5类区域的检测，中文模型支持Text、Title、Figure、Figure caption、Table、Table caption、Header、Footer、Reference、Equation10类区域的检测，表格版面分析支持Table区域的检测，版面分析效果如下图所示：
 
-![img](./images/layout.png)
+![img](./images/layout.jpg)
 
 ## 2. 快速开始
 
