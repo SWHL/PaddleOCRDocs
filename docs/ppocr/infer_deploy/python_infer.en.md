@@ -59,7 +59,7 @@ tar xf ch_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words_en/word_10.png" --rec_model_dir="./ch_PP-OCRv3_rec_infer/" --rec_image_shape=3,48,320
 ```
 
-![img](./images/word_10-20240705125952800.png)
+![img](./images/word_10.png)
 
 After executing the command, the prediction results (recognized text and score) of the above image will be printed on the screen.
 
@@ -78,7 +78,7 @@ tar xf en_PP-OCRv3_rec_infer.tar
 python3 tools/infer/predict_rec.py --image_dir="./doc/imgs_words/en/word_1.png" --rec_model_dir="./en_PP-OCRv3_rec_infer/" --rec_char_dict_path="ppocr/utils/en_dict.txt"
 ```
 
-![img](./images/word_1-20240705130000169.png)
+![img](./images/word_1.png)
 
 After executing the command, the prediction result of the above figure is:
 
@@ -116,7 +116,7 @@ tar xf ch_ppocr_mobile_v2.0_cls_infer.tar
 python3 tools/infer/predict_cls.py --image_dir="./doc/imgs_words_en/word_10.png" --cls_model_dir="ch_ppocr_mobile_v2.0_cls_infer"
 ```
 
-![img](./images/word_10-20240705130012673.png)
+![img](./images/word_10.png)
 
 After executing the command, the prediction results (classification angle and score) of the above image will be printed on the screen.
 

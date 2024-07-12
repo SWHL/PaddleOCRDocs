@@ -52,13 +52,13 @@ git clone -b dygraph https://github.com/PaddlePaddle/PaddleOCR
 
 After cmake is installed, there will be a cmake-gui program in the system. Open cmake-gui, fill in the source code path in the first input box, and fill in the compilation output path in the second input box
 
-![step1](./images/cmake_step1.png)
+![step1](./images/cmake_step1.jpg)
 
 ### Step2: Execute cmake configuration
 
 Click the `Configure` button at the bottom of the interface. The first click will pop up a prompt box for Visual Studio configuration, as shown below. Select your Visual Studio version is fine, and the target platform is x64. Then click the `finish` button to start the automatic configuration.
 
-![step2](./images/cmake_step2.png)
+![step2](./images/cmake_step2.jpg)
 
 The first execution will report an error, which is normal. Next, configure Opencv and the prediction library
 
@@ -83,7 +83,7 @@ CUDA_LIB, CUDNN_LIB, TENSORRT_DIR, WITH_GPU, WITH_TENSORRT
 
 The configured screenshot is as follows
 
-![step3](./images/cmake_step3.png)
+![step3](./images/cmake_step3.jpg)
 
 After the configuration is completed, click the `Configure` button again.
 
@@ -95,11 +95,11 @@ After the configuration is completed, click the `Configure` button again.
 ### Step3: Generate Visual Studio Project
 
 Click the `Generate` button to generate the sln file of the Visual Studio project.
-![step4](./images/cmake_step4.png)
+![step4](./images/cmake_step4.jpg)
 
 Click the `Open Project` button to open the project in Visual Studio. The screenshot after opening is as follows
 
-![step5](./images/vs_step1.png)
+![step5](./images/vs_step1.jpg)
 
 Before starting to generate the solution, perform the following steps:
 

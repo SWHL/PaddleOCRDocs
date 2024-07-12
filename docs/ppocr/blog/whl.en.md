@@ -103,7 +103,7 @@ Output will be a list, each item contains bounding box, text and recognition con
 
 Visualization of results
 
-![img](./images/12_det_rec-20240709092338731.jpg)
+![img](./images/12_det_rec.jpg)
 
 * classification and recognition
 

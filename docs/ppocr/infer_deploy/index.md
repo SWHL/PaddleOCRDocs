@@ -9,7 +9,7 @@ comments: true
 
 飞桨提供多种部署方案，以满足不同场景的部署需求，请根据实际情况进行选择：
 
-![img](./images/deployment.png)
+![img](./images/deployment.jpg)
 
 ## PP-OCR 推理部署
 

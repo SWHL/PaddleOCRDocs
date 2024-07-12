@@ -331,7 +331,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 The output image is as follows, which is also saved in `Global.save_res_path`.
 
-![image-20240710082046188](./images/image-20240710082046188.png)
+![image-20240710082046188](./images/image-20240710082046188.jpg)
 
 During the prediction process, the detection and recognition model of PP-OCRv3 will be loaded by default for information extraction of OCR. If you want to load the OCR results obtained in advance, you can use the following method to predict, and specify `Global.infer_img` as the annotation file, which contains the image path and OCR information, and specifies `Global.infer_mode` as False, indicating that the OCR inference engine is not used at this time.
 
@@ -341,7 +341,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 For the above image, if information extraction is performed using the labeled OCR results, the prediction results are as follows.
 
-![image-20240710082059968](./images/image-20240710082046188.png)
+![image-20240710082059968](./images/image-20240710082046188.jpg)
 
 It can be seen that part of the detection information is more accurate, but the overall information extraction results are basically the same.
 
@@ -359,7 +359,7 @@ python3 ./tools/infer_kie_token_ser_re.py \
 
 The result is as follows.
 
-![image-20240710082109713](./images/image-20240710082046188.png)
+![image-20240710082109713](./images/image-20240710082046188.jpg)
 
 If you want to load the OCR results obtained in advance, you can use the following method to predict, and specify `Global.infer_img` as the annotation file, which contains the image path and OCR information, and specifies `Global.infer_mode` as False, indicating that the OCR inference engine is not used at this time.
 
@@ -377,7 +377,7 @@ python3 ./tools/infer_kie_token_ser_re.py \
 
 The result is as follows.
 
-![image-20240710082117146](./images/image-20240710082046188.png)
+![image-20240710082117146](./images/image-20240710082046188.jpg)
 
 It can be seen that the re prediction results directly using the annotated OCR results are more accurate.
 
@@ -448,7 +448,7 @@ python3 kie/predict_kie_token_ser.py \
 
 The visualized result will be saved in `./output`, which is shown as follows.
 
-![image-20240710082128694](./images/image-20240710082046188.png)
+![image-20240710082128694](./images/image-20240710082046188.jpg)
 
 Using the following command to infer the VI-LayoutXLM RE model.
 
@@ -467,7 +467,7 @@ python3 kie/predict_kie_token_ser_re.py \
 
 The visualized result will be saved in `./output`, which is shown as follows.
 
-![image-20240710082147184](./images/image-20240710082046188.png)
+![image-20240710082147184](./images/image-20240710082046188.jpg)
 
 ## 5. FAQ
 

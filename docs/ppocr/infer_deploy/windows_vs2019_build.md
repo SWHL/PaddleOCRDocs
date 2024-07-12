@@ -52,13 +52,13 @@ git clone -b dygraph https://github.com/PaddlePaddle/PaddleOCR
 
 cmake安装完后后系统里会有一个cmake-gui程序，打开cmake-gui，在第一个输入框处填写源代码路径，第二个输入框处填写编译输出路径
 
-![step1](./images/cmake_step1.png)
+![step1](./images/cmake_step1.jpg)
 
 ### Step2: 执行cmake配置
 
 点击界面下方的`Configure`按钮，第一次点击会弹出提示框进行Visual Studio配置，如下图，选择你的Visual Studio版本即可，目标平台选择x64。然后点击`finish`按钮即开始自动执行配置。
 
-![step2](./images/cmake_step2.png)
+![step2](./images/cmake_step2.jpg)
 
 第一次执行会报错，这是正常现象，接下来进行Opencv和预测库的配置
 
@@ -79,7 +79,7 @@ CUDA_LIB、CUDNN_LIB、TENSORRT_DIR、WITH_GPU、WITH_TENSORRT
 
 配置好的截图如下
 
-![step3](./images/cmake_step3.png)
+![step3](./images/cmake_step3.jpg)
 
 配置完成后，再次点击`Configure`按钮。
 
@@ -91,11 +91,11 @@ CUDA_LIB、CUDNN_LIB、TENSORRT_DIR、WITH_GPU、WITH_TENSORRT
 ### Step3: 生成Visual Studio 项目
 
 点击`Generate`按钮即可生成Visual Studio 项目的sln文件。
-![step4](./images/cmake_step4.png)
+![step4](./images/cmake_step4.jpg)
 
 点击`Open Project`按钮即可在Visual Studio 中打开项目。打开后截图如下
 
-![step5](./images/vs_step1.png)
+![step5](./images/vs_step1.jpg)
 
 在开始生成解决方案之前，执行下面步骤：
 

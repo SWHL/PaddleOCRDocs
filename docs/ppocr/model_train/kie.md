@@ -331,7 +331,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 预测图片如下所示，图片会存储在`Global.save_res_path`路径中。
 
-![image-20240710082046188](./images/image-20240710082046188.png)
+![image-20240710082046188](./images/image-20240710082046188.jpg)
 
 预测过程中，默认会加载PP-OCRv3的检测识别模型，用于OCR的信息抽取，如果希望加载预先获取的OCR结果，可以使用下面的方式进行预测，指定`Global.infer_img`为标注文件，其中包含图片路径以及OCR信息，同时指定`Global.infer_mode`为False，表示此时不使用OCR预测引擎。
 
@@ -341,7 +341,7 @@ python3 tools/infer_kie_token_ser.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxl
 
 对于上述图片，如果使用标注的OCR结果进行信息抽取，预测结果如下。
 
-![image-20240710082059968](./images/image-20240710082046188.png)
+![image-20240710082059968](./images/image-20240710082046188.jpg)
 
 可以看出，部分检测框信息更加准确，但是整体信息抽取识别结果基本一致。
 
@@ -359,7 +359,7 @@ python3 ./tools/infer_kie_token_ser_re.py \
 
 预测结果如下所示。
 
-![image-20240710082109713](./images/image-20240710082046188.png)
+![image-20240710082109713](./images/image-20240710082046188.jpg)
 
 如果希望使用标注或者预先获取的OCR信息进行关键信息抽取，同上，可以指定`Global.infer_mode`为False，指定`Global.infer_img`为标注文件。
 
@@ -371,7 +371,7 @@ python3 ./tools/infer_kie_token_ser_re.py -c configs/kie/vi_layoutxlm/re_vi_layo
 
 预测结果如下所示。
 
-![image-20240710082117146](./images/image-20240710082046188.png)
+![image-20240710082117146](./images/image-20240710082046188.jpg)
 
 可以看出，直接使用标注的OCR结果的RE预测结果要更加准确一些。
 
@@ -441,7 +441,7 @@ python3 kie/predict_kie_token_ser.py \
 
 可视化SER结果结果默认保存到`./output`文件夹里面。结果示例如下：
 
-![image-20240710082128694](./images/image-20240710082046188.png)
+![image-20240710082128694](./images/image-20240710082046188.jpg)
 
 VI-LayoutXLM模型基于RE任务进行推理，可以执行如下命令：
 
@@ -460,7 +460,7 @@ python3 kie/predict_kie_token_ser_re.py \
 
 RE可视化结果默认保存到`./output`文件夹里面，结果示例如下：
 
-![image-20240710082147184](./images/image-20240710082046188.png)
+![image-20240710082147184](./images/image-20240710082046188.jpg)
 
 ## 5. FAQ
 

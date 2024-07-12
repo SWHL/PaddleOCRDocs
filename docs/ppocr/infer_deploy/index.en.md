@@ -9,7 +9,7 @@ typora-copy-images-to: images
 
 Paddle provides a variety of deployment schemes to meet the deployment requirements of different scenarios. Please choose according to the actual situation:
 
-![img](./images/deployment_en.png)
+![img](./images/deployment_en.jpg)
 
 PP-OCR has supported muti deployment schemes. Click the link to get the specific tutorial.
 
