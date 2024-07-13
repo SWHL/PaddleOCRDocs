@@ -127,6 +127,6 @@ c. Use data generation algorithms to synthesize data, such as algorithms such as
 
 Click the following links for detailed training tutorial:
 
-- [text detection model training](./detection.en.md)
-- [text recognition model training](./recognition.en.md)
-- [text direction classification model training](./angle_class.en.md)
+- [text detection model training](../../ppocr/model_train/detection.en.md)
+- [text recognition model training](../../ppocr/model_train/recognition.en.md)
+- [text direction classification model training](../../ppocr/model_train/angle_class.en.md)

@@ -122,7 +122,7 @@ c. 利用数据生成算法合成数据，例如pix2pix或[StyleText](https://gi
 
 具体的训练教程可点击下方链接跳转：
 
-- [文本检测模型训练](./detection.md)
-- [文本识别模型训练](./recognition.md)
-- [文本方向分类器训练](./angle_class.md)
-- [知识蒸馏](../model_compress/knowledge_distillation.md)
+- [文本检测模型训练](../../ppocr/model_train/detection.md)
+- [文本识别模型训练](../../ppocr/model_train/recognition.md)
+- [文本方向分类器训练](../../ppocr/model_train/angle_class.md)
+- [知识蒸馏](../../ppocr/model_compress/knowledge_distillation.md)
