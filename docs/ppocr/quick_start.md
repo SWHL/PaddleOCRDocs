@@ -105,7 +105,7 @@ paddleocr默认使用PP-OCRv4模型(`--ocr_version PP-OCRv4`)，如需使用其�
 
 如需新增自己训练的模型，可以在[paddleocr](https://github.com/PaddlePaddle/PaddleOCR/blob/c65a66c5fd37dee64916a8b2a2c84ea273d98cac/paddleocr.py)中增加模型链接和字段，重新编译即可。
 
-更多whl包使用可参考[whl包文档](./whl.md)
+更多whl包使用可参考[whl包文档](./blog/whl.md)
 
 #### 2.1.2 多语言模型
 

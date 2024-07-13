@@ -48,7 +48,7 @@ python3 -m paddle.distributed.launch --gpus '0,1,2,3' tools/train.py -c configs/
 ```
 
 上述指令中，通过-c 选择训练使用configs/det/det_mv3_db.yml配置文件。
-有关配置文件的详细解释，请参考[链接](./config.md)。
+有关配置文件的详细解释，请参考[链接](../blog/config.md)。
 
 您也可以通过-o参数在不需要修改yml文件的情况下，改变训练的参数，比如，调整训练的学习率为0.0001
 
@@ -218,7 +218,7 @@ python3 tools/infer/predict_det.py --det_algorithm="DB" --det_model_dir="./outpu
 python3 tools/infer/predict_det.py --det_algorithm="EAST" --det_model_dir="./output/det_db_inference/" --image_dir="./doc/imgs/" --use_gpu=True
 ```
 
-更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](./inference_args.md)。
+更多关于推理超参数的配置与解释，请参考：[模型推理超参数解释教程](../blog/inference_args.md)。
 
 ## 5. FAQ
 

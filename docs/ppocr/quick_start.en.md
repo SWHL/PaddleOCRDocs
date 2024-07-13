@@ -110,7 +110,7 @@ paddleocr uses the PP-OCRv4 model by default(`--ocr_version PP-OCRv4`). If you w
 
 If you want to add your own trained model, you can add model links and keys in [paddleocr](https://github.com/PaddlePaddle/PaddleOCR/blob/c65a66c5fd37dee64916a8b2a2c84ea273d98cac/paddleocr.py) and recompile.
 
-More whl package usage can be found in [whl package](./whl.en.md)
+More whl package usage can be found in [whl package](./blog/whl.en.md)
 
 #### 2.1.2 Multi-language Model
 

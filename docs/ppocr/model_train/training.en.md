@@ -12,7 +12,7 @@ At the same time, it will briefly introduce the structure of the training data a
 
 The PaddleOCR uses configuration files to control network training and evaluation parameters. In the configuration file, you can set the model, optimizer, loss function, and pre- and post-processing parameters of the model. PaddleOCR reads these parameters from the configuration file, and then builds a complete training process to train the model. Fine-tuning can also be completed by modifying the parameters in the configuration file, which is simple and convenient.
 
-For the complete configuration file description, please refer to [Configuration File](./config_en.md)
+For the complete configuration file description, please refer to [Configuration File](../blog/config.en.md)
 
 ## 2. Basic Concepts
 
@@ -106,17 +106,17 @@ c. Use data generation algorithms to synthesize data, such as algorithms such as
 **Q**: How to choose a suitable network input shape when training CRNN recognition?
 
     A: The general height is 32, the longest width is selected, there are two methods:
-
+    
     (1) Calculate the aspect ratio distribution of training sample images. The selection of the maximum aspect ratio considers 80% of the training samples.
-
+    
     (2) Count the number of texts in training samples. The selection of the longest number of characters considers the training sample that satisfies 80%. Then the aspect ratio of Chinese characters is approximately considered to be 1, and that of English is 3:1, and the longest width is estimated.
 
 **Q**: During the recognition training, the accuracy of the training set has reached 90, but the accuracy of the verification set has been kept at 70, what should I do?
 
     A: If the accuracy of the training set is 90 and the test set is more than 70, it should be over-fitting. There are two methods to try:
-
+    
     (1) Add more augmentation methods or increase the [probability] of augmented prob (https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppocr/data/imaug/rec_img_aug.py#L341), The default is 0.4.
-
+    
     (2) Increase the [l2 dcay value] of the system (https://github.com/PaddlePaddle/PaddleOCR/blob/a501603d54ff5513fc4fc760319472e59da25424/configs/rec/ch_ppocr_v1.1/rec_chinese_lite_train_v1.1.yml#L47)
 
 **Q**: When the recognition model is trained, loss can drop normally, but acc is always 0

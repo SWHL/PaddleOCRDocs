@@ -40,7 +40,7 @@ python3 tools/train.py -c configs/det/det_mv3_db.yml  \
 ```
 
 In the above instruction, use `-c` to select the training to use the `configs/det/det_mv3_db.yml` configuration file.
-For a detailed explanation of the configuration file, please refer to [config](./config_en.md).
+For a detailed explanation of the configuration file, please refer to [config](../blog/config.en.md).
 
 You can also use `-o` to change the training parameters without modifying the yml file. For example, adjust the training learning rate to 0.0001
 
@@ -140,7 +140,7 @@ If you want to speed up your training further, you can use [Auto Mixed Precision
 python3 tools/train.py -c configs/det/det_mv3_db.yml \
      -o Global.pretrained_model=./pretrain_models/MobileNetV3_large_x0_5_pretrained \
      Global.use_amp=True Global.scale_loss=1024.0 Global.use_dynamic_loss_scaling=True
- ```
+```
 
 ### 2.5 Distributed Training
 

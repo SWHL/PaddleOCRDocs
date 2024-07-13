@@ -95,7 +95,7 @@ The final dataset shall have the following file structure.
 
 If you do not have local dataset, you can donwload the source files of [XFUND](https://github.com/doc-analysis/XFUND) or [FUNSD](https://guillaumejaume.github.io/FUNSD) and use the scripts of [XFUND](../../ppstructure/kie/tools/trans_xfun_data.py) or [FUNSD](../../ppstructure/kie/tools/trans_funsd_label.py) for tranform them into PaddleOCR format. Then you can use the public dataset to quick experience KIE.
 
-For more information about public KIE datasets, please refer to [KIE dataset tutorial](./dataset/kie_datasets_en.md).
+For more information about public KIE datasets, please refer to [KIE dataset tutorial](../../datasets/kie_datasets.en.md).
 
 PaddleOCR also supports the annotation of KIE models. Please refer to [PPOCRLabel tutorial](https://github.com/PFCCLab/PPOCRLabel/blob/main/README.md).
 
@@ -104,7 +104,7 @@ PaddleOCR also supports the annotation of KIE models. Please refer to [PPOCRLabe
 PaddleOCR provides training scripts, evaluation scripts and inference scripts. We will introduce based on VI-LayoutXLM model in this section.
 This section will take the VI layoutxlm multimodal pre training model as an example to explain.
 
-> If you want to use the SDMGR based KIE algorithm, please refer to: [SDMGR tutorial](./algorithm_kie_sdmgr_en.md).
+> If you want to use the SDMGR based KIE algorithm, please refer to: [SDMGR tutorial](../../algorithm/kie/algorithm_kie_sdmgr.en.md).
 
 ### 2.1. Start Training
 
@@ -255,11 +255,11 @@ During multi-machine multi-gpu training, use the `--ips` parameter to set the us
 python3 -m paddle.distributed.launch --ips="xx.xx.xx.xx,xx.xx.xx.xx" --gpus '0,1,2,3' tools/train.py -c configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml
 ```
 
-**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](./distributed_training_en.md).
+**Note:** (1) When using multi-machine and multi-gpu training, you need to replace the ips value in the above command with the address of your machine, and the machines need to be able to ping each other. (2) Training needs to be launched separately on multiple machines. The command to view the ip address of the machine is `ifconfig`. (3) For more details about the distributed training speedup ratio, please refer to [Distributed Training Tutorial](../blog/distributed_training.en.md).
 
 ### 2.5. Train with Knowledge Distillation
 
-Knowledge distillation is supported in PaddleOCR for KIE model training process. The configuration file is [ser_vi_layoutxlm_xfund_zh_udml.yml](../../configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh_udml.yml). For more information, please refer to [doc](./knowledge_distillation_en.md).
+Knowledge distillation is supported in PaddleOCR for KIE model training process. The configuration file is [ser_vi_layoutxlm_xfund_zh_udml.yml](../../configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh_udml.yml). For more information, please refer to [doc](../model_compress/knowledge_distillation.en.md).
 
 **Note:** The saving and loading logic of the LayoutXLM series KIE models in PaddleOCR is consistent with PaddleNLP, so only the parameters of the student model are saved in the distillation process. If you want to use the saved model for evaluation, you need to use the configuration of the student model (the student model corresponding to the distillation file above is [ser_vi_layoutxlm_xfund_zh.yml](../../configs/kie/vi_layoutxlm/ser_vi_layoutxlm_xfund_zh.yml).
 
