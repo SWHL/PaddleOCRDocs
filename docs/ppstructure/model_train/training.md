@@ -12,7 +12,7 @@ comments: true
 
 PaddleOCR模型使用配置文件管理网络训练、评估的参数。在配置文件中，可以设置组建模型、优化器、损失函数、模型前后处理的参数，PaddleOCR从配置文件中读取到这些参数，进而组建出完整的训练流程，完成模型训练，在需要对模型进行优化的时，可以通过修改配置文件中的参数完成配置，使用简单且方便修改。
 
-完整的配置文件说明可以参考[配置文件](./config.md)
+完整的配置文件说明可以参考[配置文件](../blog/config.md)
 
 ## 2. 基本概念
 
@@ -23,7 +23,7 @@ PaddleOCR模型使用配置文件管理网络训练、评估的参数。在配�
 学习率是训练神经网络的重要超参数之一，它代表在每一次迭代中梯度向损失函数最优解移动的步长。
 在PaddleOCR中提供了多种学习率更新策略,可以通过配置文件修改，例如：
 
-```python linenums="1"
+```yaml linenums="1"
 Optimizer:
   ...
   lr:
@@ -40,7 +40,7 @@ warmup_epoch 代表在前5个epoch中，学习率将逐渐从0增加到base_lr�
 
 正则化可以有效的避免算法过拟合，PaddleOCR中提供了L1、L2正则方法，L1 和 L2 正则化是最常用的正则化方法。L1 正则化向目标函数添加正则化项，以减少参数的绝对值总和；而 L2 正则化中，添加正则化项的目的在于减少参数平方的总和。配置方法如下：
 
-```
+```yaml linenums="1"
 Optimizer:
   ...
   regularizer:
@@ -84,42 +84,45 @@ PaddleOCR主要聚焦通用OCR，如果有垂类需求，您可以用PaddleOCR+�
 
 （1） 训练集的数据量：
 
-    a. 检测需要的数据相对较少，在PaddleOCR模型的基础上进行Fine-tune，一般需要500张可达到不错的效果。
-    b. 识别分英文和中文，一般英文场景需要几十万数据可达到不错的效果，中文则需要几百万甚至更多。
+a. 检测需要的数据相对较少，在PaddleOCR模型的基础上进行Fine-tune，一般需要500张可达到不错的效果。
+
+b. 识别分英文和中文，一般英文场景需要几十万数据可达到不错的效果，中文则需要几百万甚至更多。
 
 （2）当训练数据量少时，可以尝试以下三种方式获取更多的数据：
 
-    a. 人工采集更多的训练数据，最直接也是最有效的方式。
-    b. 基于PIL和opencv基本图像处理或者变换。例如PIL中ImageFont, Image, ImageDraw三个模块将文字写到背景中，opencv的旋转仿射变换，高斯滤波等。
-    c. 利用数据生成算法合成数据，例如pix2pix或[StyleText](https://github.com/PFCCLab/StyleText)等算法。
+a. 人工采集更多的训练数据，最直接也是最有效的方式。
+
+b. 基于PIL和opencv基本图像处理或者变换。例如PIL中ImageFont, Image, ImageDraw三个模块将文字写到背景中，opencv的旋转仿射变换，高斯滤波等。
+
+c. 利用数据生成算法合成数据，例如pix2pix或[StyleText](https://github.com/PFCCLab/StyleText)等算法。
 
 ## 4. 常见问题
 
 **Q**：训练CRNN识别时，如何选择合适的网络输入shape？
 
     A：一般高度采用32，最长宽度的选择，有两种方法：
-
+    
     （1）统计训练样本图像的宽高比分布。最大宽高比的选取考虑满足80%的训练样本。
-
+    
     （2）统计训练样本文字数目。最长字符数目的选取考虑满足80%的训练样本。然后中文字符长宽比近似认为是1，英文认为3：1，预估一个最长宽度。
 
 **Q**：识别训练时，训练集精度已经到达90了，但验证集精度一直在70，涨不上去怎么办？
 
     A：训练集精度90，测试集70多的话，应该是过拟合了，有两个可尝试的方法：
-
+    
     （1）加入更多的增广方式或者调大增广prob的[概率](https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppocr/data/imaug/rec_img_aug.py#L341)，默认为0.4。
-
+    
     （2）调大系统的[l2 dcay值](https://github.com/PaddlePaddle/PaddleOCR/blob/a501603d54ff5513fc4fc760319472e59da25424/configs/rec/ch_ppocr_v1.1/rec_chinese_lite_train_v1.1.yml#L47)
 
 **Q**: 识别模型训练时，loss能正常下降，但acc一直为0
 
     A：识别模型训练初期acc为0是正常的，多训一段时间指标就上来了。
 
----
+***
 
 具体的训练教程可点击下方链接跳转：
 
-- [文本检测模型训练](../../ppocr/model_train/detection.md)
-- [文本识别模型训练](../../ppocr/model_train/recognition.md)
-- [文本方向分类器训练](../../ppocr/model_train/angle_class.md)
-- [知识蒸馏](../../ppocr/model_compress/knowledge_distillation.md)
+- [文本检测模型训练](./detection.md)
+- [文本识别模型训练](./recognition.md)
+- [文本方向分类器训练](./angle_class.md)
+- [知识蒸馏](../model_compress/knowledge_distillation.md)

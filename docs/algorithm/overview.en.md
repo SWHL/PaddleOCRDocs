@@ -4,7 +4,7 @@ comments: true
 
 # Algorithms
 
-This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the models and metrics of each algorithm on **English public datasets**. It is mainly used for algorithm introduction and algorithm performance comparison. For more models on other datasets including Chinese, please refer to [PP-OCRv3 models list](./models_list.en.md).
+This tutorial lists the OCR algorithms supported by PaddleOCR, as well as the models and metrics of each algorithm on **English public datasets**. It is mainly used for algorithm introduction and algorithm performance comparison. For more models on other datasets including Chinese, please refer to [PP-OCRv3 models list](../ppocr/model_list.en.md).
 
 >
 Developers are welcome to contribute more algorithms! Please refer to [add new algorithm](./add_new_algorithm.en.md) guideline.

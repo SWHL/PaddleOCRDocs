@@ -12,7 +12,7 @@ At the same time, it will briefly introduce the structure of the training data a
 
 The PaddleOCR uses configuration files to control network training and evaluation parameters. In the configuration file, you can set the model, optimizer, loss function, and pre- and post-processing parameters of the model. PaddleOCR reads these parameters from the configuration file, and then builds a complete training process to train the model. Fine-tuning can also be completed by modifying the parameters in the configuration file, which is simple and convenient.
 
-For the complete configuration file description, please refer to [Configuration File](./config_en.md)
+For the complete configuration file description, please refer to [Configuration File](../blog/config.en.md)
 
 ## 2. Basic Concepts
 
@@ -23,7 +23,7 @@ During the model training process, some hyper-parameters can be manually specifi
 The learning rate is one of the most important hyper-parameters for training neural networks. It represents the step length of the gradient moving towards the optimal solution of the loss function in each iteration.
 A variety of learning rate update strategies are provided by PaddleOCR, which can be specified in configuration files. For example,
 
-```
+```yaml linenums="1"
 Optimizer:
   ...
   lr:
@@ -45,7 +45,7 @@ L1 regularization adds a regularization term to the objective function to reduce
 while in L2 regularization, the purpose of adding a regularization term is to reduce the sum of squared parameters.
 The configuration method is as follows:
 
-```
+```yaml linenums="1"
 Optimizer:
   ...
   regularizer:
@@ -89,41 +89,44 @@ There are several experiences for reference when constructing the data set:
 
 (1) The amount of data in the training set:
 
-    a. The data required for detection is relatively small. For Fine-tune based on the PaddleOCR model, 500 sheets are generally required to achieve good results.
-    b. Recognition is divided into English and Chinese. Generally, English scenarios require hundreds of thousands of data to achieve good results, while Chinese requires several million or more.
+a. The data required for detection is relatively small. For Fine-tune based on the PaddleOCR model, 500 sheets are generally required to achieve good results.
+
+b. Recognition is divided into English and Chinese. Generally, English scenarios require hundreds of thousands of data to achieve good results, while Chinese requires several million or more.
 
 (2) When the amount of training data is small, you can try the following three ways to get more data:
 
-    a. Manually collect more training data, the most direct and effective way.
-    b. Basic image processing or transformation based on PIL and opencv. For example, the three modules of ImageFont, Image, ImageDraw in PIL write text into the background, opencv's rotating affine transformation, Gaussian filtering and so on.
-    c. Use data generation algorithms to synthesize data, such as algorithms such as pix2pix.
+a. Manually collect more training data, the most direct and effective way.
+
+b. Basic image processing or transformation based on PIL and opencv. For example, the three modules of ImageFont, Image, ImageDraw in PIL write text into the background, opencv's rotating affine transformation, Gaussian filtering and so on.
+
+c. Use data generation algorithms to synthesize data, such as algorithms such as pix2pix.
 
 ## 4. FAQ
 
 **Q**: How to choose a suitable network input shape when training CRNN recognition?
 
     A: The general height is 32, the longest width is selected, there are two methods:
-
+    
     (1) Calculate the aspect ratio distribution of training sample images. The selection of the maximum aspect ratio considers 80% of the training samples.
-
+    
     (2) Count the number of texts in training samples. The selection of the longest number of characters considers the training sample that satisfies 80%. Then the aspect ratio of Chinese characters is approximately considered to be 1, and that of English is 3:1, and the longest width is estimated.
 
 **Q**: During the recognition training, the accuracy of the training set has reached 90, but the accuracy of the verification set has been kept at 70, what should I do?
 
     A: If the accuracy of the training set is 90 and the test set is more than 70, it should be over-fitting. There are two methods to try:
-
+    
     (1) Add more augmentation methods or increase the [probability] of augmented prob (https://github.com/PaddlePaddle/PaddleOCR/blob/dygraph/ppocr/data/imaug/rec_img_aug.py#L341), The default is 0.4.
-
+    
     (2) Increase the [l2 dcay value] of the system (https://github.com/PaddlePaddle/PaddleOCR/blob/a501603d54ff5513fc4fc760319472e59da25424/configs/rec/ch_ppocr_v1.1/rec_chinese_lite_train_v1.1.yml#L47)
 
 **Q**: When the recognition model is trained, loss can drop normally, but acc is always 0
 
     A: It is normal for the acc to be 0 at the beginning of the recognition model training, and the indicator will come up after a longer training period.
 
----
+***
 
 Click the following links for detailed training tutorial:
 
-- [text detection model training](../../ppocr/model_train/detection.en.md)
-- [text recognition model training](../../ppocr/model_train/recognition.en.md)
-- [text direction classification model training](../../ppocr/model_train/angle_class.en.md)
+- [text detection model training](./detection.en.md)
+- [text recognition model training](./recognition.en.md)
+- [text direction classification model training](./angle_class.en.md)

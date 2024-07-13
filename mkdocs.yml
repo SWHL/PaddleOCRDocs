@@ -309,7 +309,7 @@ nav:
       - 基本概念: ppstructure/model_train/training.md
       - 版面分析: ppstructure/model_train/train_layout.md
       - 表格识别: ppstructure/model_train/train_table.md
-      - 版面恢复: ppstructure/recovery_to_doc.md
+      - 版面恢复: ppstructure/model_train/recovery_to_doc.md
       - 关键信息提取: ppstructure/model_train/train_kie.md
     - 推理部署:
       - 概述: ppstructure/infer_deploy/index.md
