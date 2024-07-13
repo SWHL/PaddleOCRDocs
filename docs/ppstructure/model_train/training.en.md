@@ -12,7 +12,7 @@ At the same time, it will briefly introduce the structure of the training data a
 
 The PaddleOCR uses configuration files to control network training and evaluation parameters. In the configuration file, you can set the model, optimizer, loss function, and pre- and post-processing parameters of the model. PaddleOCR reads these parameters from the configuration file, and then builds a complete training process to train the model. Fine-tuning can also be completed by modifying the parameters in the configuration file, which is simple and convenient.
 
-For the complete configuration file description, please refer to [Configuration File](../blog/config.en.md)
+For the complete configuration file description, please refer to [Configuration File](../../ppocr/blog/config.en.md)
 
 ## 2. Basic Concepts
 
